@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <meta name="description" content="Style-Komponenten-Inventar der Hands-of-Hope-Website – lebende Referenz für das Redesign.">
+  <title>Style-Komponenten – Hands of Hope</title>
+
+  <!-- Echte Website-Stylesheets: die Komponenten unten rendern 1:1 wie live -->
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/navigation.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/typography.css">
+  <link rel="stylesheet" href="styles/sections.css">
+  <link rel="stylesheet" href="styles/forms.css">
+  <link rel="stylesheet" href="styles/gallery.css">
+  <link rel="stylesheet" href="styles/responsive.css">
+
+  <!-- Header/Footer werden wie auf jeder echten Seite injiziert -->
+  <script src="scripts/includes.js" defer></script>
+
+  <style>
+    /* ============================================================
+       Nur für diese Referenzseite (sg- = styleguide). Verändert
+       KEINE Website-Stile – dient allein der Katalog-Darstellung.
+       ============================================================ */
+    .sg-main {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem 5rem;
+    }
+
+    /* ── Intro ── */
+    .sg-intro { margin-bottom: 3.5rem; }
+    .sg-intro h1 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--dark);
+      margin-bottom: 0.75rem;
+    }
+    .sg-intro .sg-lead {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      max-width: 680px;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .sg-legend {
+      display: flex; flex-wrap: wrap; gap: 0.6rem;
+      font-size: 12px;
+    }
+
+    /* ── Verwendungs-Badge ── */
+    .sg-tag {
+      font-family: 'Nunito', sans-serif; font-weight: 800;
+      font-size: 11px; letter-spacing: 0.04em;
+      padding: 3px 10px; border-radius: 20px;
+      display: inline-block;
+    }
+    .sg-tag.use    { background: rgba(127,150,40,0.14); color: #5f7020; }
+    .sg-tag.global { background: rgba(12,70,132,0.12);  color: var(--blue); }
+    .sg-tag.minor  { background: rgba(206,153,35,0.16); color: #8a6410; }
+    .sg-tag.unused { background: rgba(218,79,56,0.12);  color: #b13a27; }
+
+    /* ── Inhaltsverzeichnis ── */
+    .sg-toc {
+      background: var(--light-bg);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 3.5rem;
+    }
+    .sg-toc h2 {
+      font-family: 'Nunito', sans-serif; font-weight: 800;
+      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 1rem;
+    }
+    .sg-toc ol {
+      list-style: none;
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 0.4rem 2rem; counter-reset: sg;
+    }
+    .sg-toc li { counter-increment: sg; }
+    .sg-toc a {
+      display: flex; gap: 0.7rem; align-items: baseline;
+      font-size: 0.95rem; color: var(--text);
+      padding: 0.3rem 0; transition: color var(--transition);
+    }
+    .sg-toc a:hover { color: var(--blue); }
+    .sg-toc a::before {
+      content: counter(sg, decimal-leading-zero);
+      font-family: 'Nunito', sans-serif; font-weight: 800;
+      font-size: 12px; color: var(--blue); flex-shrink: 0;
+    }
+
+    /* ── Komponenten-Block ── */
+    .sg-component {
+      border-top: 2px solid rgba(5,41,55,0.1);
+      padding-top: 2.25rem;
+      margin-bottom: 3.5rem;
+      scroll-margin-top: calc(var(--nav-height) + 1rem);
+    }
+    .sg-head { display: flex; gap: 1.1rem; align-items: flex-start; margin-bottom: 0.85rem; }
+    .sg-num {
+      font-family: 'Nunito', sans-serif; font-weight: 900;
+      font-size: 1.6rem; color: var(--mid-blue);
+      line-height: 1; flex-shrink: 0; padding-top: 2px;
+    }
+    .sg-head h2 {
+      font-size: 1.5rem; color: var(--dark);
+      margin-bottom: 0.35rem;
+    }
+    .sg-meta {
+      display: flex; flex-wrap: wrap; gap: 0.5rem 0.9rem;
+      align-items: center;
+      font-size: 12.5px; color: var(--text-light);
+    }
+    .sg-meta code {
+      font-family: 'SFMono-Regular', ui-monospace, Menlo, Consolas, monospace;
+      font-size: 12px; background: rgba(12,70,132,0.08);
+      color: var(--blue); padding: 2px 7px; border-radius: 5px;
+    }
+    .sg-desc {
+      font-size: 1rem; color: var(--text-light);
+      line-height: 1.7; max-width: 720px; margin-bottom: 1.5rem;
+    }
+
+    /* ── Live-Vorschau ── */
+    .sg-preview-label, .sg-code-label {
+      font-family: 'Nunito', sans-serif; font-weight: 800;
+      font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text-light); margin-bottom: 0.6rem; display: block;
+    }
+    .sg-preview {
+      border: 1px solid rgba(5,41,55,0.14);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      background:
+        linear-gradient(45deg, #f4f4f4 25%, transparent 25%, transparent 75%, #f4f4f4 75%) 0 0/22px 22px,
+        linear-gradient(45deg, #f4f4f4 25%, #fff 25%, #fff 75%, #f4f4f4 75%) 11px 11px/22px 22px;
+    }
+    .sg-preview.on-white { background: var(--white); }
+    .sg-frame { overflow: auto; }
+    /* Vorschau-Bändigung: volle Seitenhöhen/Abstände kürzen, Layout bleibt echt */
+    .sg-frame section { padding: 2.25rem !important; }
+    .sg-frame .hero { min-height: 420px !important; }
+    .sg-frame .newsletter::before { display: none; }
+    .sg-frame .bereiche-grid { gap: 1rem; }
+
+    /* ── Code-Block ── */
+    .sg-code { margin-top: 0.5rem; }
+    .sg-code pre {
+      background: #0a1e28;
+      color: #dbe7ee;
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.4rem;
+      overflow-x: auto;
+      font-family: 'SFMono-Regular', ui-monospace, Menlo, Consolas, monospace;
+      font-size: 12.5px; line-height: 1.65;
+      -webkit-text-size-adjust: 100%;
+    }
+    .sg-code pre .t { color: #7db4d8; }   /* Tags */
+    .sg-code pre .a { color: #c8a97e; }   /* Attribute */
+    .sg-code pre .c { color: #5f7c8a; font-style: italic; } /* Kommentar */
+
+    /* ── Token-/Farb-Swatches ── */
+    .sg-swatches {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 0.85rem; padding: 1.5rem;
+    }
+    .sg-swatch {
+      border: 1px solid rgba(5,41,55,0.1);
+      border-radius: var(--radius-md); overflow: hidden;
+      background: var(--white);
+    }
+    .sg-swatch .chip { height: 68px; }
+    .sg-swatch .info {
+      padding: 0.6rem 0.75rem;
+      font-family: 'Nunito', sans-serif;
+    }
+    .sg-swatch .info .name { font-weight: 800; font-size: 12.5px; color: var(--dark); }
+    .sg-swatch .info .var  {
+      font-family: 'SFMono-Regular', ui-monospace, Menlo, Consolas, monospace;
+      font-size: 11px; color: var(--text-light); display: block; margin-top: 2px;
+    }
+    .sg-swatch .info .hex  {
+      font-family: 'SFMono-Regular', ui-monospace, Menlo, Consolas, monospace;
+      font-size: 11px; color: var(--text-light);
+    }
+
+    .sg-tokenmeta {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem; padding: 0 1.5rem 1.5rem;
+    }
+    .sg-tokenmeta .box {
+      border: 1px solid rgba(5,41,55,0.1);
+      border-radius: var(--radius-md); padding: 1rem 1.1rem;
+    }
+    .sg-tokenmeta h4 {
+      font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 0.6rem;
+    }
+    .sg-tokenmeta ul { list-style: none; }
+    .sg-tokenmeta li {
+      font-family: 'SFMono-Regular', ui-monospace, Menlo, Consolas, monospace;
+      font-size: 12px; color: var(--text); padding: 3px 0;
+      display: flex; justify-content: space-between; gap: 1rem;
+    }
+    .sg-tokenmeta li span:last-child { color: var(--text-light); }
+
+    /* Radius-/Schatten-Demo */
+    .sg-shape-row { display: flex; flex-wrap: wrap; gap: 1.1rem; padding: 1.5rem; }
+    .sg-shape {
+      width: 96px; text-align: center;
+      font-family: 'SFMono-Regular', ui-monospace, Menlo, Consolas, monospace;
+      font-size: 10.5px; color: var(--text-light);
+    }
+    .sg-shape .b { height: 60px; background: var(--white); border: 1px solid rgba(5,41,55,0.12); margin-bottom: 0.4rem; }
+
+    /* Typografie-Specimen */
+    .sg-type { padding: 1.75rem; }
+    .sg-type > * { margin-bottom: 0.75rem; }
+    .sg-type .fnt {
+      font-family: 'SFMono-Regular', ui-monospace, Menlo, Consolas, monospace;
+      font-size: 11px; color: var(--text-light);
+    }
+
+    /* Button-Reihe braucht dunklen Grund für ghost-Variante */
+    .sg-btnrow { display: flex; flex-wrap: wrap; gap: 1rem; padding: 1.75rem; align-items: center; }
+    .sg-btnrow.dark { background: var(--dark); }
+
+    .sg-note {
+      background: rgba(206,153,35,0.09);
+      border-left: 3px solid var(--yellow);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 0.8rem 1.1rem; margin-top: 1rem;
+      font-size: 13.5px; color: var(--text); line-height: 1.6;
+    }
+
+    /* Abschnitts-Trenner für Kategorien */
+    .sg-cat {
+      font-family: 'Nunito', sans-serif; font-weight: 800;
+      font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--blue); margin: 4rem 0 0.5rem;
+      padding-top: 2.5rem; border-top: 3px solid var(--blue);
+    }
+    .sg-cat + p { color: var(--text-light); font-size: 0.95rem; margin-bottom: 1rem; }
+
+    @media (max-width: 700px) {
+      .sg-toc ol { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Echter Seitenkopf (per includes.js injiziert) – zugleich Live-Beispiel für Komponente 04 -->
+  <div data-include="header"></div>
+  <div class="nav-spacer"></div>
+
+  <main class="sg-main" id="main-content">
+
+    <header class="sg-intro">
+      <h1>Style-Komponenten – Hands of Hope</h1>
+      <p class="sg-lead">
+        Lebende Referenz der wichtigsten Style-Elemente, die aktuell auf der
+        Website im Einsatz sind. Jede Komponente zeigt die <strong>Live-Darstellung</strong>
+        (mit den echten Stylesheets gerendert) und das <strong>aktuelle HTML</strong>
+        darunter. Grundlage für das Redesign.
+      </p>
+      <div class="sg-legend">
+        <span class="sg-tag global">Global (jede Seite)</span>
+        <span class="sg-tag use">Aktiv genutzt</span>
+        <span class="sg-tag minor">Genutzt, nachrangig</span>
+        <span class="sg-tag unused">Definiert, aktuell ungenutzt</span>
+      </div>
+    </header>
+
+    <nav class="sg-toc" aria-label="Komponentenübersicht">
+      <h2>Die 10 wichtigsten Komponenten</h2>
+      <ol>
+        <li><a href="#tokens">Design Tokens (Farben, Radien, Schatten)</a></li>
+        <li><a href="#typografie">Typografie</a></li>
+        <li><a href="#buttons">Buttons / Call-to-Action</a></li>
+        <li><a href="#navigation">Hauptnavigation / Header</a></li>
+        <li><a href="#footer">Footer</a></li>
+        <li><a href="#hero">Hero-Bereich</a></li>
+        <li><a href="#section-header">Abschnitts-Header</a></li>
+        <li><a href="#bereichskarten">Bereichs-/Themenkarten</a></li>
+        <li><a href="#blogkarten">Blog-Karten mit Kategorie-Badge</a></li>
+        <li><a href="#formulare">Formulare / Newsletter</a></li>
+      </ol>
+    </nav>
+
+
+    <!-- ══════════════ 01 · DESIGN TOKENS ══════════════ -->
+    <article class="sg-component" id="tokens">
+      <div class="sg-head">
+        <span class="sg-num">01</span>
+        <div>
+          <h2>Design Tokens</h2>
+          <div class="sg-meta">
+            <span class="sg-tag global">Fundament</span>
+            <code>:root</code>
+            <span>Quelle: styles/main.css</span>
+          </div>
+        </div>
+      </div>
+      <p class="sg-desc">
+        Das komplette Farb-, Radius-, Schatten- und Abstands-System als CSS-Variablen.
+        Alle anderen Komponenten greifen ausschließlich auf diese Tokens zu – ein
+        Wert wird einmal zentral geändert und wirkt überall.
+      </p>
+
+      <span class="sg-preview-label">Farbpalette</span>
+      <div class="sg-preview on-white">
+        <div class="sg-swatches">
+          <div class="sg-swatch"><div class="chip" style="background:#052937"></div><div class="info"><span class="name">Dark</span><span class="var">--dark</span><span class="hex">#052937</span></div></div>
+          <div class="sg-swatch"><div class="chip" style="background:#0c4684"></div><div class="info"><span class="name">Blue</span><span class="var">--blue</span><span class="hex">#0c4684</span></div></div>
+          <div class="sg-swatch"><div class="chip" style="background:#c8d8e2"></div><div class="info"><span class="name">Mid-Blue</span><span class="var">--mid-blue</span><span class="hex">#c8d8e2</span></div></div>
+          <div class="sg-swatch"><div class="chip" style="background:#478e9a"></div><div class="info"><span class="name">House · Straßencafé</span><span class="var">--house</span><span class="hex">#478e9a</span></div></div>
+          <div class="sg-swatch"><div class="chip" style="background:#7f9628"></div><div class="info"><span class="name">Green · Dienstleistungen</span><span class="var">--green</span><span class="hex">#7f9628</span></div></div>
+          <div class="sg-swatch"><div class="chip" style="background:#ce9923"></div><div class="info"><span class="name">Yellow · Highlights</span><span class="var">--yellow</span><span class="hex">#ce9923</span></div></div>
+          <div class="sg-swatch"><div class="chip" style="background:#da4f38"></div><div class="info"><span class="name">Red · Prävention</span><span class="var">--red</span><span class="hex">#da4f38</span></div></div>
+          <div class="sg-swatch"><div class="chip" style="background:#e8e8e8"></div><div class="info"><span class="name">Light-BG</span><span class="var">--light-bg</span><span class="hex">#e8e8e8</span></div></div>
+          <div class="sg-swatch"><div class="chip" style="background:#1a2a38"></div><div class="info"><span class="name">Text</span><span class="var">--text</span><span class="hex">#1a2a38</span></div></div>
+          <div class="sg-swatch"><div class="chip" style="background:#4a5e6e"></div><div class="info"><span class="name">Text-Light</span><span class="var">--text-light</span><span class="hex">#4a5e6e</span></div></div>
+        </div>
+        <div class="sg-tokenmeta">
+          <div class="box">
+            <h4>Border-Radius</h4>
+            <ul>
+              <li><span>--radius-sm</span><span>6px</span></li>
+              <li><span>--radius-md</span><span>12px</span></li>
+              <li><span>--radius-lg</span><span>16px</span></li>
+              <li><span>--radius-xl</span><span>24px</span></li>
+            </ul>
+          </div>
+          <div class="box">
+            <h4>Schatten</h4>
+            <ul>
+              <li><span>--shadow-card</span><span>weich</span></li>
+              <li><span>--shadow-hover</span><span>mittel</span></li>
+              <li><span>--shadow-deep</span><span>tief</span></li>
+            </ul>
+          </div>
+          <div class="box">
+            <h4>Layout & Timing</h4>
+            <ul>
+              <li><span>--max-width</span><span>1100px</span></li>
+              <li><span>--section-pad-v</span><span>6rem</span></li>
+              <li><span>--section-pad-h</span><span>5rem</span></li>
+              <li><span>--nav-height</span><span>72px</span></li>
+              <li><span>--transition</span><span>0.22s ease</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="sg-shape-row">
+          <div class="sg-shape"><div class="b" style="border-radius:6px;box-shadow:var(--shadow-card)"></div>radius-sm<br>shadow-card</div>
+          <div class="sg-shape"><div class="b" style="border-radius:12px;box-shadow:var(--shadow-hover)"></div>radius-md<br>shadow-hover</div>
+          <div class="sg-shape"><div class="b" style="border-radius:16px;box-shadow:var(--shadow-deep)"></div>radius-lg<br>shadow-deep</div>
+          <div class="sg-shape"><div class="b" style="border-radius:24px;box-shadow:var(--shadow-card)"></div>radius-xl</div>
+        </div>
+      </div>
+
+      <span class="sg-code-label">CSS-Quelle (Auszug)</span>
+      <div class="sg-code"><pre><code><span class="t">:root</span> {
+  <span class="c">/* Brand Colours */</span>
+  --dark:       #052937;
+  --blue:       #0c4684;
+  --mid-blue:   #c8d8e2;
+  --house:      #478e9a;   <span class="c">/* Straßencafé */</span>
+  --green:      #7f9628;   <span class="c">/* Dienstleistungen */</span>
+  --yellow:     #ce9923;   <span class="c">/* Blog / Highlights */</span>
+  --red:        #da4f38;   <span class="c">/* Prävention */</span>
+  --light-bg:   #e8e8e8;
+  --white:      #ffffff;
+  --text:       #1a2a38;
+  --text-light: #4a5e6e;
+
+  --radius-sm: 6px;  --radius-md: 12px;
+  --radius-lg: 16px; --radius-xl: 24px;
+
+  --shadow-card:  0 4px 20px rgba(5,41,55,0.08);
+  --shadow-hover: 0 12px 40px rgba(5,41,55,0.14);
+  --shadow-deep:  0 20px 60px rgba(5,41,55,0.15);
+
+  --max-width: 1100px;  --nav-height: 72px;
+  --transition: 0.22s ease;
+}</code></pre></div>
+    </article>
+
+
+    <!-- ══════════════ 02 · TYPOGRAFIE ══════════════ -->
+    <article class="sg-component" id="typografie">
+      <div class="sg-head">
+        <span class="sg-num">02</span>
+        <div>
+          <h2>Typografie</h2>
+          <div class="sg-meta">
+            <span class="sg-tag global">Fundament</span>
+            <span>Quelle: styles/main.css, typography.css</span>
+          </div>
+        </div>
+      </div>
+      <p class="sg-desc">
+        Zwei Schriftfamilien von Google Fonts: <strong>Nunito</strong> (700–900) für
+        Überschriften, Buttons und UI-Labels, <strong>Nunito&nbsp;Sans</strong> für
+        Fließtext. Überschriften skalieren responsiv per <code>clamp()</code>.
+      </p>
+
+      <span class="sg-preview-label">Specimen</span>
+      <div class="sg-preview on-white">
+        <div class="sg-type">
+          <p class="fnt">Nunito · font-weight 800 · h1–h6 (clamp, responsiv)</p>
+          <h1>H1 – living hope.</h1>
+          <h2>H2 – Geschichten, die bewegen</h2>
+          <h3>H3 – Unsere Arbeitsbereiche</h3>
+          <p class="fnt" style="margin-top:1.25rem">Nunito Sans · Fließtext & Hilfsklassen</p>
+          <p class="lead">.lead – Ein etwas größerer Einleitungstext, der Abschnitte eröffnet und den Leser abholt.</p>
+          <p>Standard-Body-Text (16px, line-height 1.6). Wir begegnen benachteiligten und hilfesuchenden Menschen mit praktischer Hilfe und der Liebe Gottes.</p>
+          <p class="small">.small – kleinerer Sekundärtext für Metadaten.</p>
+          <p class="caption">.caption – Bildunterschrift / feine Beschriftung.</p>
+        </div>
+      </div>
+
+      <span class="sg-code-label">HTML</span>
+      <div class="sg-code"><pre><code><span class="t">&lt;h1&gt;</span>living hope.<span class="t">&lt;/h1&gt;</span>
+<span class="t">&lt;p</span> <span class="a">class=</span>"lead"<span class="t">&gt;</span>Einleitungstext …<span class="t">&lt;/p&gt;</span>
+<span class="t">&lt;p&gt;</span>Standard-Body-Text …<span class="t">&lt;/p&gt;</span>
+<span class="t">&lt;p</span> <span class="a">class=</span>"small"<span class="t">&gt;</span>Sekundärtext<span class="t">&lt;/p&gt;</span>
+<span class="t">&lt;p</span> <span class="a">class=</span>"caption"<span class="t">&gt;</span>Bildunterschrift<span class="t">&lt;/p&gt;</span></code></pre></div>
+    </article>
+
+
+    <!-- ══════════════ 03 · BUTTONS ══════════════ -->
+    <article class="sg-component" id="buttons">
+      <div class="sg-head">
+        <span class="sg-num">03</span>
+        <div>
+          <h2>Buttons / Call-to-Action</h2>
+          <div class="sg-meta">
+            <span class="sg-tag use">10 Seiten</span>
+            <code>.btn</code>
+            <span>Quelle: styles/main.css</span>
+          </div>
+        </div>
+      </div>
+      <p class="sg-desc">
+        Basisklasse <code>.btn</code> plus vier Varianten. <code>.btn-ghost</code> ist
+        für dunkle Hintergründe gedacht (heller Rahmen). Alle mit dezentem
+        Hover-Lift (<code>translateY(-1px)</code>).
+      </p>
+
+      <span class="sg-preview-label">Live · auf Weiß</span>
+      <div class="sg-preview on-white">
+        <div class="sg-btnrow">
+          <a href="#" class="btn btn-primary" onclick="return false">Primär</a>
+          <a href="#" class="btn btn-blue" onclick="return false">Blau</a>
+          <a href="#" class="btn btn-outline" onclick="return false">Outline</a>
+        </div>
+      </div>
+      <span class="sg-preview-label">Live · auf Dunkel (btn-ghost)</span>
+      <div class="sg-preview">
+        <div class="sg-btnrow dark">
+          <a href="#" class="btn btn-primary" onclick="return false">Primär</a>
+          <a href="#" class="btn btn-ghost" onclick="return false">Ghost</a>
+        </div>
+      </div>
+
+      <span class="sg-code-label">HTML</span>
+      <div class="sg-code"><pre><code><span class="t">&lt;a</span> <span class="a">href=</span>"…" <span class="a">class=</span>"btn btn-primary"<span class="t">&gt;</span>Unsere Arbeit entdecken<span class="t">&lt;/a&gt;</span>
+<span class="t">&lt;a</span> <span class="a">href=</span>"…" <span class="a">class=</span>"btn btn-blue"<span class="t">&gt;</span>Jetzt anmelden<span class="t">&lt;/a&gt;</span>
+<span class="t">&lt;a</span> <span class="a">href=</span>"…" <span class="a">class=</span>"btn btn-ghost"<span class="t">&gt;</span>Über uns<span class="t">&lt;/a&gt;</span>
+<span class="t">&lt;a</span> <span class="a">href=</span>"…" <span class="a">class=</span>"btn btn-outline"<span class="t">&gt;</span>Mehr erfahren<span class="t">&lt;/a&gt;</span></code></pre></div>
+    </article>
+
+
+    <!-- ══════════════ 04 · NAVIGATION ══════════════ -->
+    <article class="sg-component" id="navigation">
+      <div class="sg-head">
+        <span class="sg-num">04</span>
+        <div>
+          <h2>Hauptnavigation / Header</h2>
+          <div class="sg-meta">
+            <span class="sg-tag global">Global</span>
+            <code>#main-nav</code>
+            <span>Quelle: scripts/includes.js + styles/navigation.css</span>
+          </div>
+        </div>
+      </div>
+      <p class="sg-desc">
+        Fixierter Kopf mit Logo, Textlinks, Dropdown „Arbeitsbereiche", hervorgehobenem
+        Spenden-Button (<code>.nav-cta</code>) und Burger-Menü unter 900&nbsp;px. Der
+        aktive Link wird per Balken markiert; beim Scrollen erscheint ein Schatten.
+        <strong>Live-Beispiel: der Seitenkopf ganz oben auf dieser Seite.</strong>
+        Header &amp; Footer werden per <code>data-include</code> aus einem JS-Template
+        injiziert (funktioniert auch ohne Server).
+      </p>
+
+      <span class="sg-code-label">HTML (aus dem includes.js-Template; ${R} = Pfad-Präfix zur Wurzel)</span>
+      <div class="sg-code"><pre><code><span class="t">&lt;nav</span> <span class="a">id=</span>"main-nav" <span class="a">aria-label=</span>"Hauptnavigation"<span class="t">&gt;</span>
+  <span class="t">&lt;a</span> <span class="a">class=</span>"nav-logo" <span class="a">href=</span>"${R}"<span class="t">&gt;</span>
+    <span class="t">&lt;img</span> <span class="a">src=</span>"${R}assets/logos/handsofhope-logo.webp" <span class="a">alt=</span>"Hands of Hope"<span class="t">&gt;</span>
+  <span class="t">&lt;/a&gt;</span>
+  <span class="t">&lt;ul</span> <span class="a">class=</span>"nav-links" <span class="a">id=</span>"nav-links"<span class="t">&gt;</span>
+    <span class="t">&lt;li&gt;&lt;a</span> <span class="a">href=</span>"${R}ueber-uns/"<span class="t">&gt;</span>Über uns<span class="t">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="t">&lt;li</span> <span class="a">class=</span>"nav-has-dropdown"<span class="t">&gt;</span>
+      <span class="t">&lt;a</span> <span class="a">href=</span>"${R}#bereiche"<span class="t">&gt;</span>Arbeitsbereiche<span class="t">&lt;/a&gt;</span>
+      <span class="t">&lt;ul</span> <span class="a">class=</span>"nav-dropdown"<span class="t">&gt;</span>
+        <span class="t">&lt;li&gt;&lt;a</span> <span class="a">href=</span>"${R}rehabilitation/"<span class="t">&gt;</span>🏠 Rehabilitation<span class="t">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="c">&lt;!-- … weitere Bereiche … --&gt;</span>
+      <span class="t">&lt;/ul&gt;</span>
+    <span class="t">&lt;/li&gt;</span>
+    <span class="t">&lt;li&gt;&lt;a</span> <span class="a">href=</span>"${R}blog/"<span class="t">&gt;</span>Blog<span class="t">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="t">&lt;li</span> <span class="a">class=</span>"nav-cta"<span class="t">&gt;&lt;a</span> <span class="a">href=</span>"${R}ueber-uns/#spenden"<span class="t">&gt;</span>❤ Spenden<span class="t">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="t">&lt;/ul&gt;</span>
+  <span class="t">&lt;button</span> <span class="a">class=</span>"burger" <span class="a">id=</span>"burger" <span class="a">aria-label=</span>"Menü öffnen"<span class="t">&gt;</span>
+    <span class="t">&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;</span>
+  <span class="t">&lt;/button&gt;</span>
+<span class="t">&lt;/nav&gt;</span></code></pre></div>
+      <div class="sg-note">
+        Einbindung auf jeder Seite: <code>&lt;div data-include="header"&gt;&lt;/div&gt;</code> –
+        <code>scripts/includes.js</code> ersetzt das durch die echte Navigation und setzt aktive Links.
+      </div>
+    </article>
+
+
+    <!-- ══════════════ 05 · FOOTER ══════════════ -->
+    <article class="sg-component" id="footer">
+      <div class="sg-head">
+        <span class="sg-num">05</span>
+        <div>
+          <h2>Footer</h2>
+          <div class="sg-meta">
+            <span class="sg-tag global">Global</span>
+            <code>footer</code>
+            <span>Quelle: scripts/includes.js</span>
+          </div>
+        </div>
+      </div>
+      <p class="sg-desc">
+        Vierspaltiger Fuß (Marke + Social · Arbeitsbereiche · Organisation · Kontakt)
+        auf sehr dunklem Grund, darunter eine Bottom-Leiste mit Copyright und
+        Rechts-Links. <strong>Live-Beispiel: der Seitenfuß ganz unten auf dieser Seite.</strong>
+      </p>
+
+      <span class="sg-code-label">HTML (Struktur, aus includes.js-Template)</span>
+      <div class="sg-code"><pre><code><span class="t">&lt;footer&gt;</span>
+  <span class="t">&lt;div</span> <span class="a">class=</span>"footer-main"<span class="t">&gt;</span>
+    <span class="t">&lt;div</span> <span class="a">class=</span>"footer-brand"<span class="t">&gt;</span>
+      <span class="t">&lt;a</span> <span class="a">class=</span>"footer-logo-img" <span class="a">href=</span>"${R}"<span class="t">&gt;&lt;img</span> <span class="a">src=</span>"…logo_weiss.webp"<span class="t">&gt;&lt;/a&gt;</span>
+      <span class="t">&lt;div</span> <span class="a">class=</span>"footer-social"<span class="t">&gt;</span> <span class="c">&lt;!-- Instagram · Facebook · YouTube (SVG) --&gt;</span> <span class="t">&lt;/div&gt;</span>
+    <span class="t">&lt;/div&gt;</span>
+    <span class="t">&lt;div</span> <span class="a">class=</span>"footer-col"<span class="t">&gt;&lt;h4&gt;</span>Arbeitsbereiche<span class="t">&lt;/h4&gt;&lt;ul&gt;</span>…<span class="t">&lt;/ul&gt;&lt;/div&gt;</span>
+    <span class="t">&lt;div</span> <span class="a">class=</span>"footer-col"<span class="t">&gt;&lt;h4&gt;</span>Organisation<span class="t">&lt;/h4&gt;&lt;ul&gt;</span>…<span class="t">&lt;/ul&gt;&lt;/div&gt;</span>
+    <span class="t">&lt;div</span> <span class="a">class=</span>"footer-col"<span class="t">&gt;&lt;h4&gt;</span>Kontakt<span class="t">&lt;/h4&gt;&lt;address&gt;</span>…<span class="t">&lt;/address&gt;&lt;/div&gt;</span>
+  <span class="t">&lt;/div&gt;</span>
+  <span class="t">&lt;div</span> <span class="a">class=</span>"footer-bottom"<span class="t">&gt;</span> <span class="c">&lt;!-- © + Impressum/Datenschutz --&gt;</span> <span class="t">&lt;/div&gt;</span>
+<span class="t">&lt;/footer&gt;</span></code></pre></div>
+    </article>
+
+
+    <!-- ══════════════ 06 · HERO ══════════════ -->
+    <article class="sg-component" id="hero">
+      <div class="sg-head">
+        <span class="sg-num">06</span>
+        <div>
+          <h2>Hero-Bereich</h2>
+          <div class="sg-meta">
+            <span class="sg-tag use">Startseite + Unterseiten</span>
+            <code>.hero</code>
+            <span>Quelle: index.html + styles/sections.css</span>
+          </div>
+        </div>
+      </div>
+      <p class="sg-desc">
+        Bildschirmhoher Einstieg: dunkler Grund, Vollflächen-Foto mit
+        Gradient-Overlay (<code>.hero-photo-overlay</code>), Eyebrow-Label
+        (<code>.hero-tag</code>), große Headline mit farblich abgesetztem
+        <code>&lt;em&gt;</code> und zwei Buttons. <em>Vorschau in der Höhe gekürzt.</em>
+      </p>
+
+      <span class="sg-preview-label">Live</span>
+      <div class="sg-preview">
+        <div class="sg-frame">
+          <section class="hero" aria-label="Hero">
+            <div class="hero-content">
+              <span class="hero-tag">Christlicher diakonischer Dienst</span>
+              <h1>living <em>hope.</em></h1>
+              <p class="hero-sub">Wir begegnen benachteiligten und hilfesuchenden Menschen mit praktischer Hilfe und der Liebe Gottes – in Südwestfalen und darüber hinaus.</p>
+              <div class="hero-actions">
+                <a href="#" class="btn btn-primary" onclick="return false">Unsere Arbeit entdecken</a>
+                <a href="#" class="btn btn-ghost" onclick="return false">Über uns</a>
+              </div>
+            </div>
+            <div class="hero-visual" aria-hidden="true">
+              <div class="hero-photo-wrap">
+                <img src="assets/global/hero-startseite.webp" alt="">
+                <div class="hero-photo-overlay"></div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <span class="sg-code-label">HTML</span>
+      <div class="sg-code"><pre><code><span class="t">&lt;section</span> <span class="a">class=</span>"hero" <span class="a">aria-label=</span>"Hero"<span class="t">&gt;</span>
+  <span class="t">&lt;div</span> <span class="a">class=</span>"hero-content"<span class="t">&gt;</span>
+    <span class="t">&lt;span</span> <span class="a">class=</span>"hero-tag"<span class="t">&gt;</span>Christlicher diakonischer Dienst<span class="t">&lt;/span&gt;</span>
+    <span class="t">&lt;h1&gt;</span>living <span class="t">&lt;em&gt;</span>hope.<span class="t">&lt;/em&gt;&lt;/h1&gt;</span>
+    <span class="t">&lt;p</span> <span class="a">class=</span>"hero-sub"<span class="t">&gt;</span>Wir begegnen … der Liebe Gottes.<span class="t">&lt;/p&gt;</span>
+    <span class="t">&lt;div</span> <span class="a">class=</span>"hero-actions"<span class="t">&gt;</span>
+      <span class="t">&lt;a</span> <span class="a">href=</span>"#bereiche" <span class="a">class=</span>"btn btn-primary"<span class="t">&gt;</span>Unsere Arbeit entdecken<span class="t">&lt;/a&gt;</span>
+      <span class="t">&lt;a</span> <span class="a">href=</span>"ueber-uns/" <span class="a">class=</span>"btn btn-ghost"<span class="t">&gt;</span>Über uns<span class="t">&lt;/a&gt;</span>
+    <span class="t">&lt;/div&gt;</span>
+  <span class="t">&lt;/div&gt;</span>
+  <span class="t">&lt;div</span> <span class="a">class=</span>"hero-visual" <span class="a">aria-hidden=</span>"true"<span class="t">&gt;</span>
+    <span class="t">&lt;div</span> <span class="a">class=</span>"hero-photo-wrap"<span class="t">&gt;</span>
+      <span class="t">&lt;img</span> <span class="a">src=</span>"assets/global/hero-startseite.webp" <span class="a">alt=</span>"…"<span class="t">&gt;</span>
+      <span class="t">&lt;div</span> <span class="a">class=</span>"hero-photo-overlay"<span class="t">&gt;&lt;/div&gt;</span>
+    <span class="t">&lt;/div&gt;</span>
+  <span class="t">&lt;/div&gt;</span>
+<span class="t">&lt;/section&gt;</span></code></pre></div>
+    </article>
+
+
+    <!-- ══════════════ 07 · ABSCHNITTS-HEADER ══════════════ -->
+    <article class="sg-component" id="section-header">
+      <div class="sg-head">
+        <span class="sg-num">07</span>
+        <div>
+          <h2>Abschnitts-Header</h2>
+          <div class="sg-meta">
+            <span class="sg-tag use">6 Seiten</span>
+            <code>.section-label</code> <code>.section-title</code> <code>.section-desc</code>
+            <span>Quelle: styles/main.css</span>
+          </div>
+        </div>
+      </div>
+      <p class="sg-desc">
+        Das wiederkehrende Dreigespann, das nahezu jeden Inhaltsabschnitt eröffnet:
+        ein kleines blaues Eyebrow-Label, eine große Überschrift (responsiv per
+        <code>clamp()</code>) und ein einleitender Beschreibungstext.
+      </p>
+
+      <span class="sg-preview-label">Live</span>
+      <div class="sg-preview on-white">
+        <div style="padding:1.75rem">
+          <span class="section-label">Unsere Arbeit</span>
+          <h2 class="section-title">Fünf Wege, Menschen zu helfen</h2>
+          <p class="section-desc">Hands of Hope gliedert sich in fünf Arbeitsbereiche, die gemeinsam benachteiligten Menschen ein neues Leben ermöglichen.</p>
+        </div>
+      </div>
+
+      <span class="sg-code-label">HTML</span>
+      <div class="sg-code"><pre><code><span class="t">&lt;span</span> <span class="a">class=</span>"section-label"<span class="t">&gt;</span>Unsere Arbeit<span class="t">&lt;/span&gt;</span>
+<span class="t">&lt;h2</span> <span class="a">class=</span>"section-title"<span class="t">&gt;</span>Fünf Wege, Menschen zu helfen<span class="t">&lt;/h2&gt;</span>
+<span class="t">&lt;p</span> <span class="a">class=</span>"section-desc"<span class="t">&gt;</span>Hands of Hope gliedert sich in fünf Arbeitsbereiche …<span class="t">&lt;/p&gt;</span></code></pre></div>
+    </article>
+
+
+    <!-- ══════════════ 08 · BEREICHSKARTEN ══════════════ -->
+    <article class="sg-component" id="bereichskarten">
+      <div class="sg-head">
+        <span class="sg-num">08</span>
+        <div>
+          <h2>Bereichs-/Themenkarten</h2>
+          <div class="sg-meta">
+            <span class="sg-tag use">Startseite</span>
+            <code>.bereich-card</code>
+            <span>Quelle: index.html + styles/sections.css</span>
+          </div>
+        </div>
+      </div>
+      <p class="sg-desc">
+        Verlinkte Karte mit randlosem Kopfbild, farbiger Oberkante und Icon-Kachel
+        je Arbeitsbereich (Modifier <code>.reha .dienst .cafe .prev .jugend</code>
+        steuern die Akzentfarbe). Hover hebt die Karte an und zoomt das Bild leicht.
+      </p>
+
+      <span class="sg-preview-label">Live</span>
+      <div class="sg-preview">
+        <div class="sg-frame">
+          <section class="bereiche">
+            <div class="section-inner">
+              <div class="bereiche-grid">
+                <a href="#" onclick="return false" class="bereich-card reha">
+                  <div class="bereich-img"><img src="assets/global/karte-rehabilitation.webp" alt=""></div>
+                  <div class="bereich-icon">🏠</div>
+                  <h3>Rehabilitation</h3>
+                  <p>Unser einjähriges Programm in Neunkirchen begleitet Menschen zurück in ein selbstständiges, erfülltes Leben.</p>
+                  <span class="bereich-link">Mehr erfahren →</span>
+                </a>
+                <a href="#" onclick="return false" class="bereich-card cafe">
+                  <div class="bereich-img"><img src="assets/global/karte-strassencafe.webp" alt=""></div>
+                  <div class="bereich-icon">☕</div>
+                  <h3>Straßencafé</h3>
+                  <p>Unser wöchentliches Straßencafé bringt benachteiligte Menschen mit Andacht, Musik und einer warmen Mahlzeit zusammen.</p>
+                  <span class="bereich-link">Mehr erfahren →</span>
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <span class="sg-code-label">HTML (eine Karte)</span>
+      <div class="sg-code"><pre><code><span class="t">&lt;a</span> <span class="a">href=</span>"rehabilitation/" <span class="a">class=</span>"bereich-card reha"<span class="t">&gt;</span>
+  <span class="t">&lt;div</span> <span class="a">class=</span>"bereich-img"<span class="t">&gt;&lt;img</span> <span class="a">src=</span>"…/karte-rehabilitation.webp" <span class="a">alt=</span>"…"<span class="t">&gt;&lt;/div&gt;</span>
+  <span class="t">&lt;div</span> <span class="a">class=</span>"bereich-icon"<span class="t">&gt;</span>🏠<span class="t">&lt;/div&gt;</span>
+  <span class="t">&lt;h3&gt;</span>Rehabilitation<span class="t">&lt;/h3&gt;</span>
+  <span class="t">&lt;p&gt;</span>Unser einjähriges Programm …<span class="t">&lt;/p&gt;</span>
+  <span class="t">&lt;span</span> <span class="a">class=</span>"bereich-link"<span class="t">&gt;</span>Mehr erfahren →<span class="t">&lt;/span&gt;</span>
+<span class="t">&lt;/a&gt;</span>
+
+<span class="c">&lt;!-- Farb-Varianten: .reha .dienst .cafe .prev .jugend --&gt;</span></code></pre></div>
+    </article>
+
+
+    <!-- ══════════════ 09 · BLOG-KARTEN ══════════════ -->
+    <article class="sg-component" id="blogkarten">
+      <div class="sg-head">
+        <span class="sg-num">09</span>
+        <div>
+          <h2>Blog-Karten mit Kategorie-Badge</h2>
+          <div class="sg-meta">
+            <span class="sg-tag use">Startseite + Blog</span>
+            <code>.blog-preview-card</code>
+            <span>Quelle: index.html + styles/sections.css</span>
+          </div>
+        </div>
+      </div>
+      <p class="sg-desc">
+        Content-Vorschaukarte mit Bild, farbiger Kategorie-Pille
+        (<code>.badge-rehab / .badge-prev / .badge-cafe</code>), Meta-Zeile (Datum ·
+        Lesezeit), Titel, Anriss und Weiterlese-Link.
+      </p>
+
+      <span class="sg-preview-label">Live</span>
+      <div class="sg-preview on-white">
+        <div class="sg-frame" style="padding:1.75rem">
+          <a href="#" onclick="return false" class="blog-preview-card" style="max-width:340px">
+            <div class="blog-preview-img">
+              <img src="assets/global/karte-rehabilitation.webp" alt="">
+              <span class="blog-preview-badge badge-rehab">Rehabilitation</span>
+            </div>
+            <div class="blog-preview-body">
+              <div class="blog-preview-meta">14. Mai 2025 · 7 Min. Lesezeit</div>
+              <h3>„Ich dachte, es gibt kein Zurück mehr" – Mikes Geschichte</h3>
+              <p>Zwölf Jahre Sucht, drei gescheiterte Versuche. Heute lebt Mike seit anderthalb Jahren clean.</p>
+              <span class="blog-preview-link">Ganzen Bericht lesen →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <span class="sg-code-label">HTML</span>
+      <div class="sg-code"><pre><code><span class="t">&lt;a</span> <span class="a">href=</span>"blog/mikes-geschichte/" <span class="a">class=</span>"blog-preview-card"<span class="t">&gt;</span>
+  <span class="t">&lt;div</span> <span class="a">class=</span>"blog-preview-img"<span class="t">&gt;</span>
+    <span class="t">&lt;img</span> <span class="a">src=</span>"…" <span class="a">alt=</span>"Mikes Geschichte"<span class="t">&gt;</span>
+    <span class="t">&lt;span</span> <span class="a">class=</span>"blog-preview-badge badge-rehab"<span class="t">&gt;</span>Rehabilitation<span class="t">&lt;/span&gt;</span>
+  <span class="t">&lt;/div&gt;</span>
+  <span class="t">&lt;div</span> <span class="a">class=</span>"blog-preview-body"<span class="t">&gt;</span>
+    <span class="t">&lt;div</span> <span class="a">class=</span>"blog-preview-meta"<span class="t">&gt;</span>14. Mai 2025 · 7 Min. Lesezeit<span class="t">&lt;/div&gt;</span>
+    <span class="t">&lt;h3&gt;</span>„Ich dachte, es gibt kein Zurück mehr" …<span class="t">&lt;/h3&gt;</span>
+    <span class="t">&lt;p&gt;</span>Zwölf Jahre Sucht …<span class="t">&lt;/p&gt;</span>
+    <span class="t">&lt;span</span> <span class="a">class=</span>"blog-preview-link"<span class="t">&gt;</span>Ganzen Bericht lesen →<span class="t">&lt;/span&gt;</span>
+  <span class="t">&lt;/div&gt;</span>
+<span class="t">&lt;/a&gt;</span></code></pre></div>
+    </article>
+
+
+    <!-- ══════════════ 10 · FORMULARE ══════════════ -->
+    <article class="sg-component" id="formulare">
+      <div class="sg-head">
+        <span class="sg-num">10</span>
+        <div>
+          <h2>Formulare / Newsletter</h2>
+          <div class="sg-meta">
+            <span class="sg-tag use">Newsletter + Kontakt</span>
+            <code>.form-control</code>
+            <span>Quelle: styles/forms.css + index.html</span>
+          </div>
+        </div>
+      </div>
+      <p class="sg-desc">
+        Eingabefelder (<code>.form-control</code>) mit blauem Fokus-Ring, Labels,
+        Checkbox/Radio (<code>.form-check</code>), Datenschutz-Hinweis sowie
+        Erfolgs-/Fehler-Meldungen (<code>.form-success</code> /
+        <code>.form-error</code>).
+      </p>
+
+      <span class="sg-preview-label">Live</span>
+      <div class="sg-preview on-white">
+        <div style="padding:1.75rem; max-width:460px">
+          <div class="form-group" style="margin-bottom:1rem">
+            <label class="form-label">Vorname <span class="required">*</span></label>
+            <input type="text" class="form-control" placeholder="Vorname">
+          </div>
+          <div class="form-group" style="margin-bottom:1rem">
+            <label class="form-label">E-Mail-Adresse <span class="required">*</span></label>
+            <input type="email" class="form-control" placeholder="E-Mail-Adresse">
+          </div>
+          <label class="form-check" style="margin-bottom:1rem">
+            <input type="checkbox">
+            <span class="form-check-label">Ich stimme der <a href="#" onclick="return false">Datenschutzerklärung</a> zu.</span>
+          </label>
+          <a href="#" class="btn btn-blue" onclick="return false">Jetzt anmelden</a>
+          <div class="form-success" style="display:block; margin-top:1rem">✉️ Danke! Bitte bestätigt eure Anmeldung per E-Mail.</div>
+        </div>
+      </div>
+
+      <span class="sg-code-label">HTML</span>
+      <div class="sg-code"><pre><code><span class="t">&lt;div</span> <span class="a">class=</span>"form-group"<span class="t">&gt;</span>
+  <span class="t">&lt;label</span> <span class="a">class=</span>"form-label"<span class="t">&gt;</span>E-Mail-Adresse <span class="t">&lt;span</span> <span class="a">class=</span>"required"<span class="t">&gt;</span>*<span class="t">&lt;/span&gt;&lt;/label&gt;</span>
+  <span class="t">&lt;input</span> <span class="a">type=</span>"email" <span class="a">class=</span>"form-control" <span class="a">placeholder=</span>"E-Mail-Adresse"<span class="t">&gt;</span>
+<span class="t">&lt;/div&gt;</span>
+
+<span class="t">&lt;label</span> <span class="a">class=</span>"form-check"<span class="t">&gt;</span>
+  <span class="t">&lt;input</span> <span class="a">type=</span>"checkbox"<span class="t">&gt;</span>
+  <span class="t">&lt;span</span> <span class="a">class=</span>"form-check-label"<span class="t">&gt;</span>Ich stimme der <span class="t">&lt;a</span> <span class="a">href=</span>"datenschutz.html"<span class="t">&gt;</span>…<span class="t">&lt;/a&gt;</span> zu.<span class="t">&lt;/span&gt;</span>
+<span class="t">&lt;/label&gt;</span>
+
+<span class="t">&lt;div</span> <span class="a">class=</span>"form-success"<span class="t">&gt;</span>✉️ Danke! …<span class="t">&lt;/div&gt;</span></code></pre></div>
+    </article>
+
+
+    <!-- ══════════════ WEITERE GENUTZTE BAUSTEINE ══════════════ -->
+    <h2 class="sg-cat">Weitere genutzte Bausteine</h2>
+    <p>Ebenfalls im Einsatz, aber nachrangig gegenüber den Top&nbsp;10 – als Referenz kurz benannt.</p>
+
+    <article class="sg-component" id="weitere" style="border-top-color:rgba(206,153,35,0.4)">
+      <div class="sg-meta" style="margin-bottom:1.5rem">
+        <span class="sg-tag minor">nachrangig</span>
+      </div>
+      <div class="sg-tokenmeta" style="padding:0">
+        <div class="box">
+          <h4>Foto-Slider</h4>
+          <p style="font-size:13px;color:var(--text-light);line-height:1.6">Bild-Karussell mit unscharfem Backdrop, Pfeilen &amp; Punkten. <code style="font-size:11px">.photo-slider</code> · 2 Seiten · <code style="font-size:11px">styles/sections.css</code> + <code style="font-size:11px">scripts/slider.js</code></p>
+        </div>
+        <div class="box">
+          <h4>Galerie + Lightbox</h4>
+          <p style="font-size:13px;color:var(--text-light);line-height:1.6">Bildraster (auch Masonry) mit Vollbild-Overlay. <code style="font-size:11px">.gallery-grid</code> · <code style="font-size:11px">.lightbox</code> · <code style="font-size:11px">styles/gallery.css</code></p>
+        </div>
+        <div class="box">
+          <h4>Artikel-Fließtext (Rich Text)</h4>
+          <p style="font-size:13px;color:var(--text-light);line-height:1.6">Typografie für Blog-Artikel: h2/h3, Listen, Blockquote, Links. <code style="font-size:11px">.prose</code> · 6 Seiten · <code style="font-size:11px">styles/typography.css</code></p>
+        </div>
+        <div class="box">
+          <h4>Brotkrumen-Navigation</h4>
+          <p style="font-size:13px;color:var(--text-light);line-height:1.6">Pfad-Navigation über Blog-Artikeln. <code style="font-size:11px">.breadcrumb</code> · Blog-Artikel</p>
+        </div>
+      </div>
+    </article>
+
+
+    <!-- ══════════════ DEFINIERT, ABER UNGENUTZT ══════════════ -->
+    <h2 class="sg-cat" style="border-top-color:var(--red);color:#b13a27">Definiert, aber aktuell ungenutzt</h2>
+    <p>Diese Komponenten sind im CSS vorhanden, werden derzeit aber in <strong>keiner</strong> Seite gerendert. Für den Designer wissenswert – aber kein Bestandteil des aktiven Bestands.</p>
+
+    <article class="sg-component" id="ungenutzt" style="border-top-color:rgba(218,79,56,0.4)">
+      <div class="sg-meta" style="margin-bottom:1.5rem">
+        <span class="sg-tag unused">ungenutzt</span>
+      </div>
+      <div class="sg-tokenmeta" style="padding:0">
+        <div class="box">
+          <h4>Seitenkopf (Subpages)</h4>
+          <p style="font-size:13px;color:var(--text-light);line-height:1.6"><code style="font-size:11px">.page-header</code> mit Breadcrumb – in <code style="font-size:11px">typography.css</code> definiert; Unterseiten nutzen stattdessen den vollen <code style="font-size:11px">.hero</code>.</p>
+        </div>
+        <div class="box">
+          <h4>Testimonials</h4>
+          <p style="font-size:13px;color:var(--text-light);line-height:1.6"><code style="font-size:11px">.testimonial-card</code> – Zitatkarte mit Avatar. In <code style="font-size:11px">sections.css</code> vorhanden, nirgends eingesetzt.</p>
+        </div>
+        <div class="box">
+          <h4>Kontakt-Banner</h4>
+          <p style="font-size:13px;color:var(--text-light);line-height:1.6"><code style="font-size:11px">.kontakt-banner</code> mit <code style="font-size:11px">.kontakt-card</code> – dunkler CTA-Streifen. Definiert, ungenutzt.</p>
+        </div>
+        <div class="box">
+          <h4>Mission / Stats</h4>
+          <p style="font-size:13px;color:var(--text-light);line-height:1.6"><code style="font-size:11px">.mission</code> · <code style="font-size:11px">.mission-item</code> – Kennzahlen-Raster auf Blau. Definiert, ungenutzt.</p>
+        </div>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- Echter Seitenfuß (per includes.js injiziert) – zugleich Live-Beispiel für Komponente 05 -->
+  <div data-include="footer"></div>
+
+</body>
+</html>
