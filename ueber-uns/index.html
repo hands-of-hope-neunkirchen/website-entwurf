@@ -516,6 +516,49 @@
     }
     .btn-white-dark:hover { background: var(--mid-blue); transform: translateY(-1px); }
 
+    /* ── SPENDENART-UMSCHALTER ── */
+    .spende-tabs { display: flex; gap: 0.6rem; margin-bottom: 1rem; }
+    .spende-tab-btn {
+      font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.85rem;
+      padding: 8px 18px; border-radius: 20px; cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.25); background: transparent;
+      color: rgba(255,255,255,0.65); transition: background 0.2s, color 0.2s;
+    }
+    .spende-tab-btn.active { background: var(--white); color: var(--dark); border-color: var(--white); }
+    .spende-tab-panel { display: none; }
+    .spende-tab-panel.active { display: block; }
+
+    /* ── QR-HINWEIS ── */
+    .qr-hint {
+      display: flex; align-items: center; gap: 0.85rem;
+      margin-top: 1.25rem; padding: 0.85rem 1rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px dashed rgba(200,216,226,0.35);
+      border-radius: var(--radius-sm);
+      font-size: 0.8rem; color: rgba(255,255,255,0.55); line-height: 1.5;
+    }
+    .qr-hint-icon { font-size: 1.4rem; flex-shrink: 0; }
+
+    /* ── SPENDENBAROMETER ── */
+    .barometer-section { background: var(--light-bg); padding: var(--section-pad-v) var(--section-pad-h); }
+    .barometer-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.75rem; margin-top: 2rem; }
+    .barometer-card {
+      background: var(--white); border-radius: var(--radius-lg);
+      padding: 1.75rem; box-shadow: var(--shadow-card);
+    }
+    .barometer-card h4 { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 1.05rem; margin-bottom: 0.5rem; }
+    .barometer-track {
+      height: 10px; border-radius: 6px; background: rgba(5,41,55,0.08);
+      overflow: hidden; margin: 0.85rem 0 0.5rem;
+    }
+    .barometer-fill { height: 100%; background: var(--blue); border-radius: 6px; }
+    .barometer-caption { font-size: 0.82rem; color: var(--text-light); display: flex; justify-content: space-between; }
+    .barometer-example-badge {
+      display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 0.06em;
+      text-transform: uppercase; color: #8a6b1a; background: rgba(206,153,35,0.15);
+      padding: 3px 9px; border-radius: 20px; margin-bottom: 0.75rem;
+    }
+
     /* ── KONTAKT CTA ── */
     .kontakt-cta-section { background: var(--blue); }
     .kontakt-cta-inner {
@@ -581,6 +624,7 @@
       .fsj-lists { grid-template-columns: 1fr; }
 
       .spenden-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .barometer-grid { grid-template-columns: 1fr; }
       .kontakt-cta-inner { grid-template-columns: 1fr; gap: 2.5rem; }
     }
     @media (max-width: 600px) {
@@ -1092,17 +1136,33 @@
           <h2 class="section-title" id="spenden-title">Mit einer Spende Gutes tun</h2>
           <p class="section-desc">
             Die gesamte Arbeit von Hands of Hope wird zum größten Teil durch Spenden getragen und ermöglicht.
-            Wenn Sie unsere Arbeit überzeugt und Sie uns gerne finanziell unterstützen möchten, freuen wir uns sehr
-            über Ihre Gabe – per Überweisung oder direkt über PayPal.
+            Wenn Sie unsere Arbeit überzeugt und Sie uns gerne finanziell unterstützen möchten, freuen wir uns
+            sehr über Ihre Gabe per Banküberweisung.
           </p>
+
+          <div class="spende-tabs" role="tablist" aria-label="Spendenart">
+            <button type="button" class="spende-tab-btn active" data-spende-tab="einzel" role="tab" aria-selected="true">Einzelspende</button>
+            <button type="button" class="spende-tab-btn" data-spende-tab="dauer" role="tab" aria-selected="false">Dauerspende</button>
+          </div>
+          <div class="spende-tab-panel active" data-spende-panel="einzel">
+            <p style="font-size: 0.92rem; color: rgba(255,255,255,0.65); line-height: 1.75; margin-bottom: 1rem;">
+              Für eine einmalige Spende überweisen Sie den gewünschten Betrag einfach an die untenstehende
+              Kontoverbindung – einen Verwendungszweck können, müssen Sie aber nicht angeben.
+            </p>
+          </div>
+          <div class="spende-tab-panel" data-spende-panel="dauer">
+            <p style="font-size: 0.92rem; color: rgba(255,255,255,0.65); line-height: 1.75; margin-bottom: 1rem;">
+              Für eine Dauerspende richten Sie bei Ihrer Bank einfach einen <strong style="color:rgba(255,255,255,0.85);">Dauerauftrag</strong>
+              auf die untenstehende Kontoverbindung ein – so unterstützen Sie uns langfristig und planbar.
+            </p>
+          </div>
+
           <p style="font-size: 0.92rem; color: rgba(255,255,255,0.65); line-height: 1.75; margin-bottom: 1rem;">
-            Auf Wunsch stellen wir Ihnen gerne eine <strong style="color:rgba(255,255,255,0.85);">Spendenquittung</strong> aus.
-            Materielle Spenden sind ebenfalls willkommen – nehmen Sie dazu einfach per E-Mail oder telefonisch Kontakt
-            zu unserem Büro auf.
+            <strong style="color:rgba(255,255,255,0.85);">Spendenquittung gewünscht?</strong> Geben Sie dazu einfach
+            Ihren Namen und Ihre Adresse – oder alternativ Ihre E-Mail-Adresse für den digitalen Versand – im
+            Verwendungszweck der Überweisung an. Materielle Spenden sind ebenfalls willkommen – nehmen Sie dazu
+            einfach per E-Mail oder telefonisch Kontakt zu unserem Büro auf.
           </p>
-          <a href="https://www.paypal.com/donate/?hosted_button_id=PLACEHOLDER" target="_blank" rel="noopener" class="btn-white-dark" style="margin-bottom:0.85rem; display:inline-block;">
-            💳 Jetzt via PayPal spenden
-          </a>
         </div>
 
         <div class="konto-card reveal reveal-delay-1">
@@ -1127,10 +1187,70 @@
             <span class="konto-label">Kto / BLZ</span>
             <span class="konto-val">2312085701 / 4476 1534</span>
           </div>
+          <div class="qr-hint">
+            <span class="qr-hint-icon">📱</span>
+            <span>QR-Code zum Scannen mit der Banking-App folgt hier – ohne Umweg über ein Drittanbieter-Portal.</span>
+          </div>
           <p style="font-size:12px; color:rgba(255,255,255,0.4); margin-top:1.25rem; line-height:1.6;">
             Hands of Hope gGmbH ist als gemeinnützig anerkannt.<br>Spendenquittung auf Anfrage.
           </p>
         </div>
+      </div>
+
+      <script>
+        document.querySelectorAll('.spende-tab-btn').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var target = btn.getAttribute('data-spende-tab');
+            document.querySelectorAll('.spende-tab-btn').forEach(function (b) {
+              b.classList.toggle('active', b === btn);
+              b.setAttribute('aria-selected', String(b === btn));
+            });
+            document.querySelectorAll('.spende-tab-panel').forEach(function (p) {
+              p.classList.toggle('active', p.getAttribute('data-spende-panel') === target);
+            });
+          });
+        });
+      </script>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         SPENDENBAROMETER (Beispiel)
+    ══════════════════════════════════════════ -->
+    <section class="barometer-section" aria-labelledby="barometer-title">
+      <div class="section-inner">
+        <span class="section-label reveal">Wofür konkret</span>
+        <h2 class="section-title reveal reveal-delay-1" id="barometer-title">Aktuelle Spendenprojekte</h2>
+        <p class="section-desc reveal reveal-delay-2">
+          Ein Auszug aus Projekten, für die wir aktuell sammeln – mit direktem Bezug zur Wohngruppe.
+        </p>
+
+        <div class="barometer-grid">
+          <a href="../rehabilitation/#nachsorgehaus" class="barometer-card reveal">
+            <span class="barometer-example-badge">Beispiel · Platzhalter</span>
+            <h4>Heizung im Nachsorgehaus (Steckenstein)</h4>
+            <p style="font-size:0.88rem;color:var(--text-light);margin-bottom:0.5rem;">
+              Erneuerung der Heizungsanlage im Zuge des Umbaus.
+            </p>
+            <div class="barometer-track"><div class="barometer-fill" style="width: 60%;"></div></div>
+            <div class="barometer-caption"><span>60 % erreicht</span><span>Mehr im Blog →</span></div>
+          </a>
+          <a href="../rehabilitation/#nachsorgehaus" class="barometer-card reveal reveal-delay-1">
+            <span class="barometer-example-badge">Beispiel · Platzhalter</span>
+            <h4>Küche für die Wohngemeinschaft</h4>
+            <p style="font-size:0.88rem;color:var(--text-light);margin-bottom:0.5rem;">
+              Ausstattung der gemeinsamen Küche im Nachsorgehaus.
+            </p>
+            <div class="barometer-track"><div class="barometer-fill" style="width: 35%;"></div></div>
+            <div class="barometer-caption"><span>35 % erreicht</span><span>Mehr im Blog →</span></div>
+          </a>
+        </div>
+
+        <p style="font-size: 0.82rem; color: var(--text-light); margin-top: 1.5rem;">
+          ⚠ Diese Fortschrittsbalken sind <strong>Beispiel-/Platzhalterwerte</strong> zur Veranschaulichung des
+          Spendenbarometers – keine echten, aktuellen Spendenstände. Bei der Umsetzung mit dem neuen Tech-Stack
+          werden sie durch reale, im CMS gepflegte Werte ersetzt.
+        </p>
       </div>
     </section>
 

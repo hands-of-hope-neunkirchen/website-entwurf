@@ -66,10 +66,10 @@
         <li><a href="${R}dienstleistungen/">🌳 Dienstleistungen</a></li>
         <li><a href="${R}strassencafe/">☕ Straßencafé</a></li>
         <li><a href="${R}praevention/">🛡 Prävention</a></li>
-        <li><a href="${R}medien/">🎬 Medien</a></li>
       </ul>
     </li>
     <li><a href="${R}blog/">Blog</a></li>
+    <li><a href="${R}medien/">Medien</a></li>
     <li class="nav-cta">
       <a href="${R}ueber-uns/#spenden">❤ Spenden</a>
     </li>
@@ -121,7 +121,6 @@
         <li><a href="${R}dienstleistungen/">Dienstleistungen</a></li>
         <li><a href="${R}strassencafe/">Straßencafé</a></li>
         <li><a href="${R}praevention/">Prävention</a></li>
-        <li><a href="${R}medien/">Medien</a></li>
       </ul>
     </div>
 
@@ -134,6 +133,7 @@
         <li><a href="${R}ueber-uns/#mitarbeit">Mitarbeiten</a></li>
         <li><a href="${R}ueber-uns/jobs/">Stellenangebote</a></li>
         <li><a href="${R}blog/">Blog</a></li>
+        <li><a href="${R}medien/">Medien</a></li>
       </ul>
     </div>
 
@@ -291,7 +291,7 @@
     });
 
     // Mark parent "Arbeitsbereiche" active when on any sub-area page
-    var areaPaths = ['rehabilitation', 'dienstleistungen', 'strassencafe', 'praevention', 'medien'];
+    var areaPaths = ['rehabilitation', 'dienstleistungen', 'strassencafe', 'praevention'];
     var isAreaPage = areaPaths.some(function (seg) { return currentPath.indexOf('/' + seg) !== -1; });
     if (isAreaPage) {
       var parentLink = document.querySelector('.nav-has-dropdown > a');
