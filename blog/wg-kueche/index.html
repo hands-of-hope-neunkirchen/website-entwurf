@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Eine neue Küche für die Wohngemeinschaft im Nachsorgehaus – Herzstück für gemeinsames Kochen und Essen nach dem Hauptprogramm.">
+  <title>Eine Küche, die zusammenbringt – Hands of Hope Blog</title>
+
+  <!-- <link rel="icon" href="../../assets/favicons/favicon.ico"> -->
+
+  <link rel="stylesheet" href="../../styles/main.css">
+  <link rel="stylesheet" href="../../styles/navigation.css">
+  <link rel="stylesheet" href="../../styles/layout.css">
+  <link rel="stylesheet" href="../../styles/typography.css">
+  <link rel="stylesheet" href="../../styles/sections.css">
+  <link rel="stylesheet" href="../../styles/forms.css">
+  <link rel="stylesheet" href="../../styles/gallery.css">
+  <link rel="stylesheet" href="../../styles/responsive.css">
+
+  <script src="../../scripts/includes.js" defer></script>
+  <script src="../../scripts/navigation.js" defer></script>
+  <script src="../../scripts/animations.js" defer></script>
+  <script src="../../scripts/lazyload.js" defer></script>
+  <script src="../../scripts/share.js" defer></script>
+
+  <style>
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal.revealed { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+
+    /* ── ARTICLE HERO ── */
+    .article-hero { background: var(--dark); position: relative; min-height: 55svh; display: flex; align-items: flex-end; overflow: hidden; }
+    .article-hero-visual { position: absolute; inset: 0; z-index: 0; }
+    .article-hero-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .article-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(5,41,55,0.92) 0%, rgba(5,41,55,0.55) 55%, rgba(5,41,55,0.2) 100%); }
+    .article-hero-content { position: relative; z-index: 1; max-width: var(--max-width); margin: 0 auto; width: 100%; padding: 4rem var(--section-pad-h) 3.5rem; }
+    .article-category { display: inline-block; background: rgba(194,116,64,0.85); color: #fff; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 1.25rem; }
+    .article-hero-content h1 { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: clamp(1.7rem, 4vw, 2.8rem); color: var(--white); line-height: 1.2; max-width: 780px; margin-bottom: 1.5rem; }
+    .article-hero-meta { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+    .article-author { display: flex; align-items: center; gap: 0.65rem; }
+    .article-author-avatar { width: 38px; height: 38px; border-radius: 50%; overflow: hidden; background: rgba(255,255,255,0.15); flex-shrink: 0; }
+    .article-author-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .article-author-name { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.88rem; color: var(--white); }
+    .article-author-role { font-size: 0.78rem; color: rgba(255,255,255,0.55); }
+    .article-meta-sep { color: rgba(255,255,255,0.25); }
+    .article-date { font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+    .article-readtime { font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb { background: var(--light-bg); padding: 0.85rem var(--section-pad-h); font-size: 13px; color: var(--text-light); }
+    .breadcrumb a { color: var(--blue); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb span { margin: 0 0.5rem; opacity: 0.4; }
+
+    /* ── ARTICLE BODY ── */
+    .article-layout { max-width: var(--max-width); margin: 0 auto; padding: 4rem var(--section-pad-h); display: grid; grid-template-columns: 1fr 320px; gap: 5rem; align-items: start; }
+    .article-prose { min-width: 0; }
+    .article-prose p { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin-bottom: 1.6rem; }
+    .article-prose h2 { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 1.4rem; color: var(--dark); margin: 2.5rem 0 1rem; }
+
+    .pull-quote { border-left: 4px solid var(--blue); margin: 2.5rem 0; padding: 1.25rem 1.75rem; background: rgba(12,70,132,0.04); border-radius: 0 var(--radius-md) var(--radius-md) 0; }
+    .pull-quote p { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 1.2rem !important; color: var(--dark) !important; font-style: italic; line-height: 1.55 !important; margin: 0 !important; }
+    .pull-quote cite { display: block; margin-top: 0.65rem; font-size: 0.85rem; color: var(--text-light); font-style: normal; }
+
+    .article-img { border-radius: var(--radius-lg); overflow: hidden; margin: 2.5rem 0; box-shadow: var(--shadow-deep); }
+    .article-img img { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; }
+    .article-img figcaption { font-size: 0.82rem; color: var(--text-light); padding: 0.65rem 1rem; background: var(--light-bg); font-style: italic; }
+
+    .article-footer { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(5,41,55,0.1); }
+
+    /* ── SIDEBAR ── */
+    .article-sidebar { position: sticky; top: calc(var(--nav-height) + 2rem); }
+    .sidebar-card { background: var(--light-bg); border-radius: var(--radius-md); padding: 1.75rem; margin-bottom: 1.5rem; }
+    .sidebar-card h4 { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-light); margin-bottom: 1.25rem; }
+    .sidebar-post { display: flex; gap: 0.85rem; align-items: flex-start; padding: 0.85rem 0; border-bottom: 1px solid rgba(5,41,55,0.07); text-decoration: none; color: inherit; transition: opacity var(--transition); }
+    .sidebar-post:last-child { border-bottom: none; }
+    .sidebar-post:hover { opacity: 0.75; }
+    .sidebar-post-thumb { width: 54px; height: 54px; border-radius: var(--radius-sm); overflow: hidden; flex-shrink: 0; }
+    .sidebar-post-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .sidebar-post-title { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.88rem; color: var(--dark); line-height: 1.4; }
+    .sidebar-post-date { font-size: 0.78rem; color: var(--text-light); margin-top: 0.3rem; }
+
+    .sidebar-cta { background: var(--blue); border-radius: var(--radius-md); padding: 1.75rem; text-align: center; }
+    .sidebar-cta p { font-size: 0.9rem; color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 1.25rem; }
+    .sidebar-cta a { display: block; background: var(--white); color: var(--dark); font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 14px; padding: 11px 20px; border-radius: var(--radius-sm); text-decoration: none; transition: background var(--transition); }
+    .sidebar-cta a:hover { background: var(--mid-blue); }
+
+    @media (max-width: 900px) {
+      .article-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .article-sidebar { position: static; }
+      .article-hero { min-height: 45svh; }
+    }
+    @media (max-width: 600px) {
+      .article-hero-content h1 { font-size: 1.6rem; }
+      .article-prose p { font-size: 0.97rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div data-include="header"></div>
+  <div class="nav-spacer"></div>
+
+  <main id="main-content">
+
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../">Startseite</a>
+      <span>›</span>
+      <a href="../">Blog</a>
+      <span>›</span>
+      Eine Küche, die zusammenbringt
+    </nav>
+
+    <!-- ARTICLE HERO -->
+    <header class="article-hero">
+      <div class="article-hero-visual" aria-hidden="true">
+        <img
+          src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=1400&q=80"
+          alt="Leere Küche im Rohbau"
+          loading="eager"
+        >
+        <div class="article-hero-overlay"></div>
+      </div>
+      <div class="article-hero-content">
+        <span class="article-category">Wohngruppe</span>
+        <h1>Eine Küche, die zusammenbringt</h1>
+        <div class="article-hero-meta">
+          <div class="article-author">
+            <div class="article-author-avatar">
+              <img src="../../ueber-uns/team/verena-mackel.jpg" alt="Verena Mackel" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=80&q=80'">
+            </div>
+            <div>
+              <div class="article-author-name">Verena Mackel</div>
+              <div class="article-author-role">Hausmutter / Hauswirtschaft</div>
+            </div>
+          </div>
+          <span class="article-meta-sep">·</span>
+          <span class="article-date">Baustellen-Update</span>
+          <span class="article-meta-sep">·</span>
+          <span class="article-readtime">3 Min. Lesezeit</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ARTICLE BODY -->
+    <div class="article-layout">
+
+      <article class="article-prose reveal">
+
+        <p>
+          Am Küchentisch passiert oft mehr als Kochen. Es wird erzählt, gelacht, manchmal auch geschwiegen –
+          und genau das macht eine Küche für uns so wichtig. Im Nachsorgehaus entsteht deshalb gerade eine
+          gemeinsame Küche für die künftige Wohngemeinschaft.
+        </p>
+
+        <p>
+          Die vier neuen, eigenständigen Wohneinheiten im Nachsorgehaus bekommen zwar jeweils eine eigene
+          kleine Küche – daneben soll aber auch ein gemeinsamer Küchen- und Essbereich entstehen, an dem sich
+          die Bewohner treffen können, wenn sie mögen. Kein Zwang, aber eine Einladung.
+        </p>
+
+        <div class="pull-quote">
+          <p>„Wer zusammen kocht, redet auch eher miteinander. Genau das wollen wir mit dem gemeinsamen
+          Küchenbereich ermöglichen."</p>
+          <cite>– Verena Mackel, Hausmutter</cite>
+        </div>
+
+        <h2>Warum eine eigene Küche für die Nachsorge zählt</h2>
+
+        <p>
+          Nach dem Hauptprogramm ziehen die Bewohner in einen selbstständigeren Alltag – kochen, einkaufen und
+          essen gehören für viele zu den ersten Dingen, die sie wieder ganz eigenständig verantworten. Eine
+          gut ausgestattete Küche macht diesen Übergang leichter und schafft gleichzeitig einen Ort für
+          Gemeinschaft, der über den Alltag hinaus trägt.
+        </p>
+
+        <p>
+          Aktuell wird die Küchenzeile ausgewählt und die nötige Ausstattung zusammengestellt – ein weiterer
+          Baustein auf dem Weg zum geplanten Einzug der ersten Bewohner.
+        </p>
+
+        <p style="color: var(--text-light); font-size: 0.9rem; font-style: italic; margin-top: 2.5rem;">
+          ⚠ Dieser Beitrag ist ein Beispiel-/Platzhalterartikel zur Veranschaulichung des Spendenbarometers
+          auf der Über-uns-Seite und enthält keine echten, aktuellen Angaben zum Spendenstand.
+        </p>
+
+        <!-- SHARE WIDGET -->
+        <div class="share-widget" aria-label="Beitrag teilen">
+          <span class="share-widget-label">Teilen</span>
+          <a href="#" data-share="mail" class="share-btn">✉ E-Mail</a>
+          <a href="#" data-share="whatsapp" target="_blank" rel="noopener" class="share-btn">💬 WhatsApp</a>
+          <button type="button" data-share="copy" class="share-btn">🔗 Link kopieren</button>
+        </div>
+
+        <!-- ARTICLE FOOTER -->
+        <div class="article-footer">
+          <a href="../" class="btn btn-blue">← Zurück zum Blog</a>
+        </div>
+
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside class="article-sidebar">
+
+        <div class="sidebar-card reveal" data-blog-sidebar></div>
+
+        <div class="sidebar-cta reveal reveal-delay-1">
+          <p>Mit einer Spende helfen Sie mit, die Küche für die Wohngemeinschaft auszustatten.</p>
+          <a href="../../ueber-uns/#spenden">❤ Jetzt unterstützen</a>
+        </div>
+
+      </aside>
+
+    </div>
+
+  </main>
+
+  <div data-include="footer"></div>
+
+  <script src="../../blog/posts.js" defer></script>
+  <script src="../../scripts/cookie-banner.js"></script>
+</body>
+</html>
