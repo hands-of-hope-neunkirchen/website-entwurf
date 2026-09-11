@@ -19,6 +19,7 @@
   <script src="../../scripts/navigation.js" defer></script>
   <script src="../../scripts/animations.js" defer></script>
   <script src="../../scripts/lazyload.js" defer></script>
+  <script src="../../scripts/share.js" defer></script>
 
   <style>
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
@@ -258,6 +259,14 @@
           Wir kommen in diesem Schuljahr in über 20 Klassen in der Region. Nicht um Angst zu machen,
           sondern um Türen zu öffnen. Eine Stunde. Manchmal reicht das.
         </p>
+
+        <!-- SHARE WIDGET -->
+        <div class="share-widget" aria-label="Beitrag teilen">
+          <span class="share-widget-label">Teilen</span>
+          <a href="#" data-share="mail" class="share-btn">✉ E-Mail</a>
+          <a href="#" data-share="whatsapp" target="_blank" rel="noopener" class="share-btn">💬 WhatsApp</a>
+          <button type="button" data-share="copy" class="share-btn">🔗 Link kopieren</button>
+        </div>
 
         <div class="article-footer">
           <a href="../" class="btn btn-blue">← Zurück zum Blog</a>

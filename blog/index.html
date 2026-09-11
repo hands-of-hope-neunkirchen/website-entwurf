@@ -288,6 +288,18 @@
     }
     .post-card:hover .post-read-more { gap: 0.6rem; }
 
+    /* ── KATEGORIE-FILTER ── */
+    .blog-filter { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+    .blog-filter-btn {
+      font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 13px;
+      padding: 8px 16px; border-radius: 20px;
+      border: 1px solid rgba(5,41,55,0.15); background: var(--white);
+      color: var(--text-light); cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .blog-filter-btn:hover { border-color: var(--blog); color: var(--blog); }
+    .blog-filter-btn.active { background: var(--blog); border-color: var(--blog); color: var(--white); }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .featured-card { grid-template-columns: 1fr; }
@@ -348,6 +360,7 @@
             <div class="blog-label reveal">Weitere Beiträge</div>
             <h2 class="blog-title reveal">Aus allen Bereichen</h2>
           </div>
+          <div class="blog-filter" data-blog-filter role="group" aria-label="Nach Kategorie filtern"></div>
         </div>
 
         <div class="posts-grid" data-blog-grid></div>

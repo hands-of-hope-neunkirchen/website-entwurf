@@ -54,7 +54,7 @@
     banner.setAttribute('aria-label', 'Cookie-Einstellungen');
     banner.innerHTML = [
       '<p>Wir verwenden Cookies, um die Nutzung unserer Website zu analysieren und zu verbessern.',
-        ' Mehr dazu in unserer <a href="/datenschutz">Datenschutzerklärung</a>.</p>',
+        ' Mehr dazu in unserer <a href="/datenschutz.html">Datenschutzerklärung</a>.</p>',
       '<div class="hoh-cb-btns">',
         '<button class="hoh-cb-btn hoh-cb-accept" id="hoh-cb-accept">Alle akzeptieren</button>',
         '<button class="hoh-cb-btn hoh-cb-reject" id="hoh-cb-reject">Nur notwendige</button>',
