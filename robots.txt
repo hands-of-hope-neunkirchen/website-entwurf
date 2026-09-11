@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://DEIN-USERNAME.github.io/handsofhope/sitemap.xml
+# Hinweis: Diese robots.txt gilt für den statischen Entwurf. Die echte Website
+# wird mit dem neuen Tech-Stack (Next.js/Vercel, Epic 0/20) neu aufgesetzt –
+# dort auch sitemap.xml unter der finalen Domain (handsofhope.de) ergänzen.

@@ -27,8 +27,10 @@
   function getRootPrefix() {
     const path = window.location.pathname;
 
-    // Strip trailing slash and split
-    const parts = path.replace(/\/index\.html$/, '').replace(/\/$/, '').split('/').filter(Boolean);
+    // Strip a trailing "/index.html" or any other "/*.html" filename (e.g.
+    // root-level impressum.html, datenschutz.html) before counting folder
+    // depth, then strip a trailing slash and split.
+    const parts = path.replace(/\/[^/]*\.html$/, '').replace(/\/$/, '').split('/').filter(Boolean);
 
     // On GitHub Pages the first segment is the repo name (e.g. "handsofhope").
     // On a custom domain or local file:// the root is at depth 0.
@@ -60,11 +62,11 @@
     <li class="nav-has-dropdown">
       <a href="${R}#bereiche">Arbeitsbereiche</a>
       <ul class="nav-dropdown" role="list">
-        <li><a href="${R}rehabilitation/">🏠 Rehabilitation</a></li>
+        <li><a href="${R}rehabilitation/">🏠 Wohngruppe</a></li>
         <li><a href="${R}dienstleistungen/">🌳 Dienstleistungen</a></li>
         <li><a href="${R}strassencafe/">☕ Straßencafé</a></li>
         <li><a href="${R}praevention/">🛡 Prävention</a></li>
-        <li><a href="${R}jugendhilfe/">🏫 Jugendhilfe</a></li>
+        <li><a href="${R}medien/">🎬 Medien</a></li>
       </ul>
     </li>
     <li><a href="${R}blog/">Blog</a></li>
@@ -115,11 +117,11 @@
     <div class="footer-col">
       <h4>Arbeitsbereiche</h4>
       <ul>
-        <li><a href="${R}rehabilitation/">Rehabilitation</a></li>
+        <li><a href="${R}rehabilitation/">Wohngruppe</a></li>
         <li><a href="${R}dienstleistungen/">Dienstleistungen</a></li>
         <li><a href="${R}strassencafe/">Straßencafé</a></li>
         <li><a href="${R}praevention/">Prävention</a></li>
-        <li><a href="${R}jugendhilfe/">Jugendhilfe</a></li>
+        <li><a href="${R}medien/">Medien</a></li>
       </ul>
     </div>
 
@@ -129,7 +131,7 @@
         <li><a href="${R}ueber-uns/">Über uns</a></li>
         <li><a href="${R}ueber-uns/#team">Team</a></li>
         <li><a href="${R}ueber-uns/#geschichte">Geschichte</a></li>
-        <li><a href="${R}ueber-uns/#mitarbeiten">Mitarbeiten</a></li>
+        <li><a href="${R}ueber-uns/#mitarbeit">Mitarbeiten</a></li>
         <li><a href="${R}ueber-uns/jobs/">Stellenangebote</a></li>
         <li><a href="${R}blog/">Blog</a></li>
       </ul>
@@ -289,7 +291,7 @@
     });
 
     // Mark parent "Arbeitsbereiche" active when on any sub-area page
-    var areaPaths = ['rehabilitation', 'dienstleistungen', 'strassencafe', 'praevention', 'jugendhilfe'];
+    var areaPaths = ['rehabilitation', 'dienstleistungen', 'strassencafe', 'praevention', 'medien'];
     var isAreaPage = areaPaths.some(function (seg) { return currentPath.indexOf('/' + seg) !== -1; });
     if (isAreaPage) {
       var parentLink = document.querySelector('.nav-has-dropdown > a');

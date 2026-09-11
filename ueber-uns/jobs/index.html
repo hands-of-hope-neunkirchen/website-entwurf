@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Offene Stellen und Ehrenamt bei Hands of Hope: Mitarbeit in Dienstleistungen, Wohngemeinschaft, Straßencafé, Mediendesign und auf Baustellen.">
+  <title>Stellenangebote &amp; Mitarbeit – Hands of Hope</title>
+
+  <!-- <link rel="icon" href="../../assets/favicons/favicon.ico"> -->
+
+  <link rel="stylesheet" href="../../styles/main.css">
+  <link rel="stylesheet" href="../../styles/navigation.css">
+  <link rel="stylesheet" href="../../styles/layout.css">
+  <link rel="stylesheet" href="../../styles/typography.css">
+  <link rel="stylesheet" href="../../styles/sections.css">
+  <link rel="stylesheet" href="../../styles/forms.css">
+  <link rel="stylesheet" href="../../styles/gallery.css">
+  <link rel="stylesheet" href="../../styles/responsive.css">
+
+  <script src="../../scripts/includes.js" defer></script>
+  <script src="../../scripts/navigation.js" defer></script>
+  <script src="../../scripts/animations.js" defer></script>
+  <script src="../../scripts/lazyload.js" defer></script>
+
+  <style>
+    /* ── REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.revealed { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+
+    /* ── HERO ── */
+    .hero { min-height: 60vh; }
+
+    /* ── OVERVIEW CARDS (übernommen von ueber-uns/index.html) ── */
+    .stellen-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .stellen-card {
+      background: var(--white);
+      border: 1px solid rgba(5,41,55,0.08);
+      border-top: 3px solid transparent;
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-soft);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .stellen-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+    .stellen-card.vollzeit { border-top-color: var(--blue); }
+    .stellen-card.ehrenamt { border-top-color: #7f9628; }
+    .stellen-card .stype {
+      font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.72rem;
+      letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.4rem;
+    }
+    .stellen-card.vollzeit .stype { color: var(--blue); }
+    .stellen-card.ehrenamt .stype { color: #7f9628; }
+    .stellen-card .sicon { font-size: 1.6rem; margin-bottom: 0.6rem; }
+    .stellen-card h3 { font-size: 1.05rem; margin-bottom: 0.4rem; }
+    .stellen-card p { font-size: 0.85rem; color: var(--text-light); line-height: 1.6; margin-bottom: 0.85rem; }
+    .stellen-card a { font-size: 0.85rem; font-weight: 700; color: var(--blue); text-decoration: none; }
+    .stellen-card.ehrenamt a { color: #7f9628; }
+    .stellen-card a:hover { text-decoration: underline; }
+
+    /* ── DETAIL SECTIONS ── */
+    .job-detail {
+      padding: var(--section-pad-v) var(--section-pad-h);
+      border-top: 1px solid rgba(5,41,55,0.08);
+    }
+    .job-detail-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .contact-line { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.85rem; font-size: 0.9rem; }
+    .contact-line .icon { width: 20px; text-align: center; flex-shrink: 0; }
+    .contact-line a { color: var(--blue); text-decoration: none; }
+    .contact-line a:hover { text-decoration: underline; }
+    .contact-divider { height: 1px; background: rgba(5,41,55,0.08); margin: 1rem 0; }
+    .contact-box-light {
+      background: var(--light-bg);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+    }
+    .check-list { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; margin-top: 0.5rem; }
+    .check-list li { font-size: 0.9rem; color: var(--text-light); padding-left: 1.4rem; position: relative; }
+    .check-list li::before {
+      content: '✓'; position: absolute; left: 0; color: #7f9628; font-weight: 800;
+    }
+
+    @media (max-width: 900px) {
+      .stellen-grid { grid-template-columns: 1fr 1fr; }
+      .job-detail-inner { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .stellen-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER (injected by includes.js) -->
+  <div data-include="header"></div>
+  <div class="nav-spacer"></div>
+
+  <main id="main-content">
+
+    <!-- ══════════════════════════════════════════
+         HERO
+    ══════════════════════════════════════════ -->
+    <section class="hero" aria-label="Stellenangebote &amp; Mitarbeit">
+      <div class="hero-content">
+        <span class="hero-tag">Mitmachen bei Hands of Hope</span>
+        <h1>Deine <em>Mitarbeit</em> zählt</h1>
+        <p class="hero-sub">
+          Ob fest angestellt oder ehrenamtlich – hier findest du alle offenen Stellen und
+          Mitarbeitsmöglichkeiten im Überblick.
+        </p>
+        <div class="hero-actions">
+          <a href="../#fsj" class="btn btn-ghost">Praktikum, FSJ &amp; BFD →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         ÜBERSICHT
+    ══════════════════════════════════════════ -->
+    <section id="uebersicht" aria-labelledby="uebersicht-title" style="padding: var(--section-pad-v) var(--section-pad-h);">
+      <div class="section-inner">
+        <span class="section-label reveal">Alle Ausschreibungen</span>
+        <h2 class="section-title reveal reveal-delay-1" id="uebersicht-title">Wo wir gerade Unterstützung suchen</h2>
+        <div class="stellen-grid reveal reveal-delay-2">
+          <div class="stellen-card vollzeit">
+            <div class="sicon">🔨</div>
+            <div class="stype">Voll- / Teilzeit</div>
+            <h3>Dienstleistungen</h3>
+            <p>Mitarbeit in unseren handwerklichen Zweckbetrieben unter Anleitung der WG-Bewohner.</p>
+            <a href="#dienstleistungen">Zur Ausschreibung →</a>
+          </div>
+          <div class="stellen-card ehrenamt">
+            <div class="sicon">🏠</div>
+            <div class="stype">Ehrenamt</div>
+            <h3>WG – Hauswirtschaft</h3>
+            <p>Unterstützung bei hauswirtschaftlichen Tätigkeiten rund um die Wohngemeinschaft.</p>
+            <a href="#hauswirtschaft">Zur Ausschreibung →</a>
+          </div>
+          <div class="stellen-card ehrenamt">
+            <div class="sicon">☕</div>
+            <div class="stype">Ehrenamt</div>
+            <h3>Straßencafé</h3>
+            <p>Wöchentliche Mitarbeit im Straßencafé in Siegen.</p>
+            <a href="#strassencafe">Zur Ausschreibung →</a>
+          </div>
+          <div class="stellen-card ehrenamt">
+            <div class="sicon">📸</div>
+            <div class="stype">Ehrenamt</div>
+            <h3>Mediendesign &amp; -pflege</h3>
+            <p>Unterstützung digital und/oder im Print.</p>
+            <a href="#medien">Zur Ausschreibung →</a>
+          </div>
+          <div class="stellen-card ehrenamt">
+            <div class="sicon">🔧</div>
+            <div class="stype">Ehrenamt</div>
+            <h3>Baustellen</h3>
+            <p>Handwerkliche Unterstützung im Nachsorgehaus und im Haupthaus.</p>
+            <a href="#baustellen">Zur Ausschreibung →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         DIENSTLEISTUNGEN
+    ══════════════════════════════════════════ -->
+    <section class="job-detail" id="dienstleistungen" aria-labelledby="job-dienstleistungen-title">
+      <div class="job-detail-inner">
+        <div class="reveal">
+          <span style="display:inline-block;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--blue);margin-bottom:0.5rem;">Voll- / Teilzeit</span>
+          <h2 class="section-title" id="job-dienstleistungen-title">Dienstleistungen</h2>
+          <p class="section-desc">
+            Mitarbeit in unseren gemeinnützigen Arbeitsbetrieben – Garten- &amp; Landschaftsbau,
+            Forstarbeiten, Haushaltsauflösungen. Du leitest gemeinsam mit den Bewohnern der
+            Wohngruppe Aufträge fachlich an und bereitest sie auf den Berufsalltag vor.
+          </p>
+        </div>
+        <aside class="contact-box-light reveal reveal-delay-1">
+          <h3 style="margin-bottom:0.75rem;">Interesse?</h3>
+          <div class="contact-line">
+            <div class="icon">✉</div>
+            <a href="mailto:dienstleistungen@handsofhope.de">dienstleistungen@handsofhope.de</a>
+          </div>
+          <div class="contact-divider"></div>
+          <div class="contact-line">
+            <div class="icon">📍</div>
+            <div>Waldstraße 6<br>57290 Neunkirchen</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         WG – HAUSWIRTSCHAFT
+    ══════════════════════════════════════════ -->
+    <section class="job-detail" id="hauswirtschaft" aria-labelledby="job-hauswirtschaft-title">
+      <div class="job-detail-inner">
+        <div class="reveal">
+          <span style="display:inline-block;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:#7f9628;margin-bottom:0.5rem;">Ehrenamt</span>
+          <h2 class="section-title" id="job-hauswirtschaft-title">WG – Hauswirtschaft</h2>
+          <p class="section-desc">
+            Unterstützung bei hauswirtschaftlichen Tätigkeiten rund um die Wohngemeinschaft –
+            von der Küche bis zur Haushaltsorganisation. Ideal für alle, die praktisch anpacken
+            und den Bewohnern im Alltag zur Seite stehen möchten.
+          </p>
+        </div>
+        <aside class="contact-box-light reveal reveal-delay-1">
+          <h3 style="margin-bottom:0.75rem;">Interesse?</h3>
+          <div class="contact-line">
+            <div class="icon">✉</div>
+            <a href="mailto:c.mihai@handsofhope.de">c.mihai@handsofhope.de</a>
+          </div>
+          <div class="contact-divider"></div>
+          <div class="contact-line">
+            <div class="icon">📞</div>
+            <span>02735 – 65 67 10</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         STRASSENCAFÉ
+    ══════════════════════════════════════════ -->
+    <section class="job-detail" id="strassencafe" aria-labelledby="job-strassencafe-title">
+      <div class="job-detail-inner">
+        <div class="reveal">
+          <span style="display:inline-block;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:#7f9628;margin-bottom:0.5rem;">Ehrenamt</span>
+          <h2 class="section-title" id="job-strassencafe-title">Straßencafé</h2>
+          <p class="section-desc">
+            Wöchentliche Mitarbeit donnerstags im Straßencafé in Siegen – beim Empfang, in der
+            Küche oder im Gespräch mit den Gästen. Ein kurzer Kontakt reicht, wir melden uns bei dir.
+          </p>
+        </div>
+        <aside class="contact-box-light reveal reveal-delay-1">
+          <h3 style="margin-bottom:0.75rem;">Interesse?</h3>
+          <div class="contact-line">
+            <div class="icon">✉</div>
+            <a href="mailto:strassencafe@handsofhope.de">strassencafe@handsofhope.de</a>
+          </div>
+          <div class="contact-divider"></div>
+          <div class="contact-line">
+            <div class="icon">📍</div>
+            <div>Hagener Straße 78<br>57072 Siegen</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         MEDIENDESIGN & -PFLEGE
+    ══════════════════════════════════════════ -->
+    <section class="job-detail" id="medien" aria-labelledby="job-medien-title">
+      <div class="job-detail-inner">
+        <div class="reveal">
+          <span style="display:inline-block;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:#7f9628;margin-bottom:0.5rem;">Ehrenamt</span>
+          <h2 class="section-title" id="job-medien-title">Mediendesign &amp; -pflege</h2>
+          <p class="section-desc">
+            Unterstützung digital und/oder im Print – z. B. bei Fotos, Social-Media-Beiträgen,
+            Flyern oder der Pflege der Website. Bring dein Gestaltungstalent dort ein, wo es
+            am meisten bewirkt.
+          </p>
+        </div>
+        <aside class="contact-box-light reveal reveal-delay-1">
+          <h3 style="margin-bottom:0.75rem;">Interesse?</h3>
+          <div class="contact-line">
+            <div class="icon">✉</div>
+            <a href="mailto:c.mihai@handsofhope.de">c.mihai@handsofhope.de</a>
+          </div>
+          <div class="contact-divider"></div>
+          <div class="contact-line">
+            <div class="icon">📞</div>
+            <span>02735 – 65 67 10</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         BAUSTELLEN
+    ══════════════════════════════════════════ -->
+    <section class="job-detail" id="baustellen" aria-labelledby="job-baustellen-title">
+      <div class="job-detail-inner">
+        <div class="reveal">
+          <span style="display:inline-block;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:#7f9628;margin-bottom:0.5rem;">Ehrenamt</span>
+          <h2 class="section-title" id="job-baustellen-title">Baustellen</h2>
+          <p class="section-desc">
+            Handwerkliche Unterstützung im Nachsorgehaus und im Haupthaus – von kleinen
+            Reparaturen bis zu größeren Renovierungsarbeiten. Jede helfende Hand ist willkommen.
+          </p>
+        </div>
+        <aside class="contact-box-light reveal reveal-delay-1">
+          <h3 style="margin-bottom:0.75rem;">Interesse?</h3>
+          <div class="contact-line">
+            <div class="icon">✉</div>
+            <a href="mailto:c.mihai@handsofhope.de">c.mihai@handsofhope.de</a>
+          </div>
+          <div class="contact-divider"></div>
+          <div class="contact-line">
+            <div class="icon">📞</div>
+            <span>02735 – 65 67 10</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         PRAKTIKUM / FSJ / BFD – VERWEIS
+    ══════════════════════════════════════════ -->
+    <section class="job-detail" aria-label="Praktikum, FSJ und BFD">
+      <div class="section-inner reveal" style="text-align:center;">
+        <p class="section-desc" style="margin: 0 auto 1rem;">
+          Du suchst ein Pflichtpraktikum, FSJ oder BFD statt einer der obigen Stellen?
+        </p>
+        <a href="../#fsj" class="btn btn-blue">Zu Praktikum &amp; Freiwilligendienst →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER (injected by includes.js) -->
+  <div data-include="footer"></div>
+
+<script src="../../scripts/cookie-banner.js"></script>
+</body>
+</html>

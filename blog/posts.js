@@ -17,7 +17,7 @@
       badgeClass: 'badge-rehab',
       date:     '14. Mai 2025',
       author:   'Christian Brück',
-      authorRole: 'Leitung Rehabilitation',
+      authorRole: 'Leitung Wohngruppe',
       readMin:  6,
       thumb:    'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&q=80',
       thumbAlt: 'Männer sitzen zusammen am Tisch',
@@ -102,10 +102,38 @@
   function renderOverview() {
     var featuredEl = document.querySelector('[data-blog-featured]');
     var gridEl     = document.querySelector('[data-blog-grid]');
+    var filterEl   = document.querySelector('[data-blog-filter]');
     if (!featuredEl && !gridEl) return;
 
     var featured = POSTS[0];
     var rest     = POSTS.slice(1);
+
+    // ── Kategoriefilter (Story 9.2) ──
+    if (filterEl) {
+      var categories = ['Alle'];
+      rest.forEach(function (p) {
+        if (categories.indexOf(p.category) === -1) categories.push(p.category);
+      });
+
+      var activeCategory = 'Alle';
+
+      var renderFilterButtons = function () {
+        filterEl.innerHTML = categories.map(function (cat) {
+          var isActive = cat === activeCategory ? ' active' : '';
+          return '<button type="button" class="blog-filter-btn' + isActive + '" data-category="' + cat + '">' + cat + '</button>';
+        }).join('');
+
+        filterEl.querySelectorAll('.blog-filter-btn').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            activeCategory = btn.getAttribute('data-category');
+            renderFilterButtons();
+            renderGrid(activeCategory === 'Alle' ? rest : rest.filter(function (p) { return p.category === activeCategory; }));
+          });
+        });
+      };
+
+      renderFilterButtons();
+    }
 
     if (featuredEl) {
       featuredEl.innerHTML = '<div class="blog-label reveal">Aktueller Beitrag</div>'
@@ -133,9 +161,14 @@
         + '</a>';
     }
 
-    if (gridEl) {
+    function renderGrid(list) {
+      if (!gridEl) return;
+      if (!list.length) {
+        gridEl.innerHTML = '<p style="color: var(--text-light);">Keine Beiträge in dieser Kategorie.</p>';
+        return;
+      }
       var gridHtml = '';
-      rest.forEach(function (p, i) {
+      list.forEach(function (p, i) {
         var delay = i > 0 ? ' reveal-delay-' + i : '';
         gridHtml += '<a href="' + postUrl(p, 1) + '" class="post-card reveal' + delay + '">'
           + '<div class="post-photo">'
@@ -154,8 +187,10 @@
           + '</a>';
       });
       gridEl.innerHTML = gridHtml;
+      if (window.observeReveal) window.observeReveal();
     }
 
+    renderGrid(rest);
     if (window.observeReveal) window.observeReveal();
   }
 

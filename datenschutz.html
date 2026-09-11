@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Datenschutzerklärung von Hands of Hope gGmbH.">
+  <meta name="robots" content="noindex">
+  <title>Datenschutz – Hands of Hope</title>
+
+  <!-- <link rel="icon" href="assets/favicons/favicon.ico"> -->
+
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/navigation.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/typography.css">
+  <link rel="stylesheet" href="styles/sections.css">
+  <link rel="stylesheet" href="styles/forms.css">
+  <link rel="stylesheet" href="styles/gallery.css">
+  <link rel="stylesheet" href="styles/responsive.css">
+
+  <script src="scripts/includes.js" defer></script>
+  <script src="scripts/navigation.js" defer></script>
+  <script src="scripts/animations.js" defer></script>
+  <script src="scripts/lazyload.js" defer></script>
+
+  <style>
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal.revealed { opacity: 1; transform: none; }
+    .legal-section { padding: var(--section-pad-v) var(--section-pad-h); }
+    .legal-inner { max-width: 760px; margin: 0 auto; }
+    .legal-inner h2 { font-size: 1.3rem; margin: 2.25rem 0 0.75rem; color: var(--dark); }
+    .legal-inner h3 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; color: var(--dark); }
+    .legal-inner h2:first-child { margin-top: 0; }
+    .legal-inner p, .legal-inner li { font-size: 0.95rem; line-height: 1.75; color: var(--text-light); margin-bottom: 0.75rem; }
+    .legal-inner ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+    .legal-todo {
+      background: rgba(206,153,35,0.12);
+      border: 1px dashed rgba(206,153,35,0.6);
+      border-radius: var(--radius-md);
+      padding: 0.75rem 1rem;
+      font-size: 0.85rem;
+      color: #8a6b1a;
+      margin: 0.5rem 0 1.25rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div data-include="header"></div>
+  <div class="nav-spacer"></div>
+
+  <main id="main-content">
+
+    <section class="legal-section" style="padding-top: calc(var(--section-pad-v) + 2rem);">
+      <div class="legal-inner reveal">
+        <span class="section-label">Rechtliches</span>
+        <h1 class="section-title" style="margin-bottom: 2rem;">Datenschutzerklärung</h1>
+
+        <h2>1. Verantwortlicher</h2>
+        <p>Hands of Hope gGmbH</p>
+        <div class="legal-todo">
+          [TODO: vollständige Anschrift, Kontaktdaten und ggf. Datenschutzbeauftragte(n) gemäß Art. 4 Nr. 7 DSGVO
+          ergänzen – siehe auch <a href="impressum.html">Impressum</a>.]
+        </div>
+
+        <h2>2. Hosting</h2>
+        <p>
+          Diese Entwurfsversion der Website wird aktuell als statischer Prototyp betrieben. Im Rahmen des
+          geplanten Umzugs auf den neuen Produktions-Stack (Next.js/Sanity, Hosting auf Vercel) wird dieser
+          Abschnitt um die dann tatsächlich genutzten Hosting-/Auftragsverarbeiter und deren Standort ergänzt.
+        </p>
+        <div class="legal-todo">[TODO: Hosting-Anbieter, Serverstandort und AV-Vertrag nach Go-Live ergänzen]</div>
+
+        <h2>3. Cookies &amp; Einwilligung</h2>
+        <p>
+          Beim Besuch dieser Website erscheint ein Cookie-Banner, über den du entscheiden kannst, ob nur
+          technisch notwendige Cookies gesetzt werden oder ob du auch der Nutzung von Analyse-Cookies
+          zustimmst. Deine Entscheidung wird lokal in deinem Browser gespeichert und kann jederzeit über die
+          Browser-Einstellungen zurückgesetzt werden.
+        </p>
+
+        <h3>3.1 Google Analytics</h3>
+        <p>
+          Nur wenn du der Nutzung von Analyse-Cookies zustimmst, wird Google Analytics mit aktivierter
+          IP-Anonymisierung geladen, um die Nutzung der Website statistisch auszuwerten. Ohne deine
+          Einwilligung wird kein Analytics-Skript nachgeladen.
+        </p>
+        <div class="legal-todo">
+          [TODO: endgültige Analytics-Lösung final festlegen – siehe Epic 13.2 „DSGVO-konforme Analytics" im
+          Backlog; ggf. Google Analytics durch eine datenschutzfreundlichere Alternative ersetzen und
+          Auftragsverarbeitungsvertrag ergänzen.]
+        </div>
+
+        <h2>4. Kontaktformulare &amp; Anfragen</h2>
+        <p>
+          Über verschiedene Formulare und Mail-Links auf dieser Website (z. B. Kontaktformular, Anfrage zu
+          Dienstleistungen, Prävention oder Bewerbungen) kannst du uns Angaben wie Name, E-Mail-Adresse und
+          dein Anliegen übermitteln. Diese Angaben werden ausschließlich zur Bearbeitung deiner Anfrage
+          verwendet.
+        </p>
+        <div class="legal-todo">
+          [TODO: In diesem statischen Entwurf ist das Kontaktformular noch nicht an ein echtes Backend
+          angebunden (rein clientseitige Erfolgsmeldung). Diesen Abschnitt bei Anbindung eines echten
+          Formular-Backends (Epic 10) um Speicherdauer, Empfänger und Rechtsgrundlage konkretisieren.]
+        </div>
+
+        <h2>5. Newsletter</h2>
+        <div class="legal-todo">
+          [TODO: Sobald die Newsletter-Anmeldung technisch umgesetzt ist (Epic 18, Brevo), hier
+          Double-Opt-In-Verfahren, Versanddienstleister und Widerrufsmöglichkeit beschreiben.]
+        </div>
+
+        <h2>6. Deine Rechte</h2>
+        <p>Du hast jederzeit das Recht auf:</p>
+        <ul>
+          <li>Auskunft über die von uns verarbeiteten personenbezogenen Daten (Art. 15 DSGVO)</li>
+          <li>Berichtigung unrichtiger Daten (Art. 16 DSGVO)</li>
+          <li>Löschung deiner Daten (Art. 17 DSGVO)</li>
+          <li>Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
+          <li>Datenübertragbarkeit (Art. 20 DSGVO)</li>
+          <li>Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)</li>
+          <li>Beschwerde bei einer Datenschutz-Aufsichtsbehörde (Art. 77 DSGVO)</li>
+        </ul>
+
+        <p style="margin-top: 2rem; font-size: 0.85rem;">
+          <a href="impressum.html">Zum Impressum →</a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <div data-include="footer"></div>
+
+<script src="scripts/cookie-banner.js"></script>
+</body>
+</html>
