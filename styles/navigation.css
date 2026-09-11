@@ -38,9 +38,17 @@ body > nav.scrolled {
   width: auto;
 }
 
+.nav-tagline {
+  font-family: 'Mansalva', cursive;
+  font-size: 17px;
+  color: var(--blue);
+  margin-left: 0.6rem;
+  white-space: nowrap;
+}
+
 /* Fallback text logo (shown when image missing) */
 .nav-logo-text {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Figtree', sans-serif;
   font-weight: 900;
   font-size: 1.15rem;
   color: var(--dark);
@@ -64,7 +72,7 @@ body > nav.scrolled {
   align-items: center;
   height: var(--nav-height);
   padding: 0 1rem;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Figtree', sans-serif;
   font-weight: 700;
   font-size: 14px;
   color: var(--text);
@@ -100,7 +108,7 @@ body > nav.scrolled {
   background: var(--blue);
   color: var(--white);
   padding: 10px 20px;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-pill);
   font-size: 14px;
   transition: background var(--transition);
 }
@@ -142,7 +150,7 @@ body > nav.scrolled {
 .nav-dropdown li a {
   display: block;
   padding: 0.6rem 1.25rem;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Figtree', sans-serif;
   font-weight: 600;
   font-size: 13.5px;
   color: var(--text);
@@ -223,6 +231,8 @@ body > nav.scrolled {
 
   .burger { display: flex; }
 
+  .nav-tagline { display: none; }
+
   .nav-links {
     position: fixed;
     top: var(--nav-height);
@@ -266,7 +276,7 @@ body > nav.scrolled {
     text-align: center;
     padding: 12px 20px;
     border-bottom: none;
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-pill);
     width: 100%;
     box-sizing: border-box;
   }

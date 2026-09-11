@@ -53,6 +53,7 @@
 <nav id="main-nav" aria-label="Hauptnavigation">
   <a class="nav-logo" href="${R}" aria-label="Hands of Hope – Startseite">
     <img src="${R}assets/logos/handsofhope-logo.webp" alt="Hands of Hope" width="140" height="40">
+    <span class="nav-tagline">living hope.</span>
   </a>
 
   <ul class="nav-links" id="nav-links" role="list">
@@ -97,7 +98,7 @@
   <div class="footer-main">
     <div class="footer-brand">
       <a class="footer-logo-img" href="${R}" aria-label="Hands of Hope – Startseite">
-        <img src="${R}assets/logos/handsofhope_logo_schriftzug_weiss.webp" alt="Hands of Hope" width="180" loading="lazy">
+        <img src="${R}assets/logos/handsofhope_logo_schriftzug_weiss.webp" alt="Hands of Hope – living hope." width="180" loading="lazy">
       </a>
       <div class="footer-social">
         <a href="https://www.instagram.com/handsofhopesiegen/" target="_blank" rel="noopener" aria-label="Instagram">
@@ -182,8 +183,9 @@
     display: block;
   }
   .footer-tagline {
-    font-size: 13px;
-    color: rgba(255,255,255,0.4);
+    font-family: 'Mansalva', cursive;
+    font-size: 18px;
+    color: rgba(255,255,255,0.55);
     margin-bottom: 1.25rem;
   }
   .footer-social { display: flex; gap: 0.75rem; }
@@ -197,7 +199,7 @@
   }
   .footer-social a:hover { background: rgba(255,255,255,0.16); color: var(--white); }
   .footer-col h4 {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Figtree', sans-serif;
     font-weight: 700; font-size: 12px;
     letter-spacing: 0.1em; text-transform: uppercase;
     color: rgba(255,255,255,0.4);

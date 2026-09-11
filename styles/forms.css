@@ -10,7 +10,7 @@
 }
 
 .form-label {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Figtree', sans-serif;
   font-weight: 700;
   font-size: 14px;
   color: var(--dark);
@@ -62,7 +62,7 @@ textarea.form-control {
   border-radius: var(--radius-md);
   padding: 1.25rem 1.5rem;
   color: var(--green);
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Figtree', sans-serif;
   font-weight: 700;
   display: none;
 }
