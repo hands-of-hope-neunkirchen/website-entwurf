@@ -51,11 +51,18 @@
      ───────────────────────────────────────── */
 
   /* Logo je Marke – Dachmarke, Straßencafé oder Dienstleistungen.
-     Gesteuert über <body data-brand="…">. */
+     Gesteuert über <body data-brand="…">.
+
+     "anteil" ist die Logohöhe im Verhältnis zur Höhe der Kopfzeile, abgemessen
+     am Entwurf (Leiste 120px: Dachmarke mit Claim 79px, Straßencafé 58px,
+     Dienstleistungen 60px). Die Dachmarke ist höher, weil der Claim unter der
+     Flamme hängt – die Flamme selbst bleibt dadurch in allen drei Fällen
+     ähnlich groß. Dieselben Werte stehen als --logo-anteil in main.css; hier
+     dienen sie nur den width/height-Attributen gegen Layoutsprünge. */
   const LOGOS = {
-    dachmarke:        { datei: 'dachmarke-claim', alt: 'Hands of Hope – living hope.', ratio: 2949 / 546 },
-    strassencafe:     { datei: 'strassencafe',    alt: 'Straßencafé',                  ratio: 2391 / 546 },
-    dienstleistungen: { datei: 'dienstleistungen', alt: 'Hands of Hope Dienstleistungen', ratio: 2110 / 546 }
+    dachmarke:        { datei: 'dachmarke-claim',  alt: 'Hands of Hope – living hope.',     breite: 2951, hoehe: 765, anteil: 0.658 },
+    strassencafe:     { datei: 'strassencafe',     alt: 'Straßencafé',                      breite: 2668, hoehe: 546, anteil: 0.483 },
+    dienstleistungen: { datei: 'dienstleistungen', alt: 'Hands of Hope Dienstleistungen',   breite: 2679, hoehe: 556, anteil: 0.500 }
   };
 
   function marke() {
@@ -63,11 +70,13 @@
     return LOGOS[b] ? b : 'dachmarke';
   }
 
-  function logoTag(hoehe, weiss) {
+  function logoTag(basis, weiss) {
     const l = LOGOS[marke()];
     const datei = weiss ? l.datei + '-weiss' : l.datei;
+    const h = Math.round(basis * l.anteil);
+    const w = Math.round(h * l.breite / l.hoehe);
     return `<img src="${R}assets/logos/${datei}.webp" alt="${l.alt}"
-      width="${Math.round(hoehe * l.ratio)}" height="${hoehe}">`;
+      width="${w}" height="${h}">`;
   }
 
   function buildHeader() {
@@ -76,7 +85,7 @@
 
 <nav id="main-nav" aria-label="Hauptnavigation">
   <a class="nav-logo" href="${R}" aria-label="Hands of Hope – Startseite">
-    ${logoTag(52, false)}
+    ${logoTag(88, false)}
   </a>
 
   <ul class="nav-links" id="nav-links" role="list">
@@ -160,7 +169,7 @@
   <div class="footer-main">
     <div class="footer-brand">
       <a class="footer-logo-img" href="${R}" aria-label="Hands of Hope – Startseite">
-        ${logoTag(48, true)}
+        ${logoTag(100, true)}
       </a>
       <div class="footer-social">
         <a href="https://www.instagram.com/handsofhopesiegen/" target="_blank" rel="noopener" aria-label="Instagram">
@@ -240,7 +249,7 @@
     margin-bottom: 0.5rem;
   }
   .footer-logo-img img {
-    height: 48px;
+    height: calc(100px * var(--logo-anteil));
     width: auto;
     display: block;
   }
