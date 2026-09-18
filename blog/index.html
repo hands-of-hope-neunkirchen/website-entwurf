@@ -34,25 +34,10 @@
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
 
-    /* ── BLOG ACCENT TOKENS ── */
-    :root {
-      --blog:      #0c4684;
-      --blog-dark: #083672;
-      --blog-mid:  #c8d8e2;
-      --blog-dim:  rgba(12,70,132,0.1);
-    }
-
     /* ── HERO ── */
-    .hero { min-height: 100vh; }
-    .hero-content { position: relative; }
-    .hero-content::before {
-      content: ''; position: absolute; left: 0; top: 20%; bottom: 20%;
-      width: 4px; background: var(--blog); border-radius: 0 4px 4px 0;
-    }
-    .hero h1 em { color: var(--blog-mid); }
     .blog-hero-tag {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      background: rgba(206,153,35,0.18); border: 1px solid rgba(206,153,35,0.4);
+      background: rgba(206,153,35,0.18); border: 1px solid var(--brand-hell);
       color: var(--blog-mid);
       font-family: 'Nunito', sans-serif; font-weight: 700;
       font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
@@ -77,15 +62,6 @@
       transition: background 0.2s; display: inline-block;
     }
     .btn-blog-ghost:hover { background: rgba(255,255,255,0.08); }
-    .hero-visual { background: #1a1a2e; }
-    .blog-hero-badge {
-      position: absolute; bottom: 2rem; right: 2rem; z-index: 2;
-      background: var(--blog); color: var(--dark);
-      font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 13px;
-      padding: 0.7rem 1.2rem; border-radius: 12px;
-      box-shadow: 0 6px 24px rgba(5,41,55,0.3);
-      display: flex; align-items: center; gap: 0.5rem;
-    }
 
     /* ── SECTION LABELS ── */
     .blog-label {
@@ -176,7 +152,7 @@
     }
     .featured-author-avatar {
       width: 40px; height: 40px; border-radius: 50%;
-      background: var(--blog-dim); border: 2px solid rgba(206,153,35,0.4);
+      background: var(--blog-dim); border: 2px solid var(--brand-hell);
       display: flex; align-items: center; justify-content: center;
       font-size: 16px; flex-shrink: 0;
     }
@@ -240,10 +216,10 @@
       padding: 5px 11px; border-radius: 20px;
       backdrop-filter: blur(8px);
     }
-    .badge-rehab    { background: rgba(194,116,64,0.85); color: #fff; }
-    .badge-cafe     { background: rgba(71,142,154,0.85); color: #fff; }
-    .badge-prev     { background: rgba(123,91,196,0.85); color: #fff; }
-    .badge-dienst   { background: rgba(58,140,110,0.85); color: #fff; }
+    .badge-rehab    { background: var(--blau); color: #fff; }
+    .badge-cafe     { background: var(--rot); color: #fff; }
+    .badge-prev     { background: var(--blau); color: #fff; }
+    .badge-dienst   { background: var(--gruen-tief); color: #fff; }
     .badge-allg     { background: rgba(5,41,55,0.75);    color: rgba(255,255,255,0.9); }
     .post-body {
       padding: 1.75rem;
@@ -273,7 +249,7 @@
     }
     .post-author-avatar {
       width: 30px; height: 30px; border-radius: 50%;
-      background: var(--blog-dim); border: 1.5px solid rgba(206,153,35,0.3);
+      background: var(--blog-dim); border: 1.5px solid var(--brand-hell);
       display: flex; align-items: center; justify-content: center;
       font-size: 13px;
     }
@@ -309,11 +285,10 @@
 
     }
     @media (max-width: 600px) {
-      .blog-hero-badge { display: none; }
     }
   </style>
 </head>
-<body>
+<body data-brand="dachmarke">
 
   <div data-include="header"></div>
 
@@ -322,6 +297,7 @@
     <!-- HERO -->
     <section class="hero" aria-label="Blog">
       <div class="hero-content">
+        <span class="hero-tag">Aus unserer Arbeit</span>
         <span class="blog-hero-tag">Geschichten · Einblicke · Berichte</span>
         <h1>Aus dem Herz<br>unserer <em>Arbeit</em></h1>
         <p class="blog-hero-sub">Echte Geschichten von echten Menschen. Hier berichten wir von Begegnungen, Veränderungen und dem, was uns täglich antreibt.</p>
@@ -336,9 +312,7 @@
             alt="Menschen in Gemeinschaft"
             loading="eager"
           >
-          <div class="hero-photo-overlay"></div>
         </div>
-        <div class="blog-hero-badge">✍️ Neue Beiträge</div>
       </div>
     </section>
 

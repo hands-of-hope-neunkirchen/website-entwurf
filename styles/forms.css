@@ -10,7 +10,7 @@
 }
 
 .form-label {
-  font-family: 'Nunito', sans-serif;
+  font-family: var(--font-head);
   font-weight: 700;
   font-size: 14px;
   color: var(--dark);
@@ -62,7 +62,7 @@ textarea.form-control {
   border-radius: var(--radius-md);
   padding: 1.25rem 1.5rem;
   color: var(--green);
-  font-family: 'Nunito', sans-serif;
+  font-family: var(--font-head);
   font-weight: 700;
   display: none;
 }
@@ -119,3 +119,9 @@ textarea.form-control {
   text-decoration: underline;
   text-underline-offset: 2px;
 }
+
+/* Auf der Markenfläche des Newsletters */
+.newsletter .form-privacy-note { color: rgba(255,255,255,0.72); }
+.newsletter .form-privacy-note a { color: var(--white); }
+.newsletter .btn-blue { background: var(--white); color: var(--blau); }
+.newsletter .btn-blue:hover { background: var(--white); }

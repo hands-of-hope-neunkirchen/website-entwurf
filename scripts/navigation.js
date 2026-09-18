@@ -7,20 +7,8 @@
 (function () {
   'use strict';
 
-  // ── Escape closes mobile menu ──
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
-      const navLinks = document.getElementById('nav-links');
-      const burger   = document.getElementById('burger');
-      if (navLinks && navLinks.classList.contains('open')) {
-        navLinks.classList.remove('open');
-        burger && burger.classList.remove('open');
-        burger && burger.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-        burger && burger.focus();
-      }
-    }
-  });
+  // Escape und das Schließen des Menüs liegen in includes.js (initNav),
+  // damit Fokusverwaltung und Menüzustand an einer Stelle bleiben.
 
   // ── Hide nav on scroll down, reveal on scroll up ──
   (function initScrollNav() {
@@ -34,6 +22,14 @@
     function update() {
       var currentY = window.scrollY;
       var delta    = currentY - lastY;
+      var menu     = document.getElementById('nav-menu');
+
+      if (menu && menu.classList.contains('open')) {
+        nav.classList.remove('nav-hidden');
+        lastY   = currentY;
+        ticking = false;
+        return;
+      }
 
       if (currentY < THRESHOLD) {
         // Always show near the top

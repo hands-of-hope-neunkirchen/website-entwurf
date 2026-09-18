@@ -118,7 +118,7 @@ p:last-child { margin-bottom: 0; }
 }
 
 .page-header .breadcrumb {
-  font-family: 'Nunito', sans-serif;
+  font-family: var(--font-head);
   font-weight: 600;
   font-size: 12px;
   letter-spacing: 0.08em;

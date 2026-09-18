@@ -34,12 +34,6 @@
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
 
-    /* ── TEAL TOKENS ── */
-    :root {
-      --house-light: #d0eaed;
-      --house-dim:   rgba(71,142,154,0.12);
-    }
-
     /* ── BREADCRUMB ── */
     .breadcrumb {
       background: var(--light-bg);
@@ -52,53 +46,9 @@
     .breadcrumb span { margin: 0 0.5rem; opacity: 0.5; }
 
     /* ── HERO OVERRIDES ── */
-    .hero { min-height: 100vh; }
-    .hero-content { position: relative; }
-    .hero-content::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 20%; bottom: 20%;
-      width: 4px;
-      background: var(--house);
-      border-radius: 0 4px 4px 0;
-    }
 
     /* ── HERO PHOTO BLEND ── */
-    .hero-visual { background: #1a1a2e; }
     .hero-photo-wrap > img { object-position: center 60%; }
-    .hero-tag-teal {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(71,142,154,0.2);
-      border: 1px solid rgba(71,142,154,0.45);
-      color: var(--house-light);
-      font-family: 'Nunito', sans-serif;
-      font-weight: 700;
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 6px 14px;
-      border-radius: 20px;
-      margin-bottom: 1.5rem;
-      width: fit-content;
-    }
-    .hero-badge {
-      position: absolute;
-      bottom: 2rem; right: 2rem;
-      z-index: 2;
-      background: var(--house);
-      color: var(--white);
-      font-family: 'Nunito', sans-serif;
-      font-weight: 800;
-      font-size: 13px;
-      padding: 0.7rem 1.2rem;
-      border-radius: var(--radius-md);
-      box-shadow: 0 6px 24px rgba(5,41,55,0.3);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
 
     /* ── INTRO STATS ── */
     .intro-stats {
@@ -502,11 +452,10 @@
     @media (max-width: 600px) {
       .intro-stats-inner { grid-template-columns: 1fr; }
       .programm-grid { grid-template-columns: 1fr; }
-      .hero-badge { display: none; }
     }
   </style>
 </head>
-<body>
+<body data-brand="strassencafe">
 
   <!-- HEADER (injected by includes.js) -->
   <div data-include="header"></div>
@@ -524,15 +473,15 @@
     ══════════════════════════════════════════ -->
     <section class="hero" aria-label="Straßencafé">
       <div class="hero-content">
-        <span class="hero-tag-teal">Seit 2009 · Hagener Straße 78, Siegen</span>
-        <h1>Wo <em style="color: var(--house-light);">alle</em> willkommen sind – ohne Wenn und Aber</h1>
+        <span class="hero-tag">Unsere Services</span>
+        <h1>Wo <em>alle</em> willkommen sind – ohne Wenn und Aber</h1>
         <p class="hero-sub">
           Das Straßencafé ist ein Ort der offenen Tür. Jeden Donnerstag und einmal im Monat sonntags laden wir ein:
           zu einem warmen Abendessen, zur Musik, zur Begegnung – und manchmal zu einem Gottesdienst,
           der keine Vorkenntnisse braucht.
         </p>
         <div class="hero-actions">
-          <a href="#donnerstag" class="btn btn-primary" style="background: var(--house);">Straßencafé entdecken</a>
+          <a href="#donnerstag" class="btn btn-primary">Straßencafé entdecken</a>
           <a href="#gottesdienst" class="btn btn-ghost">Sonntagsgottesdienst</a>
         </div>
       </div>
@@ -541,9 +490,7 @@
         <div class="hero-photo-wrap">
           <!-- Foto: Menschen beim gemeinsamen Essen / Café-Atmosphäre → hero.jpg -->
           <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=1400&q=80" alt="Menschen beim gemeinsamen Essen im Straßencafé" loading="eager">
-          <div class="hero-photo-overlay"></div>
         </div>
-        <div class="hero-badge">☕ Donnerstags ab 17:30 Uhr</div>
       </div>
     </section>
 

@@ -54,18 +54,18 @@
     }
     .stellen-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
     .stellen-card.vollzeit { border-top-color: var(--blue); }
-    .stellen-card.ehrenamt { border-top-color: #7f9628; }
+    .stellen-card.ehrenamt { border-top-color: var(--gruen-tief); }
     .stellen-card .stype {
       font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.72rem;
       letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.4rem;
     }
     .stellen-card.vollzeit .stype { color: var(--blue); }
-    .stellen-card.ehrenamt .stype { color: #7f9628; }
+    .stellen-card.ehrenamt .stype { color: var(--gruen-tief); }
     .stellen-card .sicon { font-size: 1.6rem; margin-bottom: 0.6rem; }
     .stellen-card h3 { font-size: 1.05rem; margin-bottom: 0.4rem; }
     .stellen-card p { font-size: 0.85rem; color: var(--text-light); line-height: 1.6; margin-bottom: 0.85rem; }
     .stellen-card a { font-size: 0.85rem; font-weight: 700; color: var(--blue); text-decoration: none; }
-    .stellen-card.ehrenamt a { color: #7f9628; }
+    .stellen-card.ehrenamt a { color: var(--gruen-tief); }
     .stellen-card a:hover { text-decoration: underline; }
 
     /* ── DETAIL SECTIONS ── */
@@ -94,7 +94,7 @@
     .check-list { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; margin-top: 0.5rem; }
     .check-list li { font-size: 0.9rem; color: var(--text-light); padding-left: 1.4rem; position: relative; }
     .check-list li::before {
-      content: '✓'; position: absolute; left: 0; color: #7f9628; font-weight: 800;
+      content: '✓'; position: absolute; left: 0; color: var(--gruen-tief); font-weight: 800;
     }
 
     @media (max-width: 900px) {
@@ -106,7 +106,7 @@
     }
   </style>
 </head>
-<body>
+<body data-brand="dachmarke">
 
   <!-- HEADER (injected by includes.js) -->
   <div data-include="header"></div>
@@ -119,7 +119,7 @@
     ══════════════════════════════════════════ -->
     <section class="hero" aria-label="Stellenangebote &amp; Mitarbeit">
       <div class="hero-content">
-        <span class="hero-tag">Mitmachen bei Hands of Hope</span>
+        <span class="hero-tag">Mitarbeiten</span>
         <h1>Deine <em>Mitarbeit</em> zählt</h1>
         <p class="hero-sub">
           Ob fest angestellt oder ehrenamtlich – hier findest du alle offenen Stellen und
@@ -129,6 +129,12 @@
           <a href="../#fsj" class="btn btn-ghost">Praktikum, FSJ &amp; BFD →</a>
         </div>
       </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-photo-wrap">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80" alt="Team bei der gemeinsamen Arbeit" loading="eager">
+        </div>
+      </div>
+
     </section>
 
     <!-- ══════════════════════════════════════════
@@ -213,7 +219,7 @@
     <section class="job-detail" id="hauswirtschaft" aria-labelledby="job-hauswirtschaft-title">
       <div class="job-detail-inner">
         <div class="reveal">
-          <span style="display:inline-block;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:#7f9628;margin-bottom:0.5rem;">Ehrenamt</span>
+          <span style="display:inline-block;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--gruen-tief);margin-bottom:0.5rem;">Ehrenamt</span>
           <h2 class="section-title" id="job-hauswirtschaft-title">WG – Hauswirtschaft</h2>
           <p class="section-desc">
             Unterstützung bei hauswirtschaftlichen Tätigkeiten rund um die Wohngemeinschaft –
@@ -242,7 +248,7 @@
     <section class="job-detail" id="strassencafe" aria-labelledby="job-strassencafe-title">
       <div class="job-detail-inner">
         <div class="reveal">
-          <span style="display:inline-block;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:#7f9628;margin-bottom:0.5rem;">Ehrenamt</span>
+          <span style="display:inline-block;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--gruen-tief);margin-bottom:0.5rem;">Ehrenamt</span>
           <h2 class="section-title" id="job-strassencafe-title">Straßencafé</h2>
           <p class="section-desc">
             Wöchentliche Mitarbeit donnerstags im Straßencafé in Siegen – beim Empfang, in der
@@ -270,7 +276,7 @@
     <section class="job-detail" id="medien" aria-labelledby="job-medien-title">
       <div class="job-detail-inner">
         <div class="reveal">
-          <span style="display:inline-block;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:#7f9628;margin-bottom:0.5rem;">Ehrenamt</span>
+          <span style="display:inline-block;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--gruen-tief);margin-bottom:0.5rem;">Ehrenamt</span>
           <h2 class="section-title" id="job-medien-title">Mediendesign &amp; -pflege</h2>
           <p class="section-desc">
             Unterstützung digital und/oder im Print – z. B. bei Fotos, Social-Media-Beiträgen,
@@ -299,7 +305,7 @@
     <section class="job-detail" id="baustellen" aria-labelledby="job-baustellen-title">
       <div class="job-detail-inner">
         <div class="reveal">
-          <span style="display:inline-block;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:#7f9628;margin-bottom:0.5rem;">Ehrenamt</span>
+          <span style="display:inline-block;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--gruen-tief);margin-bottom:0.5rem;">Ehrenamt</span>
           <h2 class="section-title" id="job-baustellen-title">Baustellen</h2>
           <p class="section-desc">
             Handwerkliche Unterstützung im Nachsorgehaus und im Haupthaus – von kleinen

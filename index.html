@@ -86,9 +86,9 @@
       font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
       padding: 4px 10px; border-radius: 20px;
     }
-    .badge-rehab { background: rgba(194,116,64,0.85); color: #fff; }
-    .badge-prev  { background: rgba(123,91,196,0.85); color: #fff; }
-    .badge-cafe  { background: rgba(71,142,154,0.85); color: #fff; }
+    .badge-rehab { background: var(--blau); color: #fff; }
+    .badge-prev  { background: var(--blau); color: #fff; }
+    .badge-cafe  { background: var(--rot); color: #fff; }
     .blog-preview-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
     .blog-preview-meta { font-size: 12px; color: var(--text-light); margin-bottom: 0.6rem; }
     .blog-preview-card h3 {
@@ -110,7 +110,7 @@
     }
   </style>
 </head>
-<body>
+<body data-brand="dachmarke">
 
   <!-- HEADER (injected by includes.js) -->
   <div data-include="header"></div>
@@ -144,7 +144,6 @@
             alt="Verzeweifelter Mensch"
             loading="eager"
           >
-          <div class="hero-photo-overlay"></div>
         </div>
       </div>
     </section>
@@ -165,7 +164,7 @@
           <!-- Logo-Badge (Platzhalter) -->
           <div class="ueber-photo-badge" aria-hidden="true">
             <span style="font-family:'Nunito',sans-serif;font-weight:900;font-size:12px;color:#052937;letter-spacing:-0.02em;">
-              Hands <span style="color:#0c4684;">of Hope</span>
+              Hands <span style="color:var(--blau);">of Hope</span>
             </span>
           </div>
         </div>
@@ -210,7 +209,7 @@
                 loading="lazy"
               >
             </div>
-            <div class="bereich-icon">🏠</div>
+            <div class="bereich-icon" aria-hidden="true"></div>
             <h3>Wohngruppe</h3>
             <p>
               Unser einjähriges Programm in Neunkirchen richtet sich an Menschen, die ihr Leben nicht mehr alleine meistern können. Wir begleiten sie auf dem Weg zurück in ein selbstständiges, erfülltes Leben.
@@ -226,7 +225,7 @@
                 loading="lazy"
               >
             </div>
-            <div class="bereich-icon">🌳</div>
+            <div class="bereich-icon" aria-hidden="true"></div>
             <h3>Dienstleistungen</h3>
             <p>
               In unseren gemeinnützigen Arbeitsbetrieben – Garten- &amp; Landschaftsbau, Forstarbeiten, Haushaltsauflösungen – bereiten wir Rehabilitanden auf den Berufsalltag vor.
@@ -242,7 +241,7 @@
                 loading="lazy"
               >
             </div>
-            <div class="bereich-icon">☕</div>
+            <div class="bereich-icon" aria-hidden="true"></div>
             <h3>Straßencafé</h3>
             <p>
               Unser wöchentliches Straßencafé bringt benachteiligte Menschen durch Andacht, Musik und eine warme Mahlzeit mit Gottes Liebe in Berührung. Jeder ist willkommen.
@@ -258,7 +257,7 @@
                 loading="lazy"
               >
             </div>
-            <div class="bereich-icon">🛡</div>
+            <div class="bereich-icon" aria-hidden="true"></div>
             <h3>Prävention</h3>
             <p>
               In Schulen und Einrichtungen helfen wir Schülerinnen und Schülern, dysfunktionale Bewältigungsstrategien zu erkennen und gesunde Alternativen zu entwickeln.

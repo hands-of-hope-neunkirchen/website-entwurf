@@ -27,13 +27,6 @@
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
     .reveal.revealed { opacity: 1; transform: none; }
 
-    /* ── MEDIEN ACCENT TOKENS ── */
-    :root {
-      --medien:      #ce9923;
-      --medien-dark: #a87a18;
-      --medien-dim:  rgba(206,153,35,0.12);
-    }
-
     .hero { min-height: 55vh; }
     .hero-content::before {
       content: ''; position: absolute; left: 0; top: 20%; bottom: 20%;
@@ -131,7 +124,7 @@
     }
   </style>
 </head>
-<body>
+<body data-brand="dachmarke">
 
   <div data-include="header"></div>
   <div class="nav-spacer"></div>
@@ -143,12 +136,18 @@
     ══════════════════════════════════════════ -->
     <section class="hero" aria-label="Medien">
       <div class="hero-content">
-        <span class="hero-tag" style="color: var(--medien-dark);">Videos · Predigten · Bilder</span>
+        <span class="hero-tag">Mediathek</span>
         <h1>Einblicke, die <em>bewegen</em></h1>
         <p class="hero-sub">
           Videos, Predigten und Bildergalerien aus unserer Arbeit – gebündelt an einem Ort.
         </p>
       </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-photo-wrap">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&q=80" alt="Mikrofon bei einer Aufnahme" loading="eager">
+        </div>
+      </div>
+
     </section>
 
     <!-- ══════════════════════════════════════════

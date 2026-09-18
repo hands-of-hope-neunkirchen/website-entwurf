@@ -21,25 +21,27 @@
      ───────────────────────────────────────── */
 
   /**
-   * Returns a path prefix like "" (root), "../" (depth 1), "../../" (depth 2).
-   * Works for both file:// and http(s):// protocols.
+   * Liefert das Pfad-Präfix zur Seitenwurzel ("./", "../", "../../").
+   *
+   * Abgeleitet aus dem Stylesheet-Link der Seite: jede Seite bindet
+   * "…/styles/main.css" mit dem korrekten relativen Pfad ein. Das ist exakt –
+   * anders als ein Raten über die URL, das unter file:// (Doppelklick auf
+   * index.html) an der Verzeichnistiefe der Festplatte scheitert.
    */
   function getRootPrefix() {
+    const link = document.querySelector('link[rel="stylesheet"][href*="styles/main.css"]');
+    if (link) {
+      const href = link.getAttribute('href') || '';
+      const i = href.indexOf('styles/main.css');
+      if (i !== -1) return href.slice(0, i) || './';
+    }
+
+    // Rückfallebene, falls das Stylesheet einmal anders eingebunden wird.
     const path = window.location.pathname;
-
-    // Strip a trailing "/index.html" or any other "/*.html" filename (e.g.
-    // root-level impressum.html, datenschutz.html) before counting folder
-    // depth, then strip a trailing slash and split.
     const parts = path.replace(/\/[^/]*\.html$/, '').replace(/\/$/, '').split('/').filter(Boolean);
-
-    // On GitHub Pages the first segment is the repo name (e.g. "handsofhope").
-    // On a custom domain or local file:// the root is at depth 0.
-    // We detect GitHub Pages by checking if the origin ends with .github.io
     const isGithubPages = window.location.hostname.endsWith('.github.io');
     const depth = isGithubPages ? Math.max(0, parts.length - 1) : parts.length;
-
-    if (depth === 0) return './';
-    return '../'.repeat(depth);
+    return depth === 0 ? './' : '../'.repeat(depth);
   }
 
   const R = getRootPrefix(); // e.g.  "./"  or  "../"  or  "../../"
@@ -48,45 +50,103 @@
      2. Header HTML
      ───────────────────────────────────────── */
 
+  /* Logo je Marke – Dachmarke, Straßencafé oder Dienstleistungen.
+     Gesteuert über <body data-brand="…">. */
+  const LOGOS = {
+    dachmarke:        { datei: 'dachmarke-claim', alt: 'Hands of Hope – living hope.', ratio: 2949 / 546 },
+    strassencafe:     { datei: 'strassencafe',    alt: 'Straßencafé',                  ratio: 2391 / 546 },
+    dienstleistungen: { datei: 'dienstleistungen', alt: 'Hands of Hope Dienstleistungen', ratio: 2110 / 546 }
+  };
+
+  function marke() {
+    const b = document.body.getAttribute('data-brand');
+    return LOGOS[b] ? b : 'dachmarke';
+  }
+
+  function logoTag(hoehe, weiss) {
+    const l = LOGOS[marke()];
+    const datei = weiss ? l.datei + '-weiss' : l.datei;
+    return `<img src="${R}assets/logos/${datei}.webp" alt="${l.alt}"
+      width="${Math.round(hoehe * l.ratio)}" height="${hoehe}">`;
+  }
+
   function buildHeader() {
     return `
 <a class="skip-link" href="#main-content">Zum Inhalt springen</a>
 
 <nav id="main-nav" aria-label="Hauptnavigation">
   <a class="nav-logo" href="${R}" aria-label="Hands of Hope – Startseite">
-    <img src="${R}assets/logos/handsofhope-logo.webp" alt="Hands of Hope" width="140" height="40">
+    ${logoTag(52, false)}
   </a>
 
   <ul class="nav-links" id="nav-links" role="list">
     <li><a href="${R}ueber-uns/">Über uns</a></li>
-    <li class="nav-has-dropdown">
-      <a href="${R}#bereiche">Arbeitsbereiche</a>
-      <ul class="nav-dropdown" role="list">
-        <li><a href="${R}rehabilitation/">🏠 Wohngruppe</a></li>
-        <li><a href="${R}dienstleistungen/">🌳 Dienstleistungen</a></li>
-        <li><a href="${R}strassencafe/">☕ Straßencafé</a></li>
-        <li><a href="${R}praevention/">🛡 Prävention</a></li>
-      </ul>
-    </li>
+    <li><a href="${R}#bereiche">Arbeitsbereiche</a></li>
     <li><a href="${R}blog/">Blog</a></li>
     <li><a href="${R}medien/">Medien</a></li>
-    <li class="nav-cta">
-      <a href="${R}ueber-uns/#spenden">❤ Spenden</a>
-    </li>
   </ul>
 
-  <button
-    class="burger"
-    id="burger"
-    aria-label="Menü öffnen"
-    aria-expanded="false"
-    aria-controls="nav-links"
-  >
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-</nav>`;
+  <div class="nav-right">
+    <a class="nav-donate" href="${R}ueber-uns/#spenden">Spenden</a>
+    <button
+      class="burger"
+      id="burger"
+      aria-label="Menü öffnen"
+      aria-expanded="false"
+      aria-controls="nav-menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav-menu" id="nav-menu" aria-label="Alle Bereiche" role="dialog" aria-modal="true">
+  <div class="nav-menu-inner">
+    <div class="nav-menu-col">
+      <h2>Arbeitsbereiche</h2>
+      <ul role="list">
+        <li><a href="${R}praevention/">Prävention</a></li>
+        <li><a href="${R}rehabilitation/">Rehabilitation</a></li>
+        <li><a href="${R}rehabilitation/#nachsorgehaus">Wohngruppe</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-menu-col">
+      <h2>Eigenmarken</h2>
+      <ul role="list">
+        <li><a href="${R}strassencafe/">Straßencafé</a></li>
+        <li><a href="${R}dienstleistungen/">Dienstleistungen</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-menu-col">
+      <h2>Über uns</h2>
+      <ul role="list">
+        <li><a href="${R}ueber-uns/">Wer wir sind</a></li>
+        <li><a href="${R}ueber-uns/#team">Team</a></li>
+        <li><a href="${R}ueber-uns/#geschichte">Geschichte</a></li>
+        <li><a href="${R}ueber-uns/#mitarbeit">Mitarbeiten</a></li>
+        <li><a href="${R}ueber-uns/jobs/">Stellenangebote</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-menu-col">
+      <h2>Aktuelles</h2>
+      <ul role="list">
+        <li><a href="${R}blog/">Blog</a></li>
+        <li><a href="${R}medien/">Medien</a></li>
+        <li><a href="${R}ueber-uns/#kontaktformular">Kontakt</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-menu-cta">
+      <a class="btn btn-primary" href="${R}ueber-uns/#spenden">Jetzt spenden</a>
+      <a class="btn btn-ghost" href="${R}ueber-uns/#kontaktformular">Kontakt aufnehmen</a>
+    </div>
+  </div>
+</div>`;
   }
 
   /* ─────────────────────────────────────────
@@ -99,7 +159,7 @@
   <div class="footer-main">
     <div class="footer-brand">
       <a class="footer-logo-img" href="${R}" aria-label="Hands of Hope – Startseite">
-        <img src="${R}assets/logos/handsofhope_logo_schriftzug_weiss.webp" alt="Hands of Hope" width="180" loading="lazy">
+        ${logoTag(48, true)}
       </a>
       <div class="footer-social">
         <a href="https://www.instagram.com/handsofhopesiegen/" target="_blank" rel="noopener" aria-label="Instagram">
@@ -117,10 +177,11 @@
     <div class="footer-col">
       <h4>Arbeitsbereiche</h4>
       <ul>
-        <li><a href="${R}rehabilitation/">Wohngruppe</a></li>
-        <li><a href="${R}dienstleistungen/">Dienstleistungen</a></li>
-        <li><a href="${R}strassencafe/">Straßencafé</a></li>
         <li><a href="${R}praevention/">Prävention</a></li>
+        <li><a href="${R}rehabilitation/">Rehabilitation</a></li>
+        <li><a href="${R}rehabilitation/#nachsorgehaus">Wohngruppe</a></li>
+        <li><a href="${R}strassencafe/">Straßencafé</a></li>
+        <li><a href="${R}dienstleistungen/">Dienstleistungen</a></li>
       </ul>
     </div>
 
@@ -163,8 +224,8 @@
 
 <style>
   footer {
-    background: #0a1e28;
-    color: rgba(255,255,255,0.55);
+    background: var(--brand-dunkel);
+    color: rgba(255,255,255,0.72);
   }
   .footer-main {
     max-width: var(--max-width);
@@ -185,7 +246,7 @@
   }
   .footer-tagline {
     font-size: 13px;
-    color: rgba(255,255,255,0.4);
+    color: rgba(255,255,255,0.62);
     margin-bottom: 1.25rem;
   }
   .footer-social { display: flex; gap: 0.75rem; }
@@ -194,27 +255,27 @@
     width: 38px; height: 38px;
     border-radius: 50%;
     background: rgba(255,255,255,0.08);
-    color: rgba(255,255,255,0.55);
+    color: rgba(255,255,255,0.75);
     transition: background var(--transition), color var(--transition);
   }
   .footer-social a:hover { background: rgba(255,255,255,0.16); color: var(--white); }
   .footer-col h4 {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 700; font-size: 12px;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    color: rgba(255,255,255,0.4);
-    margin-bottom: 1rem;
+    font-family: var(--font-hand);
+    font-weight: 400; font-size: 1.25rem;
+    letter-spacing: 0; text-transform: none;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 0.9rem;
   }
   .footer-col ul { list-style: none; }
   .footer-col li { margin-bottom: 0.5rem; }
   .footer-col a {
-    font-size: 14px; color: rgba(255,255,255,0.55);
+    font-size: 14px; color: rgba(255,255,255,0.72);
     text-decoration: none; transition: color var(--transition);
   }
   .footer-col a:hover { color: var(--white); }
   .footer-col address {
     font-style: normal; font-size: 14px;
-    color: rgba(255,255,255,0.55);
+    color: rgba(255,255,255,0.72);
     margin-bottom: 0.75rem; line-height: 1.6;
   }
   .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); }
@@ -225,7 +286,7 @@
     gap: 1.5rem; flex-wrap: wrap; font-size: 13px;
   }
   .footer-links { display: flex; gap: 1.5rem; }
-  .footer-links a { color: rgba(255,255,255,0.4); text-decoration: none; transition: color var(--transition); }
+  .footer-links a { color: rgba(255,255,255,0.62); text-decoration: none; transition: color var(--transition); }
   .footer-links a:hover { color: rgba(255,255,255,0.8); }
   @media (max-width: 900px) {
     .footer-main { grid-template-columns: 1fr 1fr; gap: 2rem; padding: 3rem 2rem 2rem; }
@@ -280,55 +341,79 @@
     const currentPath = window.location.pathname;
     document.querySelectorAll('.nav-links a').forEach(function (a) {
       const href = a.getAttribute('href') || '';
+      // Anker-Links (z. B. "#bereiche") markieren keine Seite als aktiv –
+      // sonst leuchtet auf der Startseite ein Menüpunkt ohne eigene Seite.
+      if (href.indexOf('#') !== -1) return;
       try {
         const abs = new URL(href, window.location.href).pathname;
         if (abs !== '/' && currentPath.startsWith(abs) && abs.length > 1) {
-          a.classList.add('active');
-        } else if (abs === currentPath) {
           a.classList.add('active');
         }
       } catch (e) { /* ignore */ }
     });
 
-    // Mark parent "Arbeitsbereiche" active when on any sub-area page
+    // "Arbeitsbereiche" markieren, wenn eine Bereichs- oder Eigenmarken-Seite offen ist
     var areaPaths = ['rehabilitation', 'dienstleistungen', 'strassencafe', 'praevention'];
     var isAreaPage = areaPaths.some(function (seg) { return currentPath.indexOf('/' + seg) !== -1; });
     if (isAreaPage) {
-      var parentLink = document.querySelector('.nav-has-dropdown > a');
-      if (parentLink) parentLink.classList.add('active');
+      document.querySelectorAll('.nav-links a').forEach(function (a) {
+        if ((a.getAttribute('href') || '').indexOf('#bereiche') !== -1) a.classList.add('active');
+      });
     }
 
-    // ── Burger ──
+    // ── Burger + Vollbild-Menü ──
     const burger = document.getElementById('burger');
-    const navLinks = document.getElementById('nav-links');
+    const menu = document.getElementById('nav-menu');
 
-    if (burger && navLinks) {
+    if (burger && menu) {
+      var setMenu = function (offen) {
+        menu.classList.toggle('open', offen);
+        burger.classList.toggle('open', offen);
+        burger.setAttribute('aria-expanded', String(offen));
+        burger.setAttribute('aria-label', offen ? 'Menü schließen' : 'Menü öffnen');
+        document.body.style.overflow = offen ? 'hidden' : '';
+        if (offen) {
+          // Erst nach dem Sichtbarwerden fokussieren – ein Element mit
+          // visibility:hidden nimmt keinen Fokus an.
+          requestAnimationFrame(function () {
+            var ersterLink = menu.querySelector('a');
+            if (ersterLink) ersterLink.focus();
+          });
+        } else {
+          burger.focus();
+        }
+      };
+
       burger.addEventListener('click', function () {
-        const isOpen = navLinks.classList.toggle('open');
-        burger.classList.toggle('open', isOpen);
-        burger.setAttribute('aria-expanded', String(isOpen));
-        document.body.style.overflow = isOpen ? 'hidden' : '';
+        setMenu(!menu.classList.contains('open'));
       });
 
-      navLinks.querySelectorAll('a').forEach(function (a) {
-        a.addEventListener('click', function () {
-          navLinks.classList.remove('open');
-          burger.classList.remove('open');
-          burger.setAttribute('aria-expanded', 'false');
-          document.body.style.overflow = '';
-        });
+      menu.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () { setMenu(false); });
       });
 
-      document.addEventListener('click', function (e) {
-        if (navLinks.classList.contains('open') &&
-            !burger.contains(e.target) && !navLinks.contains(e.target)) {
-          navLinks.classList.remove('open');
-          burger.classList.remove('open');
-          burger.setAttribute('aria-expanded', 'false');
-          document.body.style.overflow = '';
+      document.addEventListener('keydown', function (e) {
+        if (!menu.classList.contains('open')) return;
+
+        if (e.key === 'Escape') {
+          setMenu(false);
+          return;
+        }
+
+        // Fokus im geöffneten Menü halten
+        if (e.key === 'Tab') {
+          var ziele = [burger].concat(Array.prototype.slice.call(menu.querySelectorAll('a')));
+          var erster = ziele[0];
+          var letzter = ziele[ziele.length - 1];
+          if (e.shiftKey && document.activeElement === erster) {
+            e.preventDefault();
+            letzter.focus();
+          } else if (!e.shiftKey && document.activeElement === letzter) {
+            e.preventDefault();
+            erster.focus();
+          }
         }
       });
-
     }
 
     // ── Scroll shadow ──

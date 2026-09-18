@@ -150,7 +150,7 @@
     /* ── Code-Block ── */
     .sg-code { margin-top: 0.5rem; }
     .sg-code pre {
-      background: #0a1e28;
+      background: var(--brand-dunkel);
       color: #dbe7ee;
       border-radius: var(--radius-md);
       padding: 1.25rem 1.4rem;
@@ -251,7 +251,7 @@
     }
   </style>
 </head>
-<body>
+<body data-brand="dachmarke">
 
   <!-- Echter Seitenkopf (per includes.js injiziert) – zugleich Live-Beispiel für Komponente 04 -->
   <div data-include="header"></div>
@@ -278,6 +278,7 @@
     <nav class="sg-toc" aria-label="Komponentenübersicht">
       <h2>Die 10 wichtigsten Komponenten</h2>
       <ol>
+        <li><a href="#logos">Logofamilie (Dachmarke, Eigenmarken, Flamme)</a></li>
         <li><a href="#tokens">Design Tokens (Farben, Radien, Schatten)</a></li>
         <li><a href="#typografie">Typografie</a></li>
         <li><a href="#buttons">Buttons / Call-to-Action</a></li>
@@ -293,6 +294,54 @@
 
 
     <!-- ══════════════ 01 · DESIGN TOKENS ══════════════ -->
+    <article class="sg-component" id="logos">
+      <div class="sg-head">
+        <span class="sg-num">00</span>
+        <div>
+          <h2>Logofamilie</h2>
+          <div class="sg-meta">
+            <span class="sg-tag global">Fundament</span>
+            <code>assets/logos/</code>
+            <span>Quelle: tools/build-logos.py</span>
+          </div>
+        </div>
+      </div>
+      <p class="sg-desc">
+        Alle Logos werden aus einer Quelldatei abgeleitet und sind damit in
+        Form und Abstand identisch. Neu bauen mit
+        <code>python3 tools/build-logos.py</code>. Die Wortmarke ist Nunito&nbsp;Black,
+        Claim und Arbeitsbereiche stehen in Gochi&nbsp;Hand.
+      </p>
+
+      <span class="sg-preview-label">Dachmarke und Eigenmarken</span>
+      <div class="sg-preview on-white">
+        <div style="display:flex;flex-direction:column;align-items:flex-start;gap:2rem;padding:1.5rem 0;">
+          <img src="assets/logos/dachmarke-claim.webp" alt="Hands of Hope – living hope." style="height:64px;width:auto;">
+          <img src="assets/logos/strassencafe.webp" alt="Straßencafé" style="height:64px;width:auto;">
+          <img src="assets/logos/dienstleistungen.webp" alt="Hands of Hope Dienstleistungen" style="height:64px;width:auto;">
+        </div>
+      </div>
+
+      <span class="sg-preview-label">Weiße Varianten (auf dunklem Grund)</span>
+      <div class="sg-preview">
+        <div style="background:var(--brand-dunkel);padding:2.5rem;display:flex;flex-direction:column;align-items:flex-start;gap:2rem;border-radius:var(--radius-md);">
+          <img src="assets/logos/dachmarke-claim-weiss.webp" alt="Hands of Hope – living hope., weiß" style="height:56px;width:auto;">
+          <img src="assets/logos/strassencafe-weiss.webp" alt="Straßencafé, weiß" style="height:56px;width:auto;">
+          <img src="assets/logos/dienstleistungen-weiss.webp" alt="Hands of Hope Dienstleistungen, weiß" style="height:56px;width:auto;">
+        </div>
+      </div>
+
+      <span class="sg-preview-label">Flamme einzeln</span>
+      <div class="sg-preview on-white">
+        <div style="display:flex;gap:2.5rem;align-items:center;padding:1rem 0;">
+          <img src="assets/logos/flamme-blau.webp" alt="Flamme blau" style="height:72px;width:auto;">
+          <img src="assets/logos/flamme-rot.webp" alt="Flamme rot" style="height:72px;width:auto;">
+          <img src="assets/logos/flamme-gruen.webp" alt="Flamme grün" style="height:72px;width:auto;">
+        </div>
+      </div>
+    </article>
+
+
     <article class="sg-component" id="tokens">
       <div class="sg-head">
         <span class="sg-num">01</span>
@@ -310,83 +359,64 @@
         Alle anderen Komponenten greifen ausschließlich auf diese Tokens zu – ein
         Wert wird einmal zentral geändert und wirkt überall.
       </p>
+      <p class="sg-desc">
+        <strong>Markenarchitektur:</strong> Die Dachmarke ist blau. Die Arbeitsbereiche
+        Prävention, Rehabilitation und Wohngruppe haben kein eigenes Logo und keine
+        eigene Farbe – sie laufen in der Dachmarke und werden über den
+        Handschrift-Kicker benannt. Nur die beiden Eigenmarken Straßencafé (Rot) und
+        Dienstleistungen (Grün) tragen eigene Logos und Farben. Umgeschaltet wird
+        pro Seite über <code>&lt;body data-brand="strassencafe"&gt;</code>; alle
+        Komponenten lesen danach <code>--brand</code>.
+      </p>
+      <p class="sg-desc">
+        <strong>Kontrast:</strong> Weiß auf dem reinen Markengrün erreicht nur 3,6:1.
+        Textflächen nutzen deshalb <code>--gruen-tief</code> (4,7:1); das reine
+        Markengrün bleibt Logo und Akzent vorbehalten.
+      </p>
 
       <span class="sg-preview-label">Farbpalette</span>
       <div class="sg-preview on-white">
         <div class="sg-swatches">
+          <div class="sg-swatch"><div class="chip" style="background:#094684"></div><div class="info"><span class="name">Blau · Dachmarke</span><span class="var">--blau</span><span class="hex">#094684</span></div></div>
+          <div class="sg-swatch"><div class="chip" style="background:#781e00"></div><div class="info"><span class="name">Rot · Straßencafé</span><span class="var">--rot</span><span class="hex">#781e00</span></div></div>
+          <div class="sg-swatch"><div class="chip" style="background:#009d06"></div><div class="info"><span class="name">Grün · Dienstleistungen</span><span class="var">--gruen</span><span class="hex">#009d06</span></div></div>
+          <div class="sg-swatch"><div class="chip" style="background:#00871a"></div><div class="info"><span class="name">Grün tief · Textflächen</span><span class="var">--gruen-tief</span><span class="hex">#00871a</span></div></div>
+          <div class="sg-swatch"><div class="chip" style="background:#06305c"></div><div class="info"><span class="name">Blau dunkel · Footer</span><span class="var">--blau-dunkel</span><span class="hex">#06305c</span></div></div>
           <div class="sg-swatch"><div class="chip" style="background:#052937"></div><div class="info"><span class="name">Dark</span><span class="var">--dark</span><span class="hex">#052937</span></div></div>
-          <div class="sg-swatch"><div class="chip" style="background:#0c4684"></div><div class="info"><span class="name">Blue</span><span class="var">--blue</span><span class="hex">#0c4684</span></div></div>
-          <div class="sg-swatch"><div class="chip" style="background:#c8d8e2"></div><div class="info"><span class="name">Mid-Blue</span><span class="var">--mid-blue</span><span class="hex">#c8d8e2</span></div></div>
-          <div class="sg-swatch"><div class="chip" style="background:#478e9a"></div><div class="info"><span class="name">House · Straßencafé</span><span class="var">--house</span><span class="hex">#478e9a</span></div></div>
-          <div class="sg-swatch"><div class="chip" style="background:#7f9628"></div><div class="info"><span class="name">Green · Dienstleistungen</span><span class="var">--green</span><span class="hex">#7f9628</span></div></div>
-          <div class="sg-swatch"><div class="chip" style="background:#ce9923"></div><div class="info"><span class="name">Yellow · Highlights</span><span class="var">--yellow</span><span class="hex">#ce9923</span></div></div>
-          <div class="sg-swatch"><div class="chip" style="background:#da4f38"></div><div class="info"><span class="name">Red · Prävention</span><span class="var">--red</span><span class="hex">#da4f38</span></div></div>
-          <div class="sg-swatch"><div class="chip" style="background:#e8e8e8"></div><div class="info"><span class="name">Light-BG</span><span class="var">--light-bg</span><span class="hex">#e8e8e8</span></div></div>
+          <div class="sg-swatch"><div class="chip" style="background:#f2f4f5"></div><div class="info"><span class="name">Light-BG</span><span class="var">--light-bg</span><span class="hex">#f2f4f5</span></div></div>
           <div class="sg-swatch"><div class="chip" style="background:#1a2a38"></div><div class="info"><span class="name">Text</span><span class="var">--text</span><span class="hex">#1a2a38</span></div></div>
           <div class="sg-swatch"><div class="chip" style="background:#4a5e6e"></div><div class="info"><span class="name">Text-Light</span><span class="var">--text-light</span><span class="hex">#4a5e6e</span></div></div>
-        </div>
-        <div class="sg-tokenmeta">
-          <div class="box">
-            <h4>Border-Radius</h4>
-            <ul>
-              <li><span>--radius-sm</span><span>6px</span></li>
-              <li><span>--radius-md</span><span>12px</span></li>
-              <li><span>--radius-lg</span><span>16px</span></li>
-              <li><span>--radius-xl</span><span>24px</span></li>
-            </ul>
-          </div>
-          <div class="box">
-            <h4>Schatten</h4>
-            <ul>
-              <li><span>--shadow-card</span><span>weich</span></li>
-              <li><span>--shadow-hover</span><span>mittel</span></li>
-              <li><span>--shadow-deep</span><span>tief</span></li>
-            </ul>
-          </div>
-          <div class="box">
-            <h4>Layout & Timing</h4>
-            <ul>
-              <li><span>--max-width</span><span>1100px</span></li>
-              <li><span>--section-pad-v</span><span>6rem</span></li>
-              <li><span>--section-pad-h</span><span>5rem</span></li>
-              <li><span>--nav-height</span><span>72px</span></li>
-              <li><span>--transition</span><span>0.22s ease</span></li>
-            </ul>
-          </div>
-        </div>
-        <div class="sg-shape-row">
-          <div class="sg-shape"><div class="b" style="border-radius:6px;box-shadow:var(--shadow-card)"></div>radius-sm<br>shadow-card</div>
-          <div class="sg-shape"><div class="b" style="border-radius:12px;box-shadow:var(--shadow-hover)"></div>radius-md<br>shadow-hover</div>
-          <div class="sg-shape"><div class="b" style="border-radius:16px;box-shadow:var(--shadow-deep)"></div>radius-lg<br>shadow-deep</div>
-          <div class="sg-shape"><div class="b" style="border-radius:24px;box-shadow:var(--shadow-card)"></div>radius-xl</div>
         </div>
       </div>
 
       <span class="sg-code-label">CSS-Quelle (Auszug)</span>
       <div class="sg-code"><pre><code><span class="t">:root</span> {
-  <span class="c">/* Brand Colours */</span>
-  --dark:       #052937;
-  --blue:       #0c4684;
-  --mid-blue:   #c8d8e2;
-  --house:      #478e9a;   <span class="c">/* Straßencafé */</span>
-  --green:      #7f9628;   <span class="c">/* Dienstleistungen */</span>
-  --yellow:     #ce9923;   <span class="c">/* Blog / Highlights */</span>
-  --red:        #da4f38;   <span class="c">/* Prävention */</span>
-  --light-bg:   #e8e8e8;
-  --white:      #ffffff;
-  --text:       #1a2a38;
-  --text-light: #4a5e6e;
+  <span class="c">/* Markenfarben */</span>
+  --blau:        #094684;  <span class="c">/* Dachmarke */</span>
+  --rot:         #781e00;  <span class="c">/* Straßencafé */</span>
+  --gruen:       #009d06;  <span class="c">/* Dienstleistungen (Logo, Akzent) */</span>
+  --gruen-tief:  #00871a;  <span class="c">/* Dienstleistungen (Textflächen) */</span>
+
+  <span class="c">/* Aktives Theme – von [data-brand] gesetzt */</span>
+  --brand: var(--blau);
+  --brand-flaeche: var(--blau);
+  --brand-dunkel:  var(--blau-dunkel);
+  --brand-hell:    #c8d8e2;
+  --brand-zart:    rgba(9,70,132,0.07);
+
+  <span class="c">/* Schrift */</span>
+  --font-head: 'Nunito', sans-serif;
+  --font-body: 'Nunito Sans', sans-serif;
+  --font-hand: 'Gochi Hand', cursive;
 
   --radius-sm: 6px;  --radius-md: 12px;
-  --radius-lg: 16px; --radius-xl: 24px;
+  --radius-lg: 16px; --radius-xl: 24px; --radius-pill: 999px;
 
-  --shadow-card:  0 4px 20px rgba(5,41,55,0.08);
-  --shadow-hover: 0 12px 40px rgba(5,41,55,0.14);
-  --shadow-deep:  0 20px 60px rgba(5,41,55,0.15);
+  --max-width: 1100px;  --nav-height: 88px;
+}
 
-  --max-width: 1100px;  --nav-height: 72px;
-  --transition: 0.22s ease;
-}</code></pre></div>
+<span class="t">[data-brand='strassencafe']</span> { --brand: var(--rot); … }
+<span class="t">[data-brand='dienstleistungen']</span> { --brand: var(--gruen-tief); … }</code></pre></div>
     </article>
 
 
@@ -574,10 +604,13 @@
         </div>
       </div>
       <p class="sg-desc">
-        Bildschirmhoher Einstieg: dunkler Grund, Vollflächen-Foto mit
-        Gradient-Overlay (<code>.hero-photo-overlay</code>), Eyebrow-Label
-        (<code>.hero-tag</code>), große Headline mit farblich abgesetztem
-        <code>&lt;em&gt;</code> und zwei Buttons. <em>Vorschau in der Höhe gekürzt.</em>
+        Bildschirmhoher Einstieg als 50/50-Split: links die vollflächige
+        Markenfarbe mit Handschrift-Kicker (<code>.hero-tag</code>), großer
+        weißer Headline und Pill-Buttons, rechts das Foto. <strong>Das Foto wird
+        nicht abgedunkelt</strong> – es gibt kein Overlay mehr, die Trennung
+        übernimmt die Farbfläche. Auf dem Smartphone stapelt sich der Hero:
+        Foto oben (38svh, ungedimmt), Farbfläche darunter.
+        <em>Vorschau in der Höhe gekürzt.</em>
       </p>
 
       <span class="sg-preview-label">Live</span>
@@ -596,7 +629,6 @@
             <div class="hero-visual" aria-hidden="true">
               <div class="hero-photo-wrap">
                 <img src="assets/global/hero-startseite.webp" alt="">
-                <div class="hero-photo-overlay"></div>
               </div>
             </div>
           </section>
@@ -617,7 +649,6 @@
   <span class="t">&lt;div</span> <span class="a">class=</span>"hero-visual" <span class="a">aria-hidden=</span>"true"<span class="t">&gt;</span>
     <span class="t">&lt;div</span> <span class="a">class=</span>"hero-photo-wrap"<span class="t">&gt;</span>
       <span class="t">&lt;img</span> <span class="a">src=</span>"assets/global/hero-startseite.webp" <span class="a">alt=</span>"…"<span class="t">&gt;</span>
-      <span class="t">&lt;div</span> <span class="a">class=</span>"hero-photo-overlay"<span class="t">&gt;&lt;/div&gt;</span>
     <span class="t">&lt;/div&gt;</span>
   <span class="t">&lt;/div&gt;</span>
 <span class="t">&lt;/section&gt;</span></code></pre></div>
