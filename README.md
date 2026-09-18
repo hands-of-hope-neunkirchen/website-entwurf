@@ -122,12 +122,26 @@ Alle Unsplash-Platzhalter durch eigene WebP-Bilder ersetzen:
 | Ebene | Wer | Logo | Farbe |
 |-------|-----|------|-------|
 | Dachmarke | Hands of Hope · *living hope.* | `dachmarke-claim.webp` | Blau `#094684` |
-| Arbeitsbereiche | Prävention · Rehabilitation · Wohngruppe | **kein eigenes** | Dachmarke |
+| Arbeitsbereiche | Prävention · Rehabilitation | **kein eigenes** | Dachmarke |
 | Eigenmarken | Straßencafé | `strassencafe.webp` | Rot `#781e00` |
 | Eigenmarken | Hands of Hope Dienstleistungen | `dienstleistungen.webp` | Grün `#009d06` |
 
 Die Arbeitsbereiche werden nicht über eine eigene Farbe, sondern über den
 **Handschrift-Kicker** (Gochi Hand) im Hero benannt.
+
+### Wohngruppe gehört zur Rehabilitation
+
+Die **Rehabilitation** ist der Oberbereich; die **Wohngruppe** (Waldstraße 6,
+Neunkirchen) ist die Einrichtung darin und hat einen eigenen Abschnitt
+`rehabilitation/#wohngruppe` – aber keinen eigenen Menüpunkt.
+
+Nicht verwechseln: Die Wohngruppe besteht seit Jahren und trägt das laufende
+Programm. Das **Nachsorgehaus** (`rehabilitation/#nachsorgehaus`) entsteht erst
+und richtet sich an Absolventen nach dem Programm.
+
+> Abweichung vom XD-Blatt „Markenarchitektur": Dort ist die Wohngruppe als
+> dritter Arbeitsbereich neben Prävention und Rehabilitation geführt. Fachlich
+> ist sie der Rehabilitation untergeordnet – die Website bildet das so ab.
 
 ### Farb-Tokens
 
@@ -180,5 +194,12 @@ in `tools/fonts/`.
 das Foto – **ungedimmt, ohne Overlay**. Auf dem Smartphone stapelt sich der Hero:
 Foto oben (38svh), Farbfläche darunter.
 
-Der Burger rechts in der Leiste ist auf **allen** Bildschirmgrößen sichtbar und
-öffnet ein Vollbild-Menü mit der kompletten Seitenstruktur.
+## Navigation
+
+Die Leiste führt sieben Punkte: Über uns · Rehabilitation · Prävention ·
+Dienstleistungen · Straßencafé · Blog · Medien. Unter 1100px reicht der Platz
+dafür nicht mehr – dort übernimmt das Vollbild-Menü.
+
+Der Burger rechts ist auf **allen** Bildschirmgrößen sichtbar und öffnet das
+Vollbild-Menü mit der kompletten Seitenstruktur. **Spenden** steht nicht in der
+Leiste, sondern als CTA im Vollbild-Menü und im Footer.
