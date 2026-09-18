@@ -34,14 +34,6 @@
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
 
-    /* ── PRÄVENTION ACCENT TOKENS ── */
-    :root {
-      --prev-green:      #7b5bc4;
-      --prev-green-mid:  #c0b0e8;
-      --prev-green-dark: #5a40a0;
-      --prev-green-dim:  rgba(123,91,196,0.12);
-    }
-
     /* ── BREADCRUMB ── */
     .breadcrumb {
       background: var(--light-bg);
@@ -54,21 +46,6 @@
     .breadcrumb span { margin: 0 0.5rem; opacity: 0.5; }
 
     /* ── HERO OVERRIDES ── */
-    .hero { min-height: 100vh; }
-    .hero-content { position: relative; }
-    .hero-content::before {
-      content: ''; position: absolute; left: 0; top: 20%; bottom: 20%;
-      width: 4px; background: var(--prev-green); border-radius: 0 4px 4px 0;
-    }
-    .hero h1 em { color: var(--prev-green-mid); }
-    .pv-hero-tag {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: rgba(123,91,196,0.2); border: 1px solid rgba(123,91,196,0.45);
-      color: var(--prev-green-mid);
-      font-family: 'Nunito', sans-serif; font-weight: 700;
-      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-      padding: 6px 14px; border-radius: 20px; margin-bottom: 1.5rem; width: fit-content;
-    }
     .pv-hero h1 {
       font-family: 'Nunito', sans-serif; font-weight: 800;
       font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.1;
@@ -80,33 +57,6 @@
       max-width: 440px; margin-bottom: 2.5rem; line-height: 1.75;
     }
     .pv-hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-pv-primary {
-      background: var(--prev-green); color: var(--white);
-      font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 15px;
-      padding: 14px 28px; border-radius: 8px; text-decoration: none;
-      transition: background 0.2s, transform 0.15s; display: inline-block;
-    }
-    .btn-pv-primary:hover { background: var(--prev-green-dark); transform: translateY(-1px); }
-    .btn-pv-ghost {
-      border: 1px solid rgba(255,255,255,0.35); color: var(--white);
-      font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 15px;
-      padding: 14px 28px; border-radius: 8px; text-decoration: none;
-      transition: background 0.2s; display: inline-block;
-    }
-    .btn-pv-ghost:hover { background: rgba(255,255,255,0.08); }
-    .pv-hero-visual { background: #1a1a2e; }
-    .pv-hero-visual::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to right, rgba(5,41,55,0.55) 0%, rgba(5,41,55,0.08) 100%);
-    }
-    .pv-hero-badge {
-      position: absolute; bottom: 2rem; right: 2rem; z-index: 2;
-      background: var(--prev-green); color: var(--white);
-      font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 13px;
-      padding: 0.7rem 1.2rem; border-radius: 12px;
-      box-shadow: 0 6px 24px rgba(5,41,55,0.3);
-      display: flex; align-items: center; gap: 0.5rem;
-    }
 
     /* ── STATS BAR ── */
     .pv-stats { background: var(--prev-green); padding: 3rem var(--section-pad-h); }
@@ -316,7 +266,7 @@
     .pv-info-row:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
     .pv-info-icon {
       width: 36px; height: 36px; border-radius: 8px;
-      background: rgba(123,91,196,0.22);
+      background: var(--brand-zart);
       display: flex; align-items: center; justify-content: center;
       font-size: 16px; flex-shrink: 0;
     }
@@ -356,7 +306,7 @@
     .pv-step:not(:last-child)::before {
       content: ''; position: absolute;
       left: 25px; top: 52px; width: 2px; bottom: 0;
-      background: rgba(123,91,196,0.25);
+      background: var(--brand-zart);
     }
     .pv-step-num {
       width: 44px; height: 44px; border-radius: 50%; background: var(--prev-green);
@@ -385,7 +335,7 @@
     }
     .pv-contact-line .icon {
       width: 34px; height: 34px; border-radius: 8px;
-      background: rgba(123,91,196,0.22);
+      background: var(--brand-zart);
       display: flex; align-items: center; justify-content: center;
       font-size: 15px; flex-shrink: 0;
     }
@@ -406,7 +356,7 @@
     .contact-line strong { color: var(--white); }
     .contact-icon {
       width: 34px; height: 34px; border-radius: 8px;
-      background: rgba(123,91,196,0.22);
+      background: var(--brand-zart);
       display: flex; align-items: center; justify-content: center;
       font-size: 16px; flex-shrink: 0;
     }
@@ -415,12 +365,12 @@
     .contact-divider { height: 1px; background: rgba(200,216,226,0.12); margin: 1.1rem 0; }
     .btn-pv-download {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      background: rgba(123,91,196,0.15); border: 1px solid rgba(123,91,196,0.35);
+      background: var(--brand-zart); border: 1px solid var(--brand-zart);
       color: var(--prev-green-mid); font-family: 'Nunito', sans-serif; font-weight: 700;
       font-size: 14px; padding: 12px 20px; border-radius: 8px; text-decoration: none;
       transition: background 0.2s;
     }
-    .btn-pv-download:hover { background: rgba(123,91,196,0.28); }
+    .btn-pv-download:hover { background: var(--brand-zart); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
@@ -445,11 +395,10 @@
     }
     @media (max-width: 600px) {
       .pv-stats-inner { grid-template-columns: 1fr; }
-      .pv-hero-badge { display: none; }
     }
   </style>
 </head>
-<body>
+<body data-brand="dachmarke">
 
   <div data-include="header"></div>
 
@@ -458,20 +407,18 @@
   <!-- HERO -->
   <section class="hero" aria-label="Prävention">
     <div class="hero-content">
-      <span class="pv-hero-tag">Seit 2018 · Schulen in der Region</span>
+      <span class="hero-tag">Prävention</span>
       <h1>Früh genug da sein – <em>bevor</em> die Wege steinig werden</h1>
       <p class="pv-hero-sub">Durch authentische Lebensberichte ehemaliger Betroffener begegnen wir Schülerinnen und Schülern dort, wo es zählt: an den Wurzeln. Bevor dysfunktionale Bewältigungsstrategien sich festigen, zeigen wir Alternativen – und geben Hoffnung.</p>
       <div class="pv-hero-actions">
-        <a href="#bausteine" class="btn-pv-primary">Programmbausteine</a>
-        <a href="#kontakt" class="btn-pv-ghost">Schule anfragen</a>
+        <a href="#bausteine" class="btn btn-primary">Programmbausteine</a>
+        <a href="#kontakt" class="btn btn-ghost">Schule anfragen</a>
       </div>
     </div>
     <div class="hero-visual pv-hero-visual" aria-hidden="true">
       <div class="hero-photo-wrap">
         <img src="../assets/global/karte-praevention.webp" alt="Jugendliche in Schulklasse beim Zuhören" loading="eager">
-        <div class="hero-photo-overlay"></div>
       </div>
-      <div class="pv-hero-badge">🎓 An Schulen vor Ort</div>
     </div>
   </section>
 
@@ -786,7 +733,7 @@
           <span>Waldstraße 6<br>57290 Neunkirchen</span>
         </div>
         <div class="pv-schulen-actions">
-          <a href="mailto:c.mihai@handsofhope.de" class="btn-pv-primary">Jetzt anfragen</a>
+          <a href="mailto:c.mihai@handsofhope.de" class="btn btn-primary">Jetzt anfragen</a>
           <a href="https://handsofhope.de/wp-content/uploads/2019/04/Pr%C3%A4ventionskonzept_Hands-of-Hope.pdf" class="btn-pv-download" target="_blank" rel="noopener">⬇ Präventionskonzept (PDF)</a>
         </div>
       </aside>

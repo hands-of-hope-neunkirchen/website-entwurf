@@ -35,13 +35,6 @@
     .reveal-delay-3 { transition-delay: 0.3s; }
 
     /* ── HERO OVERRIDES ── */
-    .hero { min-height: 100vh; }
-    .hero-content { position: relative; }
-    .hero-content::before {
-      content: ''; position: absolute; left: 0; top: 20%; bottom: 20%;
-      width: 4px; background: var(--blue); border-radius: 0 4px 4px 0;
-    }
-    .hero-visual { background: #1a1a2e; }
 
     /* ── BREADCRUMB ── */
     .breadcrumb {
@@ -319,7 +312,7 @@
     }
     .stellen-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
     .stellen-card.vollzeit { border-top-color: var(--blue); }
-    .stellen-card.ehrenamt { border-top-color: #7f9628; }
+    .stellen-card.ehrenamt { border-top-color: var(--gruen-tief); }
     .stellen-card .stype {
       font-family: 'Nunito', sans-serif;
       font-weight: 700;
@@ -329,7 +322,7 @@
       margin-bottom: 0.6rem;
     }
     .stellen-card.vollzeit .stype { color: var(--blue); }
-    .stellen-card.ehrenamt .stype { color: #7f9628; }
+    .stellen-card.ehrenamt .stype { color: var(--gruen-tief); }
     .stellen-card .sicon { font-size: 1.6rem; margin-bottom: 0.6rem; }
     .stellen-card h4 {
       font-family: 'Nunito', sans-serif;
@@ -346,7 +339,7 @@
       color: var(--blue);
       text-decoration: none;
     }
-    .stellen-card.ehrenamt a { color: #7f9628; }
+    .stellen-card.ehrenamt a { color: var(--gruen-tief); }
     .stellen-card a:hover { text-decoration: underline; }
 
     /* ── Praktikum & FSJ combined grid ── */
@@ -633,7 +626,7 @@
     }
   </style>
 </head>
-<body>
+<body data-brand="dachmarke">
 
   <!-- HEADER (injected by includes.js) -->
   <div data-include="header"></div>
@@ -651,7 +644,7 @@
     ══════════════════════════════════════════ -->
     <section class="hero" aria-label="Über uns">
       <div class="hero-content">
-        <span class="hero-tag">Seit 2002 · Neunkirchen &amp; Siegen</span>
+        <span class="hero-tag">Über uns</span>
         <h1>Wir glauben daran, dass <em>Gott Leben erneuert</em></h1>
         <p class="hero-sub">
           Hands of Hope ist eine christliche Sozialeinrichtung, die Menschen in Not begleitet –
@@ -667,7 +660,6 @@
         <div class="hero-photo-wrap">
           <!-- Foto: Teamfoto / Gebäude / Gemeinschaft → hero.jpg -->
           <img src="hero.webp" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80'" alt="Team von Hands of Hope" loading="eager">
-          <div class="hero-photo-overlay"></div>
         </div>
       </div>
     </section>

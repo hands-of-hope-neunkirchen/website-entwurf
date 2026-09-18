@@ -23,13 +23,6 @@
   <script src="../scripts/lazyload.js" defer></script>
 
   <style>
-    /* ── REHAB ACCENT TOKENS ── */
-    :root {
-      --rehab:      #c27440;
-      --rehab-mid:  #e8b88a;
-      --rehab-dim:  rgba(194,116,64,0.12);
-      --rehab-dark: #9a5b30;
-    }
 
     .reveal {
       opacity: 0;
@@ -45,15 +38,8 @@
     .reveal-delay-3 { transition-delay: 0.3s; }
 
     /* ── HERO ACCENT BAR ── */
-    .hero { min-height: 100vh; }
-    .hero-content { position: relative; }
-    .hero-content::before {
-      content: ''; position: absolute; left: 0; top: 20%; bottom: 20%;
-      width: 4px; background: var(--rehab); border-radius: 0 4px 4px 0;
-    }
 
     /* ── HERO PHOTO BLEND ── */
-    .hero-visual { background: #1a1a2e; }
 
     /* ── STATS ── */
     .reha-stats {
@@ -478,7 +464,7 @@
     }
   </style>
 </head>
-<body>
+<body data-brand="dachmarke">
 
   <!-- HEADER (injected by includes.js – enthält bereits den Skip-Link) -->
   <div data-include="header"></div>
@@ -492,7 +478,7 @@
     ══════════════════════════════════════════ -->
     <section class="hero" aria-label="Wohngruppe">
       <div class="hero-content">
-        <span class="hero-tag">Seit 2002 · Neunkirchen</span>
+        <span class="hero-tag">Rehabilitation</span>
         <h1>Ein solides Leben <em>wieder aufbauen</em></h1>
         <p class="hero-sub">
           Unser einjähriges Rehabilitationsprogramm begleitet Menschen, die durch Sucht, Straffälligkeit oder psychosoziale Krisen an den Rand der Gesellschaft geraten sind – auf dem Weg zurück in ein eigenständiges, erfülltes Leben.
@@ -510,7 +496,6 @@
             alt="Gemeinschaft bei Hands of Hope"
             loading="eager"
           >
-          <div class="hero-photo-overlay"></div>
         </div>
       </div>
     </section>

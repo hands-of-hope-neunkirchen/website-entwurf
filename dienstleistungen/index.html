@@ -34,25 +34,9 @@
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
 
-    /* ── DIENSTLEISTUNGEN ACCENT TOKENS ── */
-    :root {
-      --green:       #3a8c6e;
-      --green-light: #d8f0e8;
-      --green-mid:   #82c5a8;
-      --green-dark:  #2a6b53;
-      --green-dim:   rgba(58,140,110,0.12);
-    }
-
     /* ── HERO ACCENT BAR ── */
-    .hero { min-height: 100vh; }
-    .hero-content { position: relative; }
-    .hero-content::before {
-      content: ''; position: absolute; left: 0; top: 20%; bottom: 20%;
-      width: 4px; background: var(--green); border-radius: 0 4px 4px 0;
-    }
 
     /* ── HERO PHOTO BLEND ── */
-    .hero-visual { background: #1a1a2e; }
 
     /* ── BREADCRUMB ── */
     .breadcrumb {
@@ -66,21 +50,6 @@
     .breadcrumb span { margin: 0 0.5rem; opacity: 0.5; }
 
     /* ── HERO TAG – grün ── */
-    .hero-tag-green {
-      display: inline-block;
-      background: rgba(127,150,40,0.2);
-      border: 1px solid rgba(127,150,40,0.4);
-      color: var(--green-mid);
-      font-family: 'Nunito', sans-serif;
-      font-weight: 700;
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 6px 14px;
-      border-radius: 20px;
-      margin-bottom: 1.5rem;
-      width: fit-content;
-    }
 
     /* ── VORTEILE STRIP ── */
     .vorteile-strip {
@@ -369,7 +338,7 @@
     }
   </style>
 </head>
-<body>
+<body data-brand="dienstleistungen">
 
   <!-- HEADER (injected by includes.js) -->
   <div data-include="header"></div>
@@ -387,14 +356,14 @@
     ══════════════════════════════════════════ -->
     <section class="hero" aria-label="Dienstleistungen">
       <div class="hero-content">
-        <span class="hero-tag-green">Gemeinnützig · Professionell · Siegerland</span>
-        <h1>Der richtige Partner für <em style="color: var(--green-mid);">Ihr Projekt</em></h1>
+        <span class="hero-tag">Unsere Services</span>
+        <h1>Der richtige Partner für <em>Ihr Projekt</em></h1>
         <p class="hero-sub">
           Unsere gemeinnützigen Arbeitsbetriebe bieten fachmännische Handwerks- und Gartenleistungen –
           ausgeführt von erfahrenen Fachkräften, die Rehabilitanden auf dem Weg in den Berufsalltag anleiten.
         </p>
         <div class="hero-actions">
-          <a href="#kontakt" class="btn btn-primary" style="background: var(--green);">Anfrage stellen</a>
+          <a href="#kontakt" class="btn btn-primary">Anfrage stellen</a>
           <a href="#leistungen" class="btn btn-ghost">Leistungsübersicht</a>
         </div>
       </div>
@@ -407,7 +376,6 @@
             alt="Gemeinnützige Arbeit bei Hands of Hope"
             loading="eager"
           >
-          <div class="hero-photo-overlay"></div>
         </div>
       </div>
     </section>

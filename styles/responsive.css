@@ -22,14 +22,25 @@
   .grid-3 { grid-template-columns: 1fr 1fr; }
   .grid-4 { grid-template-columns: 1fr 1fr; }
 
-  /* Hero – mobile padding and overlay direction */
+  /* Hero – gestapelt: Foto oben (ungedimmt), Farbfläche darunter.
+     Keine feste Bildschirmhöhe, sonst entsteht unter dem Text Leerraum. */
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+  .hero-visual {
+    grid-column: 1;
+    order: -1;
+    height: 38svh;
+    min-height: 240px;
+  }
   .hero-content {
-    padding: clamp(4rem, 10svh, 6rem) 1.5rem clamp(3rem, 8svh, 5rem) 1.5rem;
+    grid-column: 1;
+    padding: 2.75rem 1.75rem 3.25rem;
     max-width: 100%;
   }
-  .hero-photo-overlay {
-    background: linear-gradient(to bottom, rgba(5,41,55,0.45) 0%, rgba(5,41,55,0.85) 70%);
-  }
+  .hero h1 { max-width: 100%; }
+  .hero-sub { max-width: 100%; }
 
   /* Bereiche */
   .bereiche-grid { grid-template-columns: 1fr; }
