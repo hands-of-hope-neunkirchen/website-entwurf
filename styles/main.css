@@ -10,8 +10,9 @@
 :root {
   /* ── MARKENFARBEN (Markenarchitektur) ──
      Dachmarke Blau · Eigenmarken Straßencafé Rot und Dienstleistungen Grün.
-     Arbeitsbereiche (Prävention, Rehabilitation, Wohngruppe) tragen kein
-     eigenes Logo und keine eigene Farbe – sie laufen in der Dachmarke. */
+     Die Arbeitsbereiche Prävention und Rehabilitation tragen kein eigenes
+     Logo und keine eigene Farbe – sie laufen in der Dachmarke.
+     Die Wohngruppe ist Teil der Rehabilitation, kein eigener Bereich. */
   --blau:        #094684;
   --blau-dunkel: #06305c;
   --rot:         #781e00;

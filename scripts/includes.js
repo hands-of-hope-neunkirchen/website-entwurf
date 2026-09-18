@@ -81,13 +81,15 @@
 
   <ul class="nav-links" id="nav-links" role="list">
     <li><a href="${R}ueber-uns/">Über uns</a></li>
-    <li><a href="${R}#bereiche">Arbeitsbereiche</a></li>
+    <li><a href="${R}rehabilitation/">Rehabilitation</a></li>
+    <li><a href="${R}praevention/">Prävention</a></li>
+    <li><a href="${R}dienstleistungen/">Dienstleistungen</a></li>
+    <li><a href="${R}strassencafe/">Straßencafé</a></li>
     <li><a href="${R}blog/">Blog</a></li>
     <li><a href="${R}medien/">Medien</a></li>
   </ul>
 
   <div class="nav-right">
-    <a class="nav-donate" href="${R}ueber-uns/#spenden">Spenden</a>
     <button
       class="burger"
       id="burger"
@@ -109,7 +111,6 @@
       <ul role="list">
         <li><a href="${R}praevention/">Prävention</a></li>
         <li><a href="${R}rehabilitation/">Rehabilitation</a></li>
-        <li><a href="${R}rehabilitation/#nachsorgehaus">Wohngruppe</a></li>
       </ul>
     </div>
 
@@ -179,7 +180,6 @@
       <ul>
         <li><a href="${R}praevention/">Prävention</a></li>
         <li><a href="${R}rehabilitation/">Rehabilitation</a></li>
-        <li><a href="${R}rehabilitation/#nachsorgehaus">Wohngruppe</a></li>
         <li><a href="${R}strassencafe/">Straßencafé</a></li>
         <li><a href="${R}dienstleistungen/">Dienstleistungen</a></li>
       </ul>
@@ -351,15 +351,6 @@
         }
       } catch (e) { /* ignore */ }
     });
-
-    // "Arbeitsbereiche" markieren, wenn eine Bereichs- oder Eigenmarken-Seite offen ist
-    var areaPaths = ['rehabilitation', 'dienstleistungen', 'strassencafe', 'praevention'];
-    var isAreaPage = areaPaths.some(function (seg) { return currentPath.indexOf('/' + seg) !== -1; });
-    if (isAreaPage) {
-      document.querySelectorAll('.nav-links a').forEach(function (a) {
-        if ((a.getAttribute('href') || '').indexOf('#bereiche') !== -1) a.classList.add('active');
-      });
-    }
 
     // ── Burger + Vollbild-Menü ──
     const burger = document.getElementById('burger');
