@@ -36,7 +36,7 @@ body > nav.scrolled {
 }
 
 .nav-logo img {
-  height: 52px;
+  height: calc(var(--nav-height) * var(--logo-anteil));
   width: auto;
 }
 
@@ -211,5 +211,5 @@ body > nav.scrolled {
 
   .nav-links { display: none; }
 
-  .nav-logo img { height: 42px; }
+  .nav-logo img { height: calc(72px * var(--logo-anteil)); }
 }

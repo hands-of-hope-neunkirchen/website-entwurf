@@ -85,16 +85,49 @@ def save(img, name):
     print(f"  {path.relative_to(ROOT)}  {img.width}x{img.height}  {path.stat().st_size // 1024} KB")
 
 
+# Geometrie der Sperrungen, abgemessen am Markenarchitektur-Blatt des Entwurfs.
+# Alle Werte als Faktor der Flammenhöhe (H) bzw. Flammenbreite (B) – dadurch
+# auflösungsunabhängig und gegen die Vorlage nachrechenbar.
+#
+# Der Unterschied ist beabsichtigt: Bei den Eigenmarken sitzt der Schriftzug
+# mittig auf der Flamme, bei der Dachmarke nur die Wortmarke – der Claim hängt
+# darunter und ragt unter die Flamme hinaus.
+MASSE = {
+    "dachmarke": {
+        "abstand": 0.426,        # × B, Flamme → Schrift
+        "wortmarke_mitte": 0.06,  # × H, Versalkasten unter der Flammenmitte
+        "claim_hoehe": 0.451,     # × H
+        "claim_abstand": 0.079,   # × Versalhöhe, unter der Wortmarken-Unterkante
+    },
+    "strassencafe": {
+        "abstand": 0.323,
+        "schrift_hoehe": 0.530,   # × H
+        "mitte": 0.018,           # × H, Versatz unter der Flammenmitte
+    },
+    "dienstleistungen": {
+        "abstand": 0.548,
+        "zeile1_hoehe": 0.476,    # × H
+        "zeile2_hoehe": 0.415,    # × H
+        "mitte": 0.049,
+    },
+}
+
+
 def main():
     src = Image.open(SRC).convert("RGBA")
 
     flame = src.crop(mask_bbox(src, (0, 0, SPLIT_X, src.height)))
     word = src.crop(mask_bbox(src, (SPLIT_X, 0, src.width, src.height)))
+    FH, FB = flame.height, flame.width
 
-    # Versalhöhe aus dem "H" der Wortmarke – Bezugsmaß für alle gesetzten Zeilen.
-    cap_h = mask_bbox(src, (752, 0, 976, src.height))[3] - mask_bbox(src, (752, 0, 976, src.height))[1]
-    gap = round(flame.width * 0.42)          # Abstand Flamme ↔ Schrift wie im Original
-    print(f"Flamme {flame.width}x{flame.height} · Wortmarke {word.width}x{word.height} · Versalhöhe {cap_h}")
+    # Versalkasten der Wortmarke aus dem "H" – Bezugsmaß für die Dachmarke.
+    h_box = mask_bbox(src, (752, 0, 976, src.height))
+    cap_h = h_box[3] - h_box[1]
+    word_box = mask_bbox(src, (SPLIT_X, 0, src.width, src.height))
+    # Wie weit der Versalkasten innerhalb der Wortmarken-Grafik oben beginnt
+    cap_offset = h_box[1] - word_box[1]
+
+    print(f"Flamme {FB}x{FH} · Wortmarke {word.width}x{word.height} · Versalhöhe {cap_h}")
 
     nunito_black = FONTS / "Nunito_wght_900.ttf"
     nunito_semi = FONTS / "Nunito_wght_600.ttf"
@@ -104,46 +137,60 @@ def main():
     for name, col in [("blau", BLAU), ("rot", ROT), ("gruen", GRUEN), ("weiss", WEISS)]:
         save(tint(flame, col), f"flamme-{name}")
 
+    # ── Dachmarke ──
+    # Der Versalkasten sitzt auf der Flammenmitte, leicht nach unten versetzt.
+    m = MASSE["dachmarke"]
+    abstand = round(FB * m["abstand"])
+    wort_oben = round(FH / 2 + FH * m["wortmarke_mitte"] - cap_h / 2 - cap_offset)
+
     print("\nDachmarke:")
     for name, col in [("", BLAU), ("-weiss", WEISS)]:
         f, w = tint(flame, col), tint(word, col)
-        y = (max(f.height, w.height) - w.height) // 2
-        save(compose([(f, 0, 0), (w, f.width + gap, y)]), f"dachmarke{name}")
+        save(compose([(f, 0, 0), (w, FB + abstand, wort_oben)]), f"dachmarke{name}")
 
     print("\nDachmarke mit Claim:")
-    claim_font = fit_font(hand, "living hope.", round(cap_h * 0.52))
+    claim_font = fit_font(hand, "living hope.", round(FH * m["claim_hoehe"]))
+    claim_luft = round(cap_h * m["claim_abstand"])
     for name, col in [("", BLAU), ("-weiss", WEISS)]:
         f, w = tint(flame, col), tint(word, col)
         claim = text_layer("living hope.", claim_font, col)
-        block_h = w.height + round(cap_h * 0.30) + claim.height
-        top = (f.height - block_h) // 2
         save(compose([
             (f, 0, 0),
-            (w, f.width + gap, top),
-            (claim, f.width + gap + w.width - claim.width, top + w.height + round(cap_h * 0.30)),
+            (w, FB + abstand, wort_oben),
+            (claim, FB + abstand + w.width - claim.width, wort_oben + w.height + claim_luft),
         ]), f"dachmarke-claim{name}")
 
+    # ── Straßencafé ──
+    m = MASSE["strassencafe"]
+    abstand = round(FB * m["abstand"])
+    cafe_font = fit_font(nunito_black, "Straßencafé", round(FH * m["schrift_hoehe"]))
+
     print("\nStraßencafé:")
-    cafe_font = fit_font(nunito_black, "Straßencafé", cap_h)
     for name, col in [("", ROT), ("-weiss", WEISS)]:
         f = tint(flame, col)
         t = text_layer("Straßencafé", cafe_font, col)
-        save(compose([(f, 0, 0), (t, f.width + gap, (f.height - t.height) // 2)]), f"strassencafe{name}")
+        oben = round(FH / 2 + FH * m["mitte"] - t.height / 2)
+        save(compose([(f, 0, 0), (t, FB + abstand, oben)]), f"strassencafe{name}")
+
+    # ── Dienstleistungen ──
+    # Zwei unterschiedlich große Zeilen wie in der Vorlage.
+    m = MASSE["dienstleistungen"]
+    abstand = round(FB * m["abstand"])
+    line1_font = fit_font(nunito_black, "Hands of Hope", round(FH * m["zeile1_hoehe"]))
+    line2_font = fit_font(nunito_semi, "Dienstleistungen", round(FH * m["zeile2_hoehe"]))
 
     print("\nDienstleistungen:")
-    line1_font = fit_font(nunito_black, "Hands of Hope", round(cap_h * 0.74))
-    line2_font = fit_font(nunito_semi, "Dienstleistungen", round(cap_h * 0.74))
     for name, col in [("", GRUEN), ("-weiss", WEISS)]:
         f = tint(flame, col)
         l1 = text_layer("Hands of Hope", line1_font, col)
         l2 = text_layer("Dienstleistungen", line2_font, col)
-        lead = round(cap_h * 0.34)
+        lead = round(cap_h * 0.10)
         block_h = l1.height + lead + l2.height
-        top = (f.height - block_h) // 2
+        oben = round(FH / 2 + FH * m["mitte"] - block_h / 2)
         save(compose([
             (f, 0, 0),
-            (l1, f.width + gap, top),
-            (l2, f.width + gap, top + l1.height + lead),
+            (l1, FB + abstand, oben),
+            (l2, FB + abstand, oben + l1.height + lead),
         ]), f"dienstleistungen{name}")
 
     print("\nFavicon:")

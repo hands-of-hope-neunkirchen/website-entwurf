@@ -46,17 +46,6 @@
     .breadcrumb span { margin: 0 0.5rem; opacity: 0.5; }
 
     /* ── HERO OVERRIDES ── */
-    .pv-hero h1 {
-      font-family: 'Nunito', sans-serif; font-weight: 800;
-      font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.1;
-      margin-bottom: 1.5rem; color: var(--white);
-    }
-    .pv-hero h1 em { font-style: normal; color: var(--prev-green-mid); }
-    .pv-hero-sub {
-      font-size: 1.05rem; color: rgba(255,255,255,0.72);
-      max-width: 440px; margin-bottom: 2.5rem; line-height: 1.75;
-    }
-    .pv-hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 
     /* ── STATS BAR ── */
     .pv-stats { background: var(--prev-green); padding: 3rem var(--section-pad-h); }
@@ -72,20 +61,6 @@
     .pv-stat-label { font-size: 0.88rem; color: rgba(255,255,255,0.78); line-height: 1.5; }
 
     /* ── SECTION LABELS ── */
-    .pv-label {
-      font-family: 'Nunito', sans-serif; font-weight: 800;
-      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--prev-green); margin-bottom: 1rem;
-    }
-    .pv-title {
-      font-family: 'Nunito', sans-serif; font-weight: 800;
-      font-size: clamp(1.8rem, 3vw, 2.4rem); color: var(--dark);
-      line-height: 1.15; margin-bottom: 1.25rem;
-    }
-    .pv-desc {
-      font-size: 1.05rem; color: var(--text-light);
-      max-width: 620px; line-height: 1.75; margin-bottom: 3rem;
-    }
 
     /* ── EINLEITUNG ── */
     .pv-einleitung {
@@ -227,9 +202,9 @@
       max-width: var(--max-width); margin: 0 auto; position: relative; z-index: 1;
       display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
     }
-    .pv-methodik .pv-label { color: var(--prev-green-mid); }
-    .pv-methodik .pv-title { color: var(--white); }
-    .pv-methodik .pv-desc { color: rgba(255,255,255,0.68); margin-bottom: 2rem; }
+    .pv-methodik .section-label { color: var(--brand-hell); }
+    .pv-methodik .section-title { color: var(--white); }
+    .pv-methodik .section-desc { color: rgba(255,255,255,0.78); margin-bottom: 2rem; }
     .pv-feats { display: flex; flex-direction: column; gap: 1.1rem; }
     .pv-feat {
       display: flex; align-items: flex-start; gap: 1rem;
@@ -295,9 +270,9 @@
       max-width: var(--max-width); margin: 0 auto;
       display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
     }
-    .pv-schulen .pv-label { color: var(--prev-green-mid); }
-    .pv-schulen .pv-title { color: var(--white); }
-    .pv-schulen .pv-desc { color: rgba(255,255,255,0.72); }
+    .pv-schulen .section-label { color: var(--brand-hell); }
+    .pv-schulen .section-title { color: var(--white); }
+    .pv-schulen .section-desc { color: rgba(255,255,255,0.78); }
     .pv-steps { display: flex; flex-direction: column; gap: 0; margin-bottom: 2.5rem; }
     .pv-step {
       display: grid; grid-template-columns: 52px 1fr;
@@ -374,9 +349,6 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
-      .pv-hero { grid-template-columns: 1fr; }
-      .pv-hero-content { padding: 3.5rem 2rem; }
-      .pv-hero-content::before { display: none; }
 
       .pv-stats { padding: 2.5rem 2rem; }
       .pv-stats-inner { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
@@ -401,6 +373,7 @@
 <body data-brand="dachmarke">
 
   <div data-include="header"></div>
+  <div class="nav-spacer"></div>
 
   <main id="main-content">
 
@@ -409,8 +382,8 @@
     <div class="hero-content">
       <span class="hero-tag">Prävention</span>
       <h1>Früh genug da sein – <em>bevor</em> die Wege steinig werden</h1>
-      <p class="pv-hero-sub">Durch authentische Lebensberichte ehemaliger Betroffener begegnen wir Schülerinnen und Schülern dort, wo es zählt: an den Wurzeln. Bevor dysfunktionale Bewältigungsstrategien sich festigen, zeigen wir Alternativen – und geben Hoffnung.</p>
-      <div class="pv-hero-actions">
+      <p class="hero-sub">Durch authentische Lebensberichte ehemaliger Betroffener begegnen wir Schülerinnen und Schülern dort, wo es zählt: an den Wurzeln. Bevor dysfunktionale Bewältigungsstrategien sich festigen, zeigen wir Alternativen – und geben Hoffnung.</p>
+      <div class="hero-actions">
         <a href="#bausteine" class="btn btn-primary">Programmbausteine</a>
         <a href="#kontakt" class="btn btn-ghost">Schule anfragen</a>
       </div>
@@ -452,8 +425,8 @@
         <div class="pv-photo-badge">🌱 Prävention statt Reaktion</div>
       </div>
       <div class="reveal reveal-delay-1">
-        <p class="pv-label">Warum Prävention</p>
-        <h2 class="pv-title">Was Rehabilitation und Straßencafé uns gelehrt haben</h2>
+        <p class="section-label">Warum Prävention</p>
+        <h2 class="section-title">Was Rehabilitation und Straßencafé uns gelehrt haben</h2>
         <div class="pv-einleitung-text">
           <p>Durch unsere jahrelange Rehabilitations- und Straßencaféarbeit wurde uns früh bewusst: Es ist ein <strong>langer, intensiver Prozess</strong>, Menschen aus tiefen Verstrickungen wieder in ein stabiles, eigenständiges Leben zu begleiten. Dieses Wissen hat uns angetrieben.</p>
           <p>Uns lag es deshalb am Herzen, <strong>frühzeitig</strong> vor den Gefahren zu warnen und präventiv ein befreites, erfülltes Leben zu fördern. 2018 öffneten sich die ersten Türen an Schulen – und was wir dort erlebten, hat uns bestärkt: eine große Offenheit der Jugendlichen und zugleich eine weitreichende seelische Not, die vielen nicht anzusehen ist.</p>
@@ -469,9 +442,9 @@
   <!-- KONZEPT / ANSATZ & ZIELE -->
   <div class="pv-konzept">
     <div class="pv-konzept-inner">
-      <p class="pv-label reveal">Unser Ansatz</p>
-      <h2 class="pv-title reveal">Die Wurzeln anpacken – nicht nur die Symptome</h2>
-      <p class="pv-desc reveal">Kinder und Jugendliche kommen in der Sekundarstufe auf ihrer Identitätssuche mit vielerlei Herausforderungen in Berührung. Was von außen als Problemverhalten sichtbar wird, ist in der Regel in viel tiefer liegenden Ursachen verwurzelt.</p>
+      <p class="section-label reveal">Unser Ansatz</p>
+      <h2 class="section-title reveal">Die Wurzeln anpacken – nicht nur die Symptome</h2>
+      <p class="section-desc reveal">Kinder und Jugendliche kommen in der Sekundarstufe auf ihrer Identitätssuche mit vielerlei Herausforderungen in Berührung. Was von außen als Problemverhalten sichtbar wird, ist in der Regel in viel tiefer liegenden Ursachen verwurzelt.</p>
 
       <div class="pv-konzept-grid">
         <div class="pv-block reveal">
@@ -519,9 +492,9 @@
   <!-- PROGRAMMBAUSTEINE -->
   <div class="pv-bausteine" id="bausteine">
     <div class="pv-bausteine-inner">
-      <p class="pv-label reveal">Das Programm</p>
-      <h2 class="pv-title reveal">Drei Bausteine – abgestimmt und aufbauend</h2>
-      <p class="pv-desc reveal">Unser Programm umfasst drei ineinandergreifende Elemente: von der Erstbegegnung in der Klasse bis zur persönlichen Nachbegleitung über die Schule hinaus.</p>
+      <p class="section-label reveal">Das Programm</p>
+      <h2 class="section-title reveal">Drei Bausteine – abgestimmt und aufbauend</h2>
+      <p class="section-desc reveal">Unser Programm umfasst drei ineinandergreifende Elemente: von der Erstbegegnung in der Klasse bis zur persönlichen Nachbegleitung über die Schule hinaus.</p>
 
       <div class="pv-bausteine-grid">
 
@@ -593,9 +566,9 @@
   <div class="pv-methodik">
     <div class="pv-methodik-inner">
       <div class="reveal">
-        <p class="pv-label">Was uns besonders macht</p>
-        <h2 class="pv-title">Nicht Theorie – sondern gelebte Erfahrung</h2>
-        <p class="pv-desc">Der Kern unserer Methode ist die Authentizität: Menschen, die selbst durch die Tiefe gegangen sind, sprechen zu Jugendlichen auf Augenhöhe. Das erzeugt eine Resonanz, die kein Lehrbuch erreicht.</p>
+        <p class="section-label">Was uns besonders macht</p>
+        <h2 class="section-title">Nicht Theorie – sondern gelebte Erfahrung</h2>
+        <p class="section-desc">Der Kern unserer Methode ist die Authentizität: Menschen, die selbst durch die Tiefe gegangen sind, sprechen zu Jugendlichen auf Augenhöhe. Das erzeugt eine Resonanz, die kein Lehrbuch erreicht.</p>
 
         <div class="pv-feats">
           <div class="pv-feat">
@@ -671,9 +644,9 @@
   <div class="pv-schulen" id="kontakt">
     <div class="pv-schulen-inner">
       <div class="reveal">
-        <p class="pv-label">Für Schulen</p>
-        <h2 class="pv-title">So kommen wir an Ihre Schule</h2>
-        <p class="pv-desc">Der Weg von der Anfrage zum ersten Einsatz ist unkompliziert. Wir stimmen uns individuell auf Ihre Klasse und Situation ab.</p>
+        <p class="section-label">Für Schulen</p>
+        <h2 class="section-title">So kommen wir an Ihre Schule</h2>
+        <p class="section-desc">Der Weg von der Anfrage zum ersten Einsatz ist unkompliziert. Wir stimmen uns individuell auf Ihre Klasse und Situation ab.</p>
 
         <div class="pv-steps">
           <div class="pv-step">
