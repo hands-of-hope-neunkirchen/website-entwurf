@@ -28,44 +28,18 @@
     .reveal-delay-2 { transition-delay: 0.2s; }
 
     /* ── ARTICLE HERO ── */
-    .article-hero {
-      background: var(--dark);
-      position: relative;
-      min-height: 60svh;
-      display: flex;
-      align-items: flex-end;
-      overflow: hidden;
-    }
-    .article-hero-visual { position: absolute; inset: 0; z-index: 0; }
-    .article-hero-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .article-hero-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(5,41,55,.92) 0%, rgba(5,41,55,.5) 55%, rgba(5,41,55,.15) 100%);
-    }
-    .article-hero-content {
-      position: relative; z-index: 1;
-      max-width: var(--max-width); margin: 0 auto; width: 100%;
-      padding: 4rem var(--section-pad-h) 3.5rem;
-    }
     .article-category {
       display: inline-block;
-      background: rgba(123,91,196,0.85);
+      background: var(--brand);
       color: #fff;
-      font-family: 'Nunito', sans-serif; font-weight: 800;
-      font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 4px 12px; border-radius: 20px; margin-bottom: 1.25rem;
+      font-family: var(--font-head); font-weight: 800;
+      font-size: 11px;
+      padding: 4px 12px; border-radius: var(--radius-pill); margin-bottom: 1.25rem;
     }
-    .article-hero-content h1 {
-      font-family: 'Nunito', sans-serif; font-weight: 900;
-      font-size: clamp(1.7rem, 4vw, 2.8rem);
-      color: var(--white); line-height: 1.2;
-      max-width: 780px; margin-bottom: 1.5rem;
-    }
-    .article-hero-meta { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
     .article-author { display: flex; align-items: center; gap: 0.65rem; }
     .article-author-avatar { width: 38px; height: 38px; border-radius: 50%; overflow: hidden; background: rgba(255,255,255,.15); flex-shrink: 0; }
     .article-author-avatar img { width: 100%; height: 100%; object-fit: cover; }
-    .article-author-name { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: .88rem; color: var(--white); }
+    .article-author-name { font-family: var(--font-head); font-weight: 700; font-size: .88rem; color: var(--white); }
     .article-author-role { font-size: .78rem; color: rgba(255,255,255,.55); }
     .article-meta-sep { color: rgba(255,255,255,.25); }
     .article-date, .article-readtime { font-size: .85rem; color: rgba(255,255,255,.6); }
@@ -85,15 +59,15 @@
     }
     .article-prose { min-width: 0; }
     .article-prose p { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin-bottom: 1.6rem; }
-    .article-prose h2 { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 1.4rem; color: var(--dark); margin: 2.5rem 0 1rem; }
+    .article-prose h2 { font-family: var(--font-head); font-weight: 800; font-size: 1.4rem; color: var(--dark); margin: 2.5rem 0 1rem; }
 
     .pull-quote {
       border-left: 4px solid var(--brand);
       margin: 2.5rem 0; padding: 1.25rem 1.75rem;
-      background: rgba(123,91,196,.05);
+      background: var(--brand-zart);
       border-radius: 0 var(--radius-md) var(--radius-md) 0;
     }
-    .pull-quote p { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 1.2rem !important; color: var(--dark) !important; font-style: italic; line-height: 1.55 !important; margin: 0 !important; }
+    .pull-quote p { font-family: var(--font-head); font-weight: 700; font-size: 1.2rem !important; color: var(--dark) !important; font-style: italic; line-height: 1.55 !important; margin: 0 !important; }
     .pull-quote cite { display: block; margin-top: .65rem; font-size: .85rem; color: var(--text-light); font-style: normal; }
 
     .article-img { border-radius: var(--radius-lg); overflow: hidden; margin: 2.5rem 0; box-shadow: var(--shadow-deep); }
@@ -105,26 +79,24 @@
     /* ── SIDEBAR ── */
     .article-sidebar { position: sticky; top: calc(var(--nav-height) + 2rem); }
     .sidebar-card { background: var(--light-bg); border-radius: var(--radius-md); padding: 1.75rem; margin-bottom: 1.5rem; }
-    .sidebar-card h4 { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text-light); margin-bottom: 1.25rem; }
+    .sidebar-card h4 { font-family: var(--font-head); font-weight: 800; font-size: .85rem; color: var(--text-light); margin-bottom: 1.25rem; }
     .sidebar-post { display: flex; gap: .85rem; align-items: flex-start; padding: .85rem 0; border-bottom: 1px solid rgba(5,41,55,.07); text-decoration: none; color: inherit; transition: opacity var(--transition); }
     .sidebar-post:last-child { border-bottom: none; }
     .sidebar-post:hover { opacity: .75; }
     .sidebar-post-thumb { width: 54px; height: 54px; border-radius: var(--radius-sm); overflow: hidden; flex-shrink: 0; }
     .sidebar-post-thumb img { width: 100%; height: 100%; object-fit: cover; }
-    .sidebar-post-title { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: .88rem; color: var(--dark); line-height: 1.4; }
+    .sidebar-post-title { font-family: var(--font-head); font-weight: 700; font-size: .88rem; color: var(--dark); line-height: 1.4; }
     .sidebar-post-date { font-size: .78rem; color: var(--text-light); margin-top: .3rem; }
     .sidebar-cta { background: var(--brand); border-radius: var(--radius-md); padding: 1.75rem; text-align: center; }
     .sidebar-cta p { font-size: .9rem; color: rgba(255,255,255,.85); line-height: 1.6; margin-bottom: 1.25rem; }
-    .sidebar-cta a { display: block; background: var(--white); color: var(--dark); font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 14px; padding: 11px 20px; border-radius: var(--radius-sm); text-decoration: none; transition: background var(--transition); }
+    .sidebar-cta a { display: block; background: var(--white); color: var(--dark); font-family: var(--font-head); font-weight: 800; font-size: 14px; padding: 11px 20px; border-radius: var(--radius-sm); text-decoration: none; transition: background var(--transition); }
     .sidebar-cta a:hover { background: #e8e0f5; }
 
     @media (max-width: 900px) {
       .article-layout { grid-template-columns: 1fr; gap: 3rem; }
       .article-sidebar { position: static; }
-      .article-hero { min-height: 50svh; }
     }
     @media (max-width: 600px) {
-      .article-hero-content h1 { font-size: 1.6rem; }
       .article-prose p { font-size: .97rem; }
     }
   </style>
@@ -145,7 +117,6 @@
     <header class="article-hero">
       <div class="article-hero-visual" aria-hidden="true">
         <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1400&q=80" alt="Jugendliche im Unterricht" loading="eager">
-        <div class="article-hero-overlay"></div>
       </div>
       <div class="article-hero-content">
         <span class="article-category">Prävention</span>
@@ -263,9 +234,9 @@
         <!-- SHARE WIDGET -->
         <div class="share-widget" aria-label="Beitrag teilen">
           <span class="share-widget-label">Teilen</span>
-          <a href="#" data-share="mail" class="share-btn">✉ E-Mail</a>
-          <a href="#" data-share="whatsapp" target="_blank" rel="noopener" class="share-btn">💬 WhatsApp</a>
-          <button type="button" data-share="copy" class="share-btn">🔗 Link kopieren</button>
+          <a href="#" data-share="mail" class="share-btn"><span class="ic ic-mail" aria-hidden="true"></span> E-Mail</a>
+          <a href="#" data-share="whatsapp" target="_blank" rel="noopener" class="share-btn"><span class="ic ic-sprech" aria-hidden="true"></span> WhatsApp</a>
+          <button type="button" data-share="copy" class="share-btn"><span class="ic ic-link" aria-hidden="true"></span> Link kopieren</button>
         </div>
 
         <div class="article-footer">

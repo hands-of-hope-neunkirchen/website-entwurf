@@ -32,13 +32,9 @@ p:last-child { margin-bottom: 0; }
 }
 
 /* ── ACCENT TEXT ── */
-.text-blue   { color: var(--blue); }
 .text-dark   { color: var(--dark); }
 .text-light  { color: var(--text-light); }
 .text-white  { color: var(--white); }
-.text-green  { color: var(--green); }
-.text-red    { color: var(--red); }
-.text-house  { color: var(--house); }
 
 /* ── PROSE CONTENT ── */
 .prose {
