@@ -56,8 +56,7 @@
     .stellen-card.vollzeit { border-top-color: var(--blue); }
     .stellen-card.ehrenamt { border-top-color: var(--gruen-tief); }
     .stellen-card .stype {
-      font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.72rem;
-      letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.4rem;
+      font-family: var(--font-head); font-weight: 800; font-size: 0.72rem; margin-bottom: 0.4rem;
     }
     .stellen-card.vollzeit .stype { color: var(--blue); }
     .stellen-card.ehrenamt .stype { color: var(--gruen-tief); }
@@ -146,35 +145,35 @@
         <h2 class="section-title reveal reveal-delay-1" id="uebersicht-title">Wo wir gerade Unterstützung suchen</h2>
         <div class="stellen-grid reveal reveal-delay-2">
           <div class="stellen-card vollzeit">
-            <div class="sicon">🔨</div>
+            <div class="sicon"><span class="ic ic-werkzeug" aria-hidden="true"></span></div>
             <div class="stype">Voll- / Teilzeit</div>
             <h3>Dienstleistungen</h3>
             <p>Mitarbeit in unseren handwerklichen Zweckbetrieben unter Anleitung der WG-Bewohner.</p>
             <a href="#dienstleistungen">Zur Ausschreibung →</a>
           </div>
           <div class="stellen-card ehrenamt">
-            <div class="sicon">🏠</div>
+            <div class="sicon"><span class="ic ic-haus" aria-hidden="true"></span></div>
             <div class="stype">Ehrenamt</div>
             <h3>WG – Hauswirtschaft</h3>
             <p>Unterstützung bei hauswirtschaftlichen Tätigkeiten rund um die Wohngemeinschaft.</p>
             <a href="#hauswirtschaft">Zur Ausschreibung →</a>
           </div>
           <div class="stellen-card ehrenamt">
-            <div class="sicon">☕</div>
+            <div class="sicon"><span class="ic ic-kaffee" aria-hidden="true"></span></div>
             <div class="stype">Ehrenamt</div>
             <h3>Straßencafé</h3>
             <p>Wöchentliche Mitarbeit im Straßencafé in Siegen.</p>
             <a href="#strassencafe">Zur Ausschreibung →</a>
           </div>
           <div class="stellen-card ehrenamt">
-            <div class="sicon">📸</div>
+            <div class="sicon"><span class="ic ic-kamera" aria-hidden="true"></span></div>
             <div class="stype">Ehrenamt</div>
             <h3>Mediendesign &amp; -pflege</h3>
             <p>Unterstützung digital und/oder im Print.</p>
             <a href="#medien">Zur Ausschreibung →</a>
           </div>
           <div class="stellen-card ehrenamt">
-            <div class="sicon">🔧</div>
+            <div class="sicon"><span class="ic ic-werkzeug" aria-hidden="true"></span></div>
             <div class="stype">Ehrenamt</div>
             <h3>Baustellen</h3>
             <p>Handwerkliche Unterstützung im Nachsorgehaus und im Haupthaus.</p>
@@ -190,7 +189,7 @@
     <section class="job-detail" id="dienstleistungen" aria-labelledby="job-dienstleistungen-title">
       <div class="job-detail-inner">
         <div class="reveal">
-          <span style="display:inline-block;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--blue);margin-bottom:0.5rem;">Voll- / Teilzeit</span>
+          <span class="section-label">Voll- / Teilzeit</span>
           <h2 class="section-title" id="job-dienstleistungen-title">Dienstleistungen</h2>
           <p class="section-desc">
             Mitarbeit in unseren gemeinnützigen Arbeitsbetrieben – Garten- &amp; Landschaftsbau,
@@ -199,14 +198,14 @@
           </p>
         </div>
         <aside class="contact-box-light reveal reveal-delay-1">
-          <h3 style="margin-bottom:0.75rem;">Interesse?</h3>
+          <h3>Interesse?</h3>
           <div class="contact-line">
-            <div class="icon">✉</div>
+            <div class="icon"><span class="ic ic-mail" aria-hidden="true"></span></div>
             <a href="mailto:dienstleistungen@handsofhope.de">dienstleistungen@handsofhope.de</a>
           </div>
           <div class="contact-divider"></div>
           <div class="contact-line">
-            <div class="icon">📍</div>
+            <div class="icon"><span class="ic ic-pin" aria-hidden="true"></span></div>
             <div>Waldstraße 6<br>57290 Neunkirchen</div>
           </div>
         </aside>
@@ -219,7 +218,7 @@
     <section class="job-detail" id="hauswirtschaft" aria-labelledby="job-hauswirtschaft-title">
       <div class="job-detail-inner">
         <div class="reveal">
-          <span style="display:inline-block;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--gruen-tief);margin-bottom:0.5rem;">Ehrenamt</span>
+          <span class="section-label">Ehrenamt</span>
           <h2 class="section-title" id="job-hauswirtschaft-title">WG – Hauswirtschaft</h2>
           <p class="section-desc">
             Unterstützung bei hauswirtschaftlichen Tätigkeiten rund um die Wohngemeinschaft –
@@ -228,14 +227,14 @@
           </p>
         </div>
         <aside class="contact-box-light reveal reveal-delay-1">
-          <h3 style="margin-bottom:0.75rem;">Interesse?</h3>
+          <h3>Interesse?</h3>
           <div class="contact-line">
-            <div class="icon">✉</div>
+            <div class="icon"><span class="ic ic-mail" aria-hidden="true"></span></div>
             <a href="mailto:c.mihai@handsofhope.de">c.mihai@handsofhope.de</a>
           </div>
           <div class="contact-divider"></div>
           <div class="contact-line">
-            <div class="icon">📞</div>
+            <div class="icon"><span class="ic ic-phone" aria-hidden="true"></span></div>
             <span>02735 – 65 67 10</span>
           </div>
         </aside>
@@ -248,7 +247,7 @@
     <section class="job-detail" id="strassencafe" aria-labelledby="job-strassencafe-title">
       <div class="job-detail-inner">
         <div class="reveal">
-          <span style="display:inline-block;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--gruen-tief);margin-bottom:0.5rem;">Ehrenamt</span>
+          <span class="section-label">Ehrenamt</span>
           <h2 class="section-title" id="job-strassencafe-title">Straßencafé</h2>
           <p class="section-desc">
             Wöchentliche Mitarbeit donnerstags im Straßencafé in Siegen – beim Empfang, in der
@@ -256,14 +255,14 @@
           </p>
         </div>
         <aside class="contact-box-light reveal reveal-delay-1">
-          <h3 style="margin-bottom:0.75rem;">Interesse?</h3>
+          <h3>Interesse?</h3>
           <div class="contact-line">
-            <div class="icon">✉</div>
+            <div class="icon"><span class="ic ic-mail" aria-hidden="true"></span></div>
             <a href="mailto:strassencafe@handsofhope.de">strassencafe@handsofhope.de</a>
           </div>
           <div class="contact-divider"></div>
           <div class="contact-line">
-            <div class="icon">📍</div>
+            <div class="icon"><span class="ic ic-pin" aria-hidden="true"></span></div>
             <div>Hagener Straße 78<br>57072 Siegen</div>
           </div>
         </aside>
@@ -276,7 +275,7 @@
     <section class="job-detail" id="medien" aria-labelledby="job-medien-title">
       <div class="job-detail-inner">
         <div class="reveal">
-          <span style="display:inline-block;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--gruen-tief);margin-bottom:0.5rem;">Ehrenamt</span>
+          <span class="section-label">Ehrenamt</span>
           <h2 class="section-title" id="job-medien-title">Mediendesign &amp; -pflege</h2>
           <p class="section-desc">
             Unterstützung digital und/oder im Print – z. B. bei Fotos, Social-Media-Beiträgen,
@@ -285,14 +284,14 @@
           </p>
         </div>
         <aside class="contact-box-light reveal reveal-delay-1">
-          <h3 style="margin-bottom:0.75rem;">Interesse?</h3>
+          <h3>Interesse?</h3>
           <div class="contact-line">
-            <div class="icon">✉</div>
+            <div class="icon"><span class="ic ic-mail" aria-hidden="true"></span></div>
             <a href="mailto:c.mihai@handsofhope.de">c.mihai@handsofhope.de</a>
           </div>
           <div class="contact-divider"></div>
           <div class="contact-line">
-            <div class="icon">📞</div>
+            <div class="icon"><span class="ic ic-phone" aria-hidden="true"></span></div>
             <span>02735 – 65 67 10</span>
           </div>
         </aside>
@@ -305,7 +304,7 @@
     <section class="job-detail" id="baustellen" aria-labelledby="job-baustellen-title">
       <div class="job-detail-inner">
         <div class="reveal">
-          <span style="display:inline-block;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--gruen-tief);margin-bottom:0.5rem;">Ehrenamt</span>
+          <span class="section-label">Ehrenamt</span>
           <h2 class="section-title" id="job-baustellen-title">Baustellen</h2>
           <p class="section-desc">
             Handwerkliche Unterstützung im Nachsorgehaus und im Haupthaus – von kleinen
@@ -313,14 +312,14 @@
           </p>
         </div>
         <aside class="contact-box-light reveal reveal-delay-1">
-          <h3 style="margin-bottom:0.75rem;">Interesse?</h3>
+          <h3>Interesse?</h3>
           <div class="contact-line">
-            <div class="icon">✉</div>
+            <div class="icon"><span class="ic ic-mail" aria-hidden="true"></span></div>
             <a href="mailto:c.mihai@handsofhope.de">c.mihai@handsofhope.de</a>
           </div>
           <div class="contact-divider"></div>
           <div class="contact-line">
-            <div class="icon">📞</div>
+            <div class="icon"><span class="ic ic-phone" aria-hidden="true"></span></div>
             <span>02735 – 65 67 10</span>
           </div>
         </aside>

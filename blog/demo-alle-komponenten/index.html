@@ -30,46 +30,18 @@
     .reveal-delay-2 { transition-delay: 0.2s; }
 
     /* ── ARTICLE HERO ── */
-    .article-hero {
-      background: var(--dark);
-      position: relative;
-      min-height: 60svh;
-      display: flex;
-      align-items: flex-end;
-      overflow: hidden;
-    }
-    .article-hero-visual { position: absolute; inset: 0; z-index: 0; }
-    .article-hero-visual img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
-    .article-hero-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(5,41,55,.92) 0%, rgba(5,41,55,.55) 55%, rgba(5,41,55,.18) 100%);
-      z-index: 1;
-    }
-    .article-hero-content {
-      position: relative; z-index: 2;
-      padding: 3rem var(--section-pad-h) 3.5rem;
-      max-width: calc(var(--max-width) + 2 * var(--section-pad-h));
-      width: 100%;
-    }
     .article-category {
       display: inline-block;
-      font-family: 'Nunito', sans-serif; font-weight: 800;
-      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-      padding: 5px 13px; border-radius: 20px; margin-bottom: 1.1rem;
+      font-family: var(--font-head); font-weight: 800;
+      font-size: 11px;
+      padding: 5px 13px; border-radius: var(--radius-pill); margin-bottom: 1.1rem;
       background: rgba(5,41,55,0.85); color: rgba(255,255,255,0.85);
       border: 1px solid rgba(255,255,255,0.2);
     }
-    .article-hero-content h1 {
-      font-family: 'Nunito', sans-serif; font-weight: 800;
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      color: var(--white); line-height: 1.15;
-      max-width: 780px; margin-bottom: 1.5rem;
-    }
-    .article-hero-meta { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
     .article-author { display: flex; align-items: center; gap: 0.65rem; }
     .article-author-avatar { width: 38px; height: 38px; border-radius: 50%; overflow: hidden; background: rgba(255,255,255,0.15); flex-shrink: 0; }
     .article-author-avatar img { width: 100%; height: 100%; object-fit: cover; }
-    .article-author-name { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.88rem; color: var(--white); }
+    .article-author-name { font-family: var(--font-head); font-weight: 700; font-size: 0.88rem; color: var(--white); }
     .article-author-role { font-size: 0.78rem; color: rgba(255,255,255,0.55); }
     .article-meta-sep { color: rgba(255,255,255,0.25); }
     .article-date { font-size: 0.85rem; color: rgba(255,255,255,0.6); }
@@ -78,8 +50,8 @@
     /* Draft-Banner */
     .draft-banner {
       background: #f59e0b; color: #1a1a1a;
-      font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 13px;
-      text-align: center; padding: 10px 1rem; letter-spacing: 0.04em;
+      font-family: var(--font-head); font-weight: 800; font-size: 13px;
+      text-align: center; padding: 10px 1rem;
       position: relative; z-index: 100;
     }
 
@@ -93,8 +65,8 @@
       padding: 4rem var(--section-pad-h);
     }
     .article-prose { font-size: 1.05rem; line-height: 1.85; color: var(--text); max-width: 68ch; }
-    .article-prose h2 { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 1.5rem; color: var(--dark); margin: 2.5rem 0 1rem; line-height: 1.25; }
-    .article-prose h3 { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 1.15rem; color: var(--dark); margin: 2rem 0 0.75rem; }
+    .article-prose h2 { font-family: var(--font-head); font-weight: 800; font-size: 1.5rem; color: var(--dark); margin: 2.5rem 0 1rem; line-height: 1.25; }
+    .article-prose h3 { font-family: var(--font-head); font-weight: 700; font-size: 1.15rem; color: var(--dark); margin: 2rem 0 0.75rem; }
     .article-prose p { margin-bottom: 1.5rem; }
     .article-prose ul, .article-prose ol { margin: 0 0 1.5rem 1.5rem; }
     .article-prose li { margin-bottom: 0.5rem; }
@@ -106,10 +78,10 @@
     .pull-quote {
       border-left: 4px solid var(--blue);
       margin: 2.5rem 0; padding: 1.25rem 1.75rem;
-      background: rgba(12,70,132,0.05);
+      background: var(--brand-zart);
       border-radius: 0 var(--radius-md) var(--radius-md) 0;
     }
-    .pull-quote p { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 1.2rem !important; color: var(--dark) !important; font-style: italic; line-height: 1.55 !important; margin: 0 !important; }
+    .pull-quote p { font-family: var(--font-head); font-weight: 700; font-size: 1.2rem !important; color: var(--dark) !important; font-style: italic; line-height: 1.55 !important; margin: 0 !important; }
     .pull-quote cite { display: block; margin-top: .65rem; font-size: .85rem; color: var(--text-light); font-style: normal; }
 
     /* Inline Image */
@@ -119,8 +91,8 @@
 
     /* Hinweis-Box */
     .info-box {
-      background: rgba(12,70,132,.06);
-      border: 1px solid rgba(12,70,132,.18);
+      background: var(--brand-zart);
+      border: 1px solid var(--brand-hell);
       border-radius: var(--radius-md);
       padding: 1.25rem 1.5rem;
       margin: 2rem 0;
@@ -161,7 +133,7 @@
       font-size: 1.2rem; flex-shrink: 0;
     }
     .audio-info { flex: 1; }
-    .audio-title { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: .95rem; color: var(--dark); margin-bottom: .35rem; }
+    .audio-title { font-family: var(--font-head); font-weight: 700; font-size: .95rem; color: var(--dark); margin-bottom: .35rem; }
     .audio-duration { font-size: .8rem; color: var(--text-light); margin-bottom: .6rem; }
     .audio-embed audio { width: 100%; height: 36px; }
 
@@ -178,13 +150,13 @@
     }
     .link-card:hover { box-shadow: var(--shadow-card); border-color: var(--blue); }
     .link-card-icon { font-size: 1.5rem; flex-shrink: 0; }
-    .link-card-title { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: .95rem; color: var(--dark); }
+    .link-card-title { font-family: var(--font-head); font-weight: 700; font-size: .95rem; color: var(--dark); }
     .link-card-url { font-size: .78rem; color: var(--text-light); margin-top: .2rem; }
     .link-card-arrow { margin-left: auto; color: var(--blue); font-size: 1.1rem; flex-shrink: 0; }
 
     /* Komponenten-Label (nur Demo) */
     .demo-label {
-      font-family: 'Nunito', sans-serif; font-weight: 800;
+      font-family: var(--font-head); font-weight: 800;
       font-size: 10px; letter-spacing: .12em; text-transform: uppercase;
       color: #f59e0b; background: rgba(245,158,11,.1);
       border: 1px dashed rgba(245,158,11,.4);
@@ -195,17 +167,17 @@
     /* ── SIDEBAR ── */
     .article-sidebar { position: sticky; top: calc(var(--nav-height) + 2rem); }
     .sidebar-card { background: var(--light-bg); border-radius: var(--radius-md); padding: 1.75rem; margin-bottom: 1.5rem; }
-    .sidebar-card h4 { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text-light); margin-bottom: 1.25rem; }
+    .sidebar-card h4 { font-family: var(--font-head); font-weight: 800; font-size: .85rem; color: var(--text-light); margin-bottom: 1.25rem; }
     .sidebar-post { display: flex; gap: .85rem; align-items: flex-start; padding: .85rem 0; border-bottom: 1px solid rgba(5,41,55,.07); text-decoration: none; color: inherit; transition: opacity var(--transition); }
     .sidebar-post:last-child { border-bottom: none; }
     .sidebar-post:hover { opacity: .75; }
     .sidebar-post-thumb { width: 54px; height: 54px; border-radius: var(--radius-sm); overflow: hidden; flex-shrink: 0; }
     .sidebar-post-thumb img { width: 100%; height: 100%; object-fit: cover; }
-    .sidebar-post-title { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: .88rem; color: var(--dark); line-height: 1.4; }
+    .sidebar-post-title { font-family: var(--font-head); font-weight: 700; font-size: .88rem; color: var(--dark); line-height: 1.4; }
     .sidebar-post-date { font-size: .78rem; color: var(--text-light); margin-top: .3rem; }
     .sidebar-cta { background: var(--blue); border-radius: var(--radius-md); padding: 1.75rem; text-align: center; }
     .sidebar-cta p { font-size: .9rem; color: rgba(255,255,255,.8); line-height: 1.6; margin-bottom: 1.25rem; }
-    .sidebar-cta a { display: block; background: var(--white); color: var(--dark); font-family: 'Nunito', sans-serif; font-weight: 800; font-size: .9rem; padding: .75rem 1rem; border-radius: var(--radius-sm); text-decoration: none; transition: background var(--transition); }
+    .sidebar-cta a { display: block; background: var(--white); color: var(--dark); font-family: var(--font-head); font-weight: 800; font-size: .9rem; padding: .75rem 1rem; border-radius: var(--radius-sm); text-decoration: none; transition: background var(--transition); }
     .sidebar-cta a:hover { background: var(--mid-blue); }
 
     /* Article footer */
@@ -214,7 +186,6 @@
     @media (max-width: 900px) {
       .article-layout { grid-template-columns: 1fr; gap: 3rem; }
       .article-sidebar { position: static; }
-      .article-hero { min-height: 50svh; }
     }
     @media (max-width: 600px) {
       .article-layout { padding: 2.5rem var(--section-pad-h); }
@@ -225,7 +196,7 @@
 
   <!-- Entwurfs-Banner -->
   <div class="draft-banner">
-    ⚠️ ENTWURF – Diese Seite ist nicht verlinkt und für Suchmaschinen gesperrt (noindex)
+    <span class="ic ic-hinweis" aria-hidden="true"></span> ENTWURF – Diese Seite ist nicht verlinkt und für Suchmaschinen gesperrt (noindex)
   </div>
 
   <div data-include="header"></div>
@@ -240,7 +211,6 @@
           alt="Team bei der Arbeit"
           loading="eager"
         >
-        <div class="article-hero-overlay"></div>
       </div>
       <div class="article-hero-content">
         <span class="article-category">Allgemein</span>
@@ -453,7 +423,7 @@
         </p>
 
         <div class="audio-embed">
-          <div class="audio-icon">🎙</div>
+          <div class="audio-icon"><span class="ic ic-mikro" aria-hidden="true"></span></div>
           <div class="audio-info">
             <div class="audio-title">Titel des Beitrags oder Podcast-Folge</div>
             <div class="audio-duration">Länge: 12:34 · Erschienen: 10. Juni 2025</div>
@@ -479,7 +449,7 @@
         <h2>Weiterführende Links</h2>
 
         <a href="https://www.diakonie-saar.de" target="_blank" rel="noopener" class="link-card">
-          <span class="link-card-icon">🔗</span>
+          <span class="link-card-icon"><span class="ic ic-link" aria-hidden="true"></span></span>
           <div>
             <div class="link-card-title">Diakonie Saar – Träger und Partner</div>
             <div class="link-card-url">diakonie-saar.de</div>
@@ -488,7 +458,7 @@
         </a>
 
         <a href="https://www.bundesregierung.de/breg-de/themen/sucht-und-drogen" target="_blank" rel="noopener" class="link-card">
-          <span class="link-card-icon">📄</span>
+          <span class="link-card-icon"><span class="ic ic-dokument" aria-hidden="true"></span></span>
           <div>
             <div class="link-card-title">Sucht und Drogen – Informationen der Bundesregierung</div>
             <div class="link-card-url">bundesregierung.de</div>
@@ -513,7 +483,7 @@
 
         <div class="sidebar-cta reveal reveal-delay-1">
           <p>Du möchtest die Arbeit von Hands of Hope unterstützen?</p>
-          <a href="../../ueber-uns/#spenden">❤ Jetzt unterstützen</a>
+          <a href="../../ueber-uns/#spenden"><span class="ic ic-herz" aria-hidden="true"></span> Jetzt unterstützen</a>
         </div>
 
       </aside>

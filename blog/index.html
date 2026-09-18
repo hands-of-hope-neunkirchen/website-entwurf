@@ -35,42 +35,17 @@
     .reveal-delay-3 { transition-delay: 0.3s; }
 
     /* ── HERO ── */
-    .blog-hero-tag {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: rgba(206,153,35,0.18); border: 1px solid var(--brand-hell);
-      color: var(--blog-mid);
-      font-family: 'Nunito', sans-serif; font-weight: 700;
-      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-      padding: 6px 14px; border-radius: 20px; margin-bottom: 1.5rem; width: fit-content;
-    }
-    .blog-hero-sub {
-      font-size: 1.05rem; color: rgba(255,255,255,0.72);
-      max-width: 440px; margin-bottom: 2.5rem; line-height: 1.75;
-    }
-    .blog-hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-blog-primary {
-      background: var(--blog); color: var(--white);
-      font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 15px;
-      padding: 14px 28px; border-radius: 8px; text-decoration: none;
-      transition: background 0.2s, transform 0.15s; display: inline-block;
-    }
-    .btn-blog-primary:hover { background: var(--blog-dark); transform: translateY(-1px); }
     .btn-blog-ghost {
       border: 1px solid rgba(255,255,255,0.35); color: var(--white);
-      font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 15px;
+      font-family: var(--font-head); font-weight: 700; font-size: 15px;
       padding: 14px 28px; border-radius: 8px; text-decoration: none;
       transition: background 0.2s; display: inline-block;
     }
     .btn-blog-ghost:hover { background: rgba(255,255,255,0.08); }
 
     /* ── SECTION LABELS ── */
-    .blog-label {
-      font-family: 'Nunito', sans-serif; font-weight: 800;
-      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--blog); margin-bottom: 1rem;
-    }
     .blog-title {
-      font-family: 'Nunito', sans-serif; font-weight: 800;
+      font-family: var(--font-head); font-weight: 800;
       font-size: clamp(1.8rem, 3vw, 2.4rem); color: var(--dark);
       line-height: 1.15; margin-bottom: 1rem;
     }
@@ -94,7 +69,7 @@
       border-radius: var(--radius-xl);
       overflow: hidden;
       box-shadow: var(--shadow-deep);
-      background: var(--dark);
+      background: var(--brand-flaeche);
       text-decoration: none;
       color: inherit;
       transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -128,16 +103,16 @@
       margin-bottom: 1.5rem;
     }
     .featured-category {
-      background: rgba(12,70,132,0.15); color: var(--blog);
-      font-family: 'Nunito', sans-serif; font-weight: 800;
-      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-      padding: 5px 12px; border-radius: 20px;
+      background: var(--brand-zart); color: var(--blog);
+      font-family: var(--font-head); font-weight: 800;
+      font-size: 11px;
+      padding: 5px 12px; border-radius: var(--radius-pill);
     }
     .featured-date {
       font-size: 13px; color: rgba(255,255,255,0.5);
     }
     .featured-content h2 {
-      font-family: 'Nunito', sans-serif; font-weight: 800;
+      font-family: var(--font-head); font-weight: 800;
       font-size: clamp(1.5rem, 2.5vw, 2rem); line-height: 1.2;
       color: var(--white); margin-bottom: 1.25rem;
     }
@@ -157,7 +132,7 @@
       font-size: 16px; flex-shrink: 0;
     }
     .featured-author-name {
-      font-family: 'Nunito', sans-serif; font-weight: 700;
+      font-family: var(--font-head); font-weight: 700;
       font-size: 14px; color: var(--white);
     }
     .featured-author-role {
@@ -165,7 +140,7 @@
     }
     .read-more {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 14px;
+      font-family: var(--font-head); font-weight: 800; font-size: 14px;
       color: var(--blog-mid);
       transition: gap 0.2s;
     }
@@ -211,9 +186,9 @@
     .post-card:hover .post-photo img { transform: scale(1.05); }
     .post-category-badge {
       position: absolute; top: 1rem; left: 1rem; z-index: 1;
-      font-family: 'Nunito', sans-serif; font-weight: 800;
-      font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 5px 11px; border-radius: 20px;
+      font-family: var(--font-head); font-weight: 800;
+      font-size: 11px;
+      padding: 5px 11px; border-radius: var(--radius-pill);
       backdrop-filter: blur(8px);
     }
     .badge-rehab    { background: var(--blau); color: #fff; }
@@ -231,7 +206,7 @@
     }
     .post-meta-dot { opacity: 0.4; }
     .post-card h3 {
-      font-family: 'Nunito', sans-serif; font-weight: 800;
+      font-family: var(--font-head); font-weight: 800;
       font-size: 1.15rem; line-height: 1.3;
       color: var(--dark); margin-bottom: 0.75rem;
     }
@@ -254,11 +229,11 @@
       font-size: 13px;
     }
     .post-author-name {
-      font-family: 'Nunito', sans-serif; font-weight: 700;
+      font-family: var(--font-head); font-weight: 700;
       font-size: 13px; color: var(--dark);
     }
     .post-read-more {
-      font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 13px;
+      font-family: var(--font-head); font-weight: 800; font-size: 13px;
       color: var(--blog); display: inline-flex; align-items: center; gap: 0.35rem;
       transition: gap 0.2s;
     }
@@ -267,7 +242,7 @@
     /* ── KATEGORIE-FILTER ── */
     .blog-filter { display: flex; gap: 0.6rem; flex-wrap: wrap; }
     .blog-filter-btn {
-      font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 13px;
+      font-family: var(--font-head); font-weight: 700; font-size: 13px;
       padding: 8px 16px; border-radius: 20px;
       border: 1px solid rgba(5,41,55,0.15); background: var(--white);
       color: var(--text-light); cursor: pointer;
@@ -298,11 +273,10 @@
     <section class="hero" aria-label="Blog">
       <div class="hero-content">
         <span class="hero-tag">Aus unserer Arbeit</span>
-        <span class="blog-hero-tag">Geschichten · Einblicke · Berichte</span>
         <h1>Aus dem Herz<br>unserer <em>Arbeit</em></h1>
-        <p class="blog-hero-sub">Echte Geschichten von echten Menschen. Hier berichten wir von Begegnungen, Veränderungen und dem, was uns täglich antreibt.</p>
-        <div class="blog-hero-actions">
-          <a href="#beitraege" class="btn-blog-primary">Alle Beiträge</a>
+        <p class="hero-sub">Echte Geschichten von echten Menschen. Hier berichten wir von Begegnungen, Veränderungen und dem, was uns täglich antreibt.</p>
+        <div class="hero-actions">
+          <a href="#beitraege" class="btn btn-primary">Alle Beiträge</a>
         </div>
       </div>
       <div class="hero-visual" aria-hidden="true">
@@ -331,7 +305,7 @@
 
         <div class="posts-header">
           <div>
-            <div class="blog-label reveal">Weitere Beiträge</div>
+            <span class="section-label reveal">Weitere Beiträge</span>
             <h2 class="blog-title reveal">Aus allen Bereichen</h2>
           </div>
           <div class="blog-filter" data-blog-filter role="group" aria-label="Nach Kategorie filtern"></div>

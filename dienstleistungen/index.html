@@ -66,7 +66,7 @@
     .vorteil { display: flex; align-items: flex-start; gap: 0.85rem; border-left: 3px solid rgba(255,255,255,0.3); padding-left: 1.25rem; }
     .vorteil-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
     .vorteil-text h4 {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 800;
       font-size: 0.92rem;
       color: var(--white);
@@ -106,15 +106,15 @@
     .leistung-photo:hover img { transform: scale(1.03); }
 
     .leistung-num {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 900;
       font-size: 4rem;
-      color: rgba(127,150,40,0.12);
+      color: var(--brand);
       line-height: 1;
       margin-bottom: -0.5rem;
     }
     .leistung-content h3 {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 800;
       font-size: 1.5rem;
       color: var(--dark);
@@ -148,22 +148,6 @@
       margin-top: 1px;
       font-size: 13px;
     }
-    .btn-anfrage {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--green-light);
-      color: var(--green);
-      font-family: 'Nunito', sans-serif;
-      font-weight: 700;
-      font-size: 14px;
-      padding: 11px 20px;
-      border-radius: var(--radius-sm);
-      text-decoration: none;
-      border: 1px solid rgba(127,150,40,0.25);
-      transition: background var(--transition), transform var(--transition);
-    }
-    .btn-anfrage:hover { background: #e2e9c8; transform: translateY(-1px); }
 
     /* ── ZUSATZ-LEISTUNGEN ── */
     .zusatz-leistungen {
@@ -178,7 +162,7 @@
     }
     .zusatz-icon { font-size: 2.5rem; flex-shrink: 0; }
     .zusatz-leistungen h4 {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 800;
       font-size: 1rem;
       color: var(--dark);
@@ -187,27 +171,6 @@
     .zusatz-leistungen p { font-size: 0.92rem; color: var(--text-light); line-height: 1.6; }
 
     /* ── KUNDENSTIMMEN ── */
-    .kundenstimmen { background: var(--white); padding: var(--section-pad-v) var(--section-pad-h); }
-    .stimmen-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-    .stimme {
-      background: var(--light-bg);
-      border-radius: var(--radius-md);
-      padding: 2rem;
-      position: relative;
-    }
-    .stimme-quote {
-      font-size: 3rem;
-      color: var(--green);
-      font-family: 'Nunito', sans-serif;
-      line-height: 1;
-      margin-bottom: 0.75rem;
-      opacity: 0.6;
-    }
     .stimme p {
       font-size: 0.95rem;
       color: var(--text);
@@ -215,17 +178,10 @@
       margin-bottom: 1.25rem;
       font-style: italic;
     }
-    .stimme-name {
-      font-family: 'Nunito', sans-serif;
-      font-weight: 800;
-      font-size: 0.9rem;
-      color: var(--dark);
-    }
-    .stimme-ort { font-size: 0.82rem; color: var(--text-light); }
 
     /* ── MISSION NOTE ── */
     .mission-note {
-      background: var(--dark);
+      background: var(--brand-flaeche);
       padding: var(--section-pad-v) var(--section-pad-h);
     }
     .mission-note-inner {
@@ -240,8 +196,8 @@
     .mission-note .section-title { color: var(--white); }
     .mission-note p { font-size: 1rem; color: rgba(255,255,255,0.7); line-height: 1.75; max-width: 560px; }
     .mwst-badge {
-      background: rgba(127,150,40,0.2);
-      border: 1px solid rgba(127,150,40,0.4);
+      background: var(--brand-zart);
+      border: 1px solid var(--brand-hell);
       border-radius: var(--radius-md);
       padding: 2rem;
       text-align: center;
@@ -249,14 +205,14 @@
       flex-shrink: 0;
     }
     .mwst-badge .num {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 900;
       font-size: 3rem;
       color: var(--green-mid);
       line-height: 1;
     }
     .mwst-badge .label {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 700;
       font-size: 0.85rem;
       color: rgba(255,255,255,0.65);
@@ -266,7 +222,7 @@
 
     /* ── KONTAKT CTA ── */
     .kontakt-cta {
-      background: var(--dark);
+      background: var(--brand-flaeche);
       padding: var(--section-pad-v) var(--section-pad-h);
     }
     .kontakt-cta-inner {
@@ -282,7 +238,7 @@
     .kontakt-cta .section-desc { color: rgba(255,255,255,0.75); margin-bottom: 0; }
     .contact-box {
       background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(200,216,226,0.15);
+      border: 1px solid var(--brand-hell);
       border-radius: var(--radius-lg);
       padding: 2rem;
     }
@@ -294,27 +250,13 @@
     .contact-line strong { color: var(--white); }
     .contact-icon {
       width: 34px; height: 34px; border-radius: var(--radius-sm);
-      background: rgba(58,140,110,0.22);
+      background: var(--brand-zart);
       display: flex; align-items: center; justify-content: center;
       font-size: 16px; flex-shrink: 0;
     }
     .contact-line a { color: var(--green-mid); text-decoration: none; }
     .contact-line a:hover { color: var(--white); }
-    .contact-divider { height: 1px; background: rgba(200,216,226,0.12); margin: 1.1rem 0; }
-    .btn-anfrage {
-      display: inline-block;
-      background: var(--green);
-      color: var(--white);
-      font-family: 'Nunito', sans-serif;
-      font-weight: 800;
-      font-size: 15px;
-      padding: 14px 28px;
-      border-radius: var(--radius-sm);
-      text-decoration: none;
-      transition: background var(--transition), transform var(--transition);
-      margin-top: 1.5rem;
-    }
-    .btn-anfrage:hover { background: var(--green-dark); transform: translateY(-1px); }
+    .contact-divider { height: 1px; background: var(--brand-zart); margin: 1.1rem 0; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
@@ -328,7 +270,6 @@
       }
       .leistung-block.reverse { direction: ltr; }
       .leistung-photo { aspect-ratio: 16/9; }
-      .stimmen-grid { grid-template-columns: 1fr; }
       .mission-note-inner { grid-template-columns: 1fr; gap: 2rem; }
       .kontakt-cta-inner { grid-template-columns: 1fr; gap: 2.5rem; }
       .zusatz-leistungen { flex-direction: column; gap: 1rem; align-items: flex-start; }
@@ -387,28 +328,28 @@
     <div class="vorteile-strip" aria-label="Unsere Vorteile">
       <div class="vorteile-inner">
         <div class="vorteil reveal">
-          <div class="vorteil-icon">🏆</div>
+          <div class="vorteil-icon"><span class="ic ic-pokal" aria-hidden="true"></span></div>
           <div class="vorteil-text">
             <h4>Fachkundige Handwerker</h4>
             <p>Ausgebildete Mitarbeiter mit langjähriger Berufserfahrung</p>
           </div>
         </div>
         <div class="vorteil reveal reveal-delay-1">
-          <div class="vorteil-icon">💶</div>
+          <div class="vorteil-icon"><span class="ic ic-euro" aria-hidden="true"></span></div>
           <div class="vorteil-text">
             <h4>Nur 7 % Mehrwertsteuer</h4>
             <p>Günstige Konditionen dank gemeinnütziger Trägerschaft</p>
           </div>
         </div>
         <div class="vorteil reveal reveal-delay-2">
-          <div class="vorteil-icon">🤝</div>
+          <div class="vorteil-icon"><span class="ic ic-haende" aria-hidden="true"></span></div>
           <div class="vorteil-text">
             <h4>Privat &amp; gewerblich</h4>
             <p>Kunden von Privatpersonen bis Kommunen und Kirchen</p>
           </div>
         </div>
         <div class="vorteil reveal reveal-delay-3">
-          <div class="vorteil-icon">💚</div>
+          <div class="vorteil-icon"><span class="ic ic-herz" aria-hidden="true"></span></div>
           <div class="vorteil-text">
             <h4>Gutes tun beim Beauftragen</h4>
             <p>Alle Einnahmen fließen zurück in unsere diakonische Arbeit</p>
@@ -453,7 +394,7 @@
             <li>Teichbau, Terrassen- und Pflasterflächen</li>
             <li>Natursteinmauern und Hangbefestigungen</li>
           </ul>
-          <a href="#kontakt" class="btn-anfrage">Anfrage senden →</a>
+          <a href="#kontakt" class="btn btn-primary">Anfrage senden →</a>
         </div>
       </div>
 
@@ -477,7 +418,7 @@
             <li>Entastungen und Baumfällungen</li>
             <li>Beratung durch ausgebildeten Fachwart</li>
           </ul>
-          <a href="#kontakt" class="btn-anfrage">Anfrage senden →</a>
+          <a href="#kontakt" class="btn btn-primary">Anfrage senden →</a>
         </div>
       </div>
 
@@ -501,13 +442,13 @@
             <li>Verwertung brauchbarer Gegenstände über angegliederten Second-Hand-Laden</li>
             <li>Schnelle Abwicklung und unverbindliches Angebot</li>
           </ul>
-          <a href="#kontakt" class="btn-anfrage">Anfrage senden →</a>
+          <a href="#kontakt" class="btn btn-primary">Anfrage senden →</a>
         </div>
       </div>
 
       <!-- Zusatzleistungen -->
       <div class="zusatz-leistungen reveal">
-        <div class="zusatz-icon">❄️</div>
+        <div class="zusatz-icon"><span class="ic ic-funke" aria-hidden="true"></span></div>
         <div>
           <h4>Weitere Leistungen: Arbeiten rund ums Haus &amp; Winterdienst</h4>
           <p>
@@ -523,17 +464,17 @@
     <!-- ══════════════════════════════════════════
          KUNDENSTIMMEN
     ══════════════════════════════════════════ -->
-    <section class="kundenstimmen" aria-labelledby="stimmen-title">
+    <section class="testimonials" aria-labelledby="stimmen-title">
       <div class="section-inner">
         <span class="section-label reveal">Kundenstimmen</span>
         <h2 class="section-title reveal reveal-delay-1" id="stimmen-title">Was unsere Auftraggeber sagen</h2>
         <p class="section-desc reveal reveal-delay-2">
           Unser zufriedener Kundenstamm reicht von Privatpersonen bis zu Kirchen und Kommunen.
         </p>
-        <div class="stimmen-grid">
+        <div class="testimonials-grid">
 
-          <blockquote class="stimme reveal">
-            <div class="stimme-quote">"</div>
+          <blockquote class="testimonial-card reveal">
+            <div class="testimonial-quote">"</div>
             <p>
               Ich muss gestehen, dass ich vor Ihrem Einsatz hier in meiner Nachbarschaft noch nichts von Ihrer
               Initiative gehört hatte. Durch Gespräche über den Zaun habe ich einige Informationen erhalten und
@@ -541,20 +482,20 @@
               zu spüren, dass hier kein nur auf wirtschaftlichen Erfolg bedachtes Unternehmen am Werk war,
               sondern dass da ein etwas anderer Geist wehte.
             </p>
-            <div class="stimme-name">L.K.</div>
-            <div class="stimme-ort">aus Siegen · Entrümpelung</div>
+            <div class="testimonial-name">L.K.</div>
+            <div class="testimonial-role">aus Siegen · Entrümpelung</div>
           </blockquote>
 
-          <blockquote class="stimme reveal reveal-delay-1">
-            <div class="stimme-quote">"</div>
+          <blockquote class="testimonial-card reveal reveal-delay-1">
+            <div class="testimonial-quote">"</div>
             <p>
               Die Wohnungsübergabe an den Vermieter hat gestern einwandfrei geklappt. Das war für uns noch eine
               wesentliche – nun mit Erfolg genommene – Hürde. Ganz herzlichen Dank an Sie und an Ihre
               Mitarbeiter für die Auflösung der Wohnung. Es war sehr schön, mit Ihnen zusammen zu arbeiten!
               Wir würden gerne Ihre Arbeit noch mit einer kleinen Spende unterstützen.
             </p>
-            <div class="stimme-name">Zufriedene Kundin</div>
-            <div class="stimme-ort">Siegerland · Haushaltsauflösung</div>
+            <div class="testimonial-name">Zufriedene Kundin</div>
+            <div class="testimonial-role">Siegerland · Haushaltsauflösung</div>
           </blockquote>
 
         </div>
@@ -603,16 +544,16 @@
           <form id="anfrage-form" style="display:flex; flex-direction:column; gap:1rem; margin-top:1.5rem;" onsubmit="submitAnfrage(event)">
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
               <div>
-                <label for="af-name" style="font-family:'Nunito',sans-serif; font-weight:700; font-size:13px; color:var(--white); display:block; margin-bottom:0.4rem;">Name</label>
+                <label for="af-name" style="font-family:var(--font-head); font-weight:700; font-size:13px; color:var(--white); display:block; margin-bottom:0.4rem;">Name</label>
                 <input type="text" id="af-name" name="name" placeholder="Ihr Name" class="form-control" required>
               </div>
               <div>
-                <label for="af-email" style="font-family:'Nunito',sans-serif; font-weight:700; font-size:13px; color:var(--white); display:block; margin-bottom:0.4rem;">E-Mail</label>
+                <label for="af-email" style="font-family:var(--font-head); font-weight:700; font-size:13px; color:var(--white); display:block; margin-bottom:0.4rem;">E-Mail</label>
                 <input type="email" id="af-email" name="email" placeholder="ihre@email.de" class="form-control" required>
               </div>
             </div>
             <div>
-              <label for="af-leistung" style="font-family:'Nunito',sans-serif; font-weight:700; font-size:13px; color:var(--white); display:block; margin-bottom:0.4rem;">Gewünschte Leistung</label>
+              <label for="af-leistung" style="font-family:var(--font-head); font-weight:700; font-size:13px; color:var(--white); display:block; margin-bottom:0.4rem;">Gewünschte Leistung</label>
               <select id="af-leistung" name="leistung" class="form-control">
                 <option value="garten">Garten- &amp; Landschaftsbau</option>
                 <option value="forst">Forstarbeiten</option>
@@ -621,42 +562,42 @@
               </select>
             </div>
             <div>
-              <label for="af-nachricht" style="font-family:'Nunito',sans-serif; font-weight:700; font-size:13px; color:var(--white); display:block; margin-bottom:0.4rem;">Ihr Anliegen</label>
+              <label for="af-nachricht" style="font-family:var(--font-head); font-weight:700; font-size:13px; color:var(--white); display:block; margin-bottom:0.4rem;">Ihr Anliegen</label>
               <textarea id="af-nachricht" name="nachricht" placeholder="Kurze Beschreibung Ihres Projekts …" rows="4" class="form-control" required style="resize:vertical;"></textarea>
             </div>
             <p style="font-size:12px; color:rgba(255,255,255,0.55); line-height:1.6; margin:0;">
               Mit dem Absenden stimmen Sie unserer <a href="../datenschutz.html" style="color:var(--green-mid);">Datenschutzerklärung</a> zu.
             </p>
-            <button type="submit" class="btn-anfrage" style="align-self:flex-start; border:none;">Anfrage senden →</button>
+            <button type="submit" class="btn btn-primary" style="align-self:flex-start; border:none;">Anfrage senden →</button>
           </form>
           <div id="anfrage-success" class="form-success" role="alert" style="display:none;">
-            ✉️ &nbsp;Vielen Dank! Wir melden uns mit einem Angebot bei Ihnen.
+            <span class="ic ic-mail" aria-hidden="true"></span> Vielen Dank! Wir melden uns mit einem Angebot bei Ihnen.
           </div>
         </div>
 
         <aside class="contact-box reveal reveal-delay-1" aria-label="Direkter Kontakt Dienstleistungen">
           <h3>Direkter Kontakt</h3>
           <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem;">
-            <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;flex-shrink:0;background:rgba(127,150,40,0.2);">
+            <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;flex-shrink:0;background:var(--brand-zart);">
               <img src="../ueber-uns/team/hendrik-moos.jpg" alt="Hendrik Moos" style="width:100%;height:100%;object-fit:cover;" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80'">
             </div>
             <div>
-              <div style="font-family:'Nunito',sans-serif;font-weight:800;font-size:0.95rem;color:var(--white);">Hendrik Moos</div>
+              <div style="font-family:var(--font-head);font-weight:800;font-size:0.95rem;color:var(--white);">Hendrik Moos</div>
               <div style="font-size:0.8rem;color:rgba(255,255,255,0.55);">Leitung der Dienstleistungen</div>
             </div>
           </div>
           <div class="contact-divider"></div>
           <div class="contact-line">
-            <span class="contact-icon">📞</span>
+            <span class="contact-icon"><span class="ic ic-phone" aria-hidden="true"></span></span>
             <span><a href="tel:+4927356567011">02735 – 65 67 11</a> &nbsp;/&nbsp; <a href="tel:+491718418757">0171 – 841 87 57</a></span>
           </div>
           <div class="contact-line">
-            <span class="contact-icon">✉</span>
+            <span class="contact-icon"><span class="ic ic-mail" aria-hidden="true"></span></span>
             <a href="mailto:dienstleistungen@handsofhope.de">dienstleistungen@handsofhope.de</a>
           </div>
           <div class="contact-divider"></div>
           <div class="contact-line">
-            <span class="contact-icon">📍</span>
+            <span class="contact-icon"><span class="ic ic-pin" aria-hidden="true"></span></span>
             <span>Waldstraße 6<br>57290 Neunkirchen</span>
           </div>
         </aside>
@@ -678,7 +619,7 @@
     <div style="max-width: var(--max-width); margin: 0 auto; padding: 0 var(--section-pad-h) 3rem;">
       <div style="background: var(--light-bg); border-radius: var(--radius-lg); padding: 1.5rem 1.75rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;">
         <p style="margin: 0; font-size: 0.95rem; color: var(--text-light); max-width: 560px;">
-          ❤ Sie möchten nicht beauftragen, aber trotzdem unterstützen? Mit einer Spende helfen Sie unseren
+          <span class="ic ic-herz" aria-hidden="true"></span> Sie möchten nicht beauftragen, aber trotzdem unterstützen? Mit einer Spende helfen Sie unseren
           gemeinnützigen Arbeitsbetrieben direkt.
         </p>
         <a href="../ueber-uns/#spenden" class="btn btn-blue">Jetzt spenden →</a>

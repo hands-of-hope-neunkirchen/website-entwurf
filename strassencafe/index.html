@@ -51,30 +51,6 @@
     .hero-photo-wrap > img { object-position: center 60%; }
 
     /* ── INTRO STATS ── */
-    .intro-stats {
-      background: var(--house);
-      padding: 3rem var(--section-pad-h);
-    }
-    .intro-stats-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-    }
-    .stat-item {
-      border-left: 3px solid rgba(255,255,255,0.3);
-      padding-left: 1.5rem;
-    }
-    .stat-num {
-      font-family: 'Nunito', sans-serif;
-      font-weight: 900;
-      font-size: 2.2rem;
-      color: var(--white);
-      line-height: 1;
-      margin-bottom: 0.3rem;
-    }
-    .stat-label { font-size: 0.88rem; color: rgba(255,255,255,0.78); line-height: 1.5; }
 
     /* ── DONNERSTAGSCAFÉ ── */
     .donnerstag-inner {
@@ -99,7 +75,7 @@
       background: var(--white);
       border-radius: var(--radius-sm);
       padding: 0.6rem 1rem;
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 700;
       font-size: 13px;
       color: var(--dark);
@@ -114,12 +90,12 @@
       gap: 0.5rem;
       background: var(--house-dim);
       color: var(--house);
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 800;
       font-size: 1rem;
       padding: 0.6rem 1.2rem;
       border-radius: var(--radius-sm);
-      border: 1px solid rgba(71,142,154,0.25);
+      border: 1px solid var(--brand-hell);
       margin-bottom: 1.25rem;
     }
     .feature-list {
@@ -141,7 +117,7 @@
     .feature-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
     .feature-text strong {
       display: block;
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 800;
       font-size: 0.95rem;
       color: var(--dark);
@@ -170,13 +146,13 @@
     .prog-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
     .prog-icon { font-size: 1.8rem; margin-bottom: 0.25rem; }
     .prog-time {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 900;
       font-size: 1.5rem;
       color: var(--house);
     }
     .prog-title {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 800;
       font-size: 1rem;
       color: var(--dark);
@@ -185,7 +161,7 @@
 
     /* ── GOTTESDIENST ── */
     .gottesdienst-section {
-      background: var(--dark);
+      background: var(--brand-flaeche);
       position: relative;
       overflow: hidden;
     }
@@ -195,7 +171,7 @@
       width: 600px; height: 600px;
       top: -200px; right: -100px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(71,142,154,0.18) 0%, transparent 70%);
+      background: radial-gradient(circle, var(--brand-zart) 0%, transparent 70%);
       pointer-events: none;
     }
     .gottesdienst-inner {
@@ -216,8 +192,8 @@
       display: flex;
       align-items: center;
       gap: 1.25rem;
-      background: rgba(71,142,154,0.18);
-      border: 1px solid rgba(71,142,154,0.4);
+      background: var(--brand-zart);
+      border: 1px solid var(--brand-hell);
       border-radius: var(--radius-md);
       padding: 1.5rem 1.75rem;
       margin-bottom: 2rem;
@@ -225,7 +201,7 @@
     .gs-highlight-icon { font-size: 2.5rem; flex-shrink: 0; }
     .gs-highlight-text strong {
       display: block;
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 800;
       font-size: 1.05rem;
       color: var(--white);
@@ -243,11 +219,11 @@
       margin-top: 7px;
     }
     .gs-feat-text { font-size: 0.95rem; color: rgba(255,255,255,0.75); line-height: 1.6; }
-    .gs-feat-text strong { color: var(--white); font-family: 'Nunito', sans-serif; font-weight: 700; }
+    .gs-feat-text strong { color: var(--white); font-family: var(--font-head); font-weight: 700; }
 
     .gottesdienst-card {
       background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(200,216,226,0.15);
+      border: 1px solid var(--brand-hell);
       border-radius: var(--radius-lg);
       overflow: hidden;
     }
@@ -260,7 +236,7 @@
     .gs-photo-label {
       position: absolute;
       bottom: 1.25rem; left: 1.5rem;
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 800;
       font-size: 1.2rem;
       color: var(--white);
@@ -272,13 +248,13 @@
       gap: 0.85rem;
       margin-bottom: 1rem;
       padding-bottom: 1rem;
-      border-bottom: 1px solid rgba(200,216,226,0.1);
+      border-bottom: 1px solid var(--brand-hell);
     }
     .gs-info-row:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
     .gs-info-icon {
       width: 36px; height: 36px;
       border-radius: var(--radius-sm);
-      background: rgba(71,142,154,0.22);
+      background: var(--brand-zart);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -288,12 +264,10 @@
     .gs-info-label {
       font-size: 0.78rem;
       color: rgba(255,255,255,0.45);
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
       margin-bottom: 2px;
     }
     .gs-info-value {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 700;
       font-size: 0.95rem;
       color: var(--white);
@@ -308,7 +282,7 @@
     .vers-inner { max-width: 800px; margin: 0 auto; }
     .vers-icon { font-size: 2.5rem; margin-bottom: 1.5rem; opacity: 0.65; }
     .vers-band blockquote {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 700;
       font-size: clamp(1.2rem, 2.5vw, 1.65rem);
       color: var(--white);
@@ -320,48 +294,12 @@
       font-size: 0.9rem;
       color: rgba(255,255,255,0.7);
       font-style: normal;
-      letter-spacing: 0.05em;
     }
 
     /* ── STIMMEN ── */
-    .stimmen-section { background: var(--white); }
-    .stimmen-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-    .stimme-card {
-      background: var(--light-bg);
-      border-radius: var(--radius-md);
-      padding: 2rem;
-      position: relative;
-    }
-    .stimme-quote {
-      font-size: 3rem;
-      color: var(--house);
-      font-family: 'Nunito', sans-serif;
-      line-height: 1;
-      margin-bottom: 0.75rem;
-      opacity: 0.6;
-    }
-    .stimme-text {
-      font-size: 0.95rem;
-      color: var(--text);
-      line-height: 1.75;
-      margin-bottom: 1.25rem;
-      font-style: italic;
-    }
-    .stimme-name {
-      font-family: 'Nunito', sans-serif;
-      font-weight: 800;
-      font-size: 0.9rem;
-      color: var(--dark);
-    }
-    .stimme-desc { font-size: 0.82rem; color: var(--text-light); }
 
     /* ── KONTAKT CTA ── */
-    .kontakt-cta-section { background: var(--dark); }
+    .kontakt-cta-section { background: var(--brand-flaeche); }
     .kontakt-cta-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -374,41 +312,15 @@
     .kontakt-cta-section .section-title { color: var(--white); }
     .kontakt-cta-section .section-desc { color: rgba(255,255,255,0.68); margin-bottom: 2rem; }
     .kontakt-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-teal {
-      display: inline-block;
-      background: var(--house);
-      color: var(--white);
-      font-family: 'Nunito', sans-serif;
-      font-weight: 800;
-      font-size: 15px;
-      padding: 14px 28px;
-      border-radius: var(--radius-sm);
-      text-decoration: none;
-      transition: background var(--transition), transform var(--transition);
-    }
-    .btn-teal:hover { background: #2d6e79; transform: translateY(-1px); }
-    .btn-outline-white {
-      display: inline-block;
-      border: 1px solid rgba(255,255,255,0.3);
-      color: rgba(255,255,255,0.85);
-      font-family: 'Nunito', sans-serif;
-      font-weight: 700;
-      font-size: 15px;
-      padding: 14px 28px;
-      border-radius: var(--radius-sm);
-      text-decoration: none;
-      transition: background var(--transition);
-    }
-    .btn-outline-white:hover { background: rgba(255,255,255,0.08); }
 
     .kontakt-info-card {
       background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(200,216,226,0.15);
+      border: 1px solid var(--brand-hell);
       border-radius: var(--radius-md);
       padding: 2rem;
     }
     .kontakt-info-card h4 {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 800;
       font-size: 1rem;
       color: var(--white);
@@ -425,7 +337,7 @@
     .contact-line .icon {
       width: 34px; height: 34px;
       border-radius: var(--radius-sm);
-      background: rgba(71,142,154,0.18);
+      background: var(--brand-zart);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -434,23 +346,19 @@
     }
     .contact-line a { color: var(--house-light); text-decoration: none; }
     .contact-line a:hover { text-decoration: underline; }
-    .contact-divider { height: 1px; background: rgba(200,216,226,0.1); margin: 1.25rem 0; }
+    .contact-divider { height: 1px; background: var(--brand-zart); margin: 1.25rem 0; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .breadcrumb { padding: 0.75rem 2rem; }
-      .intro-stats { padding: 2.5rem 2rem; }
-      .intro-stats-inner { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
       .donnerstag-inner { grid-template-columns: 1fr; gap: 2rem; }
       .donnerstag-photo { aspect-ratio: 16/9; }
       .programm-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
       .gottesdienst-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-      .stimmen-grid { grid-template-columns: 1fr; }
       .kontakt-cta-inner { grid-template-columns: 1fr; gap: 2.5rem; }
 
     }
     @media (max-width: 600px) {
-      .intro-stats-inner { grid-template-columns: 1fr; }
       .programm-grid { grid-template-columns: 1fr; }
     }
   </style>
@@ -498,23 +406,23 @@
     <!-- ══════════════════════════════════════════
          STATS
     ══════════════════════════════════════════ -->
-    <div class="intro-stats" aria-label="Kennzahlen">
-      <div class="intro-stats-inner">
-        <div class="stat-item reveal">
-          <div class="stat-num">2009</div>
-          <div class="stat-label">Gründungsjahr der Straßencaféarbeit in Siegen</div>
+    <div class="mission" aria-label="Kennzahlen">
+      <div class="mission-grid">
+        <div class="mission-item reveal">
+          <div class="mission-num">2009</div>
+          <div class="mission-text">Gründungsjahr der Straßencaféarbeit in Siegen</div>
         </div>
-        <div class="stat-item reveal reveal-delay-1">
-          <div class="stat-num">~100</div>
-          <div class="stat-label">Menschen kommen jeden Donnerstag – bedürftige, einsame und obdachlose Gäste</div>
+        <div class="mission-item reveal reveal-delay-1">
+          <div class="mission-num">~100</div>
+          <div class="mission-text">Menschen kommen jeden Donnerstag – bedürftige, einsame und obdachlose Gäste</div>
         </div>
-        <div class="stat-item reveal reveal-delay-2">
-          <div class="stat-num">17:30</div>
-          <div class="stat-label">Donnerstags geöffnet – mit Musik, Andacht und kostenlosem Abendessen</div>
+        <div class="mission-item reveal reveal-delay-2">
+          <div class="mission-num">17:30</div>
+          <div class="mission-text">Donnerstags geöffnet – mit Musik, Andacht und kostenlosem Abendessen</div>
         </div>
-        <div class="stat-item reveal reveal-delay-3">
-          <div class="stat-num">1× / Mo.</div>
-          <div class="stat-label">Sonntagsgottesdienst – jeden 1. Sonntag um 10:30 Uhr, offen für alle</div>
+        <div class="mission-item reveal reveal-delay-3">
+          <div class="mission-num">1× / Mo.</div>
+          <div class="mission-text">Sonntagsgottesdienst – jeden 1. Sonntag um 10:30 Uhr, offen für alle</div>
         </div>
       </div>
     </div>
@@ -529,13 +437,13 @@
         <div class="donnerstag-photo reveal">
           <!-- Foto: Gemeinsames Abendessen / Café-Szene → donnerstag.jpg -->
           <img src="donnerstag.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=800&q=80'" alt="Gemeinsames Abendessen im Straßencafé" loading="lazy">
-          <div class="donnerstag-badge">📍 Hagener Straße 78, Siegen</div>
+          <div class="donnerstag-badge"><span class="ic ic-pin" aria-hidden="true"></span> Hagener Straße 78, Siegen</div>
         </div>
 
         <div class="reveal reveal-delay-1">
           <span class="section-label">Jeden Donnerstag</span>
           <h2 class="section-title" id="donnerstag-title">Ein Abend, der zählt</h2>
-          <div class="time-pill">🕠 ab 17:30 Uhr</div>
+          <div class="time-pill"><span class="ic ic-uhr" aria-hidden="true"></span> ab 17:30 Uhr</div>
           <p class="section-desc">
             Seit Juni 2009 öffnen wir jeden Donnerstagabend unsere Türen für alle, die es brauchen. Das Straßencafé
             ist mehr als ein Essen – es ist ein Ort der Würde, der Begegnung und der Hoffnung. Obdachlose,
@@ -544,28 +452,28 @@
 
           <ul class="feature-list">
             <li class="feature-item">
-              <span class="feature-icon">🍽️</span>
+              <span class="feature-icon"><span class="ic ic-teller" aria-hidden="true"></span></span>
               <div class="feature-text">
                 <strong>Warmes Abendessen – kostenlos</strong>
                 <span>Jeden Donnerstag wird für alle gekocht. Ein vollständiges, kostenloses Abendessen – ohne Bedingungen.</span>
               </div>
             </li>
             <li class="feature-item">
-              <span class="feature-icon">🎸</span>
+              <span class="feature-icon"><span class="ic ic-musik" aria-hidden="true"></span></span>
               <div class="feature-text">
                 <strong>Livemusik</strong>
                 <span>Musik schafft Atmosphäre. Bei uns spielen regelmäßig Bands und Musiker live – Gemeinschaft beginnt oft mit einem Lied.</span>
               </div>
             </li>
             <li class="feature-item">
-              <span class="feature-icon">📖</span>
+              <span class="feature-icon"><span class="ic ic-buch" aria-hidden="true"></span></span>
               <div class="feature-text">
                 <strong>Andacht aus der Bibel</strong>
                 <span>Ein kurzer, persönlicher Impuls – zugänglich und einladend, ohne religiösen Druck.</span>
               </div>
             </li>
             <li class="feature-item">
-              <span class="feature-icon">🤝</span>
+              <span class="feature-icon"><span class="ic ic-haende" aria-hidden="true"></span></span>
               <div class="feature-text">
                 <strong>Herzliche Gemeinschaft</strong>
                 <span>Im Straßencafé ist jeder jemand. Namen werden gekannt, Geschichten gehört, Würde geachtet.</span>
@@ -592,25 +500,25 @@
 
         <div class="programm-grid">
           <div class="prog-card reveal">
-            <div class="prog-icon">🚪</div>
+            <div class="prog-icon"><span class="ic ic-tuer" aria-hidden="true"></span></div>
             <div class="prog-time">17:30</div>
             <div class="prog-title">Türen auf</div>
             <p class="prog-desc">Der Einlass beginnt. Jeder ist willkommen – ohne Anmeldung, ohne Bedingungen. Einfach kommen.</p>
           </div>
           <div class="prog-card reveal reveal-delay-1">
-            <div class="prog-icon">🎶</div>
+            <div class="prog-icon"><span class="ic ic-musik" aria-hidden="true"></span></div>
             <div class="prog-time">18:00</div>
             <div class="prog-title">Livemusik</div>
             <p class="prog-desc">Bands oder Einzelmusiker spielen live auf. Musik verbindet – und macht Lust auf mehr.</p>
           </div>
           <div class="prog-card reveal reveal-delay-2">
-            <div class="prog-icon">📖</div>
+            <div class="prog-icon"><span class="ic ic-buch" aria-hidden="true"></span></div>
             <div class="prog-time">18:30</div>
             <div class="prog-title">Andacht &amp; Abendessen</div>
             <p class="prog-desc">Ein kurzer Bibelimpuls, gefolgt vom warmen, gemeinsamen Abendessen – gratis für alle Gäste.</p>
           </div>
           <div class="prog-card reveal reveal-delay-3">
-            <div class="prog-icon">💬</div>
+            <div class="prog-icon"><span class="ic ic-sprech" aria-hidden="true"></span></div>
             <div class="prog-time">ab 19:00</div>
             <div class="prog-title">Gemeinschaft</div>
             <p class="prog-desc">Gespräche, Begegnungen, Zuhören. Mancher kommt fürs Essen – und bleibt wegen der Menschen.</p>
@@ -636,7 +544,7 @@
           </p>
 
           <div class="gs-highlight">
-            <div class="gs-highlight-icon">🕊️</div>
+            <div class="gs-highlight-icon"><span class="ic ic-funke" aria-hidden="true"></span></div>
             <div class="gs-highlight-text">
               <strong>Kein Dresscode. Keine Ahnung nötig. Kein Druck.</strong>
               <span>Dieser Gottesdienst ist so gestaltet, dass Menschen, die mit Kirche bisher nichts anfangen konnten, sich wirklich willkommen fühlen. Weil es so gemeint ist.</span>
@@ -672,35 +580,35 @@
           </div>
           <div class="gs-card-body">
             <div class="gs-info-row">
-              <div class="gs-info-icon">📅</div>
+              <div class="gs-info-icon"><span class="ic ic-kalender" aria-hidden="true"></span></div>
               <div>
                 <div class="gs-info-label">Termin</div>
                 <div class="gs-info-value">Jeden 1. Sonntag im Monat</div>
               </div>
             </div>
             <div class="gs-info-row">
-              <div class="gs-info-icon">🕥</div>
+              <div class="gs-info-icon"><span class="ic ic-uhr" aria-hidden="true"></span></div>
               <div>
                 <div class="gs-info-label">Uhrzeit</div>
                 <div class="gs-info-value">10:30 Uhr</div>
               </div>
             </div>
             <div class="gs-info-row">
-              <div class="gs-info-icon">📍</div>
+              <div class="gs-info-icon"><span class="ic ic-pin" aria-hidden="true"></span></div>
               <div>
                 <div class="gs-info-label">Ort</div>
                 <div class="gs-info-value">Hagener Straße 78, 57072 Siegen</div>
               </div>
             </div>
             <div class="gs-info-row">
-              <div class="gs-info-icon">☕</div>
+              <div class="gs-info-icon"><span class="ic ic-kaffee" aria-hidden="true"></span></div>
               <div>
                 <div class="gs-info-label">Im Anschluss</div>
                 <div class="gs-info-value">Gemeinsames Kaffeetrinken</div>
               </div>
             </div>
             <div class="gs-info-row">
-              <div class="gs-info-icon">🚪</div>
+              <div class="gs-info-icon"><span class="ic ic-tuer" aria-hidden="true"></span></div>
               <div>
                 <div class="gs-info-label">Einlass</div>
                 <div class="gs-info-value">Offen für alle – einfach kommen</div>
@@ -718,7 +626,7 @@
     ══════════════════════════════════════════ -->
     <div class="vers-band" role="complementary" aria-label="Bibelvers">
       <div class="vers-inner reveal">
-        <div class="vers-icon">✦</div>
+        <div class="vers-icon"><span class="ic ic-funke" aria-hidden="true"></span></div>
         <blockquote>
           „Dann sagte der Herr zu seinem Knecht: Geh auf die Straßen und Wege und nötige die Leute,
           hereinzukommen, damit mein Haus voll wird."
@@ -731,40 +639,40 @@
     <!-- ══════════════════════════════════════════
          STIMMEN
     ══════════════════════════════════════════ -->
-    <section class="stimmen-section" aria-labelledby="stimmen-title">
+    <section class="testimonials" aria-labelledby="stimmen-title">
       <div class="section-inner" style="text-align: center;">
         <span class="section-label reveal">Was Menschen sagen</span>
         <h2 class="section-title reveal reveal-delay-1" id="stimmen-title">Begegnungen, die bleiben</h2>
         <p class="section-desc reveal reveal-delay-2" style="margin: 0 auto 0;">
           Drei Eindrücke – stellvertretend für viele Geschichten, die sich im Straßencafé ereignen.
         </p>
-        <div class="stimmen-grid">
-          <div class="stimme-card reveal">
-            <div class="stimme-quote">"</div>
-            <p class="stimme-text">
+        <div class="testimonials-grid">
+          <div class="testimonial-card reveal">
+            <div class="testimonial-quote">"</div>
+            <p class="testimonial-text">
               Ich bin das erste Mal nur wegen dem Essen gekommen. Inzwischen komme ich jeden Donnerstag –
               wegen den Menschen. Ich fühle mich hier einfach gesehen.
             </p>
-            <div class="stimme-name">Klaus, 58</div>
-            <div class="stimme-desc">Gast seit 2021</div>
+            <div class="testimonial-name">Klaus, 58</div>
+            <div class="testimonial-role">Gast seit 2021</div>
           </div>
-          <div class="stimme-card reveal reveal-delay-1">
-            <div class="stimme-quote">"</div>
-            <p class="stimme-text">
+          <div class="testimonial-card reveal reveal-delay-1">
+            <div class="testimonial-quote">"</div>
+            <p class="testimonial-text">
               Den Sonntagsgottesdienst hätte ich mir früher nie vorstellen können. Aber hier ist das anders.
               Man muss nichts wissen, nichts können – und fühlt sich trotzdem nicht deplatziert.
             </p>
-            <div class="stimme-name">Miriam, 34</div>
-            <div class="stimme-desc">Zum ersten Mal beim Sonntagsgottesdienst 2024</div>
+            <div class="testimonial-name">Miriam, 34</div>
+            <div class="testimonial-role">Zum ersten Mal beim Sonntagsgottesdienst 2024</div>
           </div>
-          <div class="stimme-card reveal reveal-delay-2">
-            <div class="stimme-quote">"</div>
-            <p class="stimme-text">
+          <div class="testimonial-card reveal reveal-delay-2">
+            <div class="testimonial-quote">"</div>
+            <p class="testimonial-text">
               Ich war obdachlos, völlig allein. Das Straßencafé hat mir nicht nur ein Abendessen gegeben –
               sondern das Gefühl, dass jemand weiß, dass ich existiere.
             </p>
-            <div class="stimme-name">Thomas, 46</div>
-            <div class="stimme-desc">Heute in eigener Wohnung</div>
+            <div class="testimonial-name">Thomas, 46</div>
+            <div class="testimonial-role">Heute in eigener Wohnung</div>
           </div>
         </div>
       </div>
@@ -784,43 +692,43 @@
             Glauben oder Kirche. Kommen Sie vorbei – ob donnerstags oder sonntags.
           </p>
           <div class="kontakt-actions">
-            <a href="mailto:strassencafe@handsofhope.de" class="btn-teal">E-Mail schreiben</a>
-            <a href="tel:+4927133884093" class="btn-outline-white">Anrufen</a>
+            <a href="mailto:strassencafe@handsofhope.de" class="btn btn-blue">E-Mail schreiben</a>
+            <a href="tel:+4927133884093" class="btn btn-ghost">Anrufen</a>
           </div>
         </div>
 
         <aside class="kontakt-info-card reveal reveal-delay-1" aria-label="Direkter Kontakt Straßencafé">
           <h4>Direkter Kontakt</h4>
           <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem;">
-            <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;flex-shrink:0;background:rgba(94,205,200,0.2);">
+            <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;flex-shrink:0;background:var(--brand-zart);">
               <img src="../ueber-uns/team/nils-erner.jpg" alt="Nils Erner" style="width:100%;height:100%;object-fit:cover;" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80'">
             </div>
             <div>
-              <div style="font-family:'Nunito',sans-serif;font-weight:800;font-size:0.95rem;color:var(--white);">Nils Erner</div>
+              <div style="font-family:var(--font-head);font-weight:800;font-size:0.95rem;color:var(--white);">Nils Erner</div>
               <div style="font-size:0.8rem;color:rgba(255,255,255,0.55);">Leitung des Straßencafés</div>
             </div>
           </div>
           <div class="contact-divider"></div>
           <div class="contact-line">
-            <div class="icon">📞</div>
+            <div class="icon"><span class="ic ic-phone" aria-hidden="true"></span></div>
             <a href="tel:+4927133884093">+49 (0) 271 – 33 88 40 93</a>
           </div>
           <div class="contact-line">
-            <div class="icon">✉</div>
+            <div class="icon"><span class="ic ic-mail" aria-hidden="true"></span></div>
             <a href="mailto:strassencafe@handsofhope.de">strassencafe@handsofhope.de</a>
           </div>
           <div class="contact-divider"></div>
           <div class="contact-line">
-            <div class="icon">📍</div>
+            <div class="icon"><span class="ic ic-pin" aria-hidden="true"></span></div>
             <div>Hagener Straße 78<br>57072 Siegen</div>
           </div>
           <div class="contact-divider"></div>
           <div class="contact-line">
-            <div class="icon">🕠</div>
+            <div class="icon"><span class="ic ic-uhr" aria-hidden="true"></span></div>
             <div><strong style="color:var(--white);">Donnerstags ab 17:30 Uhr</strong></div>
           </div>
           <div class="contact-line">
-            <div class="icon">☀️</div>
+            <div class="icon"><span class="ic ic-funke" aria-hidden="true"></span></div>
             <div><strong style="color:var(--white);">1. Sonntag im Monat, 10:30 Uhr</strong></div>
           </div>
         </aside>
@@ -834,7 +742,7 @@
     <div style="max-width: var(--max-width); margin: 0 auto; padding: 0 var(--section-pad-h) 3rem;">
       <div style="background: var(--light-bg); border-radius: var(--radius-lg); padding: 1.5rem 1.75rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;">
         <p style="margin: 0; font-size: 0.95rem; color: var(--text-light); max-width: 560px;">
-          ❤ Mit einer Spende unterstützen Sie das Straßencafé direkt – von der warmen Mahlzeit bis zur
+          <span class="ic ic-herz" aria-hidden="true"></span> Mit einer Spende unterstützen Sie das Straßencafé direkt – von der warmen Mahlzeit bis zur
           persönlichen Begleitung der Gäste.
         </p>
         <a href="../ueber-uns/#spenden" class="btn btn-blue">Jetzt spenden →</a>

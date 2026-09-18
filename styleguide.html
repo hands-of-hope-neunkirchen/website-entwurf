@@ -280,6 +280,7 @@
       <ol>
         <li><a href="#logos">Logofamilie (Dachmarke, Eigenmarken, Flamme)</a></li>
         <li><a href="#tokens">Design Tokens (Farben, Radien, Schatten)</a></li>
+        <li><a href="#icons">Icons (Strich-Icons als CSS-Maske)</a></li>
         <li><a href="#typografie">Typografie</a></li>
         <li><a href="#buttons">Buttons / Call-to-Action</a></li>
         <li><a href="#navigation">Hauptnavigation / Header</a></li>
@@ -418,6 +419,45 @@
 
 <span class="t">[data-brand='strassencafe']</span> { --brand: var(--rot); … }
 <span class="t">[data-brand='dienstleistungen']</span> { --brand: var(--gruen-tief); … }</code></pre></div>
+    </article>
+
+
+    <article class="sg-component" id="icons">
+      <div class="sg-head">
+        <span class="sg-num">01b</span>
+        <div>
+          <h2>Icons</h2>
+          <div class="sg-meta">
+            <span class="sg-tag global">Fundament</span>
+            <code>.ic .ic-*</code>
+            <span>Quelle: styles/layout.css</span>
+          </div>
+        </div>
+      </div>
+      <p class="sg-desc">
+        Strich-Icons als CSS-Maske statt Emojis. Die Form steckt in der Variable
+        <code>--ic</code>, die Farbe kommt über <code>currentColor</code> – dadurch
+        nehmen die Icons automatisch die Farbe ihres Kontexts an: Markenfarbe auf
+        Weiß, Weiß auf einer Markenfläche. Gleiches Prinzip wie die Social-Icons
+        im Footer.
+      </p>
+
+      <span class="sg-preview-label">Verwendung</span>
+      <div class="sg-code"><pre><code><span class="t">&lt;span</span> <span class="a">class=</span>"ic ic-mail" <span class="a">aria-hidden=</span>"true"<span class="t">&gt;&lt;/span&gt;</span></code></pre></div>
+
+      <span class="sg-preview-label">Verfügbare Icons</span>
+      <div class="sg-preview on-white">
+        <div style="display:flex;flex-wrap:wrap;gap:1.5rem;padding:1.5rem;color:var(--brand);font-size:28px;">
+          <span class="ic ic-mail" title="mail"></span><span class="ic ic-phone" title="phone"></span><span class="ic ic-pin" title="pin"></span><span class="ic ic-kalender" title="kalender"></span><span class="ic ic-personen" title="personen"></span><span class="ic ic-haus" title="haus"></span><span class="ic ic-kaffee" title="kaffee"></span><span class="ic ic-pflanze" title="pflanze"></span><span class="ic ic-schild" title="schild"></span><span class="ic ic-abschluss" title="abschluss"></span><span class="ic ic-herz" title="herz"></span><span class="ic ic-download" title="download"></span><span class="ic ic-haken" title="haken"></span><span class="ic ic-kreuz" title="kreuz"></span><span class="ic ic-werkzeug" title="werkzeug"></span><span class="ic ic-kamera" title="kamera"></span><span class="ic ic-mobil" title="mobil"></span><span class="ic ic-hinweis" title="hinweis"></span><span class="ic ic-haende" title="haende"></span><span class="ic ic-link" title="link"></span><span class="ic ic-sprech" title="sprech"></span><span class="ic ic-uhr" title="uhr"></span><span class="ic ic-buch" title="buch"></span><span class="ic ic-tuer" title="tuer"></span><span class="ic ic-lupe" title="lupe"></span><span class="ic ic-ziel" title="ziel"></span><span class="ic ic-mikro" title="mikro"></span><span class="ic ic-teller" title="teller"></span><span class="ic ic-musik" title="musik"></span><span class="ic ic-dokument" title="dokument"></span><span class="ic ic-pokal" title="pokal"></span><span class="ic ic-euro" title="euro"></span><span class="ic ic-funke" title="funke"></span><span class="ic ic-kopf" title="kopf"></span>
+        </div>
+      </div>
+
+      <span class="sg-preview-label">Auf Markenfläche</span>
+      <div class="sg-preview">
+        <div style="background:var(--brand-flaeche);padding:1.75rem;display:flex;gap:1.5rem;flex-wrap:wrap;color:var(--white);font-size:28px;">
+          <span class="ic ic-mail"></span><span class="ic ic-phone"></span><span class="ic ic-pin"></span><span class="ic ic-herz"></span><span class="ic ic-haken"></span><span class="ic ic-kalender"></span>
+        </div>
+      </div>
     </article>
 
 
@@ -900,16 +940,8 @@
           <p style="font-size:13px;color:var(--text-light);line-height:1.6"><code style="font-size:11px">.page-header</code> mit Breadcrumb – in <code style="font-size:11px">typography.css</code> definiert; Unterseiten nutzen stattdessen den vollen <code style="font-size:11px">.hero</code>.</p>
         </div>
         <div class="box">
-          <h4>Testimonials</h4>
-          <p style="font-size:13px;color:var(--text-light);line-height:1.6"><code style="font-size:11px">.testimonial-card</code> – Zitatkarte mit Avatar. In <code style="font-size:11px">sections.css</code> vorhanden, nirgends eingesetzt.</p>
-        </div>
-        <div class="box">
           <h4>Kontakt-Banner</h4>
-          <p style="font-size:13px;color:var(--text-light);line-height:1.6"><code style="font-size:11px">.kontakt-banner</code> mit <code style="font-size:11px">.kontakt-card</code> – dunkler CTA-Streifen. Definiert, ungenutzt.</p>
-        </div>
-        <div class="box">
-          <h4>Mission / Stats</h4>
-          <p style="font-size:13px;color:var(--text-light);line-height:1.6"><code style="font-size:11px">.mission</code> · <code style="font-size:11px">.mission-item</code> – Kennzahlen-Raster auf Blau. Definiert, ungenutzt.</p>
+          <p style="font-size:13px;color:var(--text-light);line-height:1.6"><code style="font-size:11px">.kontakt-banner</code> mit <code style="font-size:11px">.kontakt-card</code> – CTA-Streifen auf Markenfläche. Definiert, aber noch ungenutzt: die drei Bereichsseiten bringen eigene, strukturell abweichende Kontakt-Abschnitte mit.</p>
         </div>
       </div>
     </article>

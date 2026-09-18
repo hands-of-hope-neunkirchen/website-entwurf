@@ -34,64 +34,16 @@
     .reveal-delay-2 { transition-delay: 0.2s; }
 
     /* ── ARTICLE HERO ── */
-    .article-hero {
-      background: var(--dark);
-      position: relative;
-      min-height: 60svh;
-      display: flex;
-      align-items: flex-end;
-      overflow: hidden;
-    }
-    .article-hero-visual {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
-    .article-hero-visual img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .article-hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(5,41,55,0.92) 0%, rgba(5,41,55,0.55) 55%, rgba(5,41,55,0.2) 100%);
-    }
-    .article-hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      width: 100%;
-      padding: 4rem var(--section-pad-h) 3.5rem;
-    }
     .article-category {
       display: inline-block;
-      background: rgba(194,116,64,0.85);
+      background: var(--brand);
       color: #fff;
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 800;
       font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
       padding: 4px 12px;
-      border-radius: 20px;
+      border-radius: var(--radius-pill);
       margin-bottom: 1.25rem;
-    }
-    .article-hero-content h1 {
-      font-family: 'Nunito', sans-serif;
-      font-weight: 900;
-      font-size: clamp(1.7rem, 4vw, 2.8rem);
-      color: var(--white);
-      line-height: 1.2;
-      max-width: 780px;
-      margin-bottom: 1.5rem;
-    }
-    .article-hero-meta {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      flex-wrap: wrap;
     }
     .article-author {
       display: flex;
@@ -110,7 +62,7 @@
       object-fit: cover;
     }
     .article-author-name {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 700;
       font-size: 0.88rem;
       color: var(--white);
@@ -160,14 +112,14 @@
       margin-bottom: 1.6rem;
     }
     .article-prose h2 {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 800;
       font-size: 1.4rem;
       color: var(--dark);
       margin: 2.5rem 0 1rem;
     }
     .article-prose h3 {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 700;
       font-size: 1.1rem;
       color: var(--dark);
@@ -179,11 +131,11 @@
       border-left: 4px solid var(--blue);
       margin: 2.5rem 0;
       padding: 1.25rem 1.75rem;
-      background: rgba(12,70,132,0.04);
+      background: var(--brand-zart);
       border-radius: 0 var(--radius-md) var(--radius-md) 0;
     }
     .pull-quote p {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 700;
       font-size: 1.2rem !important;
       color: var(--dark) !important;
@@ -239,11 +191,9 @@
       margin-bottom: 1.5rem;
     }
     .sidebar-card h4 {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 800;
       font-size: 0.85rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
       color: var(--text-light);
       margin-bottom: 1.25rem;
     }
@@ -270,7 +220,7 @@
       object-fit: cover;
     }
     .sidebar-post-title {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 700;
       font-size: 0.88rem;
       color: var(--dark);
@@ -298,7 +248,7 @@
       display: block;
       background: var(--white);
       color: var(--dark);
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 800;
       font-size: 14px;
       padding: 11px 20px;
@@ -312,10 +262,8 @@
     @media (max-width: 900px) {
       .article-layout { grid-template-columns: 1fr; gap: 3rem; }
       .article-sidebar { position: static; }
-      .article-hero { min-height: 50svh; }
     }
     @media (max-width: 600px) {
-      .article-hero-content h1 { font-size: 1.6rem; }
       .article-prose p { font-size: 0.97rem; }
     }
   </style>
@@ -344,7 +292,6 @@
           alt="Mann schaut nachdenklich aus dem Fenster"
           loading="eager"
         >
-        <div class="article-hero-overlay"></div>
       </div>
       <div class="article-hero-content">
         <span class="article-category">Rehabilitation</span>
@@ -474,9 +421,9 @@
         <!-- SHARE WIDGET -->
         <div class="share-widget" aria-label="Beitrag teilen">
           <span class="share-widget-label">Teilen</span>
-          <a href="#" data-share="mail" class="share-btn">✉ E-Mail</a>
-          <a href="#" data-share="whatsapp" target="_blank" rel="noopener" class="share-btn">💬 WhatsApp</a>
-          <button type="button" data-share="copy" class="share-btn">🔗 Link kopieren</button>
+          <a href="#" data-share="mail" class="share-btn"><span class="ic ic-mail" aria-hidden="true"></span> E-Mail</a>
+          <a href="#" data-share="whatsapp" target="_blank" rel="noopener" class="share-btn"><span class="ic ic-sprech" aria-hidden="true"></span> WhatsApp</a>
+          <button type="button" data-share="copy" class="share-btn"><span class="ic ic-link" aria-hidden="true"></span> Link kopieren</button>
         </div>
 
         <!-- ARTICLE FOOTER -->
@@ -493,7 +440,7 @@
 
         <div class="sidebar-cta reveal reveal-delay-1">
           <p>Rehabilitation bei Hands of Hope ermöglicht Neuanfänge – getragen von Spenden und Ehrenamt.</p>
-          <a href="../../ueber-uns/#spenden">❤ Jetzt unterstützen</a>
+          <a href="../../ueber-uns/#spenden"><span class="ic ic-herz" aria-hidden="true"></span> Jetzt unterstützen</a>
         </div>
 
       </aside>

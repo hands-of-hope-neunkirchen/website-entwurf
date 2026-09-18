@@ -42,34 +42,6 @@
     /* ── HERO PHOTO BLEND ── */
 
     /* ── STATS ── */
-    .reha-stats {
-      background: var(--rehab);
-      padding: 3rem var(--section-pad-h);
-    }
-    .reha-stats-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-    }
-    .reha-stat {
-      border-left: 3px solid rgba(255,255,255,0.3);
-      padding-left: 1.5rem;
-    }
-    .reha-stat-num {
-      font-family: 'Nunito', sans-serif;
-      font-weight: 900;
-      font-size: 2.4rem;
-      color: var(--white);
-      line-height: 1;
-      margin-bottom: 0.35rem;
-    }
-    .reha-stat-label {
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.75);
-      line-height: 1.5;
-    }
 
     /* ── LAYOUTS ── */
     .target-grid,
@@ -110,7 +82,7 @@
       border-radius: var(--radius-md);
       padding: 0.65rem 1rem;
       box-shadow: var(--shadow-card);
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 700;
       font-size: 13px;
       color: var(--dark);
@@ -127,12 +99,11 @@
       display: inline-flex;
       background: var(--rehab-dim);
       color: var(--rehab);
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 700;
       font-size: 12px;
-      letter-spacing: 0.04em;
       padding: 5px 12px;
-      border: 1px solid rgba(194,116,64,0.25);
+      border: 1px solid var(--brand-hell);
       border-radius: 20px;
     }
 
@@ -196,7 +167,7 @@
     .pillar-details li::before {
       content: '→';
       color: var(--rehab);
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 800;
       flex-shrink: 0;
       margin-top: 1px;
@@ -220,7 +191,7 @@
       top: 52px;
       bottom: 0;
       width: 2px;
-      background: rgba(194,116,64,0.18);
+      background: var(--brand-zart);
     }
     .timeline-num {
       width: 48px;
@@ -231,14 +202,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 800;
       font-size: 1.05rem;
       position: relative;
       z-index: 1;
     }
     .timeline-item.muted .timeline-num {
-      background: rgba(194,116,64,0.22);
+      background: var(--brand-zart);
       color: var(--rehab);
     }
     .timeline-content { padding-bottom: 2.5rem; }
@@ -256,10 +227,9 @@
       display: inline-flex;
       background: var(--rehab-dim);
       color: var(--rehab);
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 700;
       font-size: 11px;
-      letter-spacing: 0.06em;
       padding: 3px 10px;
       border-radius: 20px;
       margin-top: 0.5rem;
@@ -279,7 +249,7 @@
       opacity: 0.75;
     }
     .verse-band blockquote {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 700;
       font-size: clamp(1.3rem, 2.5vw, 1.8rem);
       color: var(--white);
@@ -291,12 +261,11 @@
       color: var(--rehab-mid);
       font-style: normal;
       font-size: 0.9rem;
-      letter-spacing: 0.05em;
     }
 
     /* ── BEWERBUNG ── */
     .apply-section {
-      background: var(--dark);
+      background: var(--brand-flaeche);
       color: var(--white);
     }
     .apply-section .section-label { color: var(--rehab-mid); }
@@ -325,7 +294,7 @@
       width: 22px;
       height: 22px;
       border-radius: 50%;
-      background: rgba(200,216,226,0.2);
+      background: var(--brand-zart);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -343,10 +312,10 @@
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
-      background: rgba(200,216,226,0.15);
-      border: 1px solid rgba(200,216,226,0.3);
+      background: var(--brand-zart);
+      border: 1px solid var(--brand-hell);
       color: var(--rehab-mid);
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 700;
       font-size: 14px;
       padding: 12px 22px;
@@ -354,12 +323,12 @@
       transition: background var(--transition), color var(--transition);
     }
     .download-link:hover {
-      background: rgba(200,216,226,0.25);
+      background: var(--brand-zart);
       color: var(--white);
     }
     .contact-box {
       background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(200,216,226,0.2);
+      border: 1px solid var(--brand-hell);
       border-radius: var(--radius-lg);
       padding: 2rem;
     }
@@ -381,7 +350,7 @@
       width: 34px;
       height: 34px;
       border-radius: var(--radius-sm);
-      background: rgba(200,216,226,0.12);
+      background: var(--brand-zart);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -391,7 +360,7 @@
     .contact-line a:hover { color: var(--white); }
     .contact-divider {
       height: 1px;
-      background: rgba(200,216,226,0.15);
+      background: var(--brand-zart);
       margin: 1.25rem 0;
     }
 
@@ -442,7 +411,7 @@
     }
     .nachsorge-card-icon { font-size: 2rem; margin-bottom: 1rem; }
     .nachsorge-card h3 {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 800;
       font-size: 1rem;
       color: var(--dark);
@@ -451,7 +420,7 @@
     .nachsorge-card p { font-size: 0.92rem; color: var(--text-light); line-height: 1.7; }
     .nachsorge-status { margin-top: 3rem; max-width: 600px; }
     .status-bar-label {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 700;
       font-size: 13px;
       color: var(--dark);
@@ -459,7 +428,7 @@
     }
     .status-bar-track {
       height: 10px;
-      background: rgba(194,116,64,0.15);
+      background: var(--brand-zart);
       border-radius: 20px;
       overflow: hidden;
     }
@@ -474,7 +443,6 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
 
-      .reha-stats-inner,
       .target-grid,
       .process-grid,
       .apply-grid { grid-template-columns: 1fr; }
@@ -488,7 +456,6 @@
       .process-photo { position: static; aspect-ratio: 16/9; }
     }
     @media (max-width: 600px) {
-      .reha-stats { padding: 2.5rem var(--section-pad-h); }
       .apply-actions .btn,
       .apply-actions .download-link { width: 100%; }
     }
@@ -534,19 +501,19 @@
     <!-- ══════════════════════════════════════════
          STATS
     ══════════════════════════════════════════ -->
-    <div class="reha-stats" aria-label="Kennzahlen der Rehabilitation">
-      <div class="reha-stats-inner">
-        <div class="reha-stat reveal">
-          <div class="reha-stat-num">2002</div>
-          <div class="reha-stat-label">Gründungsjahr – über zwei Jahrzehnte Erfahrung in der Rehabilitation</div>
+    <div class="mission" aria-label="Kennzahlen der Rehabilitation">
+      <div class="mission-grid">
+        <div class="mission-item reveal">
+          <div class="mission-num">2002</div>
+          <div class="mission-text">Gründungsjahr – über zwei Jahrzehnte Erfahrung in der Rehabilitation</div>
         </div>
-        <div class="reha-stat reveal reveal-delay-1">
-          <div class="reha-stat-num">12 Mon.</div>
-          <div class="reha-stat-label">Dauer des Programms – intensiv, ganzheitlich und persönlich</div>
+        <div class="mission-item reveal reveal-delay-1">
+          <div class="mission-num">12 Mon.</div>
+          <div class="mission-text">Dauer des Programms – intensiv, ganzheitlich und persönlich</div>
         </div>
-        <div class="reha-stat reveal reveal-delay-2">
-          <div class="reha-stat-num">3 Säulen</div>
-          <div class="reha-stat-label">Wohnen, Arbeit und Seelsorge – drei Bereiche, die ineinandergreifen</div>
+        <div class="mission-item reveal reveal-delay-2">
+          <div class="mission-num">3 Säulen</div>
+          <div class="mission-text">Wohnen, Arbeit und Seelsorge – drei Bereiche, die ineinandergreifen</div>
         </div>
       </div>
     </div>
@@ -565,7 +532,7 @@
             alt="Ein Weg als Symbol für Neubeginn und Hoffnung"
             loading="lazy"
           >
-          <div class="target-badge">🏡 Neunkirchen · Waldstraße 6</div>
+          <div class="target-badge"><span class="ic ic-haus" aria-hidden="true"></span> Neunkirchen · Waldstraße 6</div>
         </div>
 
         <div class="reveal reveal-delay-1">
@@ -615,7 +582,7 @@
               >
             </div>
             <div class="pillar-body">
-              <div class="pillar-icon icon-box">🏠</div>
+              <div class="pillar-icon icon-box"><span class="ic ic-haus" aria-hidden="true"></span></div>
               <h3>Wohngemeinschaft</h3>
               <p>
                 Für die Dauer des Programms leben die Teilnehmer gemeinsam mit zwei Betreuerfamilien in der Waldstraße in Neunkirchen. In familiärer Atmosphäre werden normale Aufgaben des Alltags neu erlernt.
@@ -637,7 +604,7 @@
               >
             </div>
             <div class="pillar-body">
-              <div class="pillar-icon icon-box">🌳</div>
+              <div class="pillar-icon icon-box"><span class="ic ic-pflanze" aria-hidden="true"></span></div>
               <h3>Arbeit &amp; Qualifizierung</h3>
               <p>
                 In unseren gemeinnützigen Arbeitsbetrieben werden Teilnehmer unter realistischen Bedingungen auf die berufliche Realität vorbereitet – angeleitet von erfahrenen Fachleuten.
@@ -660,7 +627,7 @@
               >
             </div>
             <div class="pillar-body">
-              <div class="pillar-icon icon-box">✝</div>
+              <div class="pillar-icon icon-box"><span class="ic ic-kreuz" aria-hidden="true"></span></div>
               <h3>Seelsorge &amp; Glaube</h3>
               <p>
                 Die christliche Ausrichtung ist fester Bestandteil unseres Programms. Jeder Teilnehmer erhält einen persönlichen Mentor, der ihn in Einzelgesprächen und mit einem individuellen Hilfeplan begleitet.
@@ -803,7 +770,7 @@
         <div class="nachsorge-grid">
 
           <div class="nachsorge-card reveal">
-            <div class="nachsorge-card-icon">🏡</div>
+            <div class="nachsorge-card-icon"><span class="ic ic-haus" aria-hidden="true"></span></div>
             <h3>Wohnen nach dem Programm</h3>
             <p>
               Das ehemalige Zweifamilienhaus wird zu einer Wohngemeinschaft für vier Personen umgebaut. Auf zwei Etagen entstehen je zwei vollständig abgeschlossene Einheiten – jede mit eigenem Schlafzimmer, Küche, Bad und Wohnbereich. Die Bewohner leben selbstständig, bleiben aber im Netzwerk von Hands of Hope eingebunden.
@@ -811,7 +778,7 @@
           </div>
 
           <div class="nachsorge-card reveal reveal-delay-1">
-            <div class="nachsorge-card-icon">🔨</div>
+            <div class="nachsorge-card-icon"><span class="ic ic-werkzeug" aria-hidden="true"></span></div>
             <h3>Umbau auf der Zielgeraden</h3>
             <p>
               Das Haus wurde 2025 erworben. Seitdem sind Matthias und ein Team engagierter Helfer täglich im Einsatz. Die Umbauarbeiten sind weit fortgeschritten – der Einzug der ersten Bewohner ist für <strong>Juli 2026</strong> geplant.
@@ -820,7 +787,7 @@
           </div>
 
           <div class="nachsorge-card reveal reveal-delay-2">
-            <div class="nachsorge-card-icon">🤝</div>
+            <div class="nachsorge-card-icon"><span class="ic ic-haende" aria-hidden="true"></span></div>
             <h3>Du kannst mithelfen</h3>
             <p>
               Ob handwerkliche Unterstützung, Gebet oder eine finanzielle Gabe – jede Form der Hilfe bringt das Projekt voran. Sprich uns gerne an oder schau auf unsere aktuellen Berichte im Blog.
@@ -847,7 +814,7 @@
     ══════════════════════════════════════════ -->
     <div class="verse-band" role="complementary" aria-label="Bibelvers">
       <div class="verse-inner reveal">
-        <div class="verse-icon">✦</div>
+        <div class="verse-icon"><span class="ic ic-funke" aria-hidden="true"></span></div>
         <blockquote>
           „Der Geist des Herrn ruht auf mir, denn er hat mich gesalbt. Er hat mich gesandt, den Armen gute Nachricht zu bringen, den Gefangenen die Freilassung zu verkünden."
         </blockquote>
@@ -870,7 +837,7 @@
 
         <div class="reveal reveal-delay-2" style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:1.5rem;">
           <a href="../blog/mikes-geschichte/" class="nachsorge-card" style="text-decoration:none;color:inherit;display:block;">
-            <div class="nachsorge-card-icon">💬</div>
+            <div class="nachsorge-card-icon"><span class="ic ic-sprech" aria-hidden="true"></span></div>
             <h3>„Ich dachte, es gibt kein Zurück mehr" – Mikes Geschichte</h3>
             <p>
               Zwölf Jahre Sucht, drei gescheiterte Therapieversuche, eine zerbrochene Familie. Heute lebt
@@ -906,37 +873,37 @@
           </ul>
           <div class="apply-actions">
             <a href="mailto:info@handsofhope.de" class="btn btn-primary">Kontakt aufnehmen</a>
-            <a href="../downloads/bewerbungsunterlagen-rehabilitation.pdf" class="download-link">⬇ Bewerbungsunterlagen</a>
+            <a href="../downloads/bewerbungsunterlagen-rehabilitation.pdf" class="download-link"><span class="ic ic-download" aria-hidden="true"></span> Bewerbungsunterlagen</a>
           </div>
         </div>
 
         <aside class="contact-box reveal reveal-delay-1" aria-label="Direkter Kontakt Wohngruppe">
           <h3>Direkter Kontakt</h3>
           <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem;">
-            <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;flex-shrink:0;background:rgba(12,70,132,0.15);">
+            <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;flex-shrink:0;background:var(--brand-zart);">
               <img src="../ueber-uns/team/christian-brueck.jpg" alt="Christian Brück" style="width:100%;height:100%;object-fit:cover;" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&q=80'">
             </div>
             <div>
-              <div style="font-family:'Nunito',sans-serif;font-weight:800;font-size:0.95rem;color:var(--white);">Christian Brück</div>
+              <div style="font-family:var(--font-head);font-weight:800;font-size:0.95rem;color:var(--white);">Christian Brück</div>
               <div style="font-size:0.8rem;color:rgba(255,255,255,0.55);">Leitung der Wohngruppe</div>
             </div>
           </div>
           <div class="contact-divider"></div>
           <div class="contact-line">
-            <span class="contact-icon">📞</span>
+            <span class="contact-icon"><span class="ic ic-phone" aria-hidden="true"></span></span>
             <a href="tel:+4927356567012">02735 – 65 67 12</a>
           </div>
           <div class="contact-line">
-            <span class="contact-icon">✉</span>
+            <span class="contact-icon"><span class="ic ic-mail" aria-hidden="true"></span></span>
             <a href="mailto:c.brueck@handsofhope.de">c.brueck@handsofhope.de</a>
           </div>
           <div class="contact-divider"></div>
           <div class="contact-line">
-            <span class="contact-icon">📍</span>
+            <span class="contact-icon"><span class="ic ic-pin" aria-hidden="true"></span></span>
             <span>Waldstraße 6<br>57290 Neunkirchen</span>
           </div>
           <div class="mt-4">
-            <a href="../downloads/wiedereingliederungskonzept.pdf" class="download-link" style="width:100%;">⬇ Wiedereingliederungskonzept</a>
+            <a href="../downloads/wiedereingliederungskonzept.pdf" class="download-link" style="width:100%;"><span class="ic ic-download" aria-hidden="true"></span> Wiedereingliederungskonzept</a>
           </div>
         </aside>
 

@@ -62,7 +62,7 @@
     .stat { display: flex; align-items: flex-start; gap: 0.85rem; border-left: 3px solid rgba(255,255,255,0.3); padding-left: 1.25rem; }
     .stat-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
     .stat-text h4 {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 900;
       font-size: 1.5rem;
       color: var(--white);
@@ -111,7 +111,7 @@
       top: 52px;
       bottom: 0;
       width: 2px;
-      background: rgba(12,70,132,0.12);
+      background: var(--brand-zart);
     }
     .timeline-num {
       width: 48px;
@@ -122,7 +122,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 800;
       font-size: 0.82rem;
       flex-shrink: 0;
@@ -130,12 +130,12 @@
       z-index: 1;
     }
     .timeline-item.muted .timeline-num {
-      background: rgba(12,70,132,0.15);
+      background: var(--brand-zart);
       color: var(--blue);
     }
     .timeline-content { padding-bottom: 2.5rem; }
     .timeline-content h4 {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 800;
       font-size: 1rem;
       color: var(--dark);
@@ -145,12 +145,11 @@
     .timeline-content p { font-size: 0.92rem; color: var(--text-light); line-height: 1.7; }
     .timeline-badge {
       display: inline-block;
-      background: rgba(12,70,132,0.08);
+      background: var(--brand-zart);
       color: var(--blue);
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 700;
       font-size: 11px;
-      letter-spacing: 0.06em;
       padding: 3px 10px;
       border-radius: 20px;
       margin-top: 0.5rem;
@@ -165,7 +164,7 @@
     .vers-inner { max-width: 800px; margin: 0 auto; }
     .vers-icon { font-size: 3rem; margin-bottom: 1.5rem; opacity: 0.6; }
     .vers-band blockquote {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 700;
       font-size: clamp(1.3rem, 2.5vw, 1.8rem);
       color: var(--white);
@@ -177,7 +176,6 @@
       font-size: 0.9rem;
       color: var(--mid-blue);
       font-style: normal;
-      letter-spacing: 0.05em;
     }
 
     /* ── TEAM ── */
@@ -199,7 +197,7 @@
       box-shadow: var(--shadow-card);
     }
     .team-zahl .num {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 900;
       font-size: 2rem;
       color: var(--blue);
@@ -232,12 +230,12 @@
       width: 72px;
       height: 72px;
       border-radius: 50%;
-      background: rgba(12,70,132,0.08);
+      background: var(--brand-zart);
       color: var(--blue);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 800;
       font-size: 1.3rem;
       margin: 0 auto 0.85rem;
@@ -252,7 +250,7 @@
     }
     .team-avatar img.hidden { display: none; }
     .team-card .name {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 800;
       font-size: 0.9rem;
       color: var(--dark);
@@ -263,30 +261,14 @@
     .team-card .badge {
       display: inline-block;
       margin-top: 0.6rem;
-      background: rgba(12,70,132,0.07);
+      background: var(--brand-zart);
       color: var(--blue);
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 700;
       font-size: 10px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
       padding: 3px 9px;
       border-radius: 20px;
     }
-    .team-cta {
-      max-width: var(--max-width);
-      margin: 2.5rem auto 0;
-      background: var(--white);
-      border-radius: var(--radius-md);
-      padding: 1.75rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-      box-shadow: var(--shadow-card);
-    }
-    .team-cta p { font-size: 0.95rem; color: var(--text-light); }
-    .team-cta p strong { color: var(--dark); }
 
     /* ── MITARBEIT ── */
     .mitarbeit-inner {
@@ -314,18 +296,16 @@
     .stellen-card.vollzeit { border-top-color: var(--blue); }
     .stellen-card.ehrenamt { border-top-color: var(--gruen-tief); }
     .stellen-card .stype {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 700;
       font-size: 10px;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
       margin-bottom: 0.6rem;
     }
     .stellen-card.vollzeit .stype { color: var(--blue); }
     .stellen-card.ehrenamt .stype { color: var(--gruen-tief); }
     .stellen-card .sicon { font-size: 1.6rem; margin-bottom: 0.6rem; }
     .stellen-card h4 {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 800;
       font-size: 0.95rem;
       color: var(--dark);
@@ -333,7 +313,7 @@
     }
     .stellen-card p { font-size: 0.85rem; color: var(--text-light); line-height: 1.6; margin-bottom: 0.85rem; }
     .stellen-card a {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 700;
       font-size: 12px;
       color: var(--blue);
@@ -352,12 +332,12 @@
     .prak-fsj-header { margin-bottom: 1.25rem; }
     .prak-badge {
       display: inline-block;
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 800;
       font-size: 1rem;
       color: var(--dark);
       background: var(--white);
-      border-radius: var(--radius-sm);
+      border-radius: var(--radius-pill);
       padding: 0.4rem 0.9rem;
       box-shadow: var(--shadow-card);
     }
@@ -380,7 +360,7 @@
       box-shadow: var(--shadow-card);
     }
     .fsj-list-block h4 {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 800;
       font-size: 0.9rem;
       color: var(--dark);
@@ -410,7 +390,7 @@
       box-shadow: var(--shadow-card);
     }
     .fsj-contact h3 {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 800;
       font-size: 1rem;
       color: var(--dark);
@@ -428,7 +408,7 @@
       width: 34px;
       height: 34px;
       border-radius: var(--radius-sm);
-      background: rgba(12,70,132,0.08);
+      background: var(--brand-zart);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -440,7 +420,7 @@
     .contact-divider { height: 1px; background: rgba(5,41,55,0.08); margin: 1rem 0; }
     .partner-badge {
       margin-top: 1.25rem;
-      background: rgba(12,70,132,0.06);
+      background: var(--brand-zart);
       border-radius: var(--radius-sm);
       padding: 1rem 1.25rem;
       display: flex;
@@ -452,7 +432,7 @@
     .partner-badge a { color: var(--blue); font-size: 0.82rem; }
 
     /* ── SPENDEN ── */
-    .spenden-section { background: var(--dark); }
+    .spenden-section { background: var(--brand-flaeche); }
     .spenden-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -466,12 +446,12 @@
     .spenden-section .section-desc { color: rgba(255,255,255,0.7); margin-bottom: 2rem; }
     .konto-card {
       background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(200,216,226,0.2);
+      border: 1px solid var(--brand-hell);
       border-radius: var(--radius-md);
       padding: 2rem;
     }
     .konto-card h4 {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 800;
       font-size: 0.95rem;
       color: var(--white);
@@ -482,37 +462,21 @@
       justify-content: space-between;
       align-items: baseline;
       padding: 0.65rem 0;
-      border-bottom: 1px solid rgba(200,216,226,0.1);
+      border-bottom: 1px solid var(--brand-hell);
     }
     .konto-row:last-of-type { border-bottom: none; }
     .konto-label {
       font-size: 0.78rem;
       font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
       color: rgba(255,255,255,0.45);
     }
-    .konto-val { font-size: 0.95rem; color: var(--white); font-family: monospace; letter-spacing: 0.03em; }
-    .konto-val.iban { font-size: 0.88rem; letter-spacing: 0.05em; color: var(--mid-blue); }
-    .btn-white-dark {
-      display: inline-block;
-      background: var(--white);
-      color: var(--dark);
-      font-family: 'Nunito', sans-serif;
-      font-weight: 800;
-      font-size: 15px;
-      padding: 14px 28px;
-      border-radius: var(--radius-sm);
-      text-decoration: none;
-      transition: background var(--transition), transform var(--transition);
-      margin-top: 1.5rem;
-    }
-    .btn-white-dark:hover { background: var(--mid-blue); transform: translateY(-1px); }
+    .konto-val { font-size: 0.95rem; color: var(--white); font-family: monospace; }
+    .konto-val.iban { font-size: 0.88rem; color: var(--mid-blue); }
 
     /* ── SPENDENART-UMSCHALTER ── */
     .spende-tabs { display: flex; gap: 0.6rem; margin-bottom: 1rem; }
     .spende-tab-btn {
-      font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.85rem;
+      font-family: var(--font-head); font-weight: 700; font-size: 0.85rem;
       padding: 8px 18px; border-radius: 20px; cursor: pointer;
       border: 1px solid rgba(255,255,255,0.25); background: transparent;
       color: rgba(255,255,255,0.65); transition: background 0.2s, color 0.2s;
@@ -526,7 +490,7 @@
       display: flex; align-items: center; gap: 0.85rem;
       margin-top: 1.25rem; padding: 0.85rem 1rem;
       background: rgba(255,255,255,0.05);
-      border: 1px dashed rgba(200,216,226,0.35);
+      border: 1px dashed var(--brand-hell);
       border-radius: var(--radius-sm);
       font-size: 0.8rem; color: rgba(255,255,255,0.55); line-height: 1.5;
     }
@@ -539,7 +503,7 @@
       background: var(--white); border-radius: var(--radius-lg);
       padding: 1.75rem; box-shadow: var(--shadow-card);
     }
-    .barometer-card h4 { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 1.05rem; margin-bottom: 0.5rem; }
+    .barometer-card h4 { font-family: var(--font-head); font-weight: 800; font-size: 1.05rem; margin-bottom: 0.5rem; }
     .barometer-track {
       height: 10px; border-radius: 6px; background: rgba(5,41,55,0.08);
       overflow: hidden; margin: 0.85rem 0 0.5rem;
@@ -547,9 +511,8 @@
     .barometer-fill { height: 100%; background: var(--blue); border-radius: 6px; }
     .barometer-caption { font-size: 0.82rem; color: var(--text-light); display: flex; justify-content: space-between; }
     .barometer-example-badge {
-      display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 0.06em;
-      text-transform: uppercase; color: #8a6b1a; background: rgba(206,153,35,0.15);
-      padding: 3px 9px; border-radius: 20px; margin-bottom: 0.75rem;
+      display: inline-block; font-size: 10px; font-weight: 800; color: var(--brand); background: var(--brand-zart);
+      padding: 3px 9px; border-radius: var(--radius-pill); margin-bottom: 0.75rem;
     }
 
     /* ── KONTAKT CTA ── */
@@ -573,31 +536,15 @@
       padding: 1.25rem 1.5rem;
     }
     .kontakt-card .klabel {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-head);
       font-weight: 700;
       font-size: 10px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
       color: rgba(255,255,255,0.5);
       margin-bottom: 0.4rem;
     }
     .kontakt-card .kval { font-size: 0.92rem; color: var(--white); line-height: 1.55; }
     .kontakt-card a { color: var(--mid-blue); text-decoration: none; }
     .kontakt-card a:hover { text-decoration: underline; }
-    .btn-outline-white {
-      display: inline-block;
-      border: 2px solid rgba(255,255,255,0.5);
-      color: var(--white);
-      font-family: 'Nunito', sans-serif;
-      font-weight: 800;
-      font-size: 15px;
-      padding: 13px 28px;
-      border-radius: var(--radius-sm);
-      text-decoration: none;
-      transition: background var(--transition);
-      margin-top: 1.5rem;
-    }
-    .btn-outline-white:hover { background: rgba(255,255,255,0.12); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
@@ -610,7 +557,6 @@
       .team-intro { grid-template-columns: 1fr; gap: 1.5rem; }
       .team-grid { grid-template-columns: repeat(2, 1fr); }
       .team-zahlen { flex-wrap: wrap; }
-      .team-cta { flex-direction: column; align-items: flex-start; }
       .mitarbeit-inner { grid-template-columns: 1fr; gap: 2.5rem; }
       .stellen-grid { grid-template-columns: 1fr; }
       .prak-fsj-grid { grid-template-columns: 1fr; gap: 3rem; }
@@ -671,28 +617,28 @@
     <div class="stats-strip" aria-label="Kennzahlen">
       <div class="stats-inner">
         <div class="stat reveal">
-          <span class="stat-icon">📅</span>
+          <span class="stat-icon"><span class="ic ic-kalender" aria-hidden="true"></span></span>
           <div class="stat-text">
             <h4>Seit 2002</h4>
             <p>Über 20 Jahre Erfahrung in der Begleitung von Menschen in Not</p>
           </div>
         </div>
         <div class="stat reveal reveal-delay-1">
-          <span class="stat-icon">👥</span>
+          <span class="stat-icon"><span class="ic ic-personen" aria-hidden="true"></span></span>
           <div class="stat-text">
             <h4>~40 Mitarbeiter</h4>
             <p>10 Festangestellte und rund 30 Ehrenamtliche tragen den Dienst</p>
           </div>
         </div>
         <div class="stat reveal reveal-delay-2">
-          <span class="stat-icon">🏠</span>
+          <span class="stat-icon"><span class="ic ic-haus" aria-hidden="true"></span></span>
           <div class="stat-text">
             <h4>2 Standorte</h4>
             <p>Neunkirchen &amp; Siegen</p>
           </div>
         </div>
         <div class="stat reveal reveal-delay-3">
-          <span class="stat-icon">🌱</span>
+          <span class="stat-icon"><span class="ic ic-pflanze" aria-hidden="true"></span></span>
           <div class="stat-text">
             <h4>4 Bereiche</h4>
             <p>Rehabilitation, Dienstleistungen, Straßencafé &amp; Prävention</p>
@@ -794,7 +740,7 @@
     ══════════════════════════════════════════ -->
     <div class="vers-band" role="complementary" aria-label="Bibelvers">
       <div class="vers-inner reveal">
-        <div class="vers-icon">✝</div>
+        <div class="vers-icon"><span class="ic ic-kreuz" aria-hidden="true"></span></div>
         <blockquote>„Siehe, ich mache alles neu!"</blockquote>
         <cite>— Offenbarung 21,5</cite>
       </div>
@@ -964,35 +910,35 @@
         <div class="reveal reveal-delay-1">
           <div class="stellen-grid">
             <div class="stellen-card vollzeit">
-              <div class="sicon">🔨</div>
+              <div class="sicon"><span class="ic ic-werkzeug" aria-hidden="true"></span></div>
               <div class="stype">Voll- / Teilzeit</div>
               <h4>Dienstleistungen</h4>
               <p>Mitarbeit in unseren handwerklichen Zweckbetrieben unter Anleitung der WG-Bewohner.</p>
               <a href="jobs/#dienstleistungen">Zur Ausschreibung →</a>
             </div>
             <div class="stellen-card ehrenamt">
-              <div class="sicon">🏠</div>
+              <div class="sicon"><span class="ic ic-haus" aria-hidden="true"></span></div>
               <div class="stype">Ehrenamt</div>
               <h4>WG – Hauswirtschaft</h4>
               <p>Unterstützung bei hauswirtschaftlichen Tätigkeiten rund um die Wohngemeinschaft.</p>
               <a href="jobs/#hauswirtschaft">Zur Ausschreibung →</a>
             </div>
             <div class="stellen-card ehrenamt">
-              <div class="sicon">☕</div>
+              <div class="sicon"><span class="ic ic-kaffee" aria-hidden="true"></span></div>
               <div class="stype">Ehrenamt</div>
               <h4>Straßencafé</h4>
               <p>Wöchentliche Mitarbeit im Straßencafé in Siegen.</p>
               <a href="jobs/#strassencafe">Zur Ausschreibung →</a>
             </div>
             <div class="stellen-card ehrenamt">
-              <div class="sicon">📸</div>
+              <div class="sicon"><span class="ic ic-kamera" aria-hidden="true"></span></div>
               <div class="stype">Ehrenamt</div>
               <h4>Mediendesign &amp; -pflege</h4>
               <p>Unterstützung digital und/oder im Print.</p>
               <a href="jobs/#medien">Zur Ausschreibung →</a>
             </div>
             <div class="stellen-card ehrenamt">
-              <div class="sicon">🔧</div>
+              <div class="sicon"><span class="ic ic-werkzeug" aria-hidden="true"></span></div>
               <div class="stype">Ehrenamt</div>
               <h4>Baustellen</h4>
               <p>Handwerkliche Unterstützung im Nachsorgehaus und im Haupthaus.</p>
@@ -1027,7 +973,7 @@
           <!-- ── Praktikum ── -->
           <div class="reveal">
             <div class="prak-fsj-header">
-              <span class="prak-badge">🎓 Praktikum</span>
+              <span class="prak-badge"><span class="ic ic-abschluss" aria-hidden="true"></span> Praktikum</span>
             </div>
             <p style="font-size: 0.95rem; color: var(--text-light); line-height: 1.8; margin-bottom: 1rem;">
               In unserer Rehabilitationseinrichtung nehmen wir gerne Praktikantinnen und Praktikanten auf, die
@@ -1047,11 +993,11 @@
                 Melde dich gerne direkt bei uns – wir besprechen gemeinsam, was möglich ist.
               </p>
               <div class="contact-line">
-                <div class="icon">✉</div>
+                <div class="icon"><span class="ic ic-mail" aria-hidden="true"></span></div>
                 <span><a href="mailto:c.mihai@handsofhope.de">c.mihai@handsofhope.de</a></span>
               </div>
               <div class="contact-line">
-                <div class="icon">📞</div>
+                <div class="icon"><span class="ic ic-phone" aria-hidden="true"></span></div>
                 <span>02735 – 65 67 10</span>
               </div>
             </div>
@@ -1060,7 +1006,7 @@
           <!-- ── FSJ & BFD ── -->
           <div class="reveal reveal-delay-1">
             <div class="prak-fsj-header">
-              <span class="prak-badge">🤝 FSJ &amp; BFD</span>
+              <span class="prak-badge"><span class="ic ic-haende" aria-hidden="true"></span> FSJ &amp; BFD</span>
             </div>
             <p style="font-size: 0.95rem; color: var(--text-light); line-height: 1.8; margin-bottom: 1.5rem;">
               Du möchtest ein Jahr in den Dienst an Menschen investieren, deinen Erfahrungshorizont erweitern und
@@ -1097,16 +1043,16 @@
                 Wir freuen uns auf dich!
               </p>
               <div class="contact-line">
-                <div class="icon">✉</div>
+                <div class="icon"><span class="ic ic-mail" aria-hidden="true"></span></div>
                 <span><a href="mailto:c.mihai@handsofhope.de">c.mihai@handsofhope.de</a></span>
               </div>
               <div class="contact-line">
-                <div class="icon">📞</div>
+                <div class="icon"><span class="ic ic-phone" aria-hidden="true"></span></div>
                 <span>02735 – 65 67 10</span>
               </div>
               <div class="contact-divider"></div>
               <div class="partner-badge">
-                <span style="font-size: 1.5rem;">🔗</span>
+                <span style="font-size: 1.5rem;"><span class="ic ic-link" aria-hidden="true"></span></span>
                 <p>Organisiert durch <strong>netzwerk-m</strong> via <strong>deinjahr.org</strong>.<br>
                 <a href="https://www.deinjahr.org/stelle/1048" target="_blank" rel="noopener">Direkt zur FSJ/BFD-Ausschreibung →</a></p>
               </div>
@@ -1180,7 +1126,7 @@
             <span class="konto-val">2312085701 / 4476 1534</span>
           </div>
           <div class="qr-hint">
-            <span class="qr-hint-icon">📱</span>
+            <span class="qr-hint-icon"><span class="ic ic-mobil" aria-hidden="true"></span></span>
             <span>QR-Code zum Scannen mit der Banking-App folgt hier – ohne Umweg über ein Drittanbieter-Portal.</span>
           </div>
           <p style="font-size:12px; color:rgba(255,255,255,0.4); margin-top:1.25rem; line-height:1.6;">
@@ -1239,7 +1185,7 @@
         </div>
 
         <p style="font-size: 0.82rem; color: var(--text-light); margin-top: 1.5rem;">
-          ⚠ Diese Fortschrittsbalken sind <strong>Beispiel-/Platzhalterwerte</strong> zur Veranschaulichung des
+          <span class="ic ic-hinweis" aria-hidden="true"></span> Diese Fortschrittsbalken sind <strong>Beispiel-/Platzhalterwerte</strong> zur Veranschaulichung des
           Spendenbarometers – keine echten, aktuellen Spendenstände. Bei der Umsetzung mit dem neuen Tech-Stack
           werden sie durch reale, im CMS gepflegte Werte ersetzt.
         </p>
@@ -1262,15 +1208,15 @@
           </p>
           <div style="display:flex; flex-direction:column; gap:1rem; margin-top:2rem;">
             <div class="contact-line">
-              <div class="icon">📞</div>
+              <div class="icon"><span class="ic ic-phone" aria-hidden="true"></span></div>
               <span>02735 – 65 67 10</span>
             </div>
             <div class="contact-line">
-              <div class="icon">✉</div>
+              <div class="icon"><span class="ic ic-mail" aria-hidden="true"></span></div>
               <a href="mailto:info@handsofhope.de">info@handsofhope.de</a>
             </div>
             <div class="contact-line">
-              <div class="icon">📍</div>
+              <div class="icon"><span class="ic ic-pin" aria-hidden="true"></span></div>
               <span>Waldstraße 6, 57290 Neunkirchen</span>
             </div>
           </div>
@@ -1280,20 +1226,20 @@
           <form id="kontakt-form" style="display:flex; flex-direction:column; gap:1rem;" onsubmit="submitKontakt(event)">
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
               <div>
-                <label for="kf-name" style="font-family:'Nunito',sans-serif; font-weight:700; font-size:13px; color:var(--dark); display:block; margin-bottom:0.4rem;">Name</label>
+                <label for="kf-name" style="font-family:var(--font-head); font-weight:700; font-size:13px; color:var(--dark); display:block; margin-bottom:0.4rem;">Name</label>
                 <input type="text" id="kf-name" name="name" placeholder="Dein Name" class="form-control" required>
               </div>
               <div>
-                <label for="kf-email" style="font-family:'Nunito',sans-serif; font-weight:700; font-size:13px; color:var(--dark); display:block; margin-bottom:0.4rem;">E-Mail</label>
+                <label for="kf-email" style="font-family:var(--font-head); font-weight:700; font-size:13px; color:var(--dark); display:block; margin-bottom:0.4rem;">E-Mail</label>
                 <input type="email" id="kf-email" name="email" placeholder="deine@email.de" class="form-control" required>
               </div>
             </div>
             <div>
-              <label for="kf-betreff" style="font-family:'Nunito',sans-serif; font-weight:700; font-size:13px; color:var(--dark); display:block; margin-bottom:0.4rem;">Betreff</label>
+              <label for="kf-betreff" style="font-family:var(--font-head); font-weight:700; font-size:13px; color:var(--dark); display:block; margin-bottom:0.4rem;">Betreff</label>
               <input type="text" id="kf-betreff" name="betreff" placeholder="Worum geht es?" class="form-control">
             </div>
             <div>
-              <label for="kf-nachricht" style="font-family:'Nunito',sans-serif; font-weight:700; font-size:13px; color:var(--dark); display:block; margin-bottom:0.4rem;">Nachricht</label>
+              <label for="kf-nachricht" style="font-family:var(--font-head); font-weight:700; font-size:13px; color:var(--dark); display:block; margin-bottom:0.4rem;">Nachricht</label>
               <textarea id="kf-nachricht" name="nachricht" placeholder="Deine Nachricht an uns …" rows="5" class="form-control" required style="resize:vertical;"></textarea>
             </div>
             <p style="font-size:12px; color:var(--text-light); line-height:1.6; margin:0;">
@@ -1302,7 +1248,7 @@
             <button type="submit" class="btn btn-blue" style="align-self:flex-start;">Nachricht senden →</button>
           </form>
           <div id="kontakt-success" class="form-success" role="alert" style="display:none;">
-            ✉️ &nbsp;Danke! Wir melden uns so schnell wie möglich bei dir.
+            <span class="ic ic-mail" aria-hidden="true"></span> Danke! Wir melden uns so schnell wie möglich bei dir.
           </div>
         </div>
 
