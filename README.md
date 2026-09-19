@@ -123,12 +123,25 @@ Alle Unsplash-Platzhalter durch eigene WebP-Bilder ersetzen:
 | Ebene | Wer | Logo | Farbe |
 |-------|-----|------|-------|
 | Dachmarke | Hands of Hope · *living hope.* | `dachmarke-claim.webp` | Blau `#094684` |
-| Arbeitsbereiche | Prävention · Rehabilitation | **kein eigenes** | Dachmarke |
-| Eigenmarken | Straßencafé | `strassencafe.webp` | Rot `#781e00` |
-| Eigenmarken | Hands of Hope Dienstleistungen | `dienstleistungen.webp` | Grün `#009d06` |
+| Arbeitsbereich | Prävention | `praevention.webp` | **Dachmarke** |
+| Arbeitsbereich | Rehabilitation | `rehabilitation.webp` | **Dachmarke** |
+| Eigenmarke | Straßencafé | `strassencafe.webp` | Rot `#781e00` |
+| Eigenmarke | Hands of Hope Dienstleistungen | `dienstleistungen.webp` | Grün `#009d06` |
 
-Die Arbeitsbereiche werden nicht über eine eigene Farbe, sondern über den
-**Handschrift-Kicker** (Gochi Hand) im Hero benannt.
+**Die Unterscheidung liegt in der Farbe, nicht im Logo.** Die Arbeitsbereiche
+tragen dieselbe Sperrung wie die Dachmarke – Flamme, Wortmarke und darunter
+rechtsbündig der eigene Schriftzug in Gochi Hand an der Stelle des Claims –,
+aber **keine eigene Farbe**. Nur die Eigenmarken haben eine.
+
+Technisch heißt das: Für `data-brand="praevention"` und `"rehabilitation"` gibt
+es in `styles/main.css` **bewusst keinen** `[data-brand='…']`-Block. `logoTag()`
+findet den Eintrag in `LOGOS` und wählt die Sperrung, für die Farben greifen
+mangels Theme-Block die `:root`-Werte der Dachmarke. Ein Theme-Block wäre hier
+der Fehler.
+
+Die vier Sperrungen der Dachmarken-Familie messen identisch 2951 × 765 px und
+teilen `--logo-anteil: 0.658` – sonst springt das Logo beim Seitenwechsel in
+der Größe.
 
 ### Wohngruppe gehört zur Rehabilitation
 

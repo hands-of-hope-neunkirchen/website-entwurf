@@ -69,6 +69,24 @@ def fit_font(path, text, target_height):
     return ImageFont.truetype(str(path), size)
 
 
+def baseline_layer(text, font, color):
+    """Rendert Text auf eine Fläche, deren Oberkante die Textoberkante ist.
+
+    Anders als text_layer wird hier *nicht* auf die Tinte beschnitten: Die
+    Fläche reicht immer von der Oberlänge bis zur Unterlänge der Schrift.
+    Dadurch sitzt die Grundlinie bei jedem Wort an derselben Stelle – egal ob
+    es Unterlängen hat ("living hope.") oder nicht ("Rehabilitation").
+    """
+    ascent, descent = font.getmetrics()
+    d = ImageDraw.Draw(Image.new("RGBA", (1, 1)))
+    box = d.textbbox((0, 0), text, font=font)
+    layer = Image.new("RGBA", (box[2] + 4, ascent + descent), (0, 0, 0, 0))
+    ImageDraw.Draw(layer).text((0, 0), text, font=font, fill=color + (255,))
+    # Waagerecht auf die Tinte beschneiden, senkrecht die Metrik behalten.
+    ink = layer.getbbox()
+    return layer.crop((ink[0], 0, ink[2], layer.height))
+
+
 def compose(parts, pad=0):
     """Setzt (bild, x, y)-Tupel auf eine transparente Fläche."""
     w = max(x + p.width for p, x, y in parts) + pad * 2
@@ -148,17 +166,57 @@ def main():
         f, w = tint(flame, col), tint(word, col)
         save(compose([(f, 0, 0), (w, FB + abstand, wort_oben)]), f"dachmarke{name}")
 
-    print("\nDachmarke mit Claim:")
+    # ── Dachmarke mit Schriftzug ──
+    # Dieselbe Sperrung trägt den Claim der Dachmarke und die Schriftzüge der
+    # Arbeitsbereiche. Drei Dinge halten die Familie zusammen:
+    #
+    #   1. Eine gemeinsame Schriftgröße, abgeleitet aus dem Claim. Würde jedes
+    #      Wort einzeln auf dieselbe Gesamthöhe skaliert, bekäme ein Wort ohne
+    #      Unterlänge ("Rehabilitation") größere Buchstaben als eines mit
+    #      ("living hope.").
+    #   2. Die Grundlinie statt der Tintenoberkante als Bezug – dafür sorgt
+    #      baseline_layer.
+    #   3. Eine gemeinsame Leinwandhöhe, damit das Logo beim Seitenwechsel
+    #      nicht in der Größe springt.
     claim_font = fit_font(hand, "living hope.", round(FH * m["claim_hoehe"]))
     claim_luft = round(cap_h * m["claim_abstand"])
-    for name, col in [("", BLAU), ("-weiss", WEISS)]:
+    # claim_luft ist der Abstand von der Wortmarken-Unterkante zur *Tinte* des
+    # Claims. baseline_layer liefert die Fläche ab dem Textursprung, der über
+    # der Tinte liegt – um diesen Betrag wird zurückgesetzt. Bezug ist immer
+    # der Claim, damit die Grundlinie für alle Schriftzüge dieselbe bleibt.
+    _d = ImageDraw.Draw(Image.new("RGBA", (1, 1)))
+    ref_tinte_oben = _d.textbbox((0, 0), "living hope.", font=claim_font)[1]
+    schrift_oben = wort_oben + word.height + claim_luft - ref_tinte_oben
+
+    def sperrung(text, col, leinwand_h=None):
         f, w = tint(flame, col), tint(word, col)
-        claim = text_layer("living hope.", claim_font, col)
-        save(compose([
+        t = baseline_layer(text, claim_font, col)
+        bild = compose([
             (f, 0, 0),
             (w, FB + abstand, wort_oben),
-            (claim, FB + abstand + w.width - claim.width, wort_oben + w.height + claim_luft),
-        ]), f"dachmarke-claim{name}")
+            (t, FB + abstand + w.width - t.width, schrift_oben),
+        ])
+        # Auf die Tinte beschneiden – sonst trägt jedes Bild die ungenutzte
+        # Unterlänge der Schrift als Leerraum mit.
+        bild = bild.crop(bild.getbbox())
+        if leinwand_h and bild.height < leinwand_h:
+            voll = Image.new("RGBA", (bild.width, leinwand_h), (0, 0, 0, 0))
+            voll.alpha_composite(bild, (0, 0))
+            bild = voll
+        return bild
+
+    # Der Claim gibt die Referenzhöhe der ganzen Familie vor; die
+    # Arbeitsbereiche ohne Unterlänge werden darauf aufgefüllt.
+    leinwand_h = sperrung("living hope.", BLAU).height
+
+    for titel, datei, text in [
+        ("Dachmarke mit Claim", "dachmarke-claim", "living hope."),
+        ("Prävention", "praevention", "Prävention"),
+        ("Rehabilitation", "rehabilitation", "Rehabilitation"),
+    ]:
+        print(f"\n{titel}:")
+        for suffix, col in [("", BLAU), ("-weiss", WEISS)]:
+            save(sperrung(text, col, leinwand_h), f"{datei}{suffix}")
 
     # ── Straßencafé ──
     m = MASSE["strassencafe"]

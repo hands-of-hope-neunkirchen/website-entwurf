@@ -61,6 +61,12 @@
      dienen sie nur den width/height-Attributen gegen Layoutsprünge. */
   const LOGOS = {
     dachmarke:        { datei: 'dachmarke-claim',  alt: 'Hands of Hope – living hope.',     breite: 2951, hoehe: 765, anteil: 0.658 },
+    // Arbeitsbereiche: eigene Sperrung, aber KEINE eigene Farbe – für sie gibt
+    // es bewusst keinen [data-brand]-Block in main.css, sodass die :root-Werte
+    // der Dachmarke greifen. Maße identisch zur Dachmarke, damit das Logo beim
+    // Seitenwechsel nicht springt.
+    praevention:      { datei: 'praevention',      alt: 'Hands of Hope – Prävention',       breite: 2951, hoehe: 765, anteil: 0.658 },
+    rehabilitation:   { datei: 'rehabilitation',   alt: 'Hands of Hope – Rehabilitation',   breite: 2951, hoehe: 765, anteil: 0.658 },
     strassencafe:     { datei: 'strassencafe',     alt: 'Straßencafé',                      breite: 2668, hoehe: 546, anteil: 0.483 },
     dienstleistungen: { datei: 'dienstleistungen', alt: 'Hands of Hope Dienstleistungen',   breite: 2679, hoehe: 556, anteil: 0.500 }
   };
