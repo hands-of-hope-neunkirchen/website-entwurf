@@ -486,9 +486,27 @@
 
       <div class="hero-visual" aria-hidden="true">
         <div class="hero-photo-wrap">
+          <!-- PLATZHALTER, MOTIV UNGEPRÜFT.
+               Der Sonnenaufgang mit den ausgebreiteten Armen
+               (assets/global/hero-startseite.webp) trägt bereits den
+               Startseiten-Hero und scheidet hier deshalb aus. Diese ID ist
+               aus dem Gedächtnis gewählt – aus dem Entwicklungscontainer
+               sind alle Bildhoster gesperrt, das Motiv konnte niemand
+               ansehen. Vor dem Livegang prüfen.
+
+               Falls es nicht passt, ist der Tausch eine Zeile. Weitere
+               Kandidaten derselben Bildidee (Mensch, Licht, Weite):
+                 photo-1464207687429-7505649dae38
+                 photo-1476514525535-07fb3b4ae5f1
+                 photo-1517021897933-0e0319cfbc28
+
+               Der onerror-Zweig zeigt den Keimling aus dem Bestand – ein
+               geprüftes, hoffnungsvolles Motiv, das den Startseiten-Hero
+               nicht dupliziert. -->
           <img
-            src="../assets/global/karte-rehabilitation.webp"
-            alt="Gemeinschaft bei Hands of Hope"
+            src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=1400&q=80"
+            onerror="this.onerror=null;this.src='../ueber-uns/hero.webp'"
+            alt="Ein Mensch im Gegenlicht als Symbol für einen Neuanfang"
             loading="eager"
           >
         </div>
