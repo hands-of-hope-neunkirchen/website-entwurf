@@ -27,12 +27,6 @@
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
     .reveal.revealed { opacity: 1; transform: none; }
 
-    .hero { min-height: 55vh; }
-    .hero-content::before {
-      content: ''; position: absolute; left: 0; top: 20%; bottom: 20%;
-      width: 4px; background: var(--medien); border-radius: 0 4px 4px 0;
-    }
-
     /* ── PLACEHOLDER-HINWEIS ── */
     .media-notice {
       background: var(--medien-dim);
@@ -133,11 +127,14 @@
     ══════════════════════════════════════════ -->
     <section class="hero" aria-label="Medien">
       <div class="hero-content">
-        <span class="hero-tag">Mediathek</span>
+        <span class="hero-tag">Sehen und hören</span>
         <h1>Einblicke, die <em>bewegen</em></h1>
         <p class="hero-sub">
           Videos, Predigten und Bildergalerien aus unserer Arbeit – gebündelt an einem Ort.
         </p>
+        <div class="hero-actions">
+          <a href="#mediathek" class="btn btn-primary">Zur Mediathek</a>
+        </div>
       </div>
       <div class="hero-visual" aria-hidden="true">
         <div class="hero-photo-wrap">
@@ -152,7 +149,6 @@
     ══════════════════════════════════════════ -->
     <section id="mediathek" aria-labelledby="mediathek-title" style="padding: var(--section-pad-v) var(--section-pad-h);">
       <div class="section-inner">
-        <span class="section-label reveal">Mediathek</span>
         <h2 class="section-title reveal reveal-delay-1" id="mediathek-title">Alle Medien im Überblick</h2>
 
         <div class="media-notice reveal reveal-delay-2">

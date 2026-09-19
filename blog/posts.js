@@ -162,7 +162,7 @@
     }
 
     if (featuredEl) {
-      featuredEl.innerHTML = '<div class="blog-label reveal">Aktueller Beitrag</div>'
+      featuredEl.innerHTML = '<span class="section-label reveal">Aktueller Beitrag</span>'
         + '<a href="' + postUrl(featured, 1) + '" class="featured-card reveal">'
         + '<div class="featured-photo">'
         + '<img src="' + featured.thumb + '" alt="' + featured.thumbAlt + '" loading="lazy">'
@@ -177,7 +177,7 @@
         + '<p>' + featured.excerpt + '</p>'
         + '<span class="read-more">Ganzen Bericht lesen →</span>'
         + '<div class="featured-author">'
-        + '<div class="featured-author-avatar">✍️</div>'
+        + '<div class="featured-author-avatar"><span class="ic ic-stift" aria-hidden="true"></span></div>'
         + '<div>'
         + '<div class="featured-author-name">' + featured.author + '</div>'
         + '<div class="featured-author-role">' + featured.authorRole + '</div>'
@@ -206,7 +206,7 @@
           + '<h3>' + p.title + '</h3>'
           + '<p>' + p.excerpt + '</p>'
           + '<div class="post-footer">'
-          + '<div class="post-author"><div class="post-author-avatar">✍️</div><span class="post-author-name">' + p.author + '</span></div>'
+          + '<div class="post-author"><div class="post-author-avatar"><span class="ic ic-stift" aria-hidden="true"></span></div><span class="post-author-name">' + p.author + '</span></div>'
           + '<span class="post-read-more">Lesen →</span>'
           + '</div>'
           + '</div>'
