@@ -44,15 +44,6 @@
     .btn-blog-ghost:hover { background: rgba(255,255,255,0.08); }
 
     /* ── SECTION LABELS ── */
-    .blog-title {
-      font-family: var(--font-head); font-weight: 800;
-      font-size: clamp(1.8rem, 3vw, 2.4rem); color: var(--dark);
-      line-height: 1.15; margin-bottom: 1rem;
-    }
-    .blog-desc {
-      font-size: 1.05rem; color: var(--text-light);
-      max-width: 600px; line-height: 1.75; margin-bottom: 3rem;
-    }
 
     /* ── FEATURED POST ── */
     .featured-section {
@@ -127,7 +118,10 @@
     }
     .featured-author-avatar {
       width: 40px; height: 40px; border-radius: 50%;
-      background: var(--blog-dim); border: 2px solid var(--brand-hell);
+      background: rgba(255,255,255,0.12); border: 2px solid var(--brand-hell);
+      /* Das maskierte Icon malt mit currentColor – ohne diese Zeile erbt es
+         die dunkle Fließtextfarbe und verschwindet auf der Markenfläche. */
+      color: var(--brand-hell);
       display: flex; align-items: center; justify-content: center;
       font-size: 16px; flex-shrink: 0;
     }
@@ -224,7 +218,8 @@
     }
     .post-author-avatar {
       width: 30px; height: 30px; border-radius: 50%;
-      background: var(--blog-dim); border: 1.5px solid var(--brand-hell);
+      background: var(--brand-zart); border: 1.5px solid var(--brand-hell);
+      color: var(--brand);
       display: flex; align-items: center; justify-content: center;
       font-size: 13px;
     }
@@ -266,14 +261,15 @@
 <body data-brand="dachmarke">
 
   <div data-include="header"></div>
+  <div class="nav-spacer"></div>
 
   <main id="main-content">
 
     <!-- HERO -->
     <section class="hero" aria-label="Blog">
       <div class="hero-content">
-        <span class="hero-tag">Aus unserer Arbeit</span>
-        <h1>Aus dem Herz<br>unserer <em>Arbeit</em></h1>
+        <span class="hero-tag">Geschichten von Menschen</span>
+        <h1>Aus dem Herz unserer <em>Arbeit</em></h1>
         <p class="hero-sub">Echte Geschichten von echten Menschen. Hier berichten wir von Begegnungen, Veränderungen und dem, was uns täglich antreibt.</p>
         <div class="hero-actions">
           <a href="#beitraege" class="btn btn-primary">Alle Beiträge</a>
@@ -306,7 +302,7 @@
         <div class="posts-header">
           <div>
             <span class="section-label reveal">Weitere Beiträge</span>
-            <h2 class="blog-title reveal">Aus allen Bereichen</h2>
+            <h2 class="section-title reveal">Aus allen Bereichen</h2>
           </div>
           <div class="blog-filter" data-blog-filter role="group" aria-label="Nach Kategorie filtern"></div>
         </div>

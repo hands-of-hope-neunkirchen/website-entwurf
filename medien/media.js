@@ -96,7 +96,13 @@
   ];
 
   var TYPE_LABELS = { video: 'Video', audio: 'Audio', bild: 'Bild' };
-  var TYPE_ICONS  = { video: '▶', audio: '🎧', bild: '🖼' };
+  // Maskierte Icons statt Emojis – sie nehmen über currentColor die
+  // Markenfarbe ihres Kontexts an (siehe styles/layout.css).
+  var TYPE_ICONS  = {
+    video: '<span class="ic ic-play" aria-hidden="true"></span>',
+    audio: '<span class="ic ic-kopfhoerer" aria-hidden="true"></span>',
+    bild:  '<span class="ic ic-bild" aria-hidden="true"></span>'
+  };
 
   function mediaCard(item) {
     var linkHtml = item.linkedPost
@@ -114,7 +120,7 @@
       + '<h3>' + item.title + '</h3>'
       + '<p>' + item.excerpt + '</p>'
       + (item.type === 'video'
-          ? '<div class="media-player media-player-video" aria-label="Video-Platzhalter"><span>▶ Video folgt</span></div>'
+          ? '<div class="media-player media-player-video" aria-label="Video-Platzhalter"><span><span class="ic ic-play" aria-hidden="true"></span> Video folgt</span></div>'
           : item.type === 'audio'
             ? '<audio class="media-player-audio" controls disabled></audio><p class="media-player-hint">Audiodatei folgt</p>'
             : '')
