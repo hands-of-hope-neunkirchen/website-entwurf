@@ -28,6 +28,15 @@
   --brand-dunkel:  var(--blau-dunkel);
   --brand-hell:  #c8d8e2;                 /* heller Akzent auf Markenfläche */
   --brand-zart:  rgba(9,70,132,0.07);     /* dezente Füllung auf Weiß */
+  /* ── TEXT AUF DER MARKENFLÄCHE ──
+     Zwei Stufen statt sieben beliebiger Deckkraftwerte: --auf-brand trägt
+     Fließtext, --auf-brand-leise Feldbezeichner und Fußnoten. Auf Blau und
+     Rot bleiben beide über 4,5:1. Das Markengrün hat dafür keinen Spielraum
+     (Weiß erreicht dort nur 4,7:1), deshalb laufen im Dienstleistungs-Theme
+     beide Stufen auf volles Weiß – Lesbarkeit vor Abstufung. */
+  --auf-brand:       rgba(255,255,255,0.82);
+  --auf-brand-leise: rgba(255,255,255,0.66);
+
   /* Logohöhe im Verhältnis zur Kopfzeilenhöhe, abgemessen am Entwurf.
      Die Dachmarke ist höher, weil der Claim unter der Flamme hängt. */
   --logo-anteil: 0.658;
@@ -56,7 +65,8 @@
   --radius-xl:  24px;
   --radius-pill: 999px;
 
-  /* Shadows */
+  /* Linien & Shadows */
+  --border-soft:  1px solid rgba(5,41,55,0.08);
   --shadow-card:  0 4px 20px rgba(5,41,55,0.08);
   --shadow-hover: 0 12px 40px rgba(5,41,55,0.14);
   --shadow-deep:  0 20px 60px rgba(5,41,55,0.15);
@@ -118,6 +128,10 @@
 }
 
 [data-brand='dienstleistungen'] {
+  /* Siehe Notiz bei --auf-brand: auf dem Markengrün ist jede Abstufung
+     unter Weiß nicht mehr lesbar. */
+  --auf-brand:       var(--white);
+  --auf-brand-leise: var(--white);
   --brand:         var(--gruen-tief);
   --brand-flaeche: var(--gruen-tief);
   --brand-dunkel:  #006b14;
@@ -136,6 +150,12 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+}
+
+/* Die Kopfzeile liegt fix über der Seite – ohne diesen Abstand landen
+   Ankersprünge (#spenden, #fsj, die Job-Anker) unter der Navigation. */
+[id] {
+  scroll-margin-top: calc(var(--nav-height) + 1rem);
 }
 
 body {
@@ -264,6 +284,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 .btn-ghost:hover {
   background: rgba(255,255,255,0.12);
+}
+
+/* Kompakte Variante für Umschalter und Sekundärwege */
+.btn-sm {
+  font-size: 0.85rem;
+  padding: 9px 20px;
+  border-width: 1px;
 }
 
 .btn-outline {

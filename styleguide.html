@@ -406,6 +406,15 @@
   --brand-hell:    #c8d8e2;
   --brand-zart:    rgba(9,70,132,0.07);
 
+  <span class="c">/* Text auf der Markenfläche – zwei Stufen statt beliebiger
+     Deckkraftwerte. Im Dienstleistungs-Theme laufen beide auf
+     volles Weiß: auf dem Markengrün trägt keine Abstufung. */</span>
+  --auf-brand:       rgba(255,255,255,0.82);
+  --auf-brand-leise: rgba(255,255,255,0.66);
+
+  <span class="c">/* Feine Trennlinie – vorher dreifach als Literal verstreut */</span>
+  --border-soft:   1px solid rgba(5,41,55,0.08);
+
   <span class="c">/* Schrift */</span>
   --font-head: 'Nunito', sans-serif;
   --font-body: 'Nunito Sans', sans-serif;
@@ -483,7 +492,7 @@
       <div class="sg-preview on-white">
         <div class="sg-type">
           <p class="fnt">Nunito · font-weight 800 · h1–h6 (clamp, responsiv)</p>
-          <h1>H1 – living hope.</h1>
+          <h1>H1 – Hoffnung braucht Hände.</h1>
           <h2>H2 – Geschichten, die bewegen</h2>
           <h3>H3 – Unsere Arbeitsbereiche</h3>
           <p class="fnt" style="margin-top:1.25rem">Nunito Sans · Fließtext & Hilfsklassen</p>
@@ -495,7 +504,7 @@
       </div>
 
       <span class="sg-code-label">HTML</span>
-      <div class="sg-code"><pre><code><span class="t">&lt;h1&gt;</span>living hope.<span class="t">&lt;/h1&gt;</span>
+      <div class="sg-code"><pre><code><span class="t">&lt;h1&gt;</span>Hoffnung <span class="t">&lt;em&gt;</span>braucht Hände.<span class="t">&lt;/em&gt;&lt;/h1&gt;</span>
 <span class="t">&lt;p</span> <span class="a">class=</span>"lead"<span class="t">&gt;</span>Einleitungstext …<span class="t">&lt;/p&gt;</span>
 <span class="t">&lt;p&gt;</span>Standard-Body-Text …<span class="t">&lt;/p&gt;</span>
 <span class="t">&lt;p</span> <span class="a">class=</span>"small"<span class="t">&gt;</span>Sekundärtext<span class="t">&lt;/p&gt;</span>
@@ -528,6 +537,7 @@
           <a href="#" class="btn btn-primary" onclick="return false">Primär</a>
           <a href="#" class="btn btn-blue" onclick="return false">Blau</a>
           <a href="#" class="btn btn-outline" onclick="return false">Outline</a>
+          <a href="#" class="btn btn-sm btn-outline" onclick="return false">Kompakt (.btn-sm)</a>
         </div>
       </div>
       <span class="sg-preview-label">Live · auf Dunkel (btn-ghost)</span>
@@ -898,6 +908,92 @@
 
 
     <!-- ══════════════ WEITERE GENUTZTE BAUSTEINE ══════════════ -->
+    <!-- ══════════════ KONTAKTKARTE · BADGE · TABS ══════════════ -->
+    <h2 class="sg-cat">Kontaktkarte, Badge und Spendenart-Umschalter</h2>
+    <p>Drei Bausteine, die vorher auf jeder Seite eigen nachgebaut waren.</p>
+
+    <article class="sg-component" id="kontaktkarte">
+      <h3>Kontaktkarte</h3>
+      <p>
+        <code>.kontakt-card</code> trägt Feldbezeichner (<code>.label</code>) und Werte
+        (<code>.val</code>). Die Grundform liegt auf der Markenfläche,
+        <code>.kontakt-card--hell</code> ist dieselbe Karte auf hellem Grund.
+        <code>.val-konto</code> setzt IBAN, BIC und Kontonummer in gleiche Ziffernbreite.
+        Zeilen aus Icon und Wert bauen sich aus <code>.kontakt-zeile</code>,
+        <code>.kontakt-trenner</code> und – für das gekachelte Icon –
+        <code>.kontakt-zeile--kachel</code> mit <code>.kontakt-kachel</code>.
+      </p>
+
+      <span class="sg-preview-label">Live · auf hellem Grund</span>
+      <div class="sg-preview on-white">
+        <div class="kontakt-card kontakt-card--hell" style="max-width:320px">
+          <h3 style="font-size:0.95rem">Interesse?</h3>
+          <div class="kontakt-zeile">
+            <span class="ic ic-mail" aria-hidden="true"></span>
+            <a href="#" onclick="return false">info@handsofhope.de</a>
+          </div>
+          <div class="kontakt-trenner"></div>
+          <div class="kontakt-zeile kontakt-zeile--kachel">
+            <span class="kontakt-kachel"><span class="ic ic-pin" aria-hidden="true"></span></span>
+            <span>Waldstraße 6, 57290 Neunkirchen</span>
+          </div>
+        </div>
+      </div>
+
+      <span class="sg-preview-label">Live · auf Markenfläche</span>
+      <div class="sg-preview">
+        <div style="background:var(--brand-flaeche);padding:2rem">
+        <div class="kontakt-card" style="max-width:320px">
+          <h3>Bankverbindung</h3>
+          <div style="display:flex;justify-content:space-between;gap:1rem">
+            <span class="label" style="margin-bottom:0">IBAN</span>
+            <span class="val val-konto">DE65 4476 1534 2312 0857 01</span>
+          </div>
+        </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="sg-component" id="badge">
+      <h3>Badge</h3>
+      <p>
+        <code>.badge</code> in <code>styles/layout.css</code>. Seit dem Markenumbau
+        eine ungesperrte Pille in Nunito statt eines Versalien-Mikrolabels; Farbe
+        kommt aus <code>--brand-zart</code> und <code>--brand</code> und wandert
+        deshalb mit dem <code>data-brand</code> der Seite mit. Sie ersetzt die
+        früheren Eigenbauten <code>.stype</code>, <code>.timeline-badge</code> und
+        den seitenlokalen Override in den Team-Karten.
+      </p>
+      <span class="sg-preview-label">Live</span>
+      <div class="sg-preview on-white">
+        <div class="sg-btnrow">
+          <span class="badge">Ehrenamt</span>
+          <span class="badge">Voll- / Teilzeit</span>
+          <span class="badge">Geschäftsführer</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="sg-component" id="tabs">
+      <h3>Spendenart-Umschalter</h3>
+      <p>
+        Tastaturbedienbare Tabs nach dem ARIA Authoring Practices Guide –
+        <code>scripts/tabs.js</code>. Die Buttons sind gewöhnliche
+        <code>.btn.btn-sm</code>: der aktive Tab trägt <code>.btn-primary</code>,
+        die übrigen <code>.btn-ghost</code>; die Panels schalten über das
+        <code>hidden</code>-Attribut. Pfeiltasten, Home und End wandern durch die
+        Gruppe, gesucht wird nur innerhalb der jeweiligen
+        <code>[role="tablist"]</code> – mehrere Gruppen pro Seite stören sich also nicht.
+      </p>
+      <span class="sg-code-label">HTML</span>
+      <div class="sg-code"><pre><code><span class="t">&lt;div</span> <span class="a">role=</span>"tablist"<span class="t">&gt;</span>
+  <span class="t">&lt;button</span> <span class="a">role=</span>"tab" <span class="a">id=</span>"t1" <span class="a">aria-controls=</span>"p1" <span class="a">aria-selected=</span>"true"
+          <span class="a">class=</span>"btn btn-sm btn-primary"<span class="t">&gt;</span>Einzelspende<span class="t">&lt;/button&gt;</span>
+<span class="t">&lt;/div&gt;</span>
+<span class="t">&lt;div</span> <span class="a">role=</span>"tabpanel" <span class="a">id=</span>"p1" <span class="a">aria-labelledby=</span>"t1" <span class="a">tabindex=</span>"0"<span class="t">&gt;</span>…<span class="t">&lt;/div&gt;</span></code></pre></div>
+    </article>
+
+
     <h2 class="sg-cat">Weitere genutzte Bausteine</h2>
     <p>Ebenfalls im Einsatz, aber nachrangig gegenüber den Top&nbsp;10 – als Referenz kurz benannt.</p>
 
@@ -938,10 +1034,6 @@
         <div class="box">
           <h4>Seitenkopf (Subpages)</h4>
           <p style="font-size:13px;color:var(--text-light);line-height:1.6"><code style="font-size:11px">.page-header</code> mit Breadcrumb – in <code style="font-size:11px">typography.css</code> definiert; Unterseiten nutzen stattdessen den vollen <code style="font-size:11px">.hero</code>.</p>
-        </div>
-        <div class="box">
-          <h4>Kontakt-Banner</h4>
-          <p style="font-size:13px;color:var(--text-light);line-height:1.6"><code style="font-size:11px">.kontakt-banner</code> mit <code style="font-size:11px">.kontakt-card</code> – CTA-Streifen auf Markenfläche. Definiert, aber noch ungenutzt: die drei Bereichsseiten bringen eigene, strukturell abweichende Kontakt-Abschnitte mit.</p>
         </div>
       </div>
     </article>

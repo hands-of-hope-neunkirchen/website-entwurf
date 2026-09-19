@@ -30,6 +30,7 @@ handsofhope/
 │   ├── navigation.js       # Nav-Interaktionen
 │   ├── animations.js       # Scroll-Reveal
 │   ├── lazyload.js         # Lazy Loading
+│   ├── tabs.js             # Tastaturbedienbare Tabs (ARIA APG)
 │   └── gallery.js          # Galerie-Funktionen
 ├── assets/                 # Statische Dateien
 │   ├── logos/
@@ -164,8 +165,9 @@ Fließtext. Textflächen nutzen deshalb `--gruen-tief` (4,7:1).
 <body data-brand="strassencafe">   <!-- oder dienstleistungen, sonst weglassen -->
 ```
 
-Das setzt `--brand`, `--brand-flaeche`, `--brand-dunkel`, `--brand-hell` und
-`--brand-zart` für die ganze Seite. Navigation, Hero, Buttons, Kicker und Footer
+Das setzt `--brand`, `--brand-flaeche`, `--brand-dunkel`, `--brand-hell`,
+`--brand-zart` sowie die beiden Textstufen `--auf-brand` und `--auf-brand-leise`
+für die ganze Seite. Navigation, Hero, Buttons, Kicker und Footer
 lesen nur noch diese Tokens – und `scripts/includes.js` wählt daraus auch das
 passende Logo.
 
@@ -193,6 +195,19 @@ in `tools/fonts/`.
 50/50-Split: links die Markenfarbe mit Kicker, Headline und Pill-Button, rechts
 das Foto – **ungedimmt, ohne Overlay**. Auf dem Smartphone stapelt sich der Hero:
 Foto oben (38svh), Farbfläche darunter.
+
+Die Startseite trägt seit dem Markenumbau die Headline *„Hoffnung braucht
+Hände."*. **„living hope." ist ausschließlich Claim** – es steht im Logo
+(`dachmarke-claim.webp`) und im Seitentitel, nicht als Überschrift. Eine
+Headline, die den Claim wiederholt, doppelt nur die Kopfzeile.
+
+### Text auf der Markenfläche
+
+Zwei Stufen statt beliebiger Deckkraftwerte: `--auf-brand` für Fließtext,
+`--auf-brand-leise` für Feldbezeichner und Fußnoten. Auf Blau und Rot bleiben
+beide über 4,5:1. Das Markengrün hat dafür keinen Spielraum – Weiß erreicht auf
+`--gruen-tief` nur 4,7:1 –, deshalb laufen im Dienstleistungs-Theme **beide
+Stufen auf volles Weiß**. Lesbarkeit vor Abstufung.
 
 ## Navigation
 

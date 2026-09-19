@@ -249,7 +249,7 @@ section {
 
 .mission .section-label { color: var(--white); }
 .mission .section-title { color: var(--white); }
-.mission .section-desc  { color: rgba(255,255,255,0.88); max-width: 700px; }
+.mission .section-desc  { color: var(--auf-brand); max-width: 700px; }
 
 .mission-grid {
   max-width: var(--max-width);
@@ -370,7 +370,7 @@ section {
 }
 
 .kontakt-banner p {
-  color: rgba(255,255,255,0.6);
+  color: var(--auf-brand);
   font-size: 1rem;
 }
 
@@ -380,21 +380,31 @@ section {
   flex-wrap: wrap;
 }
 
+/* Karte mit Feldbezeichner und Wert. Grundform liegt auf der Markenfläche;
+   --hell ist dieselbe Karte auf hellem Grund (Jobseite, Bereichsseiten). */
 .kontakt-card {
   background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(200,216,226,0.18);
-  border-radius: var(--radius-md);
+  border: 1px solid var(--brand-hell);
+  border-radius: var(--radius-lg);
   padding: 1.25rem 1.5rem;
   min-width: 175px;
+}
+
+.kontakt-card h3 {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--white);
+  margin-bottom: 1rem;
 }
 
 .kontakt-card .label {
   font-family: var(--font-head);
   font-weight: 700;
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--mid-blue);
+  font-size: 0.78rem;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--auf-brand-leise);
   margin-bottom: 0.35rem;
   display: block;
 }
@@ -405,11 +415,60 @@ section {
   line-height: 1.5;
 }
 
+/* Kontonummern brauchen gleiche Ziffernbreite, damit IBAN-Gruppen stehen. */
+.kontakt-card .val-konto {
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  font-size: 0.88rem;
+  letter-spacing: 0.01em;
+}
+
 .kontakt-card a {
-  color: var(--mid-blue);
+  color: var(--brand-hell);
   transition: color var(--transition);
 }
 .kontakt-card a:hover { color: var(--white); }
+
+/* ── KONTAKTKARTE AUF HELLEM GRUND ── */
+.kontakt-card--hell {
+  background: var(--light-bg);
+  border: var(--border-soft);
+}
+.kontakt-card--hell h3 { color: var(--dark); }
+.kontakt-card--hell .label { color: var(--text-light); }
+.kontakt-card--hell .val { color: var(--text); }
+.kontakt-card--hell a { color: var(--brand); }
+.kontakt-card--hell a:hover { color: var(--brand-dunkel); text-decoration: underline; }
+
+/* Zeile aus Icon und Wert – ersetzt die seitenlokalen .contact-line-Nachbauten */
+.kontakt-zeile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+}
+.kontakt-zeile + .kontakt-zeile { margin-top: 0.85rem; }
+.kontakt-zeile .ic { color: var(--brand); font-size: 1.15rem; }
+.kontakt-trenner {
+  height: 1px;
+  background: rgba(5,41,55,0.08);
+  margin: 1rem 0;
+}
+
+/* Variante mit gekacheltem Icon – auf hellem Grund, etwa im Kontaktblock.
+   Die Kachel braucht einen eigenen Umschlag: .ic ist ein Maskenelement und
+   würde einen eigenen Hintergrund auf die Icon-Form beschneiden. */
+.kontakt-kachel {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  background: var(--brand-zart);
+  color: var(--brand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.kontakt-kachel .ic { font-size: 15px; }
 
 /* ── NEWSLETTER ── */
 .newsletter {
@@ -882,4 +941,66 @@ section {
     grid-column: 1;
     padding: 2.25rem 1.5rem 2.75rem;
   }
+}
+
+/* ── STELLENKARTEN ──
+   Lag doppelt inline in ueber-uns/index.html und ueber-uns/jobs/index.html.
+   Die Beschäftigungsart steckt in der Badge-Beschriftung, nicht in der Farbe:
+   Grün ist die Eigenmarke Dienstleistungen und darf keine Ehrenamtsstelle
+   im Straßencafé einfärben. */
+.stellen-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.stellen-card {
+  background: var(--white);
+  border: var(--border-soft);
+  border-top: 3px solid var(--brand);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.stellen-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.stellen-card .sicon {
+  font-size: 1.6rem;
+  margin-bottom: 0.6rem;
+  color: var(--brand);
+}
+
+.stellen-card .badge { margin-bottom: 0.6rem; }
+
+.stellen-card h3,
+.stellen-card h4 {
+  font-size: 1.05rem;
+  margin-bottom: 0.4rem;
+}
+
+.stellen-card p {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: 0.85rem;
+}
+
+.stellen-card a {
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-family: var(--font-head);
+  color: var(--brand);
+}
+.stellen-card a:hover { text-decoration: underline; }
+
+@media (max-width: 900px) {
+  .stellen-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .stellen-grid { grid-template-columns: 1fr; }
 }

@@ -36,20 +36,9 @@
 
     /* ── HERO OVERRIDES ── */
 
-    /* ── BREADCRUMB ── */
-    .breadcrumb {
-      background: var(--light-bg);
-      padding: 0.85rem var(--section-pad-h);
-      font-size: 13px;
-      color: var(--text-light);
-    }
-    .breadcrumb a { color: var(--blue); text-decoration: none; }
-    .breadcrumb a:hover { text-decoration: underline; }
-    .breadcrumb span { margin: 0 0.5rem; opacity: 0.5; }
-
     /* ── STATS STRIP ── */
     .stats-strip {
-      background: var(--blue);
+      background: var(--brand);
       padding: 2.5rem var(--section-pad-h);
     }
     .stats-inner {
@@ -69,7 +58,7 @@
       line-height: 1;
       margin-bottom: 0.2rem;
     }
-    .stat-text p { font-size: 0.83rem; color: rgba(255,255,255,0.7); line-height: 1.45; }
+    .stat-text p { font-size: 0.83rem; color: var(--auf-brand); line-height: 1.45; }
 
     /* ── GESCHICHTE ── */
     .geschichte-inner {
@@ -117,7 +106,7 @@
       width: 48px;
       height: 48px;
       border-radius: 50%;
-      background: var(--blue);
+      background: var(--brand);
       color: var(--white);
       display: flex;
       align-items: center;
@@ -131,7 +120,7 @@
     }
     .timeline-item.muted .timeline-num {
       background: var(--brand-zart);
-      color: var(--blue);
+      color: var(--brand);
     }
     .timeline-content { padding-bottom: 2.5rem; }
     .timeline-content h4 {
@@ -143,21 +132,11 @@
       padding-top: 12px;
     }
     .timeline-content p { font-size: 0.92rem; color: var(--text-light); line-height: 1.7; }
-    .timeline-badge {
-      display: inline-block;
-      background: var(--brand-zart);
-      color: var(--blue);
-      font-family: var(--font-head);
-      font-weight: 700;
-      font-size: 11px;
-      padding: 3px 10px;
-      border-radius: 20px;
-      margin-top: 0.5rem;
-    }
+    .timeline-content .badge { margin-top: 0.5rem; }
 
     /* ── VERS ── */
     .vers-band {
-      background: var(--blue);
+      background: var(--brand);
       padding: 5rem var(--section-pad-h);
       text-align: center;
     }
@@ -174,7 +153,7 @@
     }
     .vers-band cite {
       font-size: 0.9rem;
-      color: var(--mid-blue);
+      color: var(--brand-hell);
       font-style: normal;
     }
 
@@ -191,7 +170,7 @@
     .team-zahlen { display: flex; gap: 2rem; flex-shrink: 0; }
     .team-zahl {
       background: var(--white);
-      border-radius: var(--radius-md);
+      border-radius: var(--radius-lg);
       padding: 1.25rem 1.75rem;
       text-align: center;
       box-shadow: var(--shadow-card);
@@ -200,45 +179,49 @@
       font-family: var(--font-head);
       font-weight: 900;
       font-size: 2rem;
-      color: var(--blue);
+      color: var(--brand);
       line-height: 1;
       display: block;
     }
     .team-zahl .lab { font-size: 0.8rem; color: var(--text-light); margin-top: 0.25rem; }
 
+    /* ── TEAM-KARTEN ──
+       Vier Spalten, weil sich zwölf Karten glatt teilen; der frühere starre
+       blaue Kopfbalken ist entfallen – er kodierte nichts. Farben laufen über
+       das aktive Marken-Theme, die Badge kommt aus layout.css. */
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 1.25rem;
       max-width: var(--max-width);
       margin: 0 auto;
     }
     .team-card {
       background: var(--white);
-      border-radius: var(--radius-md);
-      padding: 1.5rem 1rem 1.25rem;
+      border: var(--border-soft);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem 1rem 1.5rem;
       text-align: center;
-      border-top: 3px solid var(--blue);
       box-shadow: var(--shadow-card);
       transition: transform var(--transition), box-shadow var(--transition);
     }
     .team-card:hover {
-      transform: translateY(-3px);
+      transform: translateY(-4px);
       box-shadow: var(--shadow-hover);
     }
     .team-avatar {
-      width: 72px;
-      height: 72px;
+      width: 96px;
+      height: 96px;
       border-radius: 50%;
       background: var(--brand-zart);
-      color: var(--blue);
+      color: var(--brand);
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: var(--font-head);
       font-weight: 800;
-      font-size: 1.3rem;
-      margin: 0 auto 0.85rem;
+      font-size: 1.6rem;
+      margin: 0 auto 1rem;
       overflow: hidden;
       flex-shrink: 0;
     }
@@ -246,29 +229,25 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 50%;
     }
+    /* Greift, wenn auch das Ersatzbild scheitert: dann tragen die Initialen. */
     .team-avatar img.hidden { display: none; }
+    .team-initialen {
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+    }
     .team-card .name {
       font-family: var(--font-head);
       font-weight: 800;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       color: var(--dark);
       margin-bottom: 0.35rem;
       line-height: 1.25;
     }
     .team-card .role { font-size: 0.78rem; color: var(--text-light); line-height: 1.45; }
-    .team-card .badge {
-      display: inline-block;
-      margin-top: 0.6rem;
-      background: var(--brand-zart);
-      color: var(--blue);
-      font-family: var(--font-head);
-      font-weight: 700;
-      font-size: 10px;
-      padding: 3px 9px;
-      border-radius: 20px;
-    }
+    .team-card .badge { margin-top: 0.7rem; }
 
     /* ── MITARBEIT ── */
     .mitarbeit-inner {
@@ -279,48 +258,6 @@
       max-width: var(--max-width);
       margin: 0 auto;
     }
-    .stellen-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
-    }
-    .stellen-card {
-      background: var(--white);
-      border: 1px solid rgba(5,41,55,0.1);
-      border-radius: var(--radius-md);
-      padding: 1.5rem;
-      border-top: 3px solid transparent;
-      transition: transform var(--transition), box-shadow var(--transition);
-    }
-    .stellen-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
-    .stellen-card.vollzeit { border-top-color: var(--blue); }
-    .stellen-card.ehrenamt { border-top-color: var(--gruen-tief); }
-    .stellen-card .stype {
-      font-family: var(--font-head);
-      font-weight: 700;
-      font-size: 10px;
-      margin-bottom: 0.6rem;
-    }
-    .stellen-card.vollzeit .stype { color: var(--blue); }
-    .stellen-card.ehrenamt .stype { color: var(--gruen-tief); }
-    .stellen-card .sicon { font-size: 1.6rem; margin-bottom: 0.6rem; }
-    .stellen-card h4 {
-      font-family: var(--font-head);
-      font-weight: 800;
-      font-size: 0.95rem;
-      color: var(--dark);
-      margin-bottom: 0.4rem;
-    }
-    .stellen-card p { font-size: 0.85rem; color: var(--text-light); line-height: 1.6; margin-bottom: 0.85rem; }
-    .stellen-card a {
-      font-family: var(--font-head);
-      font-weight: 700;
-      font-size: 12px;
-      color: var(--blue);
-      text-decoration: none;
-    }
-    .stellen-card.ehrenamt a { color: var(--gruen-tief); }
-    .stellen-card a:hover { text-decoration: underline; }
 
     /* ── Praktikum & FSJ combined grid ── */
     .prak-fsj-grid {
@@ -344,14 +281,6 @@
 
     /* ── FSJ & BFD ── */
     .fsj-section { background: var(--light-bg); }
-    .fsj-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: start;
-      max-width: var(--max-width);
-      margin: 0 auto;
-    }
     .fsj-lists { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
     .fsj-list-block {
       background: var(--white);
@@ -377,7 +306,7 @@
     }
     .check-list li::before {
       content: '✓';
-      color: var(--blue);
+      color: var(--brand);
       font-weight: 800;
       flex-shrink: 0;
       font-size: 12px;
@@ -396,28 +325,6 @@
       color: var(--dark);
       margin-bottom: 1.25rem;
     }
-    .contact-line {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 0.75rem;
-      font-size: 0.92rem;
-      color: var(--text-light);
-    }
-    .contact-line .icon {
-      width: 34px;
-      height: 34px;
-      border-radius: var(--radius-sm);
-      background: var(--brand-zart);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 15px;
-      flex-shrink: 0;
-    }
-    .contact-line a { color: var(--blue); text-decoration: none; }
-    .contact-line a:hover { text-decoration: underline; }
-    .contact-divider { height: 1px; background: rgba(5,41,55,0.08); margin: 1rem 0; }
     .partner-badge {
       margin-top: 1.25rem;
       background: var(--brand-zart);
@@ -429,128 +336,81 @@
     }
     .partner-badge p { font-size: 0.82rem; color: var(--text-light); line-height: 1.5; }
     .partner-badge p strong { color: var(--dark); }
-    .partner-badge a { color: var(--blue); font-size: 0.82rem; }
+    .partner-badge a { color: var(--brand); font-size: 0.82rem; }
 
-    /* ── SPENDEN ── */
-    .spenden-section { background: var(--brand-flaeche); }
-    .spenden-inner {
+    /* ── SPENDEN ──
+       Liegt auf der Markenfläche und trägt .on-brand; Kicker, Karte und
+       Umschalter kommen aus dem gemeinsamen System, nicht aus Eigenbauten. */
+    .spenden-section {
+      background: var(--brand-flaeche);
+      padding: var(--section-pad-v) var(--section-pad-h);
+    }
+    .spenden-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 5rem;
       align-items: center;
-      max-width: var(--max-width);
-      margin: 0 auto;
     }
-    .spenden-section .section-label { color: var(--mid-blue); }
     .spenden-section .section-title { color: var(--white); }
-    .spenden-section .section-desc { color: rgba(255,255,255,0.7); margin-bottom: 2rem; }
-    .konto-card {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid var(--brand-hell);
-      border-radius: var(--radius-md);
-      padding: 2rem;
-    }
-    .konto-card h4 {
-      font-family: var(--font-head);
-      font-weight: 800;
-      font-size: 0.95rem;
-      color: var(--white);
-      margin-bottom: 1.5rem;
-    }
+    .spenden-section .section-desc { color: var(--auf-brand); margin-bottom: 2rem; }
+    .spenden-text { color: var(--auf-brand); font-size: 0.92rem; line-height: 1.75; margin-bottom: 1rem; }
+    .spenden-text strong { color: var(--white); }
+    .spenden-fussnote { font-size: 12px; color: var(--auf-brand-leise); margin-top: 1.25rem; line-height: 1.6; }
+
+    /* Kontozeile: Bezeichner links, Wert rechts, feine Trennlinie */
     .konto-row {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
+      gap: 1rem;
       padding: 0.65rem 0;
       border-bottom: 1px solid var(--brand-hell);
     }
     .konto-row:last-of-type { border-bottom: none; }
-    .konto-label {
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: rgba(255,255,255,0.45);
-    }
-    .konto-val { font-size: 0.95rem; color: var(--white); font-family: monospace; }
-    .konto-val.iban { font-size: 0.88rem; color: var(--mid-blue); }
+    .konto-row .label { margin-bottom: 0; }
 
     /* ── SPENDENART-UMSCHALTER ── */
     .spende-tabs { display: flex; gap: 0.6rem; margin-bottom: 1rem; }
-    .spende-tab-btn {
-      font-family: var(--font-head); font-weight: 700; font-size: 0.85rem;
-      padding: 8px 18px; border-radius: 20px; cursor: pointer;
-      border: 1px solid rgba(255,255,255,0.25); background: transparent;
-      color: rgba(255,255,255,0.65); transition: background 0.2s, color 0.2s;
-    }
-    .spende-tab-btn.active { background: var(--white); color: var(--dark); border-color: var(--white); }
-    .spende-tab-panel { display: none; }
-    .spende-tab-panel.active { display: block; }
+    .spende-tab-panel[hidden] { display: none; }
 
     /* ── QR-HINWEIS ── */
     .qr-hint {
       display: flex; align-items: center; gap: 0.85rem;
       margin-top: 1.25rem; padding: 0.85rem 1rem;
-      background: rgba(255,255,255,0.05);
-      border: 1px dashed var(--brand-hell);
-      border-radius: var(--radius-sm);
-      font-size: 0.8rem; color: rgba(255,255,255,0.55); line-height: 1.5;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid var(--brand-hell);
+      border-radius: var(--radius-md);
+      font-size: 0.8rem; color: var(--auf-brand); line-height: 1.5;
     }
-    .qr-hint-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .qr-hint .ic { font-size: 1.4rem; flex-shrink: 0; color: var(--white); }
 
     /* ── SPENDENBAROMETER ── */
     .barometer-section { background: var(--light-bg); padding: var(--section-pad-v) var(--section-pad-h); }
     .barometer-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.75rem; margin-top: 2rem; }
     .barometer-card {
+      display: block;
       background: var(--white); border-radius: var(--radius-lg);
       padding: 1.75rem; box-shadow: var(--shadow-card);
+      transition: transform var(--transition), box-shadow var(--transition);
     }
+    .barometer-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+    .barometer-card:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; }
     .barometer-card h4 { font-family: var(--font-head); font-weight: 800; font-size: 1.05rem; margin-bottom: 0.5rem; }
     .barometer-track {
       height: 10px; border-radius: 6px; background: rgba(5,41,55,0.08);
       overflow: hidden; margin: 0.85rem 0 0.5rem;
     }
-    .barometer-fill { height: 100%; background: var(--blue); border-radius: 6px; }
+    .barometer-fill { height: 100%; background: var(--brand); border-radius: 6px; }
     .barometer-caption { font-size: 0.82rem; color: var(--text-light); display: flex; justify-content: space-between; }
     .barometer-example-badge {
       display: inline-block; font-size: 10px; font-weight: 800; color: var(--brand); background: var(--brand-zart);
       padding: 3px 9px; border-radius: var(--radius-pill); margin-bottom: 0.75rem;
     }
 
-    /* ── KONTAKT CTA ── */
-    .kontakt-cta-section { background: var(--blue); }
-    .kontakt-cta-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-      max-width: var(--max-width);
-      margin: 0 auto;
-    }
-    .kontakt-cta-section .section-label { color: rgba(255,255,255,0.65); }
-    .kontakt-cta-section .section-title { color: var(--white); }
-    .kontakt-cta-section .section-desc { color: rgba(255,255,255,0.75); margin-bottom: 0; }
-    .kontakt-card-group { display: flex; flex-direction: column; gap: 1rem; }
-    .kontakt-card {
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: var(--radius-md);
-      padding: 1.25rem 1.5rem;
-    }
-    .kontakt-card .klabel {
-      font-family: var(--font-head);
-      font-weight: 700;
-      font-size: 10px;
-      color: rgba(255,255,255,0.5);
-      margin-bottom: 0.4rem;
-    }
-    .kontakt-card .kval { font-size: 0.92rem; color: var(--white); line-height: 1.55; }
-    .kontakt-card a { color: var(--mid-blue); text-decoration: none; }
-    .kontakt-card a:hover { text-decoration: underline; }
-
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       #kontaktformular > div { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
       #kontaktformular > div > div:first-child > div { display: none; }
-      .breadcrumb { padding: 0.75rem 2rem; }
       .stats-inner { grid-template-columns: 1fr 1fr; }
       .geschichte-inner { grid-template-columns: 1fr; gap: 2rem; }
       .geschichte-photo { position: static; aspect-ratio: 16/9; }
@@ -558,17 +418,14 @@
       .team-grid { grid-template-columns: repeat(2, 1fr); }
       .team-zahlen { flex-wrap: wrap; }
       .mitarbeit-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-      .stellen-grid { grid-template-columns: 1fr; }
       .prak-fsj-grid { grid-template-columns: 1fr; gap: 3rem; }
       .fsj-lists { grid-template-columns: 1fr; }
 
-      .spenden-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .spenden-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .barometer-grid { grid-template-columns: 1fr; }
-      .kontakt-cta-inner { grid-template-columns: 1fr; gap: 2.5rem; }
     }
     @media (max-width: 600px) {
       .stats-inner { grid-template-columns: 1fr; }
-      .team-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -670,7 +527,7 @@
                 <p>Achim Paul und Wolfgang Kremer gründen die Rehabilitationseinrichtung <strong>Hands of Hope</strong>
                    und das Dienstleistungsunternehmen <strong>Helping Hands</strong>. Die ersten Gäste wohnen im Haus
                    des Mitgründers und arbeiten in Schreinerarbeiten, Entrümpelungen und Fenstereinbau.</p>
-                <span class="timeline-badge">Neunkirchen</span>
+                <span class="badge">Neunkirchen</span>
               </div>
             </article>
 
@@ -680,7 +537,7 @@
                 <h4>Umzug ins Haupthaus</h4>
                 <p>Die wachsende Zahl an Gästen und Mitarbeitern macht einen Umzug möglich. Hands of Hope bezieht
                    die heutigen Wohn- und Arbeitshallen in Neunkirchen.</p>
-                <span class="timeline-badge">Neunkirchen, Waldstraße 6</span>
+                <span class="badge">Neunkirchen, Waldstraße 6</span>
               </div>
             </article>
 
@@ -690,7 +547,7 @@
                 <h4>Straßencafé</h4>
                 <p>Eröffnung des <strong>Straßencafé</strong> in Siegen –
                    ein Begegnungsort für Menschen aus sozialen Randlagen mitten in der Stadt.</p>
-                <span class="timeline-badge">Siegen, Hagener Str. 78</span>
+                <span class="badge">Siegen, Hagener Str. 78</span>
               </div>
             </article>
 
@@ -701,7 +558,7 @@
                 <p>Mit Lebensberichten ehemaliger Betroffener und persönlichem Austausch in Schulklassen wird ein
                    weiterer Herzenswunsch Wirklichkeit: Menschen rechtzeitig begleiten, bevor ein
                    selbstzerstörerischer Weg beginnt.</p>
-                <span class="timeline-badge">Schulen in der Region</span>
+                <span class="badge">Schulen in der Region</span>
               </div>
             </article>
 
@@ -710,7 +567,7 @@
               <div class="timeline-content">
                 <h4>Jugend-Therapiehaus Steckenstein</h4>
                 <p>Ein ehemaliges Schulhaus in Steckenstein wird erworben, um Jugendlichen während ihrer Therapiezeit ein betreutes Zuhause zu geben. Eine Wohngemeinschaft für fünf Personen auf drei Etagen ist geplant. Die Umbauarbeiten laufen unter aktiver Mithilfe von Freiwilligen.</p>
-                <span class="timeline-badge">Steckenstein · Im Bau</span>
+                <span class="badge">Steckenstein · Im Bau</span>
               </div>
             </article>
 
@@ -719,7 +576,7 @@
               <div class="timeline-content">
                 <h4>Nachsorgehaus</h4>
                 <p>Ein ehemaliges Zweifamilienhaus wird zur Nachsorge-WG für vier Therapieabsolventen umgebaut – je zwei abgeschlossene Einheiten pro Etage. Matthias und ein Team Freiwilliger sind täglich im Einsatz. Bezug ist für <strong>Juli 2026</strong> geplant.</p>
-                <span class="timeline-badge">Neunkirchen · Bezug Juli 2026</span>
+                <span class="badge">Neunkirchen · Bezug Juli 2026</span>
               </div>
             </article>
           </div>
@@ -778,8 +635,8 @@
         <div class="team-grid">
           <div class="team-card reveal">
             <div class="team-avatar">
-              <img src="team/ciprian-mihai.jpg" alt="Ciprian Mihai" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80'">
-              <span style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">CM</span>
+              <img src="team/ciprian-mihai.jpg" alt="Ciprian Mihai" loading="lazy" width="96" height="96" onerror="this.onerror=function(){this.classList.add('hidden');this.nextElementSibling.style.display='flex';};this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80'">
+              <span class="team-initialen" style="display:none;" aria-hidden="true">CM</span>
             </div>
             <div class="name">Ciprian Mihai</div>
             <div class="role">Psychologische Betreuung / Verwaltung</div>
@@ -787,8 +644,8 @@
           </div>
           <div class="team-card reveal reveal-delay-1">
             <div class="team-avatar">
-              <img src="team/nils-erner.jpg" alt="Nils Erner" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80'">
-              <span style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">NE</span>
+              <img src="team/nils-erner.jpg" alt="Nils Erner" loading="lazy" width="96" height="96" onerror="this.onerror=function(){this.classList.add('hidden');this.nextElementSibling.style.display='flex';};this.src='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80'">
+              <span class="team-initialen" style="display:none;" aria-hidden="true">NE</span>
             </div>
             <div class="name">Nils Erner</div>
             <div class="role">Leitung Straßencafé / Prävention / Mentor</div>
@@ -796,89 +653,89 @@
           </div>
           <div class="team-card reveal reveal-delay-2">
             <div class="team-avatar">
-              <img src="team/mario-mackel.jpg" alt="Mario Mackel" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80'">
-              <span style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">MM</span>
+              <img src="team/mario-mackel.jpg" alt="Mario Mackel" loading="lazy" width="96" height="96" onerror="this.onerror=function(){this.classList.add('hidden');this.nextElementSibling.style.display='flex';};this.src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80'">
+              <span class="team-initialen" style="display:none;" aria-hidden="true">MM</span>
             </div>
             <div class="name">Mario Mackel</div>
             <div class="role">Hausvater / Leitung Hausverwaltung</div>
             <span class="badge">Vollzeit</span>
           </div>
-          <div class="team-card reveal">
+          <div class="team-card reveal reveal-delay-3">
             <div class="team-avatar">
-              <img src="team/verena-mackel.jpg" alt="Verena Mackel" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=200&q=80'">
-              <span style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">VM</span>
+              <img src="team/verena-mackel.jpg" alt="Verena Mackel" loading="lazy" width="96" height="96" onerror="this.onerror=function(){this.classList.add('hidden');this.nextElementSibling.style.display='flex';};this.src='https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=200&q=80'">
+              <span class="team-initialen" style="display:none;" aria-hidden="true">VM</span>
             </div>
             <div class="name">Verena Mackel</div>
             <div class="role">Hausmutter / Küchenverwaltung / Hauswirtschaft</div>
             <span class="badge">Vollzeit</span>
           </div>
-          <div class="team-card reveal reveal-delay-1">
+          <div class="team-card reveal">
             <div class="team-avatar">
-              <img src="team/christian-brueck.jpg" alt="Christian Brück" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&q=80'">
-              <span style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">CB</span>
+              <img src="team/christian-brueck.jpg" alt="Christian Brück" loading="lazy" width="96" height="96" onerror="this.onerror=function(){this.classList.add('hidden');this.nextElementSibling.style.display='flex';};this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&q=80'">
+              <span class="team-initialen" style="display:none;" aria-hidden="true">CB</span>
             </div>
             <div class="name">Christian Brück</div>
             <div class="role">Leitung Wohngruppe / Pädagogik / Mentor</div>
             <span class="badge">Vollzeit</span>
           </div>
-          <div class="team-card reveal reveal-delay-2">
+          <div class="team-card reveal reveal-delay-1">
             <div class="team-avatar">
-              <img src="team/hendrik-moos.jpg" alt="Hendrik Moos" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=200&q=80'">
-              <span style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">HM</span>
+              <img src="team/hendrik-moos.jpg" alt="Hendrik Moos" loading="lazy" width="96" height="96" onerror="this.onerror=function(){this.classList.add('hidden');this.nextElementSibling.style.display='flex';};this.src='https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=200&q=80'">
+              <span class="team-initialen" style="display:none;" aria-hidden="true">HM</span>
             </div>
             <div class="name">Hendrik Moos</div>
             <div class="role">Leitung Dienstleistungen / Arbeitstherapie / Mentor</div>
             <span class="badge">Vollzeit</span>
           </div>
-          <div class="team-card reveal">
+          <div class="team-card reveal reveal-delay-2">
             <div class="team-avatar">
-              <img src="team/joerg-laske.jpg" alt="Jörg Laske" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1463453091185-61582044d556?w=200&q=80'">
-              <span style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">JL</span>
+              <img src="team/joerg-laske.jpg" alt="Jörg Laske" loading="lazy" width="96" height="96" onerror="this.onerror=function(){this.classList.add('hidden');this.nextElementSibling.style.display='flex';};this.src='https://images.unsplash.com/photo-1463453091185-61582044d556?w=200&q=80'">
+              <span class="team-initialen" style="display:none;" aria-hidden="true">JL</span>
             </div>
             <div class="name">Jörg Laske</div>
             <div class="role">Arbeit / Arbeitstherapie / Hausverwaltung / Mentor</div>
             <span class="badge">Vollzeit</span>
           </div>
-          <div class="team-card reveal reveal-delay-1">
+          <div class="team-card reveal reveal-delay-3">
             <div class="team-avatar">
-              <img src="team/astrid-uhr.jpg" alt="Astrid Uhr" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&q=80'">
-              <span style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">AU</span>
+              <img src="team/astrid-uhr.jpg" alt="Astrid Uhr" loading="lazy" width="96" height="96" onerror="this.onerror=function(){this.classList.add('hidden');this.nextElementSibling.style.display='flex';};this.src='https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&q=80'">
+              <span class="team-initialen" style="display:none;" aria-hidden="true">AU</span>
             </div>
             <div class="name">Astrid Uhr</div>
             <div class="role">Buchhaltung / Verwaltung</div>
             <span class="badge">Halbzeit</span>
           </div>
-          <div class="team-card reveal reveal-delay-2">
+          <div class="team-card reveal">
             <div class="team-avatar">
-              <img src="team/eva-maria-nitsch.jpg" alt="Eva-Maria Nitsch" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80'">
-              <span style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">EN</span>
+              <img src="team/eva-maria-nitsch.jpg" alt="Eva-Maria Nitsch" loading="lazy" width="96" height="96" onerror="this.onerror=function(){this.classList.add('hidden');this.nextElementSibling.style.display='flex';};this.src='https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80'">
+              <span class="team-initialen" style="display:none;" aria-hidden="true">EN</span>
             </div>
             <div class="name">Eva-Maria Nitsch</div>
             <div class="role">Frauenseelsorge / Mentorin</div>
             <span class="badge">Halbzeit</span>
           </div>
-          <div class="team-card reveal">
+          <div class="team-card reveal reveal-delay-1">
             <div class="team-avatar">
-              <img src="team/jason-grossenbacher.jpg" alt="Jason Grossenbacher" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1552058544-f2b08422138a?w=200&q=80'">
-              <span style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">JG</span>
+              <img src="team/jason-grossenbacher.jpg" alt="Jason Grossenbacher" loading="lazy" width="96" height="96" onerror="this.onerror=function(){this.classList.add('hidden');this.nextElementSibling.style.display='flex';};this.src='https://images.unsplash.com/photo-1552058544-f2b08422138a?w=200&q=80'">
+              <span class="team-initialen" style="display:none;" aria-hidden="true">JG</span>
             </div>
             <div class="name">Jason Grossenbacher</div>
             <div class="role">Arbeit / Arbeitstherapie / Mentor</div>
             <span class="badge">Halbzeit</span>
           </div>
-          <div class="team-card reveal reveal-delay-1">
+          <div class="team-card reveal reveal-delay-2">
             <div class="team-avatar">
-              <img src="team/carina-theis.jpg" alt="Carina Theis" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=200&q=80'">
-              <span style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">CT</span>
+              <img src="team/carina-theis.jpg" alt="Carina Theis" loading="lazy" width="96" height="96" onerror="this.onerror=function(){this.classList.add('hidden');this.nextElementSibling.style.display='flex';};this.src='https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=200&q=80'">
+              <span class="team-initialen" style="display:none;" aria-hidden="true">CT</span>
             </div>
             <div class="name">Carina Theis</div>
             <div class="role">Psychotherapeutische Betreuung / Mentorin</div>
             <span class="badge">Halbzeit</span>
           </div>
-          <div class="team-card reveal reveal-delay-2">
+          <div class="team-card reveal reveal-delay-3">
             <div class="team-avatar">
-              <img src="team/matthias-kreutz.jpg" alt="Matthias Kreutz" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&q=80'">
-              <span style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">MK</span>
+              <img src="team/matthias-kreutz.jpg" alt="Matthias Kreutz" loading="lazy" width="96" height="96" onerror="this.onerror=function(){this.classList.add('hidden');this.nextElementSibling.style.display='flex';};this.src='https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&q=80'">
+              <span class="team-initialen" style="display:none;" aria-hidden="true">MK</span>
             </div>
             <div class="name">Matthias Kreutz</div>
             <div class="role">Baumission / Mentor</div>
@@ -909,37 +766,37 @@
 
         <div class="reveal reveal-delay-1">
           <div class="stellen-grid">
-            <div class="stellen-card vollzeit">
+            <div class="stellen-card">
               <div class="sicon"><span class="ic ic-werkzeug" aria-hidden="true"></span></div>
-              <div class="stype">Voll- / Teilzeit</div>
+              <span class="badge">Voll- / Teilzeit</span>
               <h4>Dienstleistungen</h4>
               <p>Mitarbeit in unseren handwerklichen Zweckbetrieben unter Anleitung der WG-Bewohner.</p>
               <a href="jobs/#dienstleistungen">Zur Ausschreibung →</a>
             </div>
-            <div class="stellen-card ehrenamt">
+            <div class="stellen-card">
               <div class="sicon"><span class="ic ic-haus" aria-hidden="true"></span></div>
-              <div class="stype">Ehrenamt</div>
+              <span class="badge">Ehrenamt</span>
               <h4>WG – Hauswirtschaft</h4>
               <p>Unterstützung bei hauswirtschaftlichen Tätigkeiten rund um die Wohngemeinschaft.</p>
               <a href="jobs/#hauswirtschaft">Zur Ausschreibung →</a>
             </div>
-            <div class="stellen-card ehrenamt">
+            <div class="stellen-card">
               <div class="sicon"><span class="ic ic-kaffee" aria-hidden="true"></span></div>
-              <div class="stype">Ehrenamt</div>
+              <span class="badge">Ehrenamt</span>
               <h4>Straßencafé</h4>
               <p>Wöchentliche Mitarbeit im Straßencafé in Siegen.</p>
               <a href="jobs/#strassencafe">Zur Ausschreibung →</a>
             </div>
-            <div class="stellen-card ehrenamt">
+            <div class="stellen-card">
               <div class="sicon"><span class="ic ic-kamera" aria-hidden="true"></span></div>
-              <div class="stype">Ehrenamt</div>
+              <span class="badge">Ehrenamt</span>
               <h4>Mediendesign &amp; -pflege</h4>
               <p>Unterstützung digital und/oder im Print.</p>
               <a href="jobs/#medien">Zur Ausschreibung →</a>
             </div>
-            <div class="stellen-card ehrenamt">
+            <div class="stellen-card">
               <div class="sicon"><span class="ic ic-werkzeug" aria-hidden="true"></span></div>
-              <div class="stype">Ehrenamt</div>
+              <span class="badge">Ehrenamt</span>
               <h4>Baustellen</h4>
               <p>Handwerkliche Unterstützung im Nachsorgehaus und im Haupthaus.</p>
               <a href="jobs/#baustellen">Zur Ausschreibung →</a>
@@ -992,12 +849,12 @@
               <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 1.25rem; line-height: 1.7;">
                 Melde dich gerne direkt bei uns – wir besprechen gemeinsam, was möglich ist.
               </p>
-              <div class="contact-line">
-                <div class="icon"><span class="ic ic-mail" aria-hidden="true"></span></div>
+              <div class="kontakt-zeile kontakt-zeile--kachel">
+                <span class="kontakt-kachel"><span class="ic ic-mail" aria-hidden="true"></span></span>
                 <span><a href="mailto:c.mihai@handsofhope.de">c.mihai@handsofhope.de</a></span>
               </div>
-              <div class="contact-line">
-                <div class="icon"><span class="ic ic-phone" aria-hidden="true"></span></div>
+              <div class="kontakt-zeile kontakt-zeile--kachel">
+                <span class="kontakt-kachel"><span class="ic ic-phone" aria-hidden="true"></span></span>
                 <span>02735 – 65 67 10</span>
               </div>
             </div>
@@ -1042,15 +899,15 @@
                 Schicke uns per Post oder E-Mail deine Bewerbungsunterlagen mit Anschreiben und Lebenslauf.
                 Wir freuen uns auf dich!
               </p>
-              <div class="contact-line">
-                <div class="icon"><span class="ic ic-mail" aria-hidden="true"></span></div>
+              <div class="kontakt-zeile kontakt-zeile--kachel">
+                <span class="kontakt-kachel"><span class="ic ic-mail" aria-hidden="true"></span></span>
                 <span><a href="mailto:c.mihai@handsofhope.de">c.mihai@handsofhope.de</a></span>
               </div>
-              <div class="contact-line">
-                <div class="icon"><span class="ic ic-phone" aria-hidden="true"></span></div>
+              <div class="kontakt-zeile kontakt-zeile--kachel">
+                <span class="kontakt-kachel"><span class="ic ic-phone" aria-hidden="true"></span></span>
                 <span>02735 – 65 67 10</span>
               </div>
-              <div class="contact-divider"></div>
+              <div class="kontakt-trenner"></div>
               <div class="partner-badge">
                 <span style="font-size: 1.5rem;"><span class="ic ic-link" aria-hidden="true"></span></span>
                 <p>Organisiert durch <strong>netzwerk-m</strong> via <strong>deinjahr.org</strong>.<br>
@@ -1067,8 +924,8 @@
     <!-- ══════════════════════════════════════════
          SPENDEN
     ══════════════════════════════════════════ -->
-    <section class="spenden-section" id="spenden" aria-labelledby="spenden-title" style="padding: var(--section-pad-v) var(--section-pad-h);">
-      <div class="spenden-inner">
+    <section class="spenden-section on-brand" id="spenden" aria-labelledby="spenden-title">
+      <div class="section-inner spenden-grid">
         <div class="reveal">
           <span class="section-label">Unterstützen</span>
           <h2 class="section-title" id="spenden-title">Mit einer Spende Gutes tun</h2>
@@ -1079,76 +936,71 @@
           </p>
 
           <div class="spende-tabs" role="tablist" aria-label="Spendenart">
-            <button type="button" class="spende-tab-btn active" data-spende-tab="einzel" role="tab" aria-selected="true">Einzelspende</button>
-            <button type="button" class="spende-tab-btn" data-spende-tab="dauer" role="tab" aria-selected="false">Dauerspende</button>
+            <button type="button" id="spende-tab-einzel" class="btn btn-sm btn-primary"
+                    role="tab" aria-selected="true" aria-controls="spende-panel-einzel">Einzelspende</button>
+            <button type="button" id="spende-tab-dauer" class="btn btn-sm btn-ghost"
+                    role="tab" aria-selected="false" aria-controls="spende-panel-dauer" tabindex="-1">Dauerspende</button>
           </div>
-          <div class="spende-tab-panel active" data-spende-panel="einzel">
-            <p style="font-size: 0.92rem; color: rgba(255,255,255,0.65); line-height: 1.75; margin-bottom: 1rem;">
+
+          <div class="spende-tab-panel" id="spende-panel-einzel" role="tabpanel"
+               aria-labelledby="spende-tab-einzel" tabindex="0">
+            <p class="spenden-text">
               Für eine einmalige Spende überweisen Sie den gewünschten Betrag einfach an die untenstehende
               Kontoverbindung – einen Verwendungszweck können, müssen Sie aber nicht angeben.
             </p>
           </div>
-          <div class="spende-tab-panel" data-spende-panel="dauer">
-            <p style="font-size: 0.92rem; color: rgba(255,255,255,0.65); line-height: 1.75; margin-bottom: 1rem;">
-              Für eine Dauerspende richten Sie bei Ihrer Bank einfach einen <strong style="color:rgba(255,255,255,0.85);">Dauerauftrag</strong>
+          <div class="spende-tab-panel" id="spende-panel-dauer" role="tabpanel"
+               aria-labelledby="spende-tab-dauer" tabindex="0" hidden>
+            <p class="spenden-text">
+              Für eine Dauerspende richten Sie bei Ihrer Bank einfach einen <strong>Dauerauftrag</strong>
               auf die untenstehende Kontoverbindung ein – so unterstützen Sie uns langfristig und planbar.
             </p>
           </div>
 
-          <p style="font-size: 0.92rem; color: rgba(255,255,255,0.65); line-height: 1.75; margin-bottom: 1rem;">
-            <strong style="color:rgba(255,255,255,0.85);">Spendenquittung gewünscht?</strong> Geben Sie dazu einfach
+          <p class="spenden-text">
+            <strong>Spendenquittung gewünscht?</strong> Geben Sie dazu einfach
             Ihren Namen und Ihre Adresse – oder alternativ Ihre E-Mail-Adresse für den digitalen Versand – im
             Verwendungszweck der Überweisung an. Materielle Spenden sind ebenfalls willkommen – nehmen Sie dazu
             einfach per E-Mail oder telefonisch Kontakt zu unserem Büro auf.
           </p>
+
+          <div class="hero-actions" style="margin-top: 1.75rem;">
+            <a href="#bankverbindung" class="btn btn-primary">Zur Bankverbindung</a>
+            <a href="#kontaktformular" class="btn btn-ghost">Frage zur Spende stellen</a>
+          </div>
         </div>
 
-        <div class="konto-card reveal reveal-delay-1">
-          <h4>Bankverbindung</h4>
+        <div class="kontakt-card reveal reveal-delay-1" id="bankverbindung">
+          <h3>Bankverbindung</h3>
           <div class="konto-row">
-            <span class="konto-label">Kontoinhaber</span>
-            <span class="konto-val" style="font-family: inherit;">Hands of Hope gGmbH</span>
+            <span class="label">Kontoinhaber</span>
+            <span class="val">Hands of Hope gGmbH</span>
           </div>
           <div class="konto-row">
-            <span class="konto-label">Bank</span>
-            <span class="konto-val" style="font-family: inherit; font-size: 0.85rem;">Volksbank in Südwestfalen eG</span>
+            <span class="label">Bank</span>
+            <span class="val">Volksbank in Südwestfalen eG</span>
           </div>
           <div class="konto-row">
-            <span class="konto-label">IBAN</span>
-            <span class="konto-val iban">DE65 4476 1534 2312 0857 01</span>
+            <span class="label">IBAN</span>
+            <span class="val val-konto">DE65 4476 1534 2312 0857 01</span>
           </div>
           <div class="konto-row">
-            <span class="konto-label">BIC</span>
-            <span class="konto-val">GENODEM1NRD</span>
+            <span class="label">BIC</span>
+            <span class="val val-konto">GENODEM1NRD</span>
           </div>
           <div class="konto-row">
-            <span class="konto-label">Kto / BLZ</span>
-            <span class="konto-val">2312085701 / 4476 1534</span>
+            <span class="label">Kto / BLZ</span>
+            <span class="val val-konto">2312085701 / 4476 1534</span>
           </div>
           <div class="qr-hint">
-            <span class="qr-hint-icon"><span class="ic ic-mobil" aria-hidden="true"></span></span>
+            <span class="ic ic-mobil" aria-hidden="true"></span>
             <span>QR-Code zum Scannen mit der Banking-App folgt hier – ohne Umweg über ein Drittanbieter-Portal.</span>
           </div>
-          <p style="font-size:12px; color:rgba(255,255,255,0.4); margin-top:1.25rem; line-height:1.6;">
+          <p class="spenden-fussnote">
             Hands of Hope gGmbH ist als gemeinnützig anerkannt.<br>Spendenquittung auf Anfrage.
           </p>
         </div>
       </div>
-
-      <script>
-        document.querySelectorAll('.spende-tab-btn').forEach(function (btn) {
-          btn.addEventListener('click', function () {
-            var target = btn.getAttribute('data-spende-tab');
-            document.querySelectorAll('.spende-tab-btn').forEach(function (b) {
-              b.classList.toggle('active', b === btn);
-              b.setAttribute('aria-selected', String(b === btn));
-            });
-            document.querySelectorAll('.spende-tab-panel').forEach(function (p) {
-              p.classList.toggle('active', p.getAttribute('data-spende-panel') === target);
-            });
-          });
-        });
-      </script>
     </section>
 
 
@@ -1170,7 +1022,7 @@
             <p style="font-size:0.88rem;color:var(--text-light);margin-bottom:0.5rem;">
               Erneuerung der Heizungsanlage im Zuge des Umbaus.
             </p>
-            <div class="barometer-track"><div class="barometer-fill" style="width: 60%;"></div></div>
+            <div class="barometer-track" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-label="Spendenstand: Heizung im Nachsorgehaus"><div class="barometer-fill" style="width: 60%;"></div></div>
             <div class="barometer-caption"><span>60 % erreicht</span><span>Mehr im Blog →</span></div>
           </a>
           <a href="../blog/wg-kueche/" class="barometer-card reveal reveal-delay-1">
@@ -1179,7 +1031,7 @@
             <p style="font-size:0.88rem;color:var(--text-light);margin-bottom:0.5rem;">
               Ausstattung der gemeinsamen Küche im Nachsorgehaus.
             </p>
-            <div class="barometer-track"><div class="barometer-fill" style="width: 35%;"></div></div>
+            <div class="barometer-track" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" aria-label="Spendenstand: Küche für die Wohngemeinschaft"><div class="barometer-fill" style="width: 35%;"></div></div>
             <div class="barometer-caption"><span>35 % erreicht</span><span>Mehr im Blog →</span></div>
           </a>
         </div>
@@ -1207,16 +1059,16 @@
             wir freuen uns von dir zu hören. Wir melden uns so schnell wie möglich zurück.
           </p>
           <div style="display:flex; flex-direction:column; gap:1rem; margin-top:2rem;">
-            <div class="contact-line">
-              <div class="icon"><span class="ic ic-phone" aria-hidden="true"></span></div>
+            <div class="kontakt-zeile kontakt-zeile--kachel">
+              <span class="kontakt-kachel"><span class="ic ic-phone" aria-hidden="true"></span></span>
               <span>02735 – 65 67 10</span>
             </div>
-            <div class="contact-line">
-              <div class="icon"><span class="ic ic-mail" aria-hidden="true"></span></div>
+            <div class="kontakt-zeile kontakt-zeile--kachel">
+              <span class="kontakt-kachel"><span class="ic ic-mail" aria-hidden="true"></span></span>
               <a href="mailto:info@handsofhope.de">info@handsofhope.de</a>
             </div>
-            <div class="contact-line">
-              <div class="icon"><span class="ic ic-pin" aria-hidden="true"></span></div>
+            <div class="kontakt-zeile kontakt-zeile--kachel">
+              <span class="kontakt-kachel"><span class="ic ic-pin" aria-hidden="true"></span></span>
               <span>Waldstraße 6, 57290 Neunkirchen</span>
             </div>
           </div>
@@ -1243,7 +1095,7 @@
               <textarea id="kf-nachricht" name="nachricht" placeholder="Deine Nachricht an uns …" rows="5" class="form-control" required style="resize:vertical;"></textarea>
             </div>
             <p style="font-size:12px; color:var(--text-light); line-height:1.6; margin:0;">
-              Mit dem Absenden stimmst du unserer <a href="../datenschutz.html" style="color:var(--blue);">Datenschutzerklärung</a> zu.
+              Mit dem Absenden stimmst du unserer <a href="../datenschutz.html" style="color:var(--brand);">Datenschutzerklärung</a> zu.
             </p>
             <button type="submit" class="btn btn-blue" style="align-self:flex-start;">Nachricht senden →</button>
           </form>
@@ -1270,6 +1122,7 @@
   <!-- FOOTER (injected by includes.js) -->
   <div data-include="footer"></div>
 
+<script src="../scripts/tabs.js"></script>
 <script src="../scripts/cookie-banner.js"></script>
 </body>
 </html>
