@@ -144,7 +144,7 @@
         <li><a href="${R}ueber-uns/#team">Team</a></li>
         <li><a href="${R}ueber-uns/#geschichte">Geschichte</a></li>
         <li><a href="${R}ueber-uns/#mitarbeit">Mitarbeiten</a></li>
-        <li><a href="${R}ueber-uns/jobs/">Stellenangebote</a></li>
+        <li><a href="${R}ueber-uns/#mitarbeit">Stellenangebote</a></li>
       </ul>
     </div>
 
@@ -207,7 +207,7 @@
         <li><a href="${R}ueber-uns/#team">Team</a></li>
         <li><a href="${R}ueber-uns/#geschichte">Geschichte</a></li>
         <li><a href="${R}ueber-uns/#mitarbeit">Mitarbeiten</a></li>
-        <li><a href="${R}ueber-uns/jobs/">Stellenangebote</a></li>
+        <li><a href="${R}ueber-uns/#mitarbeit">Stellenangebote</a></li>
         <li><a href="${R}blog/">Blog</a></li>
         <li><a href="${R}medien/">Medien</a></li>
       </ul>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Unterstützung digital und/oder im Print – z. B. bei Fotos, Social-Media-Beiträgen, Flyern oder der Pflege der Website. Bring dein Gestaltungstalent dort ei">
+  <title>Mediendesign & -pflege – Mitarbeit bei Hands of Hope</title>
+
+  <link rel="stylesheet" href="../../../styles/main.css">
+  <link rel="stylesheet" href="../../../styles/navigation.css">
+  <link rel="stylesheet" href="../../../styles/layout.css">
+  <link rel="stylesheet" href="../../../styles/typography.css">
+  <link rel="stylesheet" href="../../../styles/sections.css">
+  <link rel="stylesheet" href="../../../styles/responsive.css">
+
+  <script src="../../../scripts/includes.js" defer></script>
+  <script src="../../../scripts/navigation.js" defer></script>
+  <script src="../../../scripts/animations.js" defer></script>
+  <script src="../../../scripts/lazyload.js" defer></script>
+
+  <style>
+    /* ── REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.revealed { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+
+    .stelle-abbinder { border-top: var(--border-soft); text-align: center; }
+    .stelle-abbinder .section-desc { margin: 0 auto 1.25rem; }
+  </style>
+</head>
+<body data-brand="dachmarke">
+
+  <!-- HEADER (injected by includes.js) -->
+  <div data-include="header"></div>
+  <div class="nav-spacer"></div>
+
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="hero" aria-label="Mediendesign & -pflege">
+      <div class="hero-content">
+        <span class="hero-tag">Gestalten für den Dienst</span>
+        <h1>Mediendesign &amp; -pflege</h1>
+        <p class="hero-sub">Unterstützung digital und/oder im Print – z. B. bei Fotos, Social-Media-Beiträgen, Flyern oder der Pflege der Website. Bring dein Gestaltungstalent dort ein, wo es am meisten bewirkt.</p>
+        <div class="hero-actions">
+          <a href="mailto:c.mihai@handsofhope.de?subject=Mediendesign%20&%20-pflege" class="btn btn-primary">Jetzt bewerben</a>
+          <a href="../../../ueber-uns/#mitarbeit" class="btn btn-ghost">Alle Stellen</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-photo-wrap">
+          <img src="../../../assets/global/karte-jugendhilfe.webp" alt="Junge Menschen, über die wir berichten" loading="eager">
+        </div>
+      </div>
+    </section>
+
+    <!-- AUFGABEN · MITBRINGEN · BIETEN -->
+    <section id="profil" aria-labelledby="profil-title">
+      <div class="section-inner">
+        <span class="section-label reveal">Ehrenamt</span>
+        <h2 class="section-title reveal reveal-delay-1" id="profil-title">Was dich erwartet</h2>
+
+        <div class="grid-3 reveal reveal-delay-2">
+          <div>
+            <h3>Deine Aufgaben</h3>
+            <ul class="ueber-list">
+            <li>Fotos bei Veranstaltungen und im Arbeitsalltag machen</li>
+            <li>Beiträge für Social Media vorbereiten</li>
+            <li>Flyer, Plakate und Einladungen gestalten</li>
+            <li>Inhalte auf der Website pflegen</li>
+            <li>Das Bildarchiv ordnen, damit man wiederfindet, was man sucht</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Was du mitbringst</h3>
+            <ul class="ueber-list">
+            <li>Gespür für Gestaltung</li>
+            <li>Sicherheit in einem Grafikprogramm oder mit der Kamera</li>
+            <li>Sorgfalt im Umgang mit Persönlichkeitsrechten – wir zeigen Menschen in verletzlichen Situationen</li>
+            <li>Eigenständige Arbeitsweise</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Was wir bieten</h3>
+            <ul class="ueber-list">
+            <li>Freie Zeiteinteilung, vieles geht von zu Hause</li>
+            <li>Echte Geschichten als Material statt Werbefloskeln</li>
+            <li>Kurze Wege – Absprache direkt mit der Geschäftsführung</li>
+            <li>Arbeiten, die tatsächlich veröffentlicht werden</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <section class="kontakt-banner" aria-labelledby="kontakt-title">
+      <div class="kontakt-banner-inner on-brand">
+        <div>
+          <span class="section-label">Nächster Schritt</span>
+          <h2 id="kontakt-title">Interesse? Melde dich.</h2>
+          <p>Ein kurzer Satz reicht – wir melden uns bei dir und besprechen alles Weitere persönlich.</p>
+        </div>
+        <div class="kontakt-cards">
+          <div class="kontakt-card">
+            <h3>Ansprechpartner</h3>
+            <div class="kontakt-zeile">
+              <span class="ic ic-mail" aria-hidden="true"></span>
+              <a href="mailto:c.mihai@handsofhope.de?subject=Mediendesign%20&%20-pflege">c.mihai@handsofhope.de</a>
+            </div>
+            <div class="kontakt-trenner"></div>
+            <div class="kontakt-zeile">
+              <span class="ic ic-phone" aria-hidden="true"></span>
+              <span>02735 – 65 67 10</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABBINDER -->
+    <section class="stelle-abbinder" aria-label="Praktikum, FSJ und BFD">
+      <div class="section-inner reveal">
+        <p class="section-desc">
+          Du suchst ein Pflichtpraktikum, FSJ oder BFD statt einer festen Stelle?
+        </p>
+        <a href="../../../ueber-uns/#fsj" class="btn btn-blue">Zu Praktikum &amp; Freiwilligendienst →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER (injected by includes.js) -->
+  <div data-include="footer"></div>
+
+<script src="../../../scripts/cookie-banner.js"></script>
+</body>
+</html>

@@ -50,13 +50,16 @@ handsofhope/
 ├── ueber-uns/              # One-Pager mit Anker-Sektionen
 │   ├── index.html          #   #wer-wir-sind · #team · #geschichte · #mitarbeiten
 │   │                       #   (team/, geschichte/, mitarbeiten/ sind KEINE Unterordner)
-│   ├── jobs/               # Stellenangebote-Übersicht + Einzelstellen
-│   │   ├── index.html
-│   │   ├── hausmeister/
+│   ├── jobs/               # Je Stelle eine Detailseite – die Übersicht
+│   │   ├── dienstleistungen/   # steht auf ueber-uns/#mitarbeit, es gibt
+│   │   │   └── index.html      # bewusst kein jobs/index.html
+│   │   ├── hauswirtschaft/
 │   │   │   └── index.html
-│   │   ├── sozialarbeiter/
+│   │   ├── strassencafe/
 │   │   │   └── index.html
-│   │   └── hauswirtschaft/
+│   │   ├── medien/
+│   │   │   └── index.html
+│   │   └── baustellen/
 │   │       └── index.html
 │   ├── spenden/            # Eigenständige Seite
 │   │   └── index.html
@@ -89,7 +92,7 @@ Die Dropdown-Links zeigen auf Sektionen des One-Pagers:
 | Team          | `ueber-uns/#team`             |
 | Geschichte    | `ueber-uns/#geschichte`       |
 | Mitarbeiten   | `ueber-uns/#mitarbeiten`      |
-| Stellenangebote | `ueber-uns/jobs/`           |
+| Stellenangebote | `ueber-uns/#mitarbeit`      |
 | Blog          | `blog/`                       |
 
 ## Lokale Entwicklung

@@ -30,14 +30,6 @@
     .reveal-delay-2 { transition-delay: 0.2s; }
 
     /* ── ARTICLE HERO ── */
-    .article-category {
-      display: inline-block;
-      font-family: var(--font-head); font-weight: 800;
-      font-size: 11px;
-      padding: 5px 13px; border-radius: var(--radius-pill); margin-bottom: 1.1rem;
-      background: rgba(5,41,55,0.85); color: rgba(255,255,255,0.85);
-      border: 1px solid rgba(255,255,255,0.2);
-    }
     .article-author { display: flex; align-items: center; gap: 0.65rem; }
     .article-author-avatar { width: 38px; height: 38px; border-radius: 50%; overflow: hidden; background: rgba(255,255,255,0.15); flex-shrink: 0; }
     .article-author-avatar img { width: 100%; height: 100%; object-fit: cover; }
@@ -200,6 +192,7 @@
   </div>
 
   <div data-include="header"></div>
+  <div class="nav-spacer"></div>
 
   <main id="main-content">
 
@@ -213,7 +206,7 @@
         >
       </div>
       <div class="article-hero-content">
-        <span class="article-category">Allgemein</span>
+        <span class="badge badge--auf-brand">Allgemein</span>
         <h1>Alle Blog-Komponenten auf einen Blick</h1>
         <div class="article-hero-meta">
           <div class="article-author">

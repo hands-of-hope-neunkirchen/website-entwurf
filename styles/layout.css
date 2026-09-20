@@ -102,6 +102,13 @@
   color: var(--brand);
 }
 
+/* Auf Markenflächen: Die helle Variante, sonst malt --brand auf --brand-zart
+   und die Pille verschwindet in der Fläche. */
+.badge--auf-brand {
+  background: rgba(255,255,255,0.16);
+  color: var(--white);
+}
+
 /* ── ICON BOX ── */
 .icon-box {
   width: 52px;

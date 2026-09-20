@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Unterstützung bei hauswirtschaftlichen Tätigkeiten rund um die Wohngemeinschaft – von der Küche bis zur Haushaltsorganisation. Ideal für alle, die praktisc">
+  <title>WG – Hauswirtschaft – Mitarbeit bei Hands of Hope</title>
+
+  <link rel="stylesheet" href="../../../styles/main.css">
+  <link rel="stylesheet" href="../../../styles/navigation.css">
+  <link rel="stylesheet" href="../../../styles/layout.css">
+  <link rel="stylesheet" href="../../../styles/typography.css">
+  <link rel="stylesheet" href="../../../styles/sections.css">
+  <link rel="stylesheet" href="../../../styles/responsive.css">
+
+  <script src="../../../scripts/includes.js" defer></script>
+  <script src="../../../scripts/navigation.js" defer></script>
+  <script src="../../../scripts/animations.js" defer></script>
+  <script src="../../../scripts/lazyload.js" defer></script>
+
+  <style>
+    /* ── REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.revealed { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+
+    .stelle-abbinder { border-top: var(--border-soft); text-align: center; }
+    .stelle-abbinder .section-desc { margin: 0 auto 1.25rem; }
+  </style>
+</head>
+<body data-brand="dachmarke">
+
+  <!-- HEADER (injected by includes.js) -->
+  <div data-include="header"></div>
+  <div class="nav-spacer"></div>
+
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="hero" aria-label="WG – Hauswirtschaft">
+      <div class="hero-content">
+        <span class="hero-tag">Alltag, der trägt</span>
+        <h1>WG – Hauswirtschaft</h1>
+        <p class="hero-sub">Unterstützung bei hauswirtschaftlichen Tätigkeiten rund um die Wohngemeinschaft – von der Küche bis zur Haushaltsorganisation. Ideal für alle, die praktisch anpacken und den Bewohnern im Alltag zur Seite stehen möchten.</p>
+        <div class="hero-actions">
+          <a href="mailto:c.mihai@handsofhope.de?subject=WG%20-%20Hauswirtschaft" class="btn btn-primary">Jetzt bewerben</a>
+          <a href="../../../ueber-uns/#mitarbeit" class="btn btn-ghost">Alle Stellen</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-photo-wrap">
+          <img src="../../../ueber-uns/teamfoto.webp" alt="Gemeinschaft bei Hands of Hope" loading="eager">
+        </div>
+      </div>
+    </section>
+
+    <!-- AUFGABEN · MITBRINGEN · BIETEN -->
+    <section id="profil" aria-labelledby="profil-title">
+      <div class="section-inner">
+        <span class="section-label reveal">Ehrenamt</span>
+        <h2 class="section-title reveal reveal-delay-1" id="profil-title">Was dich erwartet</h2>
+
+        <div class="grid-3 reveal reveal-delay-2">
+          <div>
+            <h3>Deine Aufgaben</h3>
+            <ul class="ueber-list">
+            <li>Gemeinsam mit den Bewohnern kochen</li>
+            <li>Einkauf und Vorratshaltung mit organisieren</li>
+            <li>Ordnung in Küche und Gemeinschaftsräumen halten</li>
+            <li>Bei alltäglichen Handgriffen anleiten, die vielen erst wieder vertraut werden müssen</li>
+            <li>Im Tagesablauf ansprechbar sein</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Was du mitbringst</h3>
+            <ul class="ueber-list">
+            <li>Freude an Hauswirtschaft und am gemeinsamen Tisch</li>
+            <li>Zuverlässigkeit an den vereinbarten Tagen</li>
+            <li>Offenheit für Menschen mit einer Suchtgeschichte</li>
+            <li>Verschwiegenheit über das, was du mitbekommst</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Was wir bieten</h3>
+            <ul class="ueber-list">
+            <li>Eine feste Ansprechperson im Haus</li>
+            <li>Einarbeitung, bevor du allein loslegst</li>
+            <li>Einen Platz am Tisch – du isst mit</li>
+            <li>Austausch mit den anderen Ehrenamtlichen</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <section class="kontakt-banner" aria-labelledby="kontakt-title">
+      <div class="kontakt-banner-inner on-brand">
+        <div>
+          <span class="section-label">Nächster Schritt</span>
+          <h2 id="kontakt-title">Interesse? Melde dich.</h2>
+          <p>Ein kurzer Satz reicht – wir melden uns bei dir und besprechen alles Weitere persönlich.</p>
+        </div>
+        <div class="kontakt-cards">
+          <div class="kontakt-card">
+            <h3>Ansprechpartner</h3>
+            <div class="kontakt-zeile">
+              <span class="ic ic-mail" aria-hidden="true"></span>
+              <a href="mailto:c.mihai@handsofhope.de?subject=WG%20-%20Hauswirtschaft">c.mihai@handsofhope.de</a>
+            </div>
+            <div class="kontakt-trenner"></div>
+            <div class="kontakt-zeile">
+              <span class="ic ic-phone" aria-hidden="true"></span>
+              <span>02735 – 65 67 10</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABBINDER -->
+    <section class="stelle-abbinder" aria-label="Praktikum, FSJ und BFD">
+      <div class="section-inner reveal">
+        <p class="section-desc">
+          Du suchst ein Pflichtpraktikum, FSJ oder BFD statt einer festen Stelle?
+        </p>
+        <a href="../../../ueber-uns/#fsj" class="btn btn-blue">Zu Praktikum &amp; Freiwilligendienst →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER (injected by includes.js) -->
+  <div data-include="footer"></div>
+
+<script src="../../../scripts/cookie-banner.js"></script>
+</body>
+</html>
