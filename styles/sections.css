@@ -343,7 +343,7 @@ section {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--blue);
+  background: var(--brand);
   margin-top: 8px;
   flex-shrink: 0;
 }
@@ -448,6 +448,10 @@ section {
 }
 .kontakt-zeile + .kontakt-zeile { margin-top: 0.85rem; }
 .kontakt-zeile .ic { color: var(--brand); font-size: 1.15rem; }
+/* Auf der Markenfläche trägt die Markenfarbe nicht – dort der helle Akzent. */
+.kontakt-card:not(.kontakt-card--hell) .kontakt-zeile .ic { color: var(--brand-hell); }
+.kontakt-card:not(.kontakt-card--hell) .kontakt-zeile { color: var(--white); }
+.kontakt-card:not(.kontakt-card--hell) .kontakt-trenner { background: rgba(255,255,255,0.18); }
 .kontakt-trenner {
   height: 1px;
   background: rgba(5,41,55,0.08);
@@ -931,14 +935,20 @@ section {
     grid-template-columns: 1fr;
     min-height: 0;
   }
+  /* grid-row muss mit zurückgesetzt werden: Die Grundregeln oben pinnen
+     beide Kinder auf Zeile 1. Ohne das hier landen Foto und Textblock in
+     derselben Rasterzelle – die weiße Überschrift liegt dann über dem Bild
+     und verschwindet darin. order greift nicht, weil explizit platzierte
+     Rasterelemente sich nicht umsortieren lassen. */
   .article-hero-visual {
     grid-column: 1;
-    order: -1;
+    grid-row: auto;
     height: 34svh;
     min-height: 220px;
   }
   .article-hero-content {
     grid-column: 1;
+    grid-row: auto;
     padding: 2.25rem 1.5rem 2.75rem;
   }
 }

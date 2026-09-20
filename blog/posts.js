@@ -170,7 +170,7 @@
         + '</div>'
         + '<div class="featured-content">'
         + '<div class="featured-meta">'
-        + '<span class="featured-category">' + featured.category + '</span>'
+        + '<span class="badge badge--auf-brand">' + featured.category + '</span>'
         + '<span class="featured-date">' + featured.date + '</span>'
         + '</div>'
         + '<h2>' + featured.title + '</h2>'
